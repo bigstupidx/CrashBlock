@@ -14378,25 +14378,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObj: {fileID: 0}
-  weaponObj: {fileID: 0}
+  playerObj: {fileID: 160974}
+  weaponObj: {fileID: 179304}
   ammoGuiObj: {fileID: 0}
-  PlayerWeaponsComponent: {fileID: 0}
-  FPSPlayerComponent: {fileID: 0}
-  MouseLookComponent: {fileID: 0}
-  VisibleBodyComponent: {fileID: 0}
+  PlayerWeaponsComponent: {fileID: 11477544}
+  FPSPlayerComponent: {fileID: 11479214}
+  MouseLookComponent: {fileID: 11401184}
+  VisibleBodyComponent: {fileID: 11459960}
   weaponDropObj: {fileID: 100010, guid: 6aa895eca06c938408cdeb408f1e2034, type: 2}
   weaponMesh: {fileID: 145528}
-  AnimationComponent: {fileID: 0}
-  WeaponAnimationComponent: {fileID: 0}
-  CameraAnimationComponent: {fileID: 0}
+  AnimationComponent: {fileID: 11145506}
+  WeaponAnimationComponent: {fileID: 11197192}
+  CameraAnimationComponent: {fileID: 11187110}
   haveWeapon: 1
   cycleSelect: 1
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 7
   ammo: 500
-  bulletsLeft: 5
+  bulletsLeft: 4
   bulletsPerClip: 5
   bulletsToReload: 5
   maxAmmo: 999
@@ -14443,7 +14443,7 @@ MonoBehaviour:
   unarmed: 0
   doReload: 1
   nonReloadWeapon: 0
-  shootStartTime: 338.30737
+  shootStartTime: 67.364876
   showAimingCrosshair: 0
   showZoomedCrosshair: 0
   meleeSwingDelay: 0
@@ -14456,9 +14456,9 @@ MonoBehaviour:
   meleeIfNoAmmo: 1
   meleeActive: 0
   dropWillDupe: 0
-  weaponUnzoomXPosition: -0.025
+  weaponUnzoomXPosition: 0.005
   weaponUnzoomYPosition: 0.003
-  weaponUnzoomZPosition: -0.03
+  weaponUnzoomZPosition: -0.052
   weaponZoomXPosition: -0.07
   weaponZoomYPosition: -0.011
   weaponZoomZPosition: 0
@@ -14518,12 +14518,12 @@ MonoBehaviour:
   bulletMask:
     serializedVersion: 2
     m_Bits: 828929
-  gunAnglesTarget: {x: 0.040118694, y: 0, z: -0.03630604}
-  gunAngles: {x: 0.04013373, y: -2.8574328e-38, z: -0.036306046}
+  gunAnglesTarget: {x: 10.736358, y: -50.31789, z: -1.2261257}
+  gunAngles: {x: 4.467971, y: -19.416128, z: -11.835619}
   shooting: 0
   sprintAnimState: 0
   sprintState: 1
-  recoveryTime: 0
+  recoveryTime: 62.33075
   bulletsReloaded: 0
   reloadTime: 2.5
   reloadState: 0
@@ -14532,20 +14532,20 @@ MonoBehaviour:
   readyAnimSpeed: 1
   readyTime: 1.25
   offhandThrowReadyMod: 0.6
-  readyTimeAmt: 0
+  readyTimeAmt: 1.25
   isOffhandThrow: 0
-  recoveryTimeAmt: 0
-  startTime: 0
+  recoveryTimeAmt: 0.4
+  startTime: 70.40539
   reloadLastTime: 1.2
   reloadLastStartTime: 0
   lastReload: 0
   shotOrigin: {fileID: 4000010825501274}
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
+  origin: {x: 0.32152307, y: -3.8192172, z: 12.120045}
+  direction: {x: -0.53041923, y: 0.68596953, z: 0.49814487}
   shotOriginDist: 1
-  weaponLookDirection: {x: 0, y: 0, z: 0}
+  weaponLookDirection: {x: 0.52813447, y: -0.15889737, z: -0.8341616}
   muzzleFlash: {fileID: 4000012492623904}
-  muzzleFlashColor: {r: 1, g: 1, b: 1, a: -0.031087661}
+  muzzleFlashColor: {r: 1, g: 1, b: 1, a: 0}
   muzzleLightObj: {fileID: 1000012554810082}
   muzzleLightDelay: 0.05
   muzzleLightReduction: 100
@@ -14568,7 +14568,7 @@ MonoBehaviour:
   shaded: 0
   ignoreMeshShading: {fileID: 23000014152249922}
   shotSpread: 0.005
-  kickRotation: {x: 0.11569349, y: -0.010962859, z: -0.0012584754, w: -0.99322367}
+  kickRotation: {x: -0.19805634, y: 0.016384577, z: 0.0033111328, w: 0.98004806}
   kickUp: 7
   kickSide: 2
   kickRoll: 1.5
@@ -14582,7 +14582,7 @@ MonoBehaviour:
   shotsBeforeRecoil: 2
   viewKickIncrease: 1.75
   aimDirRecoilIncrease: 1
-  randZkick: 0
+  randZkick: -0.87611675
   spawnShell: 1
   shellRBPoolIndex: 1
   shellEjectPosition: {fileID: 411906}
@@ -14596,7 +14596,7 @@ MonoBehaviour:
   shellRotateUp: 0.065
   shellRotateSide: 0.35
   shellDuration: 10
-  otherfx: {fileID: 0}
+  otherfx: {fileID: 8235728}
   fireSnd: {fileID: 8300000, guid: 82db2a8f0601ff84ab13efb5ff27be28, type: 3}
   meleeSnd: {fileID: 8300000, guid: dec78508cf8493448aed1025ded3ce4d, type: 3}
   fireVol: 0.9
