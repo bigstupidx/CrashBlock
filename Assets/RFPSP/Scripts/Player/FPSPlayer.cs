@@ -3,6 +3,8 @@
 //directs player button mappings to other scripts, handles item detection and pickup, and plays basic player sound effects.
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class FPSPlayer : MonoBehaviour {
 	[HideInInspector]
@@ -100,6 +102,8 @@ public class FPSPlayer : MonoBehaviour {
 	//player hit points
 	public float hitPoints = 100.0f;
 	public float maximumHitPoints = 200.0f;
+	public Image hpBar;
+
 	[Tooltip("True if player's health should be displayed on the screen.")]
 	public bool showHealth = true;
 	[Tooltip("True if player's ammo should be displayed on the screen.")]
@@ -387,10 +391,13 @@ public class FPSPlayer : MonoBehaviour {
 		//this object is a child of the main health GUIText object, so access it as an array
 		HealthText2 = healthGuiObjInstance.GetComponentsInChildren<HealthText>();
 		
-		//initialize health amounts on GUIText objects
+		//initialize health amounts on GUIText objects and Bar
 		HealthText.healthGui = hitPoints;
 		HealthText2[1].healthGui = hitPoints;	
 		healthGuiText = HealthText.GetComponent<GUIText>();
+
+		hpBar.fillAmount = hitPoints / 100;
+
 		
 		if(!showHealth){
 			healthGuiObjInstance.gameObject.SetActive(false);
@@ -1047,6 +1054,7 @@ public class FPSPlayer : MonoBehaviour {
 		//Apply healing
 		if(hitPoints + healAmt > maximumHitPoints){ 
 			hitPoints = maximumHitPoints;
+			hpBar.fillAmount = hitPoints / 100;
 		}else{
 			//Call Die function if player's hitpoints have been depleted
 			if(healAmt < 0){
@@ -1057,6 +1065,7 @@ public class FPSPlayer : MonoBehaviour {
 				}
 			}else{
 				hitPoints += healAmt;
+				hpBar.fillAmount = hitPoints / 100;
 			}
 		}
 			
@@ -1185,6 +1194,7 @@ public class FPSPlayer : MonoBehaviour {
 		
 		if(!invulnerable){
 			hitPoints -= damage;//Apply damage
+			hpBar.fillAmount = hitPoints/100;
 		}
 	
 		//set health hud value to hitpoints remaining
@@ -1317,6 +1327,16 @@ public class FPSPlayer : MonoBehaviour {
 		FPSWalkerComponent.inputY = 0;
 		FPSWalkerComponent.cancelSprint = true;
 		WeaponBehaviorComponent.shooting = false;
+	}
+
+
+	void Awake()
+	{
+		GameObject g = GameObject.FindGameObjectWithTag ("DataBase");
+		DataComps gc = g.GetComponent<DataComps> (); 
+
+		hpBar = gc.hpBar;
+
 	}
 
 }

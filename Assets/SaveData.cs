@@ -7,9 +7,8 @@ public class SaveData : MonoBehaviour {
 	public bool isFirstTime;
 	public int lastCompletedLevel;
 
-
-	public string weaponString;
-
+	public bool wepSlot3;	// true if rewarded by AD
+	public bool wepSlot4;
 
 
 
@@ -19,8 +18,6 @@ public class SaveData : MonoBehaviour {
 
 		isFirstTime = SaveSystem.GetFirstTime();
 		lastCompletedLevel = SaveSystem.GetLastCompletedLevel();
-
-		weaponString = SaveSystem.GetWeaponsGained();
 
 
 	}

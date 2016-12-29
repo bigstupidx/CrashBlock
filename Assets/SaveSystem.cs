@@ -32,18 +32,28 @@ public class SaveSystem {
 
 
 
-	//-----------------------------------------------------  Weapon list as a string, when loaded and saved needs to be comnverted to a bool list
+	//-----------------------------------------------------  Weapon slots 3 and 4
 
-	public static void SetWeaponsGained(string _value)
+	public static void SetWepSlot3(int _value)
 	{
-		PlayerPrefs.SetString ("WeaponsGained", _value);
+		PlayerPrefs.SetInt ("WeaponSlot3", _value);
 	}
 
 
-	public static string GetWeaponsGained()
+	public static int GetWepSlot3()
 	{
-		return PlayerPrefs.GetString ("WeaponsGained");
+		return PlayerPrefs.GetInt ("WeaponSlot3");
 	}
 
+	public static void SetWepSlot4(int _value)
+	{
+		PlayerPrefs.SetInt ("WeaponSlot4", _value);
+	}
+
+
+	public static int GetWepSlot4()
+	{
+		return PlayerPrefs.GetInt ("WeaponSlot4");
+	}
 
 }
