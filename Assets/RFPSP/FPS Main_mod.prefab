@@ -6452,7 +6452,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137490}
   m_LocalRotation: {x: 0, y: 0.9842622, z: 0, w: 0.17671417}
-  m_LocalPosition: {x: 68.02, y: 2.431, z: -36.23}
+  m_LocalPosition: {x: 48, y: 9.73, z: -57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 159.6431, z: 0}
   m_Children:
@@ -14816,7 +14816,7 @@ MonoBehaviour:
   inputYSmoothed: 0
   inputX: 0
   inputY: 0
-  walkSpeed: 3.25
+  walkSpeed: 4.5
   sprintSpeed: 9.5
   swimSpeed: 3
   jumpSpeed: 4.5
@@ -15099,7 +15099,7 @@ MonoBehaviour:
   hitPoints: 60
   maximumHitPoints: 100
   hpBar: {fileID: 0}
-  showHealth: 1
+  showHealth: 0
   showAmmo: 1
   showHpUnderZero: 1
   invulnerable: 0
