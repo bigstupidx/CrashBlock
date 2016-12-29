@@ -37,12 +37,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012692263412}
   - 33: {fileID: 33000010595244100}
-  - 114: {fileID: 114000012358278146}
   - 54: {fileID: 54000010437237354}
   - 65: {fileID: 65000011016574568}
+  - 114: {fileID: 114000011704706806}
   m_Layer: 2
   m_Name: Pickup_Heart
-  m_TagString: Usable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011475490690}
   m_LocalRotation: {x: -0.7116694, y: 0.015247244, z: 0.026955873, w: 0.70183164}
-  m_LocalPosition: {x: 58.775, y: 1.242, z: -74.956}
+  m_LocalPosition: {x: 58.99, y: 1.29, z: -71.29}
   m_LocalScale: {x: 0.877574, y: 0.8775739, z: 0.8775739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -219,7 +219,7 @@ MonoBehaviour:
   rotx: 0
   roty: 50
   rotz: 0
---- !u!114 &114000012358278146
+--- !u!114 &114000011704706806
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011475490690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eaff6dddcf2d4c49bedd0b797ef5bf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a16e0af040a2e5428b0a8c54bae1ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthToAdd: 25
@@ -285,7 +285,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1955177682
+  randomSeed: -1955956532
   InitialModule:
     serializedVersion: 2
     enabled: 1

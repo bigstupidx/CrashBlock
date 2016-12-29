@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 71e62a2ec2fabd54aa02e158f1a31584
-timeCreated: 1482962895
+timeCreated: 1482980344
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,7 @@ TextureImporter:
     21300020: LevelSelectSprite
     21300022: LevelSelectSprite2
     21300024: LevelSelectSprite3
+    21300026: HeartSprite
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -69,7 +70,7 @@ TextureImporter:
       name: JoystickCenter
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 95
         width: 32
         height: 33
@@ -82,7 +83,7 @@ TextureImporter:
       name: CrashBlockAtlas_1
       rect:
         serializedVersion: 2
-        x: 1
+        x: 33
         y: 33
         width: 31
         height: 31
@@ -108,10 +109,10 @@ TextureImporter:
       name: CrashBlockAtlas_3
       rect:
         serializedVersion: 2
-        x: 66
-        y: 34
-        width: 29
-        height: 29
+        x: 65
+        y: 33
+        width: 31
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +122,10 @@ TextureImporter:
       name: CrashBlockAtlas_4
       rect:
         serializedVersion: 2
-        x: 97
-        y: 33
-        width: 31
-        height: 31
+        x: 98
+        y: 34
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,7 +161,7 @@ TextureImporter:
       name: FireSprite
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 96
         width: 32
         height: 32
@@ -173,8 +174,8 @@ TextureImporter:
       name: ReloadSprite
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -186,8 +187,8 @@ TextureImporter:
       name: PauseSprite
       rect:
         serializedVersion: 2
-        x: 98
-        y: 66
+        x: 2
+        y: 34
         width: 29
         height: 29
       alignment: 0
@@ -199,7 +200,7 @@ TextureImporter:
       name: LevelSelectSprite
       rect:
         serializedVersion: 2
-        x: 2
+        x: 34
         y: 66
         width: 29
         height: 29
@@ -212,7 +213,7 @@ TextureImporter:
       name: LevelSelectSprite2
       rect:
         serializedVersion: 2
-        x: 33
+        x: 65
         y: 65
         width: 31
         height: 31
@@ -225,10 +226,23 @@ TextureImporter:
       name: LevelSelectSprite3
       rect:
         serializedVersion: 2
-        x: 65
+        x: 97
         y: 65
         width: 31
         height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HeartSprite
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 99
+        width: 26
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
