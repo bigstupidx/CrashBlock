@@ -1273,6 +1273,7 @@ MonoBehaviour:
   sloMoBackstab: 1
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
+  killEnemiesRef: {fileID: 0}
 --- !u!114 &520893696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,6 +1955,11 @@ Prefab:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 1024173118}
+    - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: enemiesLeftText
+      value: 
+      objectReference: {fileID: 1446101819}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0
@@ -2772,6 +2778,12 @@ Transform:
   - {fileID: 596914988}
   m_Father: {fileID: 1111880385}
   m_RootOrder: 0
+--- !u!114 &1446101819 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010025062984, guid: 1f4bd5a1b1328a34997f0adb86353932,
+    type: 2}
+  m_PrefabInternal: {fileID: 588011003}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1460898991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3613,6 +3625,7 @@ MonoBehaviour:
   sloMoBackstab: 1
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
+  killEnemiesRef: {fileID: 0}
 --- !u!114 &2030330730
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,6 +45,11 @@ public class CharacterDamage : MonoBehaviour {
 	public float sloMoDeathTime = 0.9f;
 	[Tooltip("Duration of slow motion time in seconds if this NPC is backstabbed.")]
 	public float sloMoBackstabTime = 0.9f;
+
+
+	// Communicating Scripts
+	public KillAllEnemiesMission killEnemiesRef;
+
 	
 	//vars related to attacker position (for physics, and other effects)
 	private Vector3 attackerPos2;
@@ -65,6 +70,12 @@ public class CharacterDamage : MonoBehaviour {
 		}
 		initialHitPoints = hitPoints;
 		bodies = GetComponentsInChildren<Rigidbody>();
+
+		GameObject Data;
+		killEnemiesRef = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<KillAllEnemiesMission> ();
+		killEnemiesRef.EnemyCounter += 1;
+
+
 	}
 	
 	void Update () {
@@ -324,6 +335,7 @@ public class CharacterDamage : MonoBehaviour {
 			if(notParent){
 				Destroy(transform.parent.gameObject);
 			}else{
+				killEnemiesRef.EnemyCounter -= 1;
 				Destroy(transform.gameObject);
 			}
 			
@@ -342,4 +354,13 @@ public class CharacterDamage : MonoBehaviour {
 				CopyTransformsRecurse(curSrc, child);
 		}
 	}
+
+
+
+
+
+
+
+
+
 }
