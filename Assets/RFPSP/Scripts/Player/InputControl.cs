@@ -7,6 +7,7 @@ using System.Collections;
 public class InputControl : MonoBehaviour {
 
 	private FPSPlayer FPSPlayerComponent;
+	public DataComps dataComps;
 	
 	//button states that are accessed by the other scripts
 	[HideInInspector]
@@ -69,8 +70,30 @@ public class InputControl : MonoBehaviour {
 	public bool helpPress;
 	[HideInInspector]
 	public bool menuPress;
-	[HideInInspector]
+	//[HideInInspector]
 	public bool pausePress;
+
+	public bool PausePress
+	{
+		get{return pausePress;}
+		set{ 
+
+			pausePress = value; 
+			if (pausePress == true) {
+
+				dataComps.Pause +=1;
+
+				print ("Pause is true");
+
+			} else 
+			{
+				
+			}
+
+
+		   }
+	}
+
 	[HideInInspector]
 	public bool selectNextPress;
 	[HideInInspector]
@@ -158,6 +181,7 @@ public class InputControl : MonoBehaviour {
 
 	void Start () {
 		FPSPlayerComponent = GetComponent<FPSPlayer>();
+		dataComps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps> ();
 	}
 	
 	void Update () {
@@ -310,7 +334,8 @@ public class InputControl : MonoBehaviour {
 			deadzonePress = ControlFreak2.CF2Input.GetButtonDown("Toggle Deadzone Aiming");
 			helpPress = ControlFreak2.CF2Input.GetButtonDown("Help");
 			menuPress = ControlFreak2.CF2Input.GetButtonDown("Main Menu");
-			pausePress = ControlFreak2.CF2Input.GetButtonDown("Pause");
+			PausePress = ControlFreak2.CF2Input.GetButtonDown("Pause");
+
 			selectNextPress = ControlFreak2.CF2Input.GetButtonDown("Select Next Weapon");
 			selectPrevPress = ControlFreak2.CF2Input.GetButtonDown("Select Previous Weapon");
 			selectGrenPress = ControlFreak2.CF2Input.GetButtonDown("Select Next Grenade");

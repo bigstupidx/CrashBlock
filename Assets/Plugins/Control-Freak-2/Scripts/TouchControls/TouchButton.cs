@@ -28,6 +28,8 @@ public class TouchButton : DynamicTouchControl, IBindingContainer
 		OnRelease 
 		}
 
+
+
 	public enum ToggleOffAction
 		{
 		OnPress,

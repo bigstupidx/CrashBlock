@@ -30,6 +30,67 @@ public class SaveSystem {
 		return PlayerPrefs.GetInt ("LastCompletedLevel");
 	}
 
+	//-------------------------------------------------- individual levels completed
+
+
+	public static void SetLevelTut(int _value)
+	{
+		PlayerPrefs.SetInt ("LevelTut", _value);
+	}
+	public static int GetLevelTut()
+	{
+		return PlayerPrefs.GetInt ("LevelTut");
+	}
+
+
+	public static void SetLevel1(int _value)
+	{
+		PlayerPrefs.SetInt ("Level01", _value);
+	}
+	public static int GetLevel1()
+	{
+		return PlayerPrefs.GetInt ("Level01");
+	}
+
+
+	public static void SetLevel2(int _value)
+	{
+		PlayerPrefs.SetInt ("Level02", _value);
+	}
+	public static int GetLevel2()
+	{
+		return PlayerPrefs.GetInt ("Level02");
+	}
+
+
+	public static void SetLevel3(int _value)
+	{
+		PlayerPrefs.SetInt ("Level03", _value);
+	}
+	public static int GetLevel3()
+	{
+		return PlayerPrefs.GetInt ("Level03");
+	}
+
+
+	public static void SetLevel4(int _value)
+	{
+		PlayerPrefs.SetInt ("Level04", _value);
+	}
+	public static int GetLevel4()
+	{
+		return PlayerPrefs.GetInt ("Level04");
+	}
+
+
+	public static void SetLevel5(int _value)
+	{
+		PlayerPrefs.SetInt ("Level05", _value);
+	}
+	public static int GetLevel5()
+	{
+		return PlayerPrefs.GetInt ("Level05");
+	}
 
 
 	//-----------------------------------------------------  Weapon slots 3 and 4
@@ -55,5 +116,16 @@ public class SaveSystem {
 	{
 		return PlayerPrefs.GetInt ("WeaponSlot4");
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 }

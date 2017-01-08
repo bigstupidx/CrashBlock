@@ -7687,6 +7687,11 @@ Prefab:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 69376663}
+    - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: enemiesLeftText
+      value: 
+      objectReference: {fileID: 811359873}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0
@@ -8310,6 +8315,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809789621}
   m_Mesh: {fileID: 4300000, guid: f8c479466433b8f44b3bb6e729122e93, type: 3}
+--- !u!114 &811359873 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010025062984, guid: 1f4bd5a1b1328a34997f0adb86353932,
+    type: 2}
+  m_PrefabInternal: {fileID: 1750684772}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &812966784
 GameObject:
   m_ObjectHideFlags: 0
@@ -18062,26 +18073,6 @@ Prefab:
     - target: {fileID: 224000012698292808, guid: 1f4bd5a1b1328a34997f0adb86353932,
         type: 2}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010650566220, guid: 1f4bd5a1b1328a34997f0adb86353932, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011312902040, guid: 1f4bd5a1b1328a34997f0adb86353932, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011097151010, guid: 1f4bd5a1b1328a34997f0adb86353932, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011381699610, guid: 1f4bd5a1b1328a34997f0adb86353932, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010163632350, guid: 1f4bd5a1b1328a34997f0adb86353932, type: 2}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

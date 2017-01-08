@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000011317321048}
   - 114: {fileID: 114000013341583252}
   - 114: {fileID: 114000012338994660}
+  - 114: {fileID: 114000014150073552}
   m_Layer: 0
   m_Name: Database
   m_TagString: DataBase
@@ -66,4 +67,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirstTime: 0
   lastCompletedLevel: 0
-  weaponString: 
+  wepSlot3: 0
+  wepSlot4: 0
+  levelsCompleted: 000000000000
+--- !u!114 &114000014150073552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011168540596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42a2031a2fffef4799f0119258cf14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesLeft: 0
+  enemiesLeftText: {fileID: 0}
+  enemyCounter: 0
