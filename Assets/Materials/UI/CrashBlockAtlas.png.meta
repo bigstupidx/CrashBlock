@@ -1,15 +1,15 @@
 fileFormatVersion: 2
 guid: 71e62a2ec2fabd54aa02e158f1a31584
-timeCreated: 1483043406
+timeCreated: 1483908954
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: JoystickCenter
-    21300002: CrashBlockAtlas_1
+    21300002: PauseSprite 2
     21300004: CrashBlockAtlas_2
     21300006: CrashBlockAtlas_3
-    21300008: CrashBlockAtlas_4
-    21300010: CrashBlockAtlas_5
+    21300008: ResumeBtn
+    21300010: ResumeBtn3
     21300012: JoystickCircle
     21300014: FireSprite
     21300016: ReloadSprite
@@ -18,6 +18,17 @@ TextureImporter:
     21300022: LevelSelectSprite2
     21300024: LevelSelectSprite3
     21300026: HeartSprite
+    21300028: REstartButton
+    21300030: RestartBtnPresed
+    21300032: GrenadeSprite
+    21300034: RestartBtnDisabled
+    21300036: SprintBtn
+    21300038: SprintBtnDisabled
+    21300040: JumpBtn
+    21300042: JumpBtnDisabled
+    21300044: AimBtn
+    21300046: AimBtnDisabled
+    21300048: ResumeBtn2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -41,7 +52,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 128
+  maxTextureSize: 512
   textureSettings:
     filterMode: 0
     aniso: -1
@@ -71,7 +82,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 95
+        y: 127
         width: 32
         height: 33
       alignment: 0
@@ -80,7 +91,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CrashBlockAtlas_1
+      name: PauseSprite 2
       rect:
         serializedVersion: 2
         x: 33
@@ -110,7 +121,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 65
-        y: 33
+        y: 65
         width: 31
         height: 31
       alignment: 0
@@ -119,7 +130,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CrashBlockAtlas_4
+      name: ResumeBtn
       rect:
         serializedVersion: 2
         x: 98
@@ -132,7 +143,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CrashBlockAtlas_5
+      name: ResumeBtn3
       rect:
         serializedVersion: 2
         x: 1
@@ -149,7 +160,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -162,7 +173,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -174,8 +185,8 @@ TextureImporter:
       name: ReloadSprite
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 128
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -200,7 +211,7 @@ TextureImporter:
       name: LevelSelectSprite
       rect:
         serializedVersion: 2
-        x: 34
+        x: 66
         y: 66
         width: 29
         height: 29
@@ -213,7 +224,7 @@ TextureImporter:
       name: LevelSelectSprite2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 97
         y: 65
         width: 31
         height: 31
@@ -226,7 +237,7 @@ TextureImporter:
       name: LevelSelectSprite3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 129
         y: 65
         width: 31
         height: 31
@@ -240,9 +251,152 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 99
-        width: 26
+        y: 131
+        width: 27
         height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: REstartButton
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RestartBtnPresed
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GrenadeSprite
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RestartBtnDisabled
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SprintBtn
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SprintBtnDisabled
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: JumpBtn
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: JumpBtnDisabled
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AimBtn
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AimBtnDisabled
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ResumeBtn2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 33
+        width: 31
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
