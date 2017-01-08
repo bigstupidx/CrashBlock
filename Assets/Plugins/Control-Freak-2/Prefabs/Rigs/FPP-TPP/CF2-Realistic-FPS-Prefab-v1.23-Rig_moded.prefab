@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &110736
 GameObject:
   m_ObjectHideFlags: 1
@@ -67,7 +67,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &124828
 GameObject:
   m_ObjectHideFlags: 1
@@ -83,7 +83,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &125300
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &145110
 GameObject:
   m_ObjectHideFlags: 1
@@ -199,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &149448
 GameObject:
   m_ObjectHideFlags: 1
@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &151980
 GameObject:
   m_ObjectHideFlags: 1
@@ -591,8 +591,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11455416}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: f52361e597e182b4686851660b40ab3a, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.32941177}
+    sprite: {fileID: 21300018, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -607,7 +607,7 @@ MonoBehaviour:
     offsetTransitionFactor: 1
   spritePressed:
     enabled: 1
-    sprite: {fileID: 21300000, guid: f52361e597e182b4686851660b40ab3a, type: 3}
+    sprite: {fileID: 21300002, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1.2
     rotation: 0
@@ -695,8 +695,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11432004}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 4a2ba033def064043aa2c4915138b353, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.32941177}
+    sprite: {fileID: 21300036, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 0.5882353}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -2294,7 +2294,7 @@ MonoBehaviour:
   sourceControl: {fileID: 11461084}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 51ce1a70ac4238c48aaddd05f6604e75, type: 3}
+    sprite: {fileID: 21300012, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 0.32941177}
     scale: 1
     rotation: 0
@@ -2311,7 +2311,7 @@ MonoBehaviour:
   spriteMode: 0
   spriteNeutralPressed:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 51ce1a70ac4238c48aaddd05f6604e75, type: 3}
+    sprite: {fileID: 21300012, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1.2
     rotation: 0
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   sourceControl: {fileID: 11461084}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: fcdcf0258794fb44298ee36183440e49, type: 3}
+    sprite: {fileID: 21300000, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 0.32941177}
     scale: 1
     rotation: 0
@@ -2557,7 +2557,7 @@ MonoBehaviour:
   spriteMode: 0
   spriteNeutralPressed:
     enabled: 1
-    sprite: {fileID: 21300000, guid: fcdcf0258794fb44298ee36183440e49, type: 3}
+    sprite: {fileID: 21300000, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1.2
     rotation: 0
@@ -2717,14 +2717,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4a2ba033def064043aa2c4915138b353, type: 3}
+  m_Sprite: {fileID: 21300036, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2855,7 +2855,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 51ce1a70ac4238c48aaddd05f6604e75, type: 3}
+  m_Sprite: {fileID: 21300012, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2878,8 +2878,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11419258}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 175fc87678189ab4cb9f487e21bb71fc, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.32941177}
+    sprite: {fileID: 21300040, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 0.5882353}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -2894,7 +2894,7 @@ MonoBehaviour:
     offsetTransitionFactor: 1
   spritePressed:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 175fc87678189ab4cb9f487e21bb71fc, type: 3}
+    sprite: {fileID: 21300042, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1.2
     rotation: 0
@@ -6108,7 +6108,9 @@ MonoBehaviour:
           axisList: []
           keyList: 
   rigSwitches:
-    list: []
+    list:
+    - name: NEW SWITCH
+      defaultState: 0
   autoInputList:
     list: []
   tilt:
@@ -6487,14 +6489,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.33}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3b453b8b3603a65428151409260917ad, type: 3}
+  m_Sprite: {fileID: 21300032, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6517,8 +6519,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11438470}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: cdbd1cba2538d3346a86819f8a2a0e68, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.32941177}
+    sprite: {fileID: 21300044, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 0.5882353}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -6533,7 +6535,7 @@ MonoBehaviour:
     offsetTransitionFactor: 1
   spritePressed:
     enabled: 1
-    sprite: {fileID: 21300000, guid: cdbd1cba2538d3346a86819f8a2a0e68, type: 3}
+    sprite: {fileID: 21300046, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1.2
     rotation: 0
@@ -6660,8 +6662,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11449350}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 3b453b8b3603a65428151409260917ad, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.33}
+    sprite: {fileID: 21300032, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 0.5882353}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -6824,14 +6826,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f52361e597e182b4686851660b40ab3a, type: 3}
+  m_Sprite: {fileID: 21300018, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6851,14 +6853,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b5c9cc40e8f95354c988b7aa7c21d547, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6947,8 +6949,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11418838}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: 703cc984ad3a0f54c908fb7f8db20813, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.32941177}
+    sprite: {fileID: 21300016, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 0.78431374}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -7297,7 +7299,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fcdcf0258794fb44298ee36183440e49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7550,14 +7552,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 703cc984ad3a0f54c908fb7f8db20813, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7604,14 +7606,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cdbd1cba2538d3346a86819f8a2a0e68, type: 3}
+  m_Sprite: {fileID: 21300044, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7881,14 +7883,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.32941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 175fc87678189ab4cb9f487e21bb71fc, type: 3}
+  m_Sprite: {fileID: 21300040, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8173,8 +8175,8 @@ MonoBehaviour:
   sourceControl: {fileID: 11476840}
   spriteNeutral:
     enabled: 1
-    sprite: {fileID: 21300000, guid: b5c9cc40e8f95354c988b7aa7c21d547, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0.32941177}
+    sprite: {fileID: 21300014, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1
     rotation: 0
     offset: {x: 0, y: 0}
@@ -8189,7 +8191,7 @@ MonoBehaviour:
     offsetTransitionFactor: 1
   spritePressed:
     enabled: 1
-    sprite: {fileID: 21300000, guid: b5c9cc40e8f95354c988b7aa7c21d547, type: 3}
+    sprite: {fileID: 21300014, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     scale: 1.2
     rotation: 0
@@ -8522,8 +8524,8 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -116.899994, y: -76.30001}
-  m_SizeDelta: {x: 95.949, y: 79}
+  m_AnchoredPosition: {x: -51.5, y: -257.8}
+  m_SizeDelta: {x: 73.4, y: 60.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22434340
 RectTransform:
@@ -8559,7 +8561,7 @@ RectTransform:
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49, y: -158}
+  m_AnchoredPosition: {x: 737.9, y: -160.6}
   m_SizeDelta: {x: 86.599976, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22436340
@@ -8597,7 +8599,7 @@ RectTransform:
   m_RootOrder: 9
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.19411, y: -32.19411}
+  m_AnchoredPosition: {x: 747.2, y: -41}
   m_SizeDelta: {x: 47.999992, y: 47.999992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22447686
@@ -8652,7 +8654,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -132.2, y: 123.1}
+  m_AnchoredPosition: {x: -150.8, y: 141.8}
   m_SizeDelta: {x: 122, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22451366
@@ -8817,7 +8819,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -52.799957, y: 53.300003}
+  m_AnchoredPosition: {x: -173.79999, y: 250}
   m_SizeDelta: {x: 76, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22471342
@@ -8946,7 +8948,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -52.3, y: 190.3}
+  m_AnchoredPosition: {x: -52.299988, y: 52.800003}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22495370
@@ -8965,8 +8967,8 @@ RectTransform:
   m_RootOrder: 12
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -130, y: 228.1}
-  m_SizeDelta: {x: 75, y: 75}
+  m_AnchoredPosition: {x: -234.9, y: 42.3}
+  m_SizeDelta: {x: 53.885, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22495636
 RectTransform:

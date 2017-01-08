@@ -73,26 +73,6 @@ public class InputControl : MonoBehaviour {
 	//[HideInInspector]
 	public bool pausePress;
 
-	public bool PausePress
-	{
-		get{return pausePress;}
-		set{ 
-
-			pausePress = value; 
-			if (pausePress == true) {
-
-				dataComps.Pause +=1;
-
-				print ("Pause is true");
-
-			} else 
-			{
-				
-			}
-
-
-		   }
-	}
 
 	[HideInInspector]
 	public bool selectNextPress;
@@ -334,7 +314,7 @@ public class InputControl : MonoBehaviour {
 			deadzonePress = ControlFreak2.CF2Input.GetButtonDown("Toggle Deadzone Aiming");
 			helpPress = ControlFreak2.CF2Input.GetButtonDown("Help");
 			menuPress = ControlFreak2.CF2Input.GetButtonDown("Main Menu");
-			PausePress = ControlFreak2.CF2Input.GetButtonDown("Pause");
+			pausePress = ControlFreak2.CF2Input.GetButtonDown("Pause");
 
 			selectNextPress = ControlFreak2.CF2Input.GetButtonDown("Select Next Weapon");
 			selectPrevPress = ControlFreak2.CF2Input.GetButtonDown("Select Previous Weapon");

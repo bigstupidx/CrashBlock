@@ -286,8 +286,23 @@ public class FPSPlayer : MonoBehaviour {
 	public float menuTime;
 	[HideInInspector]
 	public float pauseTime;
-	[HideInInspector]
+	//[HideInInspector]
 	public bool paused;
+
+	public bool Paused
+	{
+		get{ return paused; }
+		set
+		{ 
+			paused = value; 
+
+		}
+	}
+
+
+	private DataComps dataComps;
+
+
 	private MainMenu MainMenuComponent;
 
 	void Start (){	
@@ -473,11 +488,12 @@ public class FPSPlayer : MonoBehaviour {
 				menuDisplayed = true;
 			}else{
 				MainMenuComponent.enabled = false;
-				paused = false;
+				Paused = false;
+				dataComps.PauseSwitch = false;
 				menuDisplayed = false;
 			}
-			if(Time.timeScale > 0.0f || paused){
-				if(!paused){
+			if(Time.timeScale > 0.0f || Paused){
+				if(!Paused){
 					menuTime = Time.timeScale;
 				}
 				Time.timeScale = 0.0f;
@@ -488,11 +504,13 @@ public class FPSPlayer : MonoBehaviour {
 		
 		if(InputComponent.pausePress && !menuDisplayed){
 			if(Time.timeScale > 0.0f){
-				paused = true;
+				Paused = true;
+				dataComps.PauseSwitch = true;
 				pauseTime = Time.timeScale;
 				Time.timeScale = 0.0f;
 			}else{
-				paused = false;
+				Paused = false;
+				dataComps.PauseSwitch = false;
 				Time.timeScale = pauseTime;	
 			}
 		}
@@ -1333,9 +1351,9 @@ public class FPSPlayer : MonoBehaviour {
 	void Awake()
 	{
 		GameObject g = GameObject.FindGameObjectWithTag ("DataBase");
-		DataComps gc = g.GetComponent<DataComps> (); 
+		dataComps = g.GetComponent<DataComps> (); 
 
-		hpBar = gc.hpBar;
+		hpBar = dataComps.hpBar;
 
 	}
 

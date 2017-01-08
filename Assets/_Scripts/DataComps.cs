@@ -7,35 +7,75 @@ public class DataComps : MonoBehaviour {
 
 	public Image hpBar;
 
+	public InputControl inputCtrl_ref;
 
-	public int pause = 0;
+	public PauseManager pauseMan_ref;
 
-	public int Pause
+	public FPSPlayer fpsPlayer_ref;
+
+	[Header("GamePLay buttons images to hide During Pause")]
+	public GameObject[] uiImages;
+
+
+
+	//public int pause = 0;
+	//
+	//public int Pause
+	//{
+	//	get
+	//	{
+	//		return pause; 
+	//	}
+	//
+	//	set
+	//	{
+	//		pause = value;
+	//
+	//		PauseSwitch = !PauseSwitch;
+	//
+	//		pauseMan_ref.ActivatePauseCanvas (PauseSwitch);
+	//
+	//		pause=0;
+	//
+	//	}
+	//}
+
+
+
+	public bool pauseSwitch = false;
+
+	public bool PauseSwitch
 	{
-		get
-		{
-			return pause; 
-		}
-
+		get{ return pauseSwitch; }
 		set
 		{
-			pause = value;
+			pauseSwitch = value;
 
-			PauseSwitch = !PauseSwitch;
+			switch (value) 
+			{
 
-			pause=0;
+			case true:
+				pauseMan_ref.ActivatePauseCanvas ();
+				break;
+
+			case false:
+				pauseMan_ref.DeactivatePauseCanvas ();
+				break;
+
+			}
 
 		}
 	}
+		
 
 
-
-	public bool PauseSwitch =false;
-
-
-
-
-
+	void Awake()
+	{
+		if(!pauseMan_ref)
+		{
+			pauseMan_ref = this.gameObject.GetComponent<PauseManager> ();
+		}
+	}
 
 
 

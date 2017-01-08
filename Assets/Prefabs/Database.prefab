@@ -22,6 +22,7 @@ GameObject:
   - 114: {fileID: 114000013341583252}
   - 114: {fileID: 114000012338994660}
   - 114: {fileID: 114000014150073552}
+  - 114: {fileID: 114000010865514808}
   m_Layer: 0
   m_Name: Database
   m_TagString: DataBase
@@ -42,6 +43,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000010865514808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011168540596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c006c521f0ba044ae1a9a7e293607b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseCanvasObj: {fileID: 0}
+  anim: {fileID: 0}
+  fpsPlayer_ref: {fileID: 0}
 --- !u!114 &114000012338994660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +69,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
+  inputCtrl_ref: {fileID: 0}
+  pauseMan_ref: {fileID: 114000010865514808}
+  fpsPlayer_ref: {fileID: 0}
+  pauseSwitch: 0
 --- !u!114 &114000013341583252
 MonoBehaviour:
   m_ObjectHideFlags: 1
