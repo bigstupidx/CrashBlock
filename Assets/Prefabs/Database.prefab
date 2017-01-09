@@ -57,6 +57,9 @@ MonoBehaviour:
   pauseCanvasObj: {fileID: 0}
   anim: {fileID: 0}
   fpsPlayer_ref: {fileID: 0}
+  dataComps_ref: {fileID: 0}
+  levelSelectSceneName: LevelSelect
+  nextSceneName: 
 --- !u!114 &114000012338994660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,6 +75,15 @@ MonoBehaviour:
   inputCtrl_ref: {fileID: 0}
   pauseMan_ref: {fileID: 114000010865514808}
   fpsPlayer_ref: {fileID: 0}
+  uiImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   pauseSwitch: 0
 --- !u!114 &114000013341583252
 MonoBehaviour:
@@ -100,6 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42a2031a2fffef4799f0119258cf14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resultsCanvas: {fileID: 0}
+  resultsCanvasObj:
+  - {fileID: 0}
+  - {fileID: 0}
+  dataComps: {fileID: 114000012338994660}
   enemiesLeft: 0
   enemiesLeftText: {fileID: 0}
   enemyCounter: 0

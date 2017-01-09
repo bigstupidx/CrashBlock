@@ -7,7 +7,6 @@ public class DataComps : MonoBehaviour {
 
 	public Image hpBar;
 
-	public InputControl inputCtrl_ref;
 
 	public PauseManager pauseMan_ref;
 
