@@ -6180,7 +6180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137490}
   m_LocalRotation: {x: 0, y: 0.9842622, z: 0, w: 0.17671417}
-  m_LocalPosition: {x: 48, y: 9.73, z: -57}
+  m_LocalPosition: {x: -97.19, y: 1.89, z: 81.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 159.6431, z: 0}
   m_Children:
@@ -13206,9 +13206,9 @@ MonoBehaviour:
   WeaponAnimationComponent: {fileID: 0}
   CameraAnimationComponent: {fileID: 0}
   haveWeapon: 1
-  cycleSelect: 1
+  cycleSelect: 0
   droppable: 0
-  addsToTotalWeaps: 1
+  addsToTotalWeaps: 0
   weaponNumber: 1
   ammo: 3
   bulletsLeft: 0
@@ -14196,11 +14196,11 @@ MonoBehaviour:
   inputYSmoothed: 0
   inputX: 0
   inputY: 0
-  walkSpeed: 4.5
+  walkSpeed: 5.5
   sprintSpeed: 9.5
   swimSpeed: 3
   jumpSpeed: 4.5
-  climbSpeed: 4
+  climbSpeed: 6
   moveSpeedMult: 1
   diagonalStrafeAmt: 0.75
   backwardSpeedPercentage: 0.6

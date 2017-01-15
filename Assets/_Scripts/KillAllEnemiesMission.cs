@@ -34,7 +34,9 @@ public class KillAllEnemiesMission : MonoBehaviour {
 			enemyCounter = value;
 
 			enemiesLeft = enemyCounter;
-			enemiesLeftText.text = "" + enemiesLeft;
+			if (enemiesLeftText != null) {
+				enemiesLeftText.text = "" + enemiesLeft;
+			}
 
 			if (enemyCounter == 0) 
 			{
