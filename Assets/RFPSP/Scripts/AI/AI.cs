@@ -72,6 +72,7 @@ public class AI : MonoBehaviour {
 
 	[Tooltip("Sets the alignment of this NPC. 1 = friendly to player and hostile to factions 2 and 3, 2 = hostile to player and factions 1 and 3, 3 = hostile to player and factions 1 and 2.")]
 	public int factionNum = 1;//1 = human(friendly to player), 2 = alien(hostile to player), 3 = zombie(hostile to all other factions)
+
 	[Tooltip("If false, NPC will attack any character that attacks it, regardless of faction.")]
 	public bool ignoreFriendlyFire;
 	[HideInInspector]

@@ -73,7 +73,11 @@ public class CharacterDamage : MonoBehaviour {
 
 		GameObject Data;
 		killEnemiesRef = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<KillAllEnemiesMission> ();
-		killEnemiesRef.EnemyCounter += 1;
+
+		if (AIComponent.factionNum == 3) // check if enemy is from enemies faction
+		{
+			killEnemiesRef.EnemyCounter += 1;
+		}
 
 
 	}
