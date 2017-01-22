@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using EasyEditor;
+using Heyzap;
 
 public class PauseManager : MonoBehaviour {
 
@@ -13,12 +14,15 @@ public class PauseManager : MonoBehaviour {
 	// Need to promote here our other games later....
 
 	public GameObject pauseCanvasObj;
+	public GameObject deathCanvasObj;
 
 	public Animator anim;
 
 	public FPSPlayer fpsPlayer_ref;
 
 	public DataComps dataComps_ref;
+
+	public bool adWatched = false;
 
 	[Header("Level Select scene name")]
 	public string levelSelectSceneName = "LevelSelect";
@@ -52,6 +56,39 @@ public class PauseManager : MonoBehaviour {
 		pauseCanvasObj.SetActive (false);
 		print ("Deactivate PauseMenu");
 
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive (true);
+
+		}
+
+	}
+
+	public void viewedAd(){
+		adWatched = true;
+	}
+
+	public void ActivateDeathCanvas () 
+	{
+
+		deathCanvasObj.SetActive (true);
+		print ("Activate PauseMenu");
+		// activate the animator trigger...
+		Time.timeScale = 0;
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive(false);
+
+		}
+
+
+	}
+
+	public void DeactivateDeathCanvas ()
+	{
+		deathCanvasObj.SetActive (false);
+		print ("Deactivate PauseMenu");
+		Time.timeScale = 1;
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
 		{
 			dataComps_ref.uiImages [i].gameObject.SetActive (true);

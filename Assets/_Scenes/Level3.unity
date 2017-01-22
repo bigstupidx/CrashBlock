@@ -577,6 +577,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000013316607168, guid: 1f4bd5a1b1328a34997f0adb86353932,
     type: 2}
   m_PrefabInternal: {fileID: 588011003}
+--- !u!1 &588011006 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013355624382, guid: 1f4bd5a1b1328a34997f0adb86353932,
+    type: 2}
+  m_PrefabInternal: {fileID: 588011003}
 --- !u!1 &660490826 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198914, guid: 0474d1c7f8f957747988f113ed38c23e, type: 2}
@@ -648,7 +653,7 @@ Prefab:
         type: 2}
       propertyPath: pauseCanvasObj
       value: 
-      objectReference: {fileID: 1008222129}
+      objectReference: {fileID: 588011006}
     - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
         type: 2}
       propertyPath: hpBar
@@ -704,6 +709,11 @@ Prefab:
       propertyPath: uiImages.Array.data[7]
       value: 
       objectReference: {fileID: 660490826}
+    - target: {fileID: 114000010865514808, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: deathCanvasObj
+      value: 
+      objectReference: {fileID: 1008222129}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0

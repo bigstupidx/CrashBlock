@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 
 public class FPSPlayer : MonoBehaviour {
+
 	[HideInInspector]
 	public Ironsights IronsightsComponent;
 	[HideInInspector]
@@ -84,6 +85,8 @@ public class FPSPlayer : MonoBehaviour {
 	private ThirstText ThirstText;
 	private ThirstText[] ThirstText2;
 	private GUIText ThirstGUIText;
+	[SerializeField]
+	public PauseManager pauseManager;
 		
 	[HideInInspector]
 	public float crosshairWidth;
@@ -623,7 +626,7 @@ public class FPSPlayer : MonoBehaviour {
 				pf.GetComponent<PainFade>().FadeIn(PainColor, painTexture, 0.75f);//Call FadeIn function in painFadeObj to fade screen red when damage taken
 				//Call Die function if player's hitpoints have been depleted
 				if (hitPoints < 1.0f){
-					Die();
+					Die ();
 				}
 				//update starvation timers
 				timeLastDamaged = Time.time;
@@ -1301,12 +1304,19 @@ public class FPSPlayer : MonoBehaviour {
 	
 		//Call Die function if player's hitpoints have been depleted
 		if (hitPoints < 1.0f){
-			SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
+			pauseManager.ActivateDeathCanvas ();
+//			if (pauseManager.adWatched == false) {
+//				SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
+//			} else {
+//				pauseManager.adWatched = false;
+//				HealPlayer (maximumHitPoints);
+//				pauseManager.DeactivateDeathCanvas ();
+//			}
+
 		}
 	}
-	
+
 	void Die () {
-		
 		bulletTimeActive = false;//set bulletTimeActive to false so fadeout wont take longer if bullet time is active
 		
 		if(!FPSWalkerComponent.drowning){
@@ -1324,7 +1334,7 @@ public class FPSPlayer : MonoBehaviour {
 		FPSWalkerComponent.inputX = 0;
 		FPSWalkerComponent.inputY = 0;
 		FPSWalkerComponent.cancelSprint = true;
-			
+
 		GameObject llf = Instantiate(levelLoadFadeObj) as GameObject;//Create instance of levelLoadFadeObj
 		//call FadeAndLoadLevel function with fadein argument set to false 
 		//in levelLoadFadeObj to restart level and fade screen out from black on level load
