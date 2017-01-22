@@ -4835,6 +4835,7 @@ Transform:
   - {fileID: 412996}
   - {fileID: 402666}
   - {fileID: 4000012833771866}
+  - {fileID: 4000012828274438}
   m_Father: {fileID: 434878}
   m_RootOrder: 0
 --- !u!4 &446292
@@ -6180,7 +6181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137490}
   m_LocalRotation: {x: 0, y: 0.9842622, z: 0, w: 0.17671417}
-  m_LocalPosition: {x: -97.19, y: 1.89, z: 81.56}
+  m_LocalPosition: {x: 48, y: 9.73, z: -57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 159.6431, z: 0}
   m_Children:
@@ -11486,6 +11487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 1
+  isMeleeWep: 1
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}
@@ -12149,6 +12152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 2
+  isMeleeWep: 0
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}
@@ -12396,6 +12401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 4
+  isMeleeWep: 0
   playerObj: {fileID: 160974}
   weaponObj: {fileID: 179304}
   ammoGuiObj: {fileID: 0}
@@ -12624,9 +12631,9 @@ MonoBehaviour:
   readySnd: {fileID: 8300000, guid: f6ec52ac48a08f544b2e046fec1a4256, type: 3}
   pullSnd: {fileID: 0}
   blockSound: {fileID: 0}
-  useLight: 1
+  useLight: 0
   lightBaseObj: {fileID: 0}
-  flipLightFacing: 1
+  flipLightFacing: 0
   useZoomSwitch: 0
   lightOn: 0
   lightConeMesh: {fileID: 0}
@@ -12665,9 +12672,9 @@ MonoBehaviour:
   buttonSpacing: 5
   buttonClickFx: {fileID: 8300000, guid: 5fd736d3fb39c8944838829bdd0b89f0, type: 3}
   buttonFxVol: 1
-  invulClickFx: {fileID: 8300000, guid: 1ae05b290fbf32a40a6607a9fa87a95c, type: 3}
+  invulClickFx: {fileID: 8300000, guid: 7a12746b156f2f049a40658b672df7e9, type: 3}
   invulFxVol: 0.5
-  giveAllClickFx: {fileID: 8300000, guid: d05054c7c8ff4da49b034ba5e7b96d20, type: 3}
+  giveAllClickFx: {fileID: 8300000, guid: f49bb3d2fb957734fa3eec0e4e5e30ec, type: 3}
   giveAllFxVol: 0.5
   beepClickFx: {fileID: 8300000, guid: 1a79e50705142f740a7ad733adf22a21, type: 3}
   beepFxVol: 0.35
@@ -13193,6 +13200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 0
+  isMeleeWep: 0
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}
@@ -13463,6 +13472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 5
+  isMeleeWep: 0
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}
@@ -13759,6 +13770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 7
+  isMeleeWep: 0
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}
@@ -14395,7 +14408,7 @@ MonoBehaviour:
   switching: 0
   displayingGrenade: 0
   sprintSwitching: 0
-  changesnd: {fileID: 8300000, guid: 69756f93881846446a316094cc7ec246, type: 3}
+  changesnd: {fileID: 8300000, guid: 6b2eb958ea6ad0c42a5e8ef2a2947e06, type: 3}
   sunLightObj: {fileID: 0}
   shadeColor: {r: 0.45588237, g: 0.44582614, b: 0.44582614, a: 1}
   pullGrenadeState: 0
@@ -14565,6 +14578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 3
+  isMeleeWep: 0
   playerObj: {fileID: 160974}
   weaponObj: {fileID: 179304}
   ammoGuiObj: {fileID: 0}
@@ -14793,9 +14808,9 @@ MonoBehaviour:
   readySnd: {fileID: 8300000, guid: 7b91c034c09ef7a4096548f977bf9a15, type: 3}
   pullSnd: {fileID: 0}
   blockSound: {fileID: 0}
-  useLight: 1
+  useLight: 0
   lightBaseObj: {fileID: 0}
-  flipLightFacing: 1
+  flipLightFacing: 0
   useZoomSwitch: 0
   lightOn: 0
   lightConeMesh: {fileID: 0}
@@ -14885,6 +14900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 0
+  isMeleeWep: 0
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}
@@ -17610,6 +17627,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000011514282936
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013515773616}
+  - 82: {fileID: 82000010412515440}
+  m_Layer: 11
+  m_Name: Stage Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011537369340
 GameObject:
   m_ObjectHideFlags: 1
@@ -19065,6 +19098,23 @@ GameObject:
   - 23: {fileID: 23000012218122346}
   m_Layer: 8
   m_Name: Slide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000012730913982
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012828274438}
+  - 114: {fileID: 114000012633209246}
+  - 82: {fileID: 82000012468521840}
+  m_Layer: 11
+  m_Name: PlayerSpeaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24119,6 +24169,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 496066}
   m_RootOrder: 2
+--- !u!4 &4000012828274438
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012730913982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000013515773616}
+  m_Father: {fileID: 446238}
+  m_RootOrder: 5
 --- !u!4 &4000012833771866
 Transform:
   m_ObjectHideFlags: 1
@@ -25123,6 +25187,19 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011979200076}
+  m_RootOrder: 0
+--- !u!4 &4000013515773616
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011514282936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012828274438}
   m_RootOrder: 0
 --- !u!4 &4000013549390220
 Transform:
@@ -30707,6 +30784,154 @@ WorldParticleCollider:
     m_Bits: 1025
   m_SendCollisionMessage: 0
   m_MinKillVelocity: 0
+--- !u!82 &82000010412515440
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011514282936}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9d082d74f7263fa4085c9e7c23e74afb, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &82000012468521840
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012730913982}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.69
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!108 &108000010256919544
 Light:
   m_ObjectHideFlags: 1
@@ -31052,6 +31277,31 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000012633209246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012730913982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174d974ba92a54c4ebecd7842d6b5ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioS: {fileID: 0}
+  sfxLibrary:
+  - {fileID: 8300000, guid: 9be0e16b8d3f5d1478b5c21ae78a92f2, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  volume: 0.7
+  sfxToPlay: 0
 --- !u!114 &114000014088411096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31063,6 +31313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 6
+  isMeleeWep: 0
   playerObj: {fileID: 0}
   weaponObj: {fileID: 0}
   ammoGuiObj: {fileID: 0}

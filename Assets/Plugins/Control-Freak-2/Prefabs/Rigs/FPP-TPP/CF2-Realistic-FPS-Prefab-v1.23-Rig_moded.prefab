@@ -851,8 +851,8 @@ MonoBehaviour:
   dontAcceptSharedTouches: 0
   canBeSwipedOver: 0
   restictSwipeOverTargets: 0
-  swipeOverOthersMode: 2
-  swipeOffMode: 2
+  swipeOverOthersMode: 0
+  swipeOffMode: 0
   swipeOverTargetList: []
   shape: 1
   disablingConditions:
@@ -1000,7 +1000,7 @@ MonoBehaviour:
           axisList: []
           keyList: 
         dirBindingD:
-          enabled: 1
+          enabled: 0
           axisList:
           - axisName: Drop Weapon
             axisPositiveSide: 1
@@ -1010,7 +1010,7 @@ MonoBehaviour:
           axisList: []
           keyList: 
         dirBindingL:
-          enabled: 1
+          enabled: 0
           axisList:
           - axisName: Holster Weapon
             axisPositiveSide: 1
@@ -1040,9 +1040,9 @@ MonoBehaviour:
         enabled: 0
         targetList: []
       normalPressScrollHorzBinding:
-        enabled: 1
+        enabled: 0
         deltaBinding:
-          enabled: 1
+          enabled: 0
           targetList:
           - separateAxes: 0
             singleAxis: Mouse Scroll Wheel
@@ -8524,8 +8524,8 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51.5, y: -257.8}
-  m_SizeDelta: {x: 73.4, y: 60.4}
+  m_AnchoredPosition: {x: -46.622, y: -260.2}
+  m_SizeDelta: {x: 63.643, y: 60.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22434340
 RectTransform:
@@ -8561,8 +8561,8 @@ RectTransform:
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 737.9, y: -160.6}
-  m_SizeDelta: {x: 86.599976, y: 96}
+  m_AnchoredPosition: {x: 747.2, y: -174.7}
+  m_SizeDelta: {x: 74.032, y: 82.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22436340
 RectTransform:
@@ -8654,7 +8654,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150.8, y: 141.8}
+  m_AnchoredPosition: {x: -159.6, y: 130}
   m_SizeDelta: {x: 122, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22451366
@@ -8819,8 +8819,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -173.79999, y: 250}
-  m_SizeDelta: {x: 76, y: 76}
+  m_AnchoredPosition: {x: -159.6, y: 241.00003}
+  m_SizeDelta: {x: 62.8, y: 62.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22471342
 RectTransform:
@@ -8967,7 +8967,7 @@ RectTransform:
   m_RootOrder: 12
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -269, y: 53.8}
+  m_AnchoredPosition: {x: -49.857, y: 158.6}
   m_SizeDelta: {x: 53.885, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22495636

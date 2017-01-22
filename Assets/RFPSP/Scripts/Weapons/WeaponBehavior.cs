@@ -4,8 +4,17 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine.UI;
 
 public class WeaponBehavior : MonoBehaviour {
+
+	private DataComps dataComps;
+	private int weaponSlot;
+	[SerializeField]
+	private int weaponIndex;
+	[SerializeField]
+	private bool isMeleeWep = false;
+
 	//Other objects accessed by this script
 	[HideInInspector]
 	public GameObject playerObj;
@@ -673,7 +682,15 @@ public class WeaponBehavior : MonoBehaviour {
 //	public float barrelCheckDist = 1.25f;
 //	public LayerMask forwardMask;
 
+
+
 	void Start (){
+
+		if (dataComps == null) 
+		{
+			dataComps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
+		}
+
 
 		myTransform = transform;//cache transform for efficiency
 		mainCamTransform = Camera.main.transform;
@@ -826,6 +843,10 @@ public class WeaponBehavior : MonoBehaviour {
 			//make weapon recover faster from sprinting if using the pistol sprint anim 
 			//because the gun/rifle style anims have more yaw movement and take longer to return to center
 			if(!PistolSprintAnim){recoveryTimeAmt = 0.4f;}else{recoveryTimeAmt = 0.2f;}
+
+			// update UI text ammo
+			UpdateBulletsUITexts();
+
 			
 		}
 		
@@ -861,7 +882,10 @@ public class WeaponBehavior : MonoBehaviour {
 		CancelWeaponPull();//cancel weapon pull after weapon switching if fire button was held when switching
 		
 		capsule = playerObj.GetComponent<CapsuleCollider>();
-		
+
+
+
+
 		if(!unarmed){
 			if((!doReload && !nonReloadWeapon) && ammo <= 0){//inventory of disposable, one-shot weapon has been depleted, don't show view model
 				FPSWalkerComponent.hideWeapon = true;
@@ -1976,13 +2000,20 @@ public class WeaponBehavior : MonoBehaviour {
 			if(doReload){
 				bulletsLeft--;//subtract fired bullet from magazine amount	
 			}else{
+				
 				ammo--;
+
 			}
 			
 			if(burstFire){
 				burstShotsFired++;
 			}
-			
+
+			// update UI text ammo
+
+			UpdateBulletsUITexts ();
+
+
 		}else{
 			
 			if((swingSide || FPSPlayerComponent.canBackstab) && !meleeActive){//determine which side to swing melee weapon, swing from left if this is a backstab
@@ -2483,6 +2514,13 @@ public class WeaponBehavior : MonoBehaviour {
 						if(ammo >= bulletsNeeded){
 							ammo -= bulletsNeeded;//subtract bullets needed from total ammo
 							bulletsLeft = bulletsPerClip;//add bullets to magazine 
+
+							// update UI text ammo
+
+							UpdateBulletsUITexts ();
+
+
+
 						}else{
 							bulletsLeft += ammo;//if ammo left is less than needed to reload, so just load all remaining bullets
 							ammo = 0;//out of ammo for this weapon now
@@ -2546,7 +2584,8 @@ public class WeaponBehavior : MonoBehaviour {
 						CameraAnimationComponent.CrossFade("CameraReloadSingle", 0.35f,PlayMode.StopSameLayer);
 						
 						reloadEndTime = Time.time;//track time that we finished reload to determine if this reload can be interrupted by fire button
-						
+
+
 					}	
 				}
 			}
@@ -2695,5 +2734,29 @@ public class WeaponBehavior : MonoBehaviour {
 		fireHoldTimer = 0.0f;
 		fireHoldMult = 0.0f;
 	}
+
+
+
+
+	void UpdateBulletsUITexts()
+	{
+
+		if (isMeleeWep == false) {
+			
+			for (int i = 0; i < dataComps.weaponSlotEquippedGun.Length; i++) 
+			{
+				
+				if (weaponIndex == dataComps.weaponSlotEquippedGun [i]) {
+
+					dataComps.weaponAmmoTxt [i].text = (bulletsLeft + "/" + ammo);
+
+				}
+			}
+		}
+
+		
+	}
+
+
 	
 }

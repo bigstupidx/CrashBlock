@@ -57,9 +57,9 @@ MonoBehaviour:
   pauseCanvasObj: {fileID: 0}
   anim: {fileID: 0}
   fpsPlayer_ref: {fileID: 0}
-  dataComps_ref: {fileID: 0}
+  dataComps_ref: {fileID: 114000012338994660}
   levelSelectSceneName: LevelSelect
-  nextSceneName: 
+  nextSceneName: Level2
 --- !u!114 &114000012338994660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,9 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
-  inputCtrl_ref: {fileID: 0}
   pauseMan_ref: {fileID: 114000010865514808}
   fpsPlayer_ref: {fileID: 0}
+  playerWeps_ref: {fileID: 0}
+  playerSpeaker_ref: {fileID: 0}
   uiImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -84,6 +85,57 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  weaponSlot:
+  - weaponName: Axe
+    hasGun: 0
+    wepNumber: 1
+    wepImage: {fileID: 21300010, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  - weaponName: DessertEagle
+    hasGun: 0
+    wepNumber: 2
+    wepImage: {fileID: 21300006, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  - weaponName: MP5
+    hasGun: 0
+    wepNumber: 3
+    wepImage: {fileID: 21300002, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  - weaponName: Shotgun
+    hasGun: 0
+    wepNumber: 4
+    wepImage: {fileID: 21300004, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  - weaponName: Ak47
+    hasGun: 0
+    wepNumber: 5
+    wepImage: {fileID: 21300012, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  - weaponName: M4
+    hasGun: 0
+    wepNumber: 6
+    wepImage: {fileID: 21300008, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  - weaponName: Sniper
+    hasGun: 0
+    wepNumber: 7
+    wepImage: {fileID: 21300000, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    wepBehaviour_ref: {fileID: 0}
+  weaponSlotEquippedGun: 0100000000000000000000000000000000000000
+  weaponImage:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponAmmoTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponSlotStatus: 0100000000
+  nextSlotToEquip: 0
   pauseSwitch: 0
 --- !u!114 &114000013341583252
 MonoBehaviour:
@@ -100,6 +152,7 @@ MonoBehaviour:
   lastCompletedLevel: 0
   wepSlot3: 0
   wepSlot4: 0
+  wepSlot5: 0
   levelsCompleted: 000000000000
 --- !u!114 &114000014150073552
 MonoBehaviour:

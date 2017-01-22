@@ -9,6 +9,7 @@ public class SaveData : MonoBehaviour {
 
 	public bool wepSlot3;	// true if rewarded by AD
 	public bool wepSlot4;
+	public bool wepSlot5;
 
 	public bool[] levelsCompleted;
 
