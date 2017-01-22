@@ -32,6 +32,7 @@ public class DataComps : MonoBehaviour {
 	public WeaponSlot[] weaponSlot;
 
 	// update 
+	public GameObject[] WeaponSlotsObj;	// weapon slots  Game Objects
 	public int[] weaponSlotEquippedGun;	// weapon index on slot
 	public Image[] weaponImage;			// image for the slot
 	public Text[] weaponAmmoTxt;		// ammo text ref from weapon slots
