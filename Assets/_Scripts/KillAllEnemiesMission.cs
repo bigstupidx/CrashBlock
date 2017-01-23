@@ -10,6 +10,8 @@ public class KillAllEnemiesMission : MonoBehaviour {
 	[Header("Gameobjects to activate with timer."),SerializeField]
 	private GameObject[] resultsCanvasObj;
 
+	[Header("Current level number, for SavingLevelComplete")]
+	public int levelNum;
 
 	// Communicating Scripts
 	[SerializeField]
@@ -73,6 +75,9 @@ public class KillAllEnemiesMission : MonoBehaviour {
 		// Grenades used if more than 0
 		// Healthpacks used if more than 0
 
+		// save level completed
+		SaveLevelCompleted ();
+
 		yield return new WaitForSeconds (2.0f);
 
 		resultsCanvasObj [0].SetActive (true);
@@ -84,6 +89,39 @@ public class KillAllEnemiesMission : MonoBehaviour {
 
 
 
+
+	void SaveLevelCompleted()
+	{
+
+		switch(levelNum)
+		{
+
+			case 0:
+				SaveSystem.SetLevelTut (1);
+				break;
+
+			case 1:
+				SaveSystem.SetLevel1 (1);
+				break;
+			case 2:
+				SaveSystem.SetLevel2 (1);
+				break;
+			case 3:
+				SaveSystem.SetLevel3 (1);
+				break;
+			case 4:
+				SaveSystem.SetLevel4 (1);
+				break;
+			case 5:
+				SaveSystem.SetLevel5 (1);
+				break;
+
+
+
+
+		}
+
+	}
 
 
 

@@ -23,9 +23,46 @@ public class LevelSelectManager : MonoBehaviour {
 	public void LoadlLevel(int index)		// use this function to load the level
 	{
 
-		print ("Loading Level = "+loadLevelButtons [index].sceneName);
 
-		SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
+		switch (index)
+		{
+
+			case 0:
+
+				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
+			break;
+			case 1:
+
+				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
+				break;
+			case 2:
+
+				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
+				break;
+
+			case 3:
+
+				if (SaveSystem.GetLevel1 () == 1 || SaveSystem.GetLevel2 () == 1) 
+				{
+					print ("Loading Level = "+loadLevelButtons [index].sceneName);
+					SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
+				}
+				
+			break;
+
+			case 4:
+				if (SaveSystem.GetLevel3 () == 1) 
+				{
+				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
+				}
+
+			break;
+
+		}
 
 
 
