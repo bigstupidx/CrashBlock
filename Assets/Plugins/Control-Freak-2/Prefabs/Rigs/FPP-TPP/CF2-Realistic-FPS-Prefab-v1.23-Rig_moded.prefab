@@ -3289,7 +3289,7 @@ MonoBehaviour:
     - name: Mouse X
       axisType: 4
       deltaMode: 1
-      snap: 0
+      snap: 1
       scale: 0.1
       affectSourceKeys: 1
       affectedKeyPositive: 0
@@ -3304,7 +3304,7 @@ MonoBehaviour:
       keyboardNegativeAlt2: 0
       analogToDigitalThresh: 0.125
       rawSmoothingTime: 0
-      smoothingTime: 0
+      smoothingTime: 0.001
       digitalToAnalogAccelTime: 0
       digitalToAnalogDecelTime: 0
       digitalToScrollAutoRepeat: 1
@@ -3316,7 +3316,7 @@ MonoBehaviour:
     - name: Mouse Y
       axisType: 4
       deltaMode: 1
-      snap: 0
+      snap: 1
       scale: 0.1
       affectSourceKeys: 1
       affectedKeyPositive: 0
@@ -3331,7 +3331,7 @@ MonoBehaviour:
       keyboardNegativeAlt2: 0
       analogToDigitalThresh: 0.125
       rawSmoothingTime: 0
-      smoothingTime: 0
+      smoothingTime: 0.001
       digitalToAnalogAccelTime: 0
       digitalToAnalogDecelTime: 0
       digitalToScrollAutoRepeat: 1

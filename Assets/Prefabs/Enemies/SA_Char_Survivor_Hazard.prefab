@@ -598,6 +598,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1000013449554036
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010066144696}
+  - 33: {fileID: 33000013485087902}
+  - 23: {fileID: 23000010324857740}
+  - 111: {fileID: 111000012023298780}
+  m_Layer: 0
+  m_Name: MuzzleFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000013453679552
 GameObject:
   m_ObjectHideFlags: 1
@@ -728,6 +746,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &4000010066144696
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013449554036}
+  m_LocalRotation: {x: 0.04641803, y: 0.006716578, z: -0.7357536, w: 0.6756233}
+  m_LocalPosition: {x: -0.018, y: 0.165, z: 1.689}
+  m_LocalScale: {x: 10.885145, y: 10.885093, z: 10.885134}
+  m_LocalEulerAnglesHint: {x: 363.803, y: -363.273, z: -94.879005}
+  m_Children: []
+  m_Father: {fileID: 4000012516831706}
+  m_RootOrder: 5
 --- !u!4 &4000010071265050
 Transform:
   m_ObjectHideFlags: 1
@@ -971,7 +1002,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011264864860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -17.193672, y: -0.19479585, z: -12.641375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1077,6 +1108,7 @@ Transform:
   - {fileID: 4000012956417106}
   - {fileID: 4000013416824914}
   - {fileID: 4000010818879216}
+  - {fileID: 4000010066144696}
   m_Father: {fileID: 4000012231604616}
   m_RootOrder: 1
 --- !u!4 &4000012705561330
@@ -1386,6 +1418,35 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 965e421d30d6a2a419dfd5b3597456b8, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &23000010324857740
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013449554036}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4c5462fead119ebfd000cef88d76c639, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -2158,6 +2219,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011419710642}
   m_Mesh: {fileID: 4300004, guid: 38a19d87043c1c74eb54c9a80757c364, type: 3}
+--- !u!33 &33000013485087902
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013449554036}
+  m_Mesh: {fileID: 4300002, guid: c0b71c17d5f15184daac11d4a1b15e9b, type: 3}
 --- !u!33 &33000013521748788
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2313,6 +2381,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111000012023298780
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013449554036}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114000010585089546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2324,15 +2406,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99543d157e22709498714169552f6b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 100
-  inaccuracy: 0.2
+  range: 250
+  inaccuracy: 0.3
   fireRate: 0.09
-  burstShots: 3
-  randomShots: 3
+  burstShots: 2
+  randomShots: 1
   force: 0
-  damage: 3
+  damage: 4
   isMeleeAttack: 0
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 23000010324857740}
   firesnd: {fileID: 8300000, guid: c49ba9ad675695040ae323d542d6babf, type: 3}
   fireFxRandPitch: 0.95
 --- !u!114 &114000011107486782
@@ -2373,7 +2455,7 @@ MonoBehaviour:
   runAnimSpeed: 1
   idleYaw: 0
   movingYaw: 0
-  factionNum: 2
+  factionNum: 3
   ignoreFriendlyFire: 0
   playerAttacked: 0
   attackedTime: 0
@@ -2419,8 +2501,8 @@ MonoBehaviour:
   runStepTime: 0.34
   shootRange: 25
   attackRange: 40
-  listenRange: 50
-  shotDuration: 0.75
+  listenRange: 100
+  shotDuration: 0.5
   shootAnimSpeed: 0.35
   attackRangeAmt: 30
   sneakRangeMod: 0.4
@@ -2456,7 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea1dbbbe57d4a04f8bd8aba5e6bc453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 200
+  hitPoints: 120
   attackForce: 2.75
   gunItem: {fileID: 0}
   gunObj: {fileID: 0}
@@ -2472,6 +2554,7 @@ MonoBehaviour:
   sloMoBackstab: 1
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
+  killEnemiesRef: {fileID: 0}
 --- !u!136 &136000011325201954
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -3,14 +3,23 @@
 using UnityEngine;
 using System.Collections;
 
+public enum DamagedBodyPart{ Head, Neck, Chest, Stomach, Back, Glutes, Crotch, 
+								ShoulderL, UpperArmL, LowerArmL, UpperLegL, LowerLegL,FootL, HandL,
+								ShoulderR, UpperArmR, LowerArmR, UpperLegR, LowerLegR, FootR, HandR, None }
+
 public class LocationDamage : MonoBehaviour {
+
 	[Tooltip("Set to Ai.cs component in main NPC object (drag main object from hierachry window into this field).")]
 	public AI AIComponent;
 	[Tooltip("Amount to increase or decrease base damage of weapon hit on this collider (increase for head shots, decrease for limb hits).")]
 	public float damageMultiplier = 1f;
 	[Tooltip("Amount of physics force to apply with weapon hit on this collider.")]
 	public float damageForce = 2.75f;
-	[Tooltip("Sound effect to use for a hit on this collider (doesn't have to be a head shot).")]
+
+	[Header("Select the damage body part"),Space(5)]
+	public DamagedBodyPart bodyPart;
+
+	[Tooltip("Sound effect to use for a hit on this collider (doesn't have to be a head shot)."),Space(5)]
 	public AudioClip headShot;
 	private bool headShotState;
 	[Tooltip("Chance between 0 and 1 that killing an NPC with a shot to this collider will trigger slow motion for a few seconds.")]
@@ -35,7 +44,12 @@ public class LocationDamage : MonoBehaviour {
 			if(isPlayer){//if attack is from player, pass damage info to main CharacterDamage.cs component
 			
 				AIComponent.CharacterDamageComponent.ApplyDamage(damage * damageMultiplier, attackDir, attackerPos, attacker, isPlayer, isExplosion, thisRigidBody, damageForce);
-				
+
+				// communicate which body part was hit
+				//AIComponent.CharacterDamageComponent.lastDamagedPart = bodyPart;
+				//AIComponent.HaltDuringHurtAnim ();
+
+
 				if (headShot 
 				&& !headShotState 
 				&& AIComponent.CharacterDamageComponent.hitPoints <= 0.0f

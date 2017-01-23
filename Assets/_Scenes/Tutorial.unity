@@ -8236,6 +8236,11 @@ Prefab:
       propertyPath: m_Name
       value: SA_Char_Survivor_Male_04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011050465226, guid: 6c98055c5ca67374a8e5af88ce90c47b,
+        type: 2}
+      propertyPath: factionNum
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c98055c5ca67374a8e5af88ce90c47b, type: 2}
   m_IsPrefabParent: 0
@@ -11111,6 +11116,11 @@ Prefab:
       propertyPath: deathCanvasObj
       value: 
       objectReference: {fileID: 509055950}
+    - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: enemiesLeft
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0
@@ -22616,6 +22626,11 @@ Prefab:
     - target: {fileID: 4000011852624066, guid: 6c98055c5ca67374a8e5af88ce90c47b, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011050465226, guid: 6c98055c5ca67374a8e5af88ce90c47b,
+        type: 2}
+      propertyPath: factionNum
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c98055c5ca67374a8e5af88ce90c47b, type: 2}

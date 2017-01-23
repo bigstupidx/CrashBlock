@@ -339,7 +339,9 @@ public class CharacterDamage : MonoBehaviour {
 			if(notParent){
 				Destroy(transform.parent.gameObject);
 			}else{
-				killEnemiesRef.EnemyCounter -= 1;
+				if (AIComponent.factionNum == 3) {
+					killEnemiesRef.EnemyCounter -= 1;
+				}
 				Destroy(transform.gameObject);
 			}
 			

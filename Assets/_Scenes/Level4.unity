@@ -47924,6 +47924,16 @@ Prefab:
       propertyPath: ammoCanvasObj
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: levelNum
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: enemyCounter
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0
@@ -72649,7 +72659,7 @@ Transform:
   - {fileID: 1087140548}
   - {fileID: 494501201}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1242872838
 GameObject:
   m_ObjectHideFlags: 0
