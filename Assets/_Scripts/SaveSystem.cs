@@ -95,16 +95,7 @@ public class SaveSystem {
 
 	//-----------------------------------------------------  Weapon slots 3 and 4
 
-	public static void SetWepSlot3(int _value)
-	{
-		PlayerPrefs.SetInt ("WeaponSlot3", _value);
-	}
 
-
-	public static int GetWepSlot3()
-	{
-		return PlayerPrefs.GetInt ("WeaponSlot3");
-	}
 
 	public static void SetWepSlot4(int _value)
 	{
@@ -116,6 +107,7 @@ public class SaveSystem {
 	{
 		return PlayerPrefs.GetInt ("WeaponSlot4");
 	}
+
 
 
 

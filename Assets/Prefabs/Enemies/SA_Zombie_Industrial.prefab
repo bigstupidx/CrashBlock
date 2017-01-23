@@ -732,6 +732,7 @@ MonoBehaviour:
   sloMoBackstab: 1
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
+  killEnemiesRef: {fileID: 0}
 --- !u!114 &114000013279824034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,7 +771,7 @@ MonoBehaviour:
   runAnimSpeed: 2
   idleYaw: 0
   movingYaw: 0
-  factionNum: 3
+  factionNum: 2
   ignoreFriendlyFire: 0
   playerAttacked: 0
   attackedTime: 0

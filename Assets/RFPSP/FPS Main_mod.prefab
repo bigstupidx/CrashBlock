@@ -6181,7 +6181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137490}
   m_LocalRotation: {x: 0, y: 0.9842622, z: 0, w: 0.17671417}
-  m_LocalPosition: {x: 48, y: 9.73, z: -57}
+  m_LocalPosition: {x: 68.02, y: 0.77, z: -36.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 159.6431, z: 0}
   m_Children:
@@ -12171,9 +12171,9 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 2
-  ammo: 120
-  bulletsLeft: 10
-  bulletsPerClip: 10
+  ammo: 12
+  bulletsLeft: 12
+  bulletsPerClip: 12
   bulletsToReload: 10
   maxAmmo: 999
   damage: 75
@@ -12420,9 +12420,9 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 3
-  ammo: 26
-  bulletsLeft: 4
-  bulletsPerClip: 7
+  ammo: 4
+  bulletsLeft: 5
+  bulletsPerClip: 5
   bulletsToReload: 2
   maxAmmo: 999
   damage: 30
@@ -13219,7 +13219,7 @@ MonoBehaviour:
   droppable: 0
   addsToTotalWeaps: 0
   weaponNumber: 1
-  ammo: 3
+  ammo: 1
   bulletsLeft: 0
   bulletsPerClip: 0
   bulletsToReload: 0
@@ -13491,7 +13491,7 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 5
-  ammo: 300
+  ammo: 30
   bulletsLeft: 30
   bulletsPerClip: 30
   bulletsToReload: 30
@@ -13789,8 +13789,8 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 17
-  ammo: 500
-  bulletsLeft: 3
+  ammo: 3
+  bulletsLeft: 5
   bulletsPerClip: 5
   bulletsToReload: 5
   maxAmmo: 999
@@ -14484,6 +14484,7 @@ MonoBehaviour:
   hitmarkerGuiObj: {fileID: 100000, guid: 7e23187415fa5e64a980ec53862f2fec, type: 2}
   hitmarkerGuiObjInstance: {fileID: 0}
   hitmarkerGuiTexture: {fileID: 0}
+  pauseManager: {fileID: 0}
   crosshairWidth: 0
   crosshairSize: 0.055
   hitTime: -10
@@ -14597,8 +14598,8 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 4
-  ammo: 90
-  bulletsLeft: 13
+  ammo: 30
+  bulletsLeft: 30
   bulletsPerClip: 30
   bulletsToReload: 30
   maxAmmo: 999
@@ -31332,7 +31333,7 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 6
-  ammo: 3000
+  ammo: 30
   bulletsLeft: 30
   bulletsPerClip: 30
   bulletsToReload: 30
