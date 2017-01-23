@@ -33,7 +33,7 @@ public class FPSPlayer : MonoBehaviour {
 	[HideInInspector]
 	public GameObject NPCMgrObj;
 	private AI AIComponent;
- 	//other objects accessed by this script
+	//other objects accessed by this script
 	[HideInInspector]
 	public GameObject[] children;//behaviors of these objects are deactivated when restarting the scene
 	[HideInInspector]
@@ -77,17 +77,17 @@ public class FPSPlayer : MonoBehaviour {
 	private HealthText HealthText;
 	private HealthText[] HealthText2;
 	private GUIText healthGuiText;
-	
+
 	private HungerText HungerText ;
 	private HungerText[] HungerText2;
 	private GUIText HungerGUIText;
-	
+
 	private ThirstText ThirstText;
 	private ThirstText[] ThirstText2;
 	private GUIText ThirstGUIText;
 	[SerializeField]
 	public PauseManager pauseManager;
-		
+
 	[HideInInspector]
 	public float crosshairWidth;
 	private Rect crossRect;
@@ -101,7 +101,7 @@ public class FPSPlayer : MonoBehaviour {
 	private Transform mainCamTransform;
 	[TooltipAttribute("True if the prefab parent object will be removed on scene load.")]
 	public bool removePrefabRoot = true;
-	
+
 	//player hit points
 	public float hitPoints = 100.0f;
 	public float maximumHitPoints = 200.0f;
@@ -124,7 +124,7 @@ public class FPSPlayer : MonoBehaviour {
 	[Tooltip("Rate at which the player should regenerate health.")]
 	public float healthRegenRate = 25.0f;
 	private float timeLastDamaged;//time that the player was last damaged
-	
+
 	//player hunger
 	[Tooltip("True if player should have a hunger attribute that increases over time.")]
 	public bool usePlayerHunger;
@@ -140,7 +140,7 @@ public class FPSPlayer : MonoBehaviour {
 	public float starveInterval = 3.0f;
 	[TooltipAttribute("Anount of damage to apply per starve interval.")]
 	public float starveDmgAmt = -5.0f;//amount to damage player per starve interval 
-	
+
 	//player thirst
 	[Tooltip("True if player should have a thirst attribute that increases over time.")]
 	public bool usePlayerThirst;
@@ -161,7 +161,7 @@ public class FPSPlayer : MonoBehaviour {
 	public bool allowBulletTime = true;
 	[Tooltip("True if help text should be displayed.")]
 	public bool showHelpText = true;
-	
+
 	//Damage feedback
 	private float gotHitTimer = -1.0f;
 	private Color PainColor = new Color(0.221f, 0f, 0f, 0.44f);//color of pain screen flash can be selected in editor
@@ -169,7 +169,7 @@ public class FPSPlayer : MonoBehaviour {
 	private Color painFadeColor;//used to modify opacity of pain fade object
 	[TooltipAttribute("Amount to kick the player's camera view when damaged.")]
 	public float painScreenKickAmt = 0.016f;//magnitude of the screen kicks when player takes damage
-	
+
 	//Bullet Time and Pausing
 	[TooltipAttribute("Percentage of normal time to use when in bullet time.")]
 	[Range(0.0f, 1.0f)]
@@ -193,7 +193,7 @@ public class FPSPlayer : MonoBehaviour {
 	public bool pressButtonUpState;
 	[HideInInspector]
 	public Collider objToPickup;
-	
+
 	//zooming
 	private bool zoomBtnState = true;
 	private float zoomStopTime = 0.0f;//track time that zoom stopped to delay making aim reticle visible again
@@ -210,7 +210,7 @@ public class FPSPlayer : MonoBehaviour {
 	private float zoomDelay = 0.4f;
 	[HideInInspector]
 	public bool dzAiming;
-	
+
 	//crosshair 
 	[Tooltip("Enable or disable the aiming reticle.")]
 	public bool crosshairEnabled = true;
@@ -246,12 +246,12 @@ public class FPSPlayer : MonoBehaviour {
 	private Vector3 crosshairPos;
 	[HideInInspector]
 	public bool raycastCrosshair;
-	
+
 	//button and behavior states
 	private bool pickUpBtnState = true;
 	[HideInInspector]
 	public bool restarting = false;//to notify other scripts that level is restarting
-	
+
 	//sound effects
 	public AudioClip painLittle;
 	public AudioClip painBig;
@@ -282,7 +282,7 @@ public class FPSPlayer : MonoBehaviour {
 	[HideInInspector]
 	public bool canBackstab;//true if player can backstab an unalerted NPC
 	private float moveCommandedTime;//last time that following NPCs were commanded to move (for command cooldown)
-	
+
 	[HideInInspector]
 	public bool menuDisplayed;
 	[HideInInspector]
@@ -327,27 +327,27 @@ public class FPSPlayer : MonoBehaviour {
 		weaponObj = CameraControlComponent.weaponObj;
 		WeaponEffectsComponent = weaponObj.GetComponent<WeaponEffects>();
 		PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();
-		
+
 		MainMenuComponent = Camera.main.transform.parent.transform.GetComponent<MainMenu>();
-//		MainMenuComponent.enabled = false;
+		//		MainMenuComponent.enabled = false;
 		menuDisplayed = false;
-		
+
 		NPCMgrObj = GameObject.Find("NPC Manager");
 		NPCRegistryComponent = NPCMgrObj.GetComponent<NPCRegistry>();
-			
+
 		aSources = GetComponents<AudioSource>();//Initialize audio source
 		otherfx = aSources[0] as AudioSource;
 		hitmarkfx = aSources[1] as AudioSource;
 		otherfx.spatialBlend = 0.0f;
 		hitmarkfx.spatialBlend = 0.0f;
-		
+
 		//Set time settings
 		Time.timeScale = 1.0f;
 		initialFixedTime =  Time.fixedDeltaTime;
-		
+
 		usePressTime = 0f;
 		useReleaseTime = -8f;
-		
+
 		//Physics Layer Management Setup (obsolete, no longer used)
 		//these are the layer numbers and their corresponding uses/names accessed by the FPS prefab
 		//	Weapon = 8;
@@ -359,11 +359,11 @@ public class FPSPlayer : MonoBehaviour {
 		//	GUICameraLayer = 14;
 		//	WorldGeometry = 15;
 		//	BulletMarks = 16;
-		
+
 		//player object collisions
 		Physics.IgnoreLayerCollision(11, 12);//no collisions between player object and misc objects like bullet casings
 		Physics.IgnoreLayerCollision (12, 12);//no collisions between bullet shells
-		
+
 		//weapon object collisions
 		Physics.IgnoreLayerCollision(8, 2);//
 		Physics.IgnoreLayerCollision(8, 13);//no collisions between weapon and NPCs
@@ -374,7 +374,7 @@ public class FPSPlayer : MonoBehaviour {
 		//Call FadeAndLoadLevel fucntion with fadeIn argument set to true to tell the function to fade in (not fade out and (re)load level)
 		GameObject llf = Instantiate(levelLoadFadeObj) as GameObject;
 		llf.GetComponent<LevelLoadFade>().FadeAndLoadLevel(Color.black, 2.0f, true);
-		
+
 		//create instance of GUIText to display health amount on hud
 		healthGuiObjInstance = Instantiate(healthGuiObj,Vector3.zero,transform.rotation) as GameObject;
 		if(showHelpText){
@@ -402,13 +402,13 @@ public class FPSPlayer : MonoBehaviour {
 			CrosshairGuiTexture.color = reticleColor;
 			hitmarkerGuiTexture.color = reticleColor;
 		}
-		
+
 		//set reference for main color element of heath GUIText
 		HealthText = healthGuiObjInstance.GetComponent<HealthText>();
 		//set reference for shadow background color element of health GUIText
 		//this object is a child of the main health GUIText object, so access it as an array
 		HealthText2 = healthGuiObjInstance.GetComponentsInChildren<HealthText>();
-		
+
 		//initialize health amounts on GUIText objects and Bar
 		HealthText.healthGui = hitPoints;
 		HealthText2[1].healthGui = hitPoints;	
@@ -416,11 +416,11 @@ public class FPSPlayer : MonoBehaviour {
 
 		hpBar.fillAmount = hitPoints / 100;
 
-		
+
 		if(!showHealth){
 			healthGuiObjInstance.gameObject.SetActive(false);
 		}
-		
+
 		if(usePlayerHunger){
 			//create instance of GUIText to display hunger amount on hud
 			hungerGuiObjInstance = Instantiate(hungerGuiObj,Vector3.zero,transform.rotation) as GameObject;
@@ -429,13 +429,13 @@ public class FPSPlayer : MonoBehaviour {
 			//set reference for shadow background color element of hunger GUIText
 			//this object is a child of the main hunger GUIText object, so access it as an array
 			HungerText2 = hungerGuiObjInstance.GetComponentsInChildren<HungerText>();
-			
+
 			//initialize hunger amounts on GUIText objects
 			HungerText.hungerGui = hungerPoints;
 			HungerText2[1].hungerGui = hungerPoints;	
 			HungerGUIText = HungerText.GetComponent<GUIText>();
 		}
-		
+
 		if(usePlayerThirst){
 			//create instance of GUIText to display thirst amount on hud
 			thirstGuiObjInstance = Instantiate(thirstGuiObj,Vector3.zero,transform.rotation) as GameObject;
@@ -444,23 +444,29 @@ public class FPSPlayer : MonoBehaviour {
 			//set reference for shadow background color element of thirst GUIText
 			//this object is a child of the main thirst GUIText object, so access it as an array
 			ThirstText2 = thirstGuiObjInstance.GetComponentsInChildren<ThirstText>();
-			
+
 			//initialize thirst amounts on GUIText objects
 			ThirstText.thirstGui = thirstPoints;
 			ThirstText2[1].thirstGui = thirstPoints;
 			ThirstGUIText = ThirstText.GetComponent<GUIText>();	
 		}
-		
+
 	}
-	
+
+	public void UpdateHPBar()
+	{
+		hpBar.fillAmount = hitPoints / 100;
+	}
+
+
 	void LateUpdate () {
-	
+
 		if((MouseLookComponent.dzAiming || raycastCrosshair) 
-		//&& WeaponBehaviorComponent.recoveryTime + WeaponBehaviorComponent.recoveryTimeAmt + 0.1f < Time.time 
-		//&& !FPSWalkerComponent.sprintActive
-		/*&& !(FPSWalkerComponent.moving && FPSWalkerComponent.prone)*/){
+			//&& WeaponBehaviorComponent.recoveryTime + WeaponBehaviorComponent.recoveryTimeAmt + 0.1f < Time.time 
+			//&& !FPSWalkerComponent.sprintActive
+			/*&& !(FPSWalkerComponent.moving && FPSWalkerComponent.prone)*/){
 			if(!WeaponBehaviorComponent.unarmed
-			&& Physics.Raycast(mainCamTransform.position, WeaponBehaviorComponent.weaponLookDirection, out hit, 100.0f, rayMask)){
+				&& Physics.Raycast(mainCamTransform.position, WeaponBehaviorComponent.weaponLookDirection, out hit, 100.0f, rayMask)){
 				camCrosshairPos = Camera.main.WorldToScreenPoint(hit.point);
 				crosshairPos = new Vector3(camCrosshairPos.x / Screen.width, camCrosshairPos.y / Screen.height, 0.0f);
 			}else{
@@ -474,16 +480,16 @@ public class FPSPlayer : MonoBehaviour {
 		}else{
 			crosshairPos = new Vector3(0.5f, 0.5f, 0.0f);
 		}
-		
+
 		CrosshairGuiObjInstance.transform.position = Vector3.Lerp(CrosshairGuiObjInstance.transform.position, crosshairPos, (Time.smoothDeltaTime * 20.0f) * 4.0f);	
 		hitmarkerGuiObjInstance.transform.position = CrosshairGuiObjInstance.transform.position;	
 		hitmarkerColor.a = 0.2f;
 		hitmarkerGuiTexture.color = hitmarkerColor;		
-		
+
 	}
-	
+
 	void Update (){
-	
+
 		//detect if menu display button was pressed
 		if (InputComponent.menuPress){
 			if(!menuDisplayed){
@@ -504,7 +510,7 @@ public class FPSPlayer : MonoBehaviour {
 				Time.timeScale = menuTime;	
 			}
 		}
-		
+
 		if(InputComponent.pausePress && !menuDisplayed){
 			if(Time.timeScale > 0.0f){
 				Paused = true;
@@ -517,7 +523,7 @@ public class FPSPlayer : MonoBehaviour {
 				Time.timeScale = pauseTime;	
 			}
 		}
-			
+
 		if(allowBulletTime){//make bullet time an optional feature
 			if(InputComponent.bulletTimePress){//set bulletTimeActive to true or false based on button input
 				if(!bulletTimeActive){
@@ -528,10 +534,10 @@ public class FPSPlayer : MonoBehaviour {
 					bulletTimeActive = false;
 				}
 			}
-					
+
 			otherfx.pitch = Time.timeScale;//sync pitch of bullet time sound effects with Time.timescale
 			hitmarkfx.pitch = Time.timeScale;
-		
+
 			if(Time.timeScale > 0 && !restarting){//decrease or increase Time.timescale when bulletTimeActive is true
 				Time.fixedDeltaTime = initialFixedTime * Time.timeScale;
 				if(bulletTimeActive){
@@ -556,27 +562,27 @@ public class FPSPlayer : MonoBehaviour {
 				}
 			}
 		}
-		
+
 		//set zoom mode to toggle, hold, or both, based on inspector setting
 		switch (IronsightsComponent.zoomMode){
-			case Ironsights.zoomType.both:
-				zoomDelay = 0.4f;
+		case Ironsights.zoomType.both:
+			zoomDelay = 0.4f;
 			break;
-			case Ironsights.zoomType.hold:
-				zoomDelay = 0.0f;
+		case Ironsights.zoomType.hold:
+			zoomDelay = 0.0f;
 			break;
-			case Ironsights.zoomType.toggle:
-				zoomDelay = 999.0f;
+		case Ironsights.zoomType.toggle:
+			zoomDelay = 999.0f;
 			break;
 		}
-		
+
 		//regenerate player health if regenerateHealth var is true
 		if(regenerateHealth){
 			if(hitPoints < maxRegenHealth && timeLastDamaged + healthRegenDelay < Time.time){
 				HealPlayer(healthRegenRate * Time.deltaTime);	
 			}
 		}
-		
+
 		//apply player hunger if usePlayerHunger var is true
 		if(usePlayerHunger){
 			thirstGuiObjInstance.SetActive(true);
@@ -586,8 +592,8 @@ public class FPSPlayer : MonoBehaviour {
 			}
 			//calculate and apply starvation damage to player
 			if(hungerPoints == maxHungerPoints 
-			&& lastStarveTime + starveInterval < Time.time
-			&& hitPoints > 0.0f){
+				&& lastStarveTime + starveInterval < Time.time
+				&& hitPoints > 0.0f){
 				//use a negative heal amount to prevent unneeded damage effects of ApplyDamage function
 				HealPlayer(starveDmgAmt, true);//
 				//fade screen red when taking starvation damage
@@ -601,13 +607,13 @@ public class FPSPlayer : MonoBehaviour {
 				timeLastDamaged = Time.time;
 				lastStarveTime = Time.time;
 			}
-			
+
 		}else{
 			if(thirstGuiObjInstance){
 				thirstGuiObjInstance.SetActive(false);
 			}
 		}
-		
+
 		//apply player thirst if usePlayerThirst var is true
 		if(usePlayerThirst){
 			hungerGuiObjInstance.SetActive(true);
@@ -617,8 +623,8 @@ public class FPSPlayer : MonoBehaviour {
 			}
 			//calculate and apply starvation damage to player
 			if(thirstPoints == maxThirstPoints 
-			&& lastThirstDmgTime + thirstDmgInterval < Time.time
-			&& hitPoints > 0.0f){
+				&& lastThirstDmgTime + thirstDmgInterval < Time.time
+				&& hitPoints > 0.0f){
 				//use a negative heal amount to prevent unneeded damage effects of ApplyDamage function
 				HealPlayer(thirstDmgAmt, true);
 				//fade screen red when taking starvation damage
@@ -632,22 +638,22 @@ public class FPSPlayer : MonoBehaviour {
 				timeLastDamaged = Time.time;
 				lastThirstDmgTime = Time.time;
 			}
-			
+
 		}else{
 			if(hungerGuiObjInstance){
 				hungerGuiObjInstance.SetActive(false);
 			}
 		}
-		
+
 		WeaponBehavior WeaponBehaviorComponent = PlayerWeaponsComponent.CurrentWeaponBehaviorComponent;	
-		
+
 		//toggle or hold zooming state by determining if zoom button is pressed or held
 		if(InputComponent.zoomHold
-		&& WeaponBehaviorComponent.canZoom 
-		&& !blockState
-		&& !IronsightsComponent.reloading
-		&& !FPSWalkerComponent.proneMove//no zooming while crawling
-		&& !FPSWalkerComponent.hideWeapon){
+			&& WeaponBehaviorComponent.canZoom 
+			&& !blockState
+			&& !IronsightsComponent.reloading
+			&& !FPSWalkerComponent.proneMove//no zooming while crawling
+			&& !FPSWalkerComponent.hideWeapon){
 			if(!zoomStartState){
 				zoomStart = Time.time;//track time that zoom button was pressed
 				zoomStartState = true;//perform these actions only once
@@ -671,14 +677,14 @@ public class FPSPlayer : MonoBehaviour {
 				}
 			}
 		}
-		
+
 		//cancel zooming while crawling
 		if(FPSWalkerComponent.proneMove){
 			zoomEndState = true;
 			zoomStartState = false;
 			zoomed = false;	
 		}
-		
+
 		//track when player stopped zooming to allow for delay of reticle becoming visible again
 		if (zoomed){
 			zoomBtnState = false;//only perform this action once per button press
@@ -688,7 +694,7 @@ public class FPSPlayer : MonoBehaviour {
 				zoomBtnState = true;
 			}
 		}
-		
+
 		//scale crosshair size with screen size by crosshairSize value
 		if(oldWidth != Screen.width || crossRect.width != Screen.width * crosshairSize){
 			crossRect.width = Screen.width * crosshairSize;
@@ -699,12 +705,12 @@ public class FPSPlayer : MonoBehaviour {
 			hitmarkerGuiTexture.pixelInset = crossRect;
 			oldWidth = Screen.width;
 		}
-		
+
 		UpdateHitmarker();
-		
+
 		//enable and disable crosshair based on various states like reloading and zooming
 		if((IronsightsComponent.reloading || (zoomed && (!dzAiming || WeaponBehaviorComponent.zoomIsBlock) && !WeaponBehaviorComponent.showZoomedCrosshair)) 
-		&& !CameraControlComponent.thirdPersonActive){
+			&& !CameraControlComponent.thirdPersonActive){
 			//don't disable reticle if player is using a melee weapon or if player is unarmed
 			if((WeaponBehaviorComponent.meleeSwingDelay == 0 || WeaponBehaviorComponent.zoomIsBlock) && !WeaponBehaviorComponent.unarmed){
 				if(crosshairVisibleState){
@@ -720,7 +726,7 @@ public class FPSPlayer : MonoBehaviour {
 			//for magazine reloads.
 			if((WeaponBehaviorComponent.bulletsPerClip != WeaponBehaviorComponent.bulletsToReload 
 				&& WeaponBehaviorComponent.reloadLastStartTime + WeaponBehaviorComponent.reloadLastTime < Time.time)
-			|| WeaponBehaviorComponent.bulletsPerClip == WeaponBehaviorComponent.bulletsToReload){
+				|| WeaponBehaviorComponent.bulletsPerClip == WeaponBehaviorComponent.bulletsToReload){
 				//allow a delay before enabling crosshair again to let the gun return to neutral position
 				//by checking the zoomStopTime value
 				if(zoomStopTime + 0.2f < Time.time){
@@ -731,7 +737,7 @@ public class FPSPlayer : MonoBehaviour {
 				}
 			}
 		}
-		
+
 		if(crosshairEnabled){
 			if(WeaponBehaviorComponent.showAimingCrosshair){
 				if(!WeaponPivotComponent.deadzoneZooming){
@@ -766,11 +772,11 @@ public class FPSPlayer : MonoBehaviour {
 			reticleColor.a = 0.0f;
 			CrosshairGuiTexture.color = reticleColor;
 		}
-				
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//Pick up or activate items	
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		if(InputComponent.useHold){
 			if(!useState){
 				usePressTime = Time.time;
@@ -784,29 +790,29 @@ public class FPSPlayer : MonoBehaviour {
 			}
 			pressButtonUpState = false;
 		}
-			
+
 		if(!IronsightsComponent.reloading//no item pickup when reloading
-		&& !WeaponBehaviorComponent.lastReload//no item pickup when when reloading last round in non magazine reload
-		&& !PlayerWeaponsComponent.switching//no item pickup when switching weapons
-		&& !FPSWalkerComponent.holdingObject//don't pick up objects if player is dragging them
-		&& (!FPSWalkerComponent.canRun || FPSWalkerComponent.inputY == 0)//no item pickup when sprinting
+			&& !WeaponBehaviorComponent.lastReload//no item pickup when when reloading last round in non magazine reload
+			&& !PlayerWeaponsComponent.switching//no item pickup when switching weapons
+			&& !FPSWalkerComponent.holdingObject//don't pick up objects if player is dragging them
+			&& (!FPSWalkerComponent.canRun || FPSWalkerComponent.inputY == 0)//no item pickup when sprinting
 			//there is a small delay between the end of canRun and the start of sprintSwitching (in PlayerWeapons script),
 			//so track actual time that sprinting stopped to avoid the small time gap where the pickup hand shows briefly
-		&& ((FPSWalkerComponent.sprintStopTime + 0.4f) < Time.time)){
+			&& ((FPSWalkerComponent.sprintStopTime + 0.4f) < Time.time)){
 			//raycast a line from the main camera's origin using a point extended forward from camera position/origin as a target to get the direction of the raycast
 			//and scale the distance of the raycast based on the playerHeightMod value in the FPSRigidbodyWalker script 
 			if((!CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position, 
-                                                   WeaponBehaviorComponent.weaponLookDirection, 
-												   out hit, 
-												   reachDistance + FPSWalkerComponent.playerHeightMod, 
-												   rayMask))
-			//thirdperson item detection for use button and crosshair
-			||(CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position + mainCamTransform.forward * (CameraControlComponent.zoomDistance + CameraControlComponent.currentDistance + 0.5f), 
-												 mainCamTransform.forward, out hit, 
-												 reachDistance + FPSWalkerComponent.playerHeightMod, 
-												 rayMask))
+				WeaponBehaviorComponent.weaponLookDirection, 
+				out hit, 
+				reachDistance + FPSWalkerComponent.playerHeightMod, 
+				rayMask))
+				//thirdperson item detection for use button and crosshair
+				||(CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position + mainCamTransform.forward * (CameraControlComponent.zoomDistance + CameraControlComponent.currentDistance + 0.5f), 
+					mainCamTransform.forward, out hit, 
+					reachDistance + FPSWalkerComponent.playerHeightMod, 
+					rayMask))
 			){
-				
+
 				//Detect if player can backstab NPCs
 				if(WeaponBehaviorComponent.meleeSwingDelay > 0 && hit.collider.gameObject.layer == 13){
 					if(hit.collider.gameObject.GetComponent<AI>() || hit.collider.gameObject.GetComponent<LocationDamage>()){
@@ -826,9 +832,9 @@ public class FPSPlayer : MonoBehaviour {
 				}else{
 					canBackstab = false; 
 				}
-				
+
 				if(hit.collider.gameObject.tag == "Usable"){//if the object hit by the raycast is a pickup item and has the "Usable" tag
-					
+
 					if (pickUpBtnState && usePressTime - useReleaseTime < 0.4f && usePressTime + 0.4f > Time.time && objToPickup == hit.collider){
 						//run the PickUpItem function in the pickup object's script
 						hit.collider.SendMessageUpwards("PickUpItem", transform.gameObject, SendMessageOptions.DontRequireReceiver);
@@ -839,24 +845,24 @@ public class FPSPlayer : MonoBehaviour {
 						usePressTime = -8f;
 						objToPickup = null;
 					}
-					
+
 					//determine if pickup item is using a custom pickup reticle and if so set pickupTex to custom reticle
 					if(pickUpBtnState){//check pickUpBtnState to prevent reticle from briefly showing custom/general pickup icon briefly when picking up last weapon before maxWeapons are obtained
-						
+
 						//determine if item under reticle is a weapon pickup
 						if(hit.collider.gameObject.GetComponent<WeaponPickup>()){
 							//set up external script references
 							WeaponBehavior PickupWeaponBehaviorComponent = PlayerWeaponsComponent.weaponOrder[hit.collider.gameObject.GetComponent<WeaponPickup>().weaponNumber].GetComponent<WeaponBehavior>();
 							WeaponPickup WeaponPickupComponent = hit.collider.gameObject.GetComponent<WeaponPickup>();
-							
+
 							if(PlayerWeaponsComponent.totalWeapons == PlayerWeaponsComponent.maxWeapons//player has maximum weapons
-							&& PickupWeaponBehaviorComponent.addsToTotalWeaps){//weapon adds to total inventory
-								
+								&& PickupWeaponBehaviorComponent.addsToTotalWeaps){//weapon adds to total inventory
+
 								//player does not have weapon under reticle
 								if(!PickupWeaponBehaviorComponent.haveWeapon
-								//and weapon under reticle hasn't been picked up from an item with removeOnUse set to false
-								&& !PickupWeaponBehaviorComponent.dropWillDupe){	
-									
+									//and weapon under reticle hasn't been picked up from an item with removeOnUse set to false
+									&& !PickupWeaponBehaviorComponent.dropWillDupe){	
+
 									if(!useSwapReticle){//if useSwapReticle is true, display swap reticle when item under reticle will replace current weapon
 										if(WeaponPickupComponent.weaponPickupReticle){
 											//display custom weapon pickup reticle if the weapon item has one defined
@@ -869,16 +875,16 @@ public class FPSPlayer : MonoBehaviour {
 										//display weapon swap reticle if player has max weapons and can swap held weapon for pickup under reticle
 										pickupTex = swapReticle;
 									}
-									
+
 								}else{
-									
+
 									//weapon under reticle is not removed on use and is in player's inventory, so show cantPickup reticle
 									if(!WeaponPickupComponent.removeOnUse){
-										
+
 										pickupTex = noPickupReticle;
-										
+
 									}else{//weapon is removed on use, so show standard or custom pickup reticle
-										
+
 										if(WeaponPickupComponent.weaponPickupReticle){
 											//display custom weapon pickup reticle if the weapon item has one defined
 											pickupTex = WeaponPickupComponent.weaponPickupReticle;	
@@ -886,16 +892,16 @@ public class FPSPlayer : MonoBehaviour {
 											//weapon has no custom pickup reticle, just show general pickup reticle 
 											pickupTex = pickupReticle;
 										}
-										
+
 									}
-									
+
 								}
 							}else{//total weapons not at maximum and weapon under reticle does not add to inventory
-								
+
 								if(!PickupWeaponBehaviorComponent.haveWeapon
-								&& !PickupWeaponBehaviorComponent.dropWillDupe
-								|| WeaponPickupComponent.removeOnUse){
-									
+									&& !PickupWeaponBehaviorComponent.dropWillDupe
+									|| WeaponPickupComponent.removeOnUse){
+
 									if(WeaponPickupComponent.weaponPickupReticle){
 										//display custom weapon pickup reticle if the weapon item has one defined
 										pickupTex = WeaponPickupComponent.weaponPickupReticle;	
@@ -903,27 +909,27 @@ public class FPSPlayer : MonoBehaviour {
 										//weapon has no custom pickup reticle, just show general pickup reticle 
 										pickupTex = pickupReticle;
 									}
-									
+
 								}else{
 									pickupTex = noPickupReticle;
 								}
-								
+
 							}
-						//determine if item under reticle is a health pickup	
+							//determine if item under reticle is a health pickup	
 						}else if(hit.collider.gameObject.GetComponent<HealthPickup>()){
 							//set up external script references
 							HealthPickup HealthPickupComponent = hit.collider.gameObject.GetComponent<HealthPickup>();
-							
+
 							if(HealthPickupComponent.healthPickupReticle){
 								pickupTex = HealthPickupComponent.healthPickupReticle;	
 							}else{
 								pickupTex = pickupReticle;
 							}
-						//determine if item under reticle is an ammo pickup
+							//determine if item under reticle is an ammo pickup
 						}else if(hit.collider.gameObject.GetComponent<AmmoPickup>()){
 							//set up external script references
 							AmmoPickup AmmoPickupComponent = hit.collider.gameObject.GetComponent<AmmoPickup>();
-							
+
 							if(AmmoPickupComponent.ammoPickupReticle){
 								pickupTex = AmmoPickupComponent.ammoPickupReticle;	
 							}else{
@@ -933,14 +939,14 @@ public class FPSPlayer : MonoBehaviour {
 							pickupTex = pickupReticle;
 						}
 					}
-					
+
 					UpdateReticle(false);//show pickupReticle if raycast hits a pickup item
 
 				}else{
 					objToPickup = null;//cancel use press if player moves away
 					if(hit.collider.gameObject.layer == 13){//switch to pickup reticle if this NPC can be interacted with
 						if(hit.collider.gameObject.GetComponent<AI>() 
-						|| hit.collider.gameObject.GetComponent<LocationDamage>()){
+							|| hit.collider.gameObject.GetComponent<LocationDamage>()){
 							if(hit.collider.gameObject.GetComponent<AI>()){
 								AIComponent = hit.collider.gameObject.GetComponent<AI>();
 							}else{
@@ -975,8 +981,8 @@ public class FPSPlayer : MonoBehaviour {
 				}
 				//Command NPCs to move to location under crosshair
 				if(moveCommandedTime + 0.5f < Time.time && 
-				((!CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position, WeaponBehaviorComponent.weaponLookDirection, out hit2, 500f, rayMask))
-				||(CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position, mainCamTransform.forward, out hit2, 500f, rayMask)))){
+					((!CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position, WeaponBehaviorComponent.weaponLookDirection, out hit2, 500f, rayMask))
+						||(CameraControlComponent.thirdPersonActive && Physics.Raycast(mainCamTransform.position, mainCamTransform.forward, out hit2, 500f, rayMask)))){
 					if(hit2.collider.gameObject.layer == 10 || hit2.collider.gameObject.layer == 0){
 						if (pickUpBtnState && InputComponent.useHold){
 							NPCRegistryComponent.MoveFolowingNpcs(hit2.point);
@@ -992,22 +998,22 @@ public class FPSPlayer : MonoBehaviour {
 				UpdateReticle(true);//show aiming reticle crosshair if reloading, switching weapons, or sprinting
 			}
 		}
-		
+
 		//only register one press of E key to make player have to press button again to pickup items instead of holding E
 		if (InputComponent.useHold){
 			pickUpBtnState = false;
 		}else{
 			pickUpBtnState = true;	
 		}
-	
+
 	}
-	
-//	void OnDrawGizmos() {
-		//draw red dot at crosshair raycast position
-//		Gizmos.color = Color.red;
-//		Gizmos.DrawSphere(hit2.point, 0.2f);
-//	}
-	
+
+	//	void OnDrawGizmos() {
+	//draw red dot at crosshair raycast position
+	//		Gizmos.color = Color.red;
+	//		Gizmos.DrawSphere(hit2.point, 0.2f);
+	//	}
+
 	//set reticle type based on the boolean value passed to this function
 	public void UpdateReticle( bool reticleType ){
 		if(!reticleType){
@@ -1020,7 +1026,7 @@ public class FPSPlayer : MonoBehaviour {
 			crosshairTextureState = false;	
 		}
 	}
-	
+
 	void UpdateHitmarker(){
 		if(hitTime + 0.3f > Time.time){
 			if(!hitMarkerState){
@@ -1038,12 +1044,12 @@ public class FPSPlayer : MonoBehaviour {
 			hitmarkerGuiTexture.enabled = false;
 		}
 	}
-	
+
 	public void UpdateHitTime(){
 		hitTime = Time.time;//used for hitmarker
 		hitMarkerState = false;	
 	}
-	
+
 	//Activate bullet time for a specific duration
 	public IEnumerator ActivateBulletTime (float duration){
 		if(!bulletTimeActive){
@@ -1060,18 +1066,18 @@ public class FPSPlayer : MonoBehaviour {
 			yield return new WaitForSeconds(0.1f);
 		}	
 	}
-	
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Update player attributes
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+
 	//add hitpoints to player health
 	public void HealPlayer( float healAmt, bool isHungryThirsty = false ){
-			
+
 		if (hitPoints < 1.0f){//Don't add health if player is dead
 			return;
 		}
-		
+
 		//Apply healing
 		if(hitPoints + healAmt > maximumHitPoints){ 
 			hitPoints = maximumHitPoints;
@@ -1089,11 +1095,11 @@ public class FPSPlayer : MonoBehaviour {
 				hpBar.fillAmount = hitPoints / 100;
 			}
 		}
-			
+
 		//set health hud value to hitpoints remaining
 		HealthText.healthGui = Mathf.Round(hitPoints);
 		HealthText2[1].healthGui = Mathf.Round(hitPoints);
-			
+
 		//change color of hud health element based on hitpoints remaining
 		if (hitPoints <= 25.0f){
 			healthGuiText.material.color = Color.red;
@@ -1104,98 +1110,98 @@ public class FPSPlayer : MonoBehaviour {
 		}
 
 	}
-	
+
 	//update the hunger amount for the player
 	public void UpdateHunger( float hungerAmt ){
-		
+
 		if (hitPoints < 1.0f){//Don't add hunger if player is dead
 			return;
 		}
-		
+
 		//Apply hungerAmt
 		if(hungerPoints + hungerAmt > maxHungerPoints){ 
 			hungerPoints = maxHungerPoints;
 		}else{
 			hungerPoints += hungerAmt;
 		}
-		
+
 		hungerPoints = Mathf.Clamp(hungerPoints, 0.0f, hungerPoints);
-			
+
 		//set hunger hud value to hunger points remaining
 		HungerText.hungerGui = Mathf.Round(hungerPoints);
 		HungerText2[1].hungerGui = Mathf.Round(hungerPoints);
-			
+
 		//change color of hud hunger element based on hunger points
 		if (hungerPoints <= 65.0f){
 			HungerGUIText.material.color = HungerText.textColor;
 		}else if (hungerPoints <= 85.0f){
-				HungerGUIText.material.color = Color.yellow;	
+			HungerGUIText.material.color = Color.yellow;	
 		}else{
 			HungerGUIText.material.color = Color.red;	
 		}
-		
+
 		lastHungerTime = Time.time;	
 	}
-	
+
 	//update the thirst amount for the player
 	public void UpdateThirst( float thirstAmt ){
-		
+
 		if (hitPoints < 1.0f){//Don't add thirst if player is dead
 			return;
 		}
-		
+
 		//Apply thirstAmt
 		if(thirstPoints + thirstAmt > maxThirstPoints){ 
 			thirstPoints = maxThirstPoints;
 		}else{
 			thirstPoints += thirstAmt;
 		}
-		
+
 		thirstPoints = Mathf.Clamp(thirstPoints, 0.0f, thirstPoints);
-			
+
 		//set thirst hud value to thirst points remaining
 		ThirstText.thirstGui = Mathf.Round(thirstPoints);
 		ThirstText2[1].thirstGui = Mathf.Round(thirstPoints);
-			
+
 		//change color of hud thirst element based on thirst points
 		if (thirstPoints <= 65.0f){
 			ThirstGUIText.material.color = ThirstText.textColor;
 		}else if (thirstPoints <= 85.0f){
-				ThirstGUIText.material.color = Color.yellow;	
+			ThirstGUIText.material.color = Color.yellow;	
 		}else{
 			ThirstGUIText.material.color = Color.red;	
 		}
-		
+
 		lastThirstTime = Time.time;
 	}
-	
+
 	//remove hitpoints from player health
 	public void ApplyDamage ( float damage, Transform attacker = null, bool isMeleeAttack = false){
 
 		float appliedPainKickAmt;
-			
+
 		if (hitPoints < 1.0f){//Don't apply damage if player is dead
 			if(!showHpUnderZero){hitPoints = 0.0f;}
 			return;
 		}
-		
+
 		//detect if attacker is inside player block zone
 		if(attacker != null 
-		&& WeaponBehaviorComponent.zoomIsBlock 
-		&& WeaponBehaviorComponent.blockDefenseAmt > 0f
-		&& zoomed
-		&& ((WeaponBehaviorComponent.onlyBlockMelee && isMeleeAttack) || !WeaponBehaviorComponent.onlyBlockMelee)
-		&& WeaponBehaviorComponent.shootStartTime + WeaponBehaviorComponent.fireRate < Time.time){
-		
+			&& WeaponBehaviorComponent.zoomIsBlock 
+			&& WeaponBehaviorComponent.blockDefenseAmt > 0f
+			&& zoomed
+			&& ((WeaponBehaviorComponent.onlyBlockMelee && isMeleeAttack) || !WeaponBehaviorComponent.onlyBlockMelee)
+			&& WeaponBehaviorComponent.shootStartTime + WeaponBehaviorComponent.fireRate < Time.time){
+
 			Vector3 toTarget = (attacker.position - transform.position).normalized;
 			blockAngle = Vector3.Dot(toTarget, transform.forward);
-			
+
 			if(Vector3.Dot(toTarget, transform.forward) > WeaponBehaviorComponent.blockCoverage){
-			
+
 				damage *= 1f - WeaponBehaviorComponent.blockDefenseAmt;
 				otherfx.clip = WeaponBehaviorComponent.blockSound;
 				otherfx.PlayOneShot(otherfx.clip, 1.0f);
-				
+
 				if(blockParticles){
 					blockParticles.transform.position = Camera.main.transform.position + Camera.main.transform.forward * (blockParticlesPos + CameraControlComponent.zoomDistance + CameraControlComponent.currentDistance);
 					if(blockParticles.GetComponent<ParticleEmitter>()){blockParticles.GetComponent<ParticleEmitter>().Emit();}
@@ -1206,22 +1212,22 @@ public class FPSPlayer : MonoBehaviour {
 				blockState = true;
 			}
 		}
-		
+
 		timeLastDamaged = Time.time;
 
-	    Quaternion painKickRotation;//Set up rotation for pain view kicks
-	    int painKickUpAmt = 0;
-	    int painKickSideAmt = 0;
-		
+		Quaternion painKickRotation;//Set up rotation for pain view kicks
+		int painKickUpAmt = 0;
+		int painKickSideAmt = 0;
+
 		if(!invulnerable){
 			hitPoints -= damage;//Apply damage
 			hpBar.fillAmount = hitPoints/100;
 		}
-	
+
 		//set health hud value to hitpoints remaining
 		HealthText.healthGui = Mathf.Round(hitPoints);
 		HealthText2[1].healthGui = Mathf.Round(hitPoints);
-			
+
 		//change color of hud health element based on hitpoints remaining
 		if (hitPoints <= 25.0f){
 			healthGuiText.material.color = Color.red;
@@ -1230,14 +1236,14 @@ public class FPSPlayer : MonoBehaviour {
 		}else{
 			healthGuiText.material.color = HealthText.textColor;	
 		}
-		
+
 		if(!blockState){
 			GameObject pf = Instantiate(painFadeObj) as GameObject;//Create instance of painFadeObj
 			painFadeColor = PainColor;
 			painFadeColor.a = (damage / 5.0f);//fade pain overlay based on damage amount
 			pf.GetComponent<PainFade>().FadeIn(painFadeColor, painTexture, 0.75f);//Call FadeIn function in painFadeObj to fade screen red when damage taken
 		}
-			
+
 		if(!FPSWalkerComponent.holdingBreath){
 			//Play pain sound when getting hit
 			if(!blockState){//don't play hit sound if blocking attack
@@ -1263,62 +1269,62 @@ public class FPSPlayer : MonoBehaviour {
 				gotHitTimer = Time.time + Random.Range(.5f, .75f);
 			}	
 		}
-		
+
 		if(!CameraControlComponent.thirdPersonActive){
 			painKickUpAmt = Random.Range(100, -100);//Choose a random view kick up amount
 			if(painKickUpAmt < 50 && painKickUpAmt > 0){painKickUpAmt = 50;}//Maintain some randomness of the values, but don't make it too small
 			if(painKickUpAmt < 0 && painKickUpAmt > -50){painKickUpAmt = -50;}
-			
+
 			painKickSideAmt = Random.Range(100, -100);//Choose a random view kick side amount
 			if(painKickSideAmt < 50 && painKickSideAmt > 0){painKickSideAmt = 50;}
 			if(painKickSideAmt < 0 && painKickSideAmt > -50){painKickSideAmt = -50;}
-			
+
 			//create a rotation quaternion with random pain kick values
 			painKickRotation = Quaternion.Euler(mainCamTransform.localRotation.eulerAngles - new Vector3(painKickUpAmt, painKickSideAmt, 0));
-			
+
 			//make screen kick amount based on the damage amount recieved
 			if(zoomed && !WeaponBehaviorComponent.zoomIsBlock){
 				appliedPainKickAmt = (damage / (painScreenKickAmt * 10)) / 3;	
 			}else{
 				appliedPainKickAmt = (damage / (painScreenKickAmt * 10));			
 			}
-			
+
 			if(blockState){
 				appliedPainKickAmt = 0.025f;
 			}
-			
+
 			//make sure screen kick is not so large that view rotates past arm models 
 			appliedPainKickAmt = Mathf.Clamp(appliedPainKickAmt, 0.0f, 0.15f); 
-			
+
 			//smooth current camera angles to pain kick angles using Slerp
 			mainCamTransform.localRotation = Quaternion.Slerp(mainCamTransform.localRotation, painKickRotation, appliedPainKickAmt );
 		}
-		
+
 		if(WeaponBehaviorComponent.zoomIsBlock){
 			if(!WeaponBehaviorComponent.hitCancelsBlock){
 				blockState = false;
 			}else{
-			 	zoomed = false;
+				zoomed = false;
 			}
 		}
-	
+
 		//Call Die function if player's hitpoints have been depleted
 		if (hitPoints < 1.0f){
 			pauseManager.ActivateDeathCanvas ();
-//			if (pauseManager.adWatched == false) {
-//				SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
-//			} else {
-//				pauseManager.adWatched = false;
-//				HealPlayer (maximumHitPoints);
-//				pauseManager.DeactivateDeathCanvas ();
-//			}
+			//			if (pauseManager.adWatched == false) {
+			//				SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
+			//			} else {
+			//				pauseManager.adWatched = false;
+			//				HealPlayer (maximumHitPoints);
+			//				pauseManager.DeactivateDeathCanvas ();
+			//			}
 
 		}
 	}
 
 	void Die () {
 		bulletTimeActive = false;//set bulletTimeActive to false so fadeout wont take longer if bullet time is active
-		
+
 		if(!FPSWalkerComponent.drowning){
 			//play normal player death sound effect if the player is on land 
 			otherfx.clip = die;
@@ -1329,7 +1335,7 @@ public class FPSPlayer : MonoBehaviour {
 			otherfx.clip = dieDrown;
 			otherfx.PlayOneShot(otherfx.clip, 1.0f);
 		}
-		
+
 		//disable player control and sprinting on death
 		FPSWalkerComponent.inputX = 0;
 		FPSWalkerComponent.inputY = 0;
@@ -1339,9 +1345,9 @@ public class FPSPlayer : MonoBehaviour {
 		//call FadeAndLoadLevel function with fadein argument set to false 
 		//in levelLoadFadeObj to restart level and fade screen out from black on level load
 		llf.GetComponent<LevelLoadFade>().FadeAndLoadLevel(Color.black, 2.0f, false);
-		
+
 	}
-	
+
 	public void RestartMap () {
 		Time.timeScale = 1.0f;//set timescale to 1.0f so fadeout wont take longer if bullet time is active
 		GameObject llf = Instantiate(levelLoadFadeObj) as GameObject;//Create instance of levelLoadFadeObj

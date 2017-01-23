@@ -15,14 +15,13 @@ public class PauseManager : MonoBehaviour {
 
 	public GameObject pauseCanvasObj;
 	public GameObject deathCanvasObj;
+	public GameObject ammoCanvasObj;
 
 	public Animator anim;
 
 	public FPSPlayer fpsPlayer_ref;
 
 	public DataComps dataComps_ref;
-
-	public bool adWatched = false;
 
 	[Header("Level Select scene name")]
 	public string levelSelectSceneName = "LevelSelect";
@@ -64,15 +63,14 @@ public class PauseManager : MonoBehaviour {
 
 	}
 
-	public void viewedAd(){
-		adWatched = true;
-	}
 
+	// ------------------- Activate and Deactivate the Death Canvas
+
+	// <-Called by DataComps
 	public void ActivateDeathCanvas () 
 	{
 
 		deathCanvasObj.SetActive (true);
-		print ("Activate PauseMenu");
 		// activate the animator trigger...
 		Time.timeScale = 0;
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
@@ -87,7 +85,49 @@ public class PauseManager : MonoBehaviour {
 	public void DeactivateDeathCanvas ()
 	{
 		deathCanvasObj.SetActive (false);
-		print ("Deactivate PauseMenu");
+		Time.timeScale = 1;
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive (true);
+
+		}
+
+	}
+
+	// ------------------- Activate and Deactivate the Ammo Canvas
+
+	// <-Called by DataComps
+	public void ActivateAmmoCanvas () 
+	{
+
+		ammoCanvasObj.SetActive (true);
+		// activate the animator trigger...
+		Time.timeScale = 0;
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive(false);
+
+		}
+
+
+	}
+	[Inspector]
+	public void DeactivateAmmoCanvas ()
+	{
+		ammoCanvasObj.SetActive (false);
+		Time.timeScale = 1;
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive (true);
+
+		}
+
+	}
+	[Inspector]
+	public void DeactivateAmmoCanvasNOAD ()
+	{
+		PlayerWeapons.WatchedAdAmmo = true;
+		ammoCanvasObj.SetActive (false);
 		Time.timeScale = 1;
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
 		{
@@ -103,8 +143,6 @@ public class PauseManager : MonoBehaviour {
 	{
 		Time.timeScale = 1.0f;
 		fpsPlayer_ref.RestartMap ();
-
-
 	}
 
 	public void LevelSelectButton ()
@@ -149,7 +187,7 @@ public class PauseManager : MonoBehaviour {
 
 		if (!fpsPlayer_ref)
 			fpsPlayer_ref = dataComps_ref.fpsPlayer_ref;
-				
+
 		if (pauseCanvasObj.activeSelf)
 			pauseCanvasObj.SetActive (false);
 

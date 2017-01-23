@@ -1039,7 +1039,7 @@ public class WeaponBehavior : MonoBehaviour {
 	}
 	
 	void Update (){
-
+		UpdateBulletsUITexts ();
 		if(Time.timeScale > 0 && Time.deltaTime > 0){//allow pausing by setting timescale to 0
 			
 			horizontal = FPSWalkerComponent.inputX;//Get input from player movement script

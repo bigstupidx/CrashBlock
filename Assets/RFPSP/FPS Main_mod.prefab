@@ -6180,10 +6180,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137490}
-  m_LocalRotation: {x: 0, y: 0.9842622, z: 0, w: 0.17671417}
-  m_LocalPosition: {x: 68.02, y: 0.77, z: -36.23}
+  m_LocalRotation: {x: -0, y: 0.86737084, z: -0, w: 0.49766234}
+  m_LocalPosition: {x: -211.24, y: 6.15, z: 70.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 159.6431, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 120.338005, z: 0}
   m_Children:
   - {fileID: 434878}
   - {fileID: 400014}
@@ -12174,7 +12174,7 @@ MonoBehaviour:
   ammo: 12
   bulletsLeft: 12
   bulletsPerClip: 12
-  bulletsToReload: 10
+  bulletsToReload: 12
   maxAmmo: 999
   damage: 75
   force: 200
@@ -14375,6 +14375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7bad190623e2b4eac08abd47222c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseManager: {fileID: 0}
   playerObj: {fileID: 160974}
   cameraObj: {fileID: 148866}
   FPSPlayerComponent: {fileID: 0}
