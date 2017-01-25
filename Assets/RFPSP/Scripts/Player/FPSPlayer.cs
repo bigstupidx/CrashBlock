@@ -106,6 +106,10 @@ public class FPSPlayer : MonoBehaviour {
 	public float hitPoints = 100.0f;
 	public float maximumHitPoints = 200.0f;
 	public Image hpBar;
+	private SpriteBounce heartSpriteBounce_ref;
+	private float minScaleSprite;
+	private float maxScaleSprite;
+	private float animTimeSprite;
 
 	[Tooltip("True if player's health should be displayed on the screen.")]
 	public bool showHealth = true;
@@ -414,8 +418,16 @@ public class FPSPlayer : MonoBehaviour {
 		HealthText2[1].healthGui = hitPoints;	
 		healthGuiText = HealthText.GetComponent<GUIText>();
 
+		// heart UI section
+		//
 		hpBar.fillAmount = hitPoints / 100;
 
+		heartSpriteBounce_ref = dataComps.heartSpriteBounce_ref;
+		maxScaleSprite = heartSpriteBounce_ref.maxScale;
+		minScaleSprite = heartSpriteBounce_ref.minScale;
+		animTimeSprite = heartSpriteBounce_ref.animTime;
+		//
+		//	// heart UI section
 
 		if(!showHealth){
 			healthGuiObjInstance.gameObject.SetActive(false);
@@ -489,6 +501,8 @@ public class FPSPlayer : MonoBehaviour {
 	}
 
 	void Update (){
+
+		UpdateHeartBeatRate ();
 
 		//detect if menu display button was pressed
 		if (InputComponent.menuPress){
@@ -1372,5 +1386,58 @@ public class FPSPlayer : MonoBehaviour {
 		hpBar = dataComps.hpBar;
 
 	}
+
+	// updates the  UI heart beat rate
+	void UpdateHeartBeatRate ()
+	{
+		// Critical hp
+		if (hitPoints<= 15.0f)
+		{
+			heartSpriteBounce_ref.maxScale = 1.5f;
+			heartSpriteBounce_ref.minScale = 0.75f;
+			heartSpriteBounce_ref.animTime = 0.5f;
+			return;
+		}
+
+			// less than 75%
+		if (hitPoints <= 25.0f && hitPoints > 15.0f) 
+		{
+			heartSpriteBounce_ref.maxScale = 1.3f;
+			heartSpriteBounce_ref.minScale = 0.8f;
+			heartSpriteBounce_ref.animTime = 0.8f;
+			return;
+		}
+
+			// less than 50%
+		if (hitPoints <= 50.0f && hitPoints > .0f) 
+		{
+			heartSpriteBounce_ref.maxScale = 1.25f;
+			heartSpriteBounce_ref.minScale = 0.85f;
+			heartSpriteBounce_ref.animTime = 0.9f;
+			return;
+		}
+
+			// less than 75%
+		if (hitPoints < 25.0f && hitPoints > 15.0f) 
+		{
+			heartSpriteBounce_ref.maxScale = 1.2f;
+			heartSpriteBounce_ref.minScale = 0.8f;
+			heartSpriteBounce_ref.animTime = 1.0f;
+			return;
+		}
+
+			// normal
+		if (hitPoints > 75.0f) 
+		{
+			heartSpriteBounce_ref.maxScale = maxScaleSprite;
+			heartSpriteBounce_ref.minScale = minScaleSprite;
+			heartSpriteBounce_ref.animTime = animTimeSprite;
+
+			return;
+		}
+
+
+	}
+
 
 }

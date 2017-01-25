@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using EasyEditor;
 
 public class SaveData : MonoBehaviour {
 
@@ -67,13 +68,15 @@ public class SaveData : MonoBehaviour {
 		{
 			wepSlot4 = true;
 
-			// enable slot 4
-			dataComps.WeaponSlotsObj[3].SetActive(true);
-			// disable Slot 4 Reward backpack icon
-			dataComps.WeaponSlotsObj[5].SetActive(false);
+			if (dataComps) {
+				// enable slot 4
+				dataComps.WeaponSlotsObj [3].SetActive (true);
+				// disable Slot 4 Reward backpack icon
+				dataComps.WeaponSlotsObj [5].SetActive (false);
 
-			// enable Slot 5 Rewards backpack icon
-			dataComps.WeaponSlotsObj[6].SetActive(true);
+				// enable Slot 5 Rewards backpack icon
+				dataComps.WeaponSlotsObj [6].SetActive (true);
+			}
 
 
 		}
@@ -98,6 +101,8 @@ public class SaveData : MonoBehaviour {
 
 				// turn on the slot
 				dataComps.WeaponSlotsObj[3].SetActive(true);
+				// disable Slot 4 Reward backpack icon
+				dataComps.WeaponSlotsObj[5].SetActive(false);
 				// enable Slot 5 Rewards backpack icon
 				dataComps.WeaponSlotsObj[6].SetActive(true);
 
@@ -117,8 +122,11 @@ public class SaveData : MonoBehaviour {
 
 	}
 
-
-
+	[Inspector]
+	public void DeleteSaveData()
+	{
+		PlayerPrefs.DeleteAll ();
+	}
 
 
 

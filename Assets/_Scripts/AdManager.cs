@@ -7,6 +7,7 @@ public class AdManager : MonoBehaviour {
 	public FPSPlayer fpsPlayerRef;
 	public PauseManager pause;
 	public PlayerWeapons weapons;
+	public SaveData saveData;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,7 @@ public class AdManager : MonoBehaviour {
 		HZIncentivizedAd.Fetch();
 		fpsPlayerRef.GetComponent<FPSPlayer>();
 		weapons.GetComponent<PlayerWeapons> ();
+
 	}
 
 	public void Interstitial()
@@ -60,5 +62,31 @@ public class AdManager : MonoBehaviour {
 		HZIncentivizedAd.Fetch();
 		#endif
 	}
+
+	public void RewardedWepSlot(int slot)
+	{
+		#if UNITY_EDITOR
+	
+		saveData.AwardSlot(slot);
+
+
+		#endif
+
+		#if UNITY_ANDROID
+
+		if (HZIncentivizedAd.IsAvailable()) {
+			HZIncentivizedAd.Show();
+
+		saveData.AwardSlot(slot);
+
+
+		}
+
+		HZIncentivizedAd.Fetch();
+		#endif
+	}
+
+
+
 
 }

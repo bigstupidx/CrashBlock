@@ -34,11 +34,13 @@ public class DataComps : MonoBehaviour {
 	// update 
 	public GameObject[] WeaponSlotsObj;	// weapon slots  Game Objects
 	public int[] weaponSlotEquippedGun;	// weapon index on slot
-	public Image[] weaponImage;			// image for the slot
+	public Image[] weaponImage;			// image for the slot 
 	public Text[] weaponAmmoTxt;		// ammo text ref from weapon slots
 	public bool [] weaponSlotStatus;    // true is equipping, false is empty
 
 	public int nextSlotToEquip=0;			// checks the next slot available to equip
+
+	public SpriteBounce heartSpriteBounce_ref;
 
 
 	// called from weapon pickup

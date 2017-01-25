@@ -40,7 +40,7 @@ public class KillAllEnemiesMission : MonoBehaviour {
 				enemiesLeftText.text = "" + enemiesLeft;
 			}
 
-			if (enemyCounter == 0) 
+			if (enemyCounter <= 0) 
 			{
 				// Start level completed Event...
 				StartCoroutine (LevelCompletedCo());
