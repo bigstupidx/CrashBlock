@@ -13,6 +13,7 @@ public class PlayerWeapons : MonoBehaviour {
 	public GameObject cameraObj;
 	//set up external script references
 	private InputControl InputComponent;
+	public int grenadeAmmoIncreaseAD = 2;
 	private FPSRigidBodyWalker FPSWalkerComponent;
 	[HideInInspector]
 	public FPSPlayer FPSPlayerComponent;
@@ -411,7 +412,7 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (currentWeapon == 8) 
 		{
-			weaponOrder [currentWeapon].GetComponent<WeaponBehavior> ().ammo += 2;
+			weaponOrder [currentWeapon].GetComponent<WeaponBehavior> ().ammo += grenadeAmmoIncreaseAD;
 		}
 			
 
