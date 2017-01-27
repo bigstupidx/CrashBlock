@@ -168,6 +168,8 @@ public class PlayerWeapons : MonoBehaviour {
 
 	void Update (){
 
+//		Debug.Log ("current weapon " + currentWeapon); 
+//		Debug.Log ("current grenade " + currentGrenade); 
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
@@ -406,6 +408,13 @@ public class PlayerWeapons : MonoBehaviour {
 	public void giveAmmo()
 	{
 		weaponOrder [currentWeapon].GetComponent<WeaponBehavior>().ammo += weaponOrder [currentWeapon].GetComponent<WeaponBehavior>().bulletsPerClip;
+
+		if (currentWeapon == 8) 
+		{
+			weaponOrder [currentWeapon].GetComponent<WeaponBehavior> ().ammo += 2;
+		}
+			
+
 	}
 
 	public void DropWeapon ( int weapon){
