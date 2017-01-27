@@ -7962,6 +7962,21 @@ Prefab:
       propertyPath: walkSpeed
       value: 5.5
       objectReference: {fileID: 0}
+    - target: {fileID: 82000012468521840, guid: 8996c486681cec54cb771da4409c3d5c,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000010412515440, guid: 8996c486681cec54cb771da4409c3d5c,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000010412515440, guid: 8996c486681cec54cb771da4409c3d5c,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
   m_IsPrefabParent: 0
