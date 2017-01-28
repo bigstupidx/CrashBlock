@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class LevelSelectManager : MonoBehaviour {
 
@@ -30,16 +31,19 @@ public class LevelSelectManager : MonoBehaviour {
 			case 0:
 
 				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				Analytics.CustomEvent ("Level1Started");
 				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
 			break;
 			case 1:
 
 				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				Analytics.CustomEvent ("Level2Started");
 				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
 				break;
 			case 2:
 
 				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				Analytics.CustomEvent ("Level3Started");
 				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
 				break;
 
@@ -48,6 +52,7 @@ public class LevelSelectManager : MonoBehaviour {
 				if (SaveSystem.GetLevel1 () == 1 || SaveSystem.GetLevel2 () == 1) 
 				{
 					print ("Loading Level = "+loadLevelButtons [index].sceneName);
+					Analytics.CustomEvent ("Level4Started");
 					SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
 				}
 				
@@ -57,6 +62,7 @@ public class LevelSelectManager : MonoBehaviour {
 				if (SaveSystem.GetLevel3 () == 1) 
 				{
 				print ("Loading Level = "+loadLevelButtons [index].sceneName);
+				Analytics.CustomEvent ("Level5Started");
 				SceneManager.LoadScene ("" + loadLevelButtons [index].sceneName, LoadSceneMode.Single);
 				}
 
