@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Heyzap;
+using UnityEngine.Analytics;
 
 public class AdManager : MonoBehaviour {
 
@@ -37,6 +38,7 @@ public class AdManager : MonoBehaviour {
 			HZIncentivizedAd.Show();
 			fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
 			fpsPlayerRef.UpdateHPBar();
+			Analytics.CustomEvent("DeathVideo");
 			pause.DeactivateDeathCanvas ();
 		}
 
@@ -56,6 +58,7 @@ public class AdManager : MonoBehaviour {
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
 			weapons.giveAmmo();
+			Analytics.CustomEvent("AmmoVideo");
 			pause.DeactivateAmmoCanvas ();
 		}
 
@@ -76,7 +79,7 @@ public class AdManager : MonoBehaviour {
 
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
-
+		Analytics.CustomEvent("SlotVideo");
 		saveData.AwardSlot(slot);
 
 
