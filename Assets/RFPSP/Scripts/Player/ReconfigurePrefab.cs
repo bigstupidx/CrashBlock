@@ -64,9 +64,12 @@ public class ReconfigurePrefab : MonoBehaviour {
 			WeaponObj.transform.localScale = new Vector3(twoCamWeaponScale, twoCamWeaponScale, twoCamWeaponScale);
 			
 			FPSPlayerComponent.FPSWalkerComponent.sphereCol.enabled = false;
-			
+
+			if(SunShaftsComponent)
 			SunShaftsComponent.enabled = false;
+			if(ColorCorrectionCurvesComponent)
 			ColorCorrectionCurvesComponent.enabled = false;
+			if(BloomOptimizedComponent)
 			BloomOptimizedComponent.enabled = false;
 //			ChromaticAberrationComponent.enabled = false;
 //			AntiAliasingComponent.enabled = false;

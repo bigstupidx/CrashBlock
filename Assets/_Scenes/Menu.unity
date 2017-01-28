@@ -327,8 +327,9 @@ GameObject:
   - 114: {fileID: 358402837}
   - 114: {fileID: 358402840}
   - 82: {fileID: 358402841}
+  - 114: {fileID: 358402842}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,6 +538,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &358402842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 358402835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d549467c89b7adb44b4b5c3c7bc38afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animateScale: 1
+  maxScale: 1.1
+  minScale: 0.95
+  animTime: 0.35
+  animateColor: 0
+  startAnimColour:
+    serializedVersion: 2
+    rgba: 0
+  endAnimColour:
+    serializedVersion: 2
+    rgba: 0
+  colorAnimTime: 0
 --- !u!4 &397184341 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013026970782, guid: aaf6bb68a721daf4ba3c271500cf2d30,
@@ -552,8 +576,9 @@ GameObject:
   - 224: {fileID: 430615961}
   - 222: {fileID: 430615963}
   - 114: {fileID: 430615962}
+  - 114: {fileID: 430615964}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Game logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,6 +635,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 430615960}
+--- !u!114 &430615964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 430615960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 1, b: 0.95862055, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!4 &450345134 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013026970782, guid: aaf6bb68a721daf4ba3c271500cf2d30,
@@ -749,7 +788,7 @@ GameObject:
   - 222: {fileID: 689982996}
   - 114: {fileID: 689982995}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,7 +809,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.6, y: -95.2}
+  m_AnchoredPosition: {x: 20.6, y: -84}
   m_SizeDelta: {x: 41.2, y: 41.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689982995

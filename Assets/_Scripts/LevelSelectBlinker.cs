@@ -28,6 +28,7 @@ public class LevelSelectBlinker : MonoBehaviour {
 		{
 			levelImage[3].sprite= discoveredLevelSprite [3];
 			levelImage [3].gameObject.GetComponent<Outline> ().enabled = false;
+			levelImage [3].gameObject.GetComponent<SpriteBounce>().enabled = true;
 		}
 
 
@@ -37,6 +38,7 @@ public class LevelSelectBlinker : MonoBehaviour {
 			levelAvailable [3] = true;
 			levelImage[3].sprite= discoveredLevelSprite [3];
 			levelImage [3].gameObject.GetComponent<Outline> ().enabled = false;
+			levelImage [3].gameObject.GetComponent<SpriteBounce>().enabled = true;
 
 		}
 
@@ -46,6 +48,7 @@ public class LevelSelectBlinker : MonoBehaviour {
 			levelAvailable [4] = true;
 			levelImage [4].sprite = discoveredLevelSprite [4];
 			levelImage [4].gameObject.GetComponent<Outline> ().enabled = false;
+			levelImage [4].gameObject.GetComponent<SpriteBounce>().enabled = true;
 
 		}
 
@@ -55,6 +58,7 @@ public class LevelSelectBlinker : MonoBehaviour {
 			levelAvailable [5] = true;
 			levelImage [5].sprite = discoveredLevelSprite [5];
 			levelImage [5].gameObject.GetComponent<Outline> ().enabled = false;
+			levelImage [5].gameObject.GetComponent<SpriteBounce>().enabled = true;
 
 		}
 

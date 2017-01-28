@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class DataComps : MonoBehaviour {
 
+	[Range(0.0f, 1.0f)]
+	public float sfxVolume = 0.8f;
+	[Range(0.0f, 1.0f)]
+	public float trackVolume = 0.5f;
 
 	public Image hpBar;
-
 
 	public PauseManager pauseMan_ref;
 

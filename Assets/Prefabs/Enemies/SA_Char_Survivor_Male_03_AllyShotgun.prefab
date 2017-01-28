@@ -2466,7 +2466,7 @@ MonoBehaviour:
   waypointGroup: {fileID: 0}
   firstWaypoint: 1
   standWatch: 0
-  followPlayer: 0
+  followPlayer: 1
   followOnUse: 0
   leadPlayer: 0
   orderedMove: 0
@@ -2545,6 +2545,33 @@ MonoBehaviour:
   ragdollActive: 0
   deadReplacement: {fileID: 4000010801483226, guid: 5688200aecde9844894bf811c4eac0a7,
     type: 2}
+  painSounds:
+  - {fileID: 8300000, guid: eaf22db35c43dcb4bb9e69029f55e7bc, type: 3}
+  - {fileID: 8300000, guid: 675cce7add055b2448fe324ac07bb6b9, type: 3}
+  - {fileID: 8300000, guid: a3241005411a8304b98e3bf98ac0ff3d, type: 3}
+  - {fileID: 8300000, guid: 1220fba0c03597543bfb1cec218fd7bc, type: 3}
+  - {fileID: 8300000, guid: e572201aa075f8246a399848cd980fab, type: 3}
+  - {fileID: 8300000, guid: acea517e744846d4bb0e98a20b3b2c38, type: 3}
+  - {fileID: 8300000, guid: 32998a00e7d36ae43a380d5a0a852ab4, type: 3}
+  - {fileID: 8300000, guid: d1c26b2082a0486478a546a1f5c95197, type: 3}
+  - {fileID: 8300000, guid: 38c2f0c033ff3c34db5df2d673f53fcd, type: 3}
+  - {fileID: 8300000, guid: 98b3b731b5ca55748b08cc4d245ac47b, type: 3}
+  - {fileID: 8300000, guid: 690d79f1615d5a544a9ba6021c84b208, type: 3}
+  - {fileID: 8300000, guid: bd2e8433dff6b7b4ca5e1366d14af663, type: 3}
+  - {fileID: 8300000, guid: 232100c335f94ef408ecb54e7bdb3d53, type: 3}
+  - {fileID: 8300000, guid: 856578c48efeefc4095e779fe2708635, type: 3}
+  - {fileID: 8300000, guid: 1a669075f00f8e7468231eecf4838554, type: 3}
+  - {fileID: 8300000, guid: 7bc79317c6901de49ab850478e540fca, type: 3}
+  - {fileID: 8300000, guid: 52bf9957b3dd81c4f859c490d834b2ce, type: 3}
+  - {fileID: 8300000, guid: 78579b183185ee7479917e0afc3c4b20, type: 3}
+  - {fileID: 8300000, guid: 1c0ac8283d73cb543be05c0410f3a28a, type: 3}
+  - {fileID: 8300000, guid: 6a5fa839a3f55394899d2a90b23e9cd2, type: 3}
+  - {fileID: 8300000, guid: 11e9a62bed20571459661bec6f90ab1a, type: 3}
+  - {fileID: 8300000, guid: 26ed186b22cc1ac4083956059149fbb6, type: 3}
+  - {fileID: 8300000, guid: 1cc0623df9ce5ae4eaa4d3a8a2dfe729, type: 3}
+  - {fileID: 8300000, guid: 272375ed6bf67a44aba6c48080124898, type: 3}
+  - {fileID: 8300000, guid: cc5d18fe23cb69843837646dc8e44e86, type: 3}
+  - {fileID: 8300000, guid: 7b6c911f3796065498c16e25d21589a6, type: 3}
   dieSound: {fileID: 8300000, guid: 530f9672dc1bc6f469b17a1415265ff6, type: 3}
   notParent: 0
   removeBody: 1

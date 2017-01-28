@@ -26,6 +26,10 @@ public class CharacterDamage : MonoBehaviour {
 	public Transform deadReplacement;
 	private Transform dead;
 	[Tooltip("Sound effect to play when NPC dies.")]
+	public AudioClip[] painSounds;
+
+	private AudioSource audioS;
+	[Tooltip("Sound effect to play when NPC dies.")]
 	public AudioClip dieSound;
 	[Tooltip("Determine if this object or parent should be removed on death. This is to allow for different hit detection collider types as children of NPC parent.")]
 	public bool notParent;
@@ -46,7 +50,8 @@ public class CharacterDamage : MonoBehaviour {
 	[Tooltip("Duration of slow motion time in seconds if this NPC is backstabbed.")]
 	public float sloMoBackstabTime = 0.9f;
 
-
+	private DataComps datacomps;
+	private int randomNumber;
 	// Communicating Scripts
 	public KillAllEnemiesMission killEnemiesRef;
 
@@ -79,6 +84,12 @@ public class CharacterDamage : MonoBehaviour {
 			killEnemiesRef.EnemyCounter += 1;
 		}
 
+		if (gameObject.GetComponent<AudioSource> ()) 
+		{
+			audioS = gameObject.GetComponent<AudioSource> ();
+		}
+
+		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps> ();
 
 	}
 	
@@ -179,6 +190,7 @@ public class CharacterDamage : MonoBehaviour {
 				}
 			}else{
 				hitPoints -= damage;
+				PlayPainSound ();
 			}
 		}else{
 			hitPoints = 0.0f;	
@@ -211,7 +223,8 @@ public class CharacterDamage : MonoBehaviour {
 	//this method called if NPC has died and has more than one capsule collider for collision, so transition to ragdoll
 	void RagDollDie(Rigidbody hitBody, float bodyForce) {
 		if (dieSound){
-			PlayAudioAtPos.PlayClipAt(dieSound, transform.position, 1.0f);
+			randomNumber = Random.Range (0, painSounds.Length);
+			PlayAudioAtPos.PlayClipAt( painSounds [randomNumber] , transform.position, 1.0f);
 		}
 		
 		AIComponent.NPCRegistryComponent.UnregisterNPC(AIComponent);//unregister NPC from main NPC registry
@@ -363,7 +376,30 @@ public class CharacterDamage : MonoBehaviour {
 
 
 
+	void PlayPainSound ()
+	{
+		// just 1 sound
+		if (painSounds.Length >0) 
+		{
+			if (painSounds[0] != null) 
+			{
+				audioS.PlayOneShot (painSounds [0], datacomps.sfxVolume);
+			}
+		}
 
+		// 1 random sound
+		if (painSounds.Length > 1) 
+		{
+			randomNumber = Random.Range (0, painSounds.Length);
+
+			if (painSounds [randomNumber] != null) 
+			{
+				audioS.PlayOneShot (painSounds [randomNumber], datacomps.sfxVolume);
+			}
+
+		}
+		
+	}
 
 
 

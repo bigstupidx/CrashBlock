@@ -9,6 +9,7 @@ public class PlayerWeapons : MonoBehaviour {
 	//[HideInInspector]
 	public PauseManager pauseManager;
 	public GameObject playerObj;
+	private DataComps datacomps;
 	//[HideInInspector]
 	public GameObject cameraObj;
 	//set up external script references
@@ -97,6 +98,7 @@ public class PlayerWeapons : MonoBehaviour {
 	public bool offhandThrowActive;
 	private WeaponBehavior GrenadeWeaponBehaviorComponent;
 
+
 	[Tooltip("Amount of time for bullet shell to stay parented to weapon object (causes shell to inherit weapon angular velocity, decrease value if shells stick with weapon model too long).")]
 	public float shellParentTime = 0.5f;
 	[Tooltip("Amount of time for bullet shell to stay parented to weapon object when deadzone aiming (causes shell to inherit weapon angular velocity, decrease value if shells stick with weapon model too long).")]
@@ -106,6 +108,8 @@ public class PlayerWeapons : MonoBehaviour {
 
 	void Start (){
 
+		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
+		pauseManager = datacomps.gameObject.GetComponent<PauseManager> ();
 		myTransform = transform;//define transforms for efficiency
 		mainCamTransform = Camera.main.transform;
 
@@ -174,7 +178,7 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
-			pauseManager.ActivateAmmoCanvas ();
+			 pauseManager.ActivateAmmoCanvas ();
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

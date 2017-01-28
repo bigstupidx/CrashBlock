@@ -16,6 +16,7 @@ public class PauseManager : MonoBehaviour {
 	public GameObject pauseCanvasObj;
 	public GameObject deathCanvasObj;
 	public GameObject ammoCanvasObj;
+	public GameObject gameplayCanvas;
 
 	public Animator anim;
 
@@ -102,12 +103,12 @@ public class PauseManager : MonoBehaviour {
 
 		ammoCanvasObj.SetActive (true);
 		// activate the animator trigger...
-		Time.timeScale = 0;
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
-		{
-			dataComps_ref.uiImages [i].gameObject.SetActive(false);
-
-		}
+		//Time.timeScale = 1;
+		//for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		//{
+		//	dataComps_ref.uiImages [i].gameObject.SetActive(false);
+		//
+		//}
 
 
 	}
@@ -115,12 +116,12 @@ public class PauseManager : MonoBehaviour {
 	public void DeactivateAmmoCanvas ()
 	{
 		ammoCanvasObj.SetActive (false);
-		Time.timeScale = 1;
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
-		{
-			dataComps_ref.uiImages [i].gameObject.SetActive (true);
-
-		}
+		//Time.timeScale = 1;
+		//for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		//{
+		//	dataComps_ref.uiImages [i].gameObject.SetActive (true);
+		//
+		//}
 
 	}
 	[Inspector]
@@ -128,12 +129,12 @@ public class PauseManager : MonoBehaviour {
 	{
 		PlayerWeapons.WatchedAdAmmo = true;
 		ammoCanvasObj.SetActive (false);
-		Time.timeScale = 1;
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
-		{
-			dataComps_ref.uiImages [i].gameObject.SetActive (true);
-
-		}
+		//Time.timeScale = 1;
+		//for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		//{
+		//	dataComps_ref.uiImages [i].gameObject.SetActive (true);
+		//
+		//}
 
 	}
 
