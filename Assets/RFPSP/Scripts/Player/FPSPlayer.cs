@@ -4,6 +4,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Net;
 
 
 public class FPSPlayer : MonoBehaviour {
@@ -505,25 +506,25 @@ public class FPSPlayer : MonoBehaviour {
 		UpdateHeartBeatRate ();
 
 		//detect if menu display button was pressed
-		if (InputComponent.menuPress){
-			if(!menuDisplayed){
-				MainMenuComponent.enabled = true;
-				menuDisplayed = true;
-			}else{
-				MainMenuComponent.enabled = false;
-				Paused = false;
-				dataComps.PauseSwitch = false;
-				menuDisplayed = false;
-			}
-			if(Time.timeScale > 0.0f || Paused){
-				if(!Paused){
-					menuTime = Time.timeScale;
-				}
-				Time.timeScale = 0.0f;
-			}else{
-				Time.timeScale = menuTime;	
-			}
-		}
+//		if (InputComponent.menuPress){
+//			if(!menuDisplayed){
+//				MainMenuComponent.enabled = true;
+//				menuDisplayed = true;
+//			}else{
+//				MainMenuComponent.enabled = false;
+//				Paused = false;
+//				dataComps.PauseSwitch = false;
+//				menuDisplayed = false;
+//			}
+//			if(Time.timeScale > 0.0f || Paused){
+//				if(!Paused){
+//					menuTime = Time.timeScale;
+//				}
+//				Time.timeScale = 0.0f;
+//			}else{
+//				Time.timeScale = menuTime;	
+//			}
+//		}
 
 		if(InputComponent.pausePress && !menuDisplayed){
 			if(Time.timeScale > 0.0f){
@@ -1324,7 +1325,7 @@ public class FPSPlayer : MonoBehaviour {
 
 		//Call Die function if player's hitpoints have been depleted
 		if (hitPoints < 1.0f){
-			if (HasConnection) {
+			if (HasConnection()) {
 				pauseManager.ActivateDeathCanvas ();
 			} else {
 				pauseManager.ActivateNoInternetCanvas ();

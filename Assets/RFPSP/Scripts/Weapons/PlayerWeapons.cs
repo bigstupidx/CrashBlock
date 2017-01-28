@@ -2,6 +2,7 @@
 //Switches and drops weapons and sets weapon parent object position. 
 using UnityEngine;
 using System.Collections;
+using System.Net; 
 
 
 public class PlayerWeapons : MonoBehaviour {
@@ -178,7 +179,7 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
-			if(HasConnection)
+			if(HasConnection())
 			 pauseManager.ActivateAmmoCanvas ();
 		}
 
@@ -415,9 +416,9 @@ public class PlayerWeapons : MonoBehaviour {
 	{
 		weaponOrder [currentWeapon].GetComponent<WeaponBehavior>().ammo += weaponOrder [currentWeapon].GetComponent<WeaponBehavior>().bulletsPerClip;
 
-		if (currentWeapon == 8) 
+		if (weaponOrder[8].GetComponent<WeaponBehavior>().bulletsLeft == 0) 
 		{
-			weaponOrder [currentWeapon].GetComponent<WeaponBehavior> ().ammo += grenadeAmmoIncreaseAD;
+			weaponOrder [8].GetComponent<WeaponBehavior> ().ammo += grenadeAmmoIncreaseAD;
 		}
 			
 
