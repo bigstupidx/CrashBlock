@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using EasyEditor;
+using System.Net; 
 
 public class SaveData : MonoBehaviour {
 
@@ -92,30 +93,30 @@ public class SaveData : MonoBehaviour {
 	// this function activates slot 5 on the level when watched AD but not persistently
 	public void AwardSlot(int slotNum)
 	{
-
-		switch(slotNum)
-		{
+		if (HasConnection()) {
+			switch (slotNum) {
 			case 4:
 				// save the slot
 				SaveSystem.SetWepSlot4 (1);
 
 				// turn on the slot
-				dataComps.WeaponSlotsObj[3].SetActive(true);
+				dataComps.WeaponSlotsObj [3].SetActive (true);
 				// disable Slot 4 Reward backpack icon
-				dataComps.WeaponSlotsObj[5].SetActive(false);
+				dataComps.WeaponSlotsObj [5].SetActive (false);
 				// enable Slot 5 Rewards backpack icon
-				dataComps.WeaponSlotsObj[6].SetActive(true);
+				dataComps.WeaponSlotsObj [6].SetActive (true);
 
 
-			break;
+				break;
 
 			case 5:
 				// turn on slot 5 this game only
-				dataComps.WeaponSlotsObj[4].SetActive(true);
+				dataComps.WeaponSlotsObj [4].SetActive (true);
 				// disable earn slot 5 Reward Backpack
-				dataComps.WeaponSlotsObj[6].SetActive(false);			
+				dataComps.WeaponSlotsObj [6].SetActive (false);			
 
-			break;
+				break;
+			}
 		}
 
 
@@ -128,7 +129,21 @@ public class SaveData : MonoBehaviour {
 		PlayerPrefs.DeleteAll ();
 	}
 
-
+	public static bool HasConnection()
+	{
+		try
+		{
+			using (var client = new WebClient())
+			using (var stream = new WebClient().OpenRead("http://www.google.com"))
+			{
+				return true;
+			}
+		}
+		catch
+		{
+			return false;
+		}
+	}
 
 
 }
