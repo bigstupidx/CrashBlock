@@ -1324,7 +1324,11 @@ public class FPSPlayer : MonoBehaviour {
 
 		//Call Die function if player's hitpoints have been depleted
 		if (hitPoints < 1.0f){
-			pauseManager.ActivateDeathCanvas ();
+			if (HasConnection) {
+				pauseManager.ActivateDeathCanvas ();
+			} else {
+				pauseManager.ActivateNoInternetCanvas ();
+			}
 			//			if (pauseManager.adWatched == false) {
 			//				SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
 			//			} else {
@@ -1439,5 +1443,31 @@ public class FPSPlayer : MonoBehaviour {
 
 	}
 
+	IEnumerator PauseInvunerability(float segs)
+	{
+		yield return new WaitForSeconds (segs);
+		invulnerable = false;
 
+	}
+
+	public void RemoveInvulnerability()
+	{
+		StartCoroutine("PauseInvunerability", 4.0F);
+	}
+
+	public static bool HasConnection()
+	{
+		try
+		{
+			using (var client = new WebClient())
+			using (var stream = new WebClient().OpenRead("http://www.google.com"))
+			{
+				return true;
+			}
+		}
+		catch
+		{
+			return false;
+		}
+	}
 }

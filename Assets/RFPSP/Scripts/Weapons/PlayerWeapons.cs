@@ -178,6 +178,7 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
+			if(HasConnection)
 			 pauseManager.ActivateAmmoCanvas ();
 		}
 
@@ -699,6 +700,22 @@ public class PlayerWeapons : MonoBehaviour {
 		foreach(WeaponBehavior wb in weaponBehaviors){
 			wb.haveWeapon = true;
 			wb.ammo = wb.maxAmmo;
+		}
+	}
+
+	public static bool HasConnection()
+	{
+		try
+		{
+			using (var client = new WebClient())
+			using (var stream = new WebClient().OpenRead("http://www.google.com"))
+			{
+				return true;
+			}
+		}
+		catch
+		{
+			return false;
 		}
 	}
 }

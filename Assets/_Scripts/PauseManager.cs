@@ -17,7 +17,7 @@ public class PauseManager : MonoBehaviour {
 	public GameObject deathCanvasObj;
 	public GameObject ammoCanvasObj;
 	public GameObject gameplayCanvas;
-
+	public GameObject noInternetCanvas;
 	public Animator anim;
 
 	public FPSPlayer fpsPlayer_ref;
@@ -137,6 +137,42 @@ public class PauseManager : MonoBehaviour {
 		//}
 
 	}
+
+	// ------------------- Activate and Deactivate the Pause Canvas
+
+	// <-Called by DataComps
+
+	public void ActivateNoInternetCanvas()
+	{
+
+		noInternetCanvas.SetActive (true);
+		Time.timeScale = 0;
+		print ("Activate PauseMenu");
+		// activate the animator trigger...
+
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive (false);
+
+		}
+
+
+	}
+
+	public void DeactivateNoInternetCanvas ()
+	{
+		noInternetCanvas.SetActive (false);
+		Time.timeScale = 1;
+		print ("Deactivate PauseMenu");
+
+		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		{
+			dataComps_ref.uiImages [i].gameObject.SetActive (true);
+
+		}
+
+	}
+
 
 
 

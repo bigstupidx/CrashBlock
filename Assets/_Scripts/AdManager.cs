@@ -2,6 +2,7 @@
 using System.Collections;
 using Heyzap;
 using UnityEngine.Analytics;
+using System.Net;
 
 public class AdManager : MonoBehaviour {
 
@@ -27,23 +28,26 @@ public class AdManager : MonoBehaviour {
 	public void Rewarded()
 	{
 		#if UNITY_EDITOR
-		fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
-		fpsPlayerRef.UpdateHPBar();
-		pause.DeactivateDeathCanvas ();
+			fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
+			fpsPlayerRef.UpdateHPBar();
+			pause.DeactivateDeathCanvas ();
 		#endif
+			
 
 		#if UNITY_ANDROID
 
-		if (HZIncentivizedAd.IsAvailable()) {
-			HZIncentivizedAd.Show();
-			fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
-			fpsPlayerRef.UpdateHPBar();
-			Analytics.CustomEvent("DeathVideo");
-			pause.DeactivateDeathCanvas ();
-		}
+			if (HZIncentivizedAd.IsAvailable ()) {
+				HZIncentivizedAd.Show ();
+				fpsPlayerRef.invulnerable = true;
+				fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
+				fpsPlayerRef.UpdateHPBar ();
+				Analytics.CustomEvent ("DeathVideo");
+				pause.DeactivateDeathCanvas ();
+				fpsPlayerRef.RemoveInvulnerability();
 
-		HZIncentivizedAd.Fetch();
-		#endif
+				HZIncentivizedAd.Fetch ();
+				#endif
+			}
 	}
 
 	public void RewardedAmmo()
@@ -54,15 +58,14 @@ public class AdManager : MonoBehaviour {
 		#endif
 
 		#if UNITY_ANDROID
-
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
 			weapons.giveAmmo();
 			Analytics.CustomEvent("AmmoVideo");
 			pause.DeactivateAmmoCanvas ();
+			HZIncentivizedAd.Fetch();
 		}
 
-		HZIncentivizedAd.Fetch();
 		#endif
 	}
 
@@ -76,13 +79,10 @@ public class AdManager : MonoBehaviour {
 		#endif
 
 		#if UNITY_ANDROID
-
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
 		Analytics.CustomEvent("SlotVideo");
 		saveData.AwardSlot(slot);
-
-
 		}
 
 		HZIncentivizedAd.Fetch();
