@@ -2,7 +2,7 @@
 using System.Collections;
 using Heyzap;
 using UnityEngine.Analytics;
-using System.Net;
+
 
 public class AdManager : MonoBehaviour {
 
@@ -81,8 +81,8 @@ public class AdManager : MonoBehaviour {
 		#if UNITY_ANDROID
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
-		Analytics.CustomEvent("SlotVideo");
-		saveData.AwardSlot(slot);
+			Analytics.CustomEvent("SlotVideo");
+			saveData.AwardSlot(slot);
 		}
 
 		HZIncentivizedAd.Fetch();

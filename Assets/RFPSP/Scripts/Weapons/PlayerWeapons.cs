@@ -11,6 +11,7 @@ public class PlayerWeapons : MonoBehaviour {
 	public PauseManager pauseManager;
 	public GameObject playerObj;
 	private DataComps datacomps;
+	public bool testConnection = false;
 	//[HideInInspector]
 	public GameObject cameraObj;
 	//set up external script references
@@ -179,8 +180,13 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
-			if(HasConnection())
-			 pauseManager.ActivateAmmoCanvas ();
+			if (testConnection == false) {
+				if(HasConnection()){
+					pauseManager.ActivateAmmoCanvas ();
+					testConnection = true;
+					print("hola");
+				}
+			}
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -703,6 +709,8 @@ public class PlayerWeapons : MonoBehaviour {
 			wb.ammo = wb.maxAmmo;
 		}
 	}
+
+	
 
 	public static bool HasConnection()
 	{
