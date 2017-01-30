@@ -9,7 +9,7 @@ using System.Net;
 
 public class FPSPlayer : MonoBehaviour {
 
-	public bool isConnected;
+	public static bool isConnected;
 
 	[HideInInspector]
 	public Ironsights IronsightsComponent;

@@ -53,14 +53,14 @@ public class AdManager : MonoBehaviour {
 	public void RewardedAmmo()
 	{
 		#if UNITY_EDITOR
-		weapons.giveAmmo();
+		weapons.giveAmmo(weapons.weaponToAddAmmo);
 		pause.DeactivateAmmoCanvas ();
 		#endif
 
 		#if UNITY_ANDROID
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
-			weapons.giveAmmo();
+			weapons.giveAmmo(weapons.weaponToAddAmmo);
 			Analytics.CustomEvent("AmmoVideo");
 			pause.DeactivateAmmoCanvas ();
 			HZIncentivizedAd.Fetch();

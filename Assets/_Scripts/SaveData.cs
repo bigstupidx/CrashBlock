@@ -93,7 +93,7 @@ public class SaveData : MonoBehaviour {
 	// this function activates slot 5 on the level when watched AD but not persistently
 	public void AwardSlot(int slotNum)
 	{
-		if (HasConnection()) {
+		if (FPSPlayer.isConnected) {
 			switch (slotNum) {
 			case 4:
 				// save the slot

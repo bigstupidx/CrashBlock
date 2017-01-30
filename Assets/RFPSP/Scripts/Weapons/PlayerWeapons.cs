@@ -11,9 +11,9 @@ public class PlayerWeapons : MonoBehaviour {
 	public PauseManager pauseManager;
 	public GameObject playerObj;
 	private DataComps datacomps;
-	public bool isConnected = false;
 	//[HideInInspector]
 	public GameObject cameraObj;
+	public int weaponToAddAmmo = 0;
 	//set up external script references
 	private InputControl InputComponent;
 	public int grenadeAmmoIncreaseAD = 2;
@@ -110,8 +110,6 @@ public class PlayerWeapons : MonoBehaviour {
 
 	void Start (){
 
-		isConnected = HasConnection ();
-
 		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
 		pauseManager = datacomps.gameObject.GetComponent<PauseManager> ();
 		myTransform = transform;//define transforms for efficiency
@@ -182,7 +180,8 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
-			if (isConnected) {
+			if (FPSPlayerComponent.isConnected) {
+				weaponToAddAmmo = currentWeapon;
 				pauseManager.ActivateAmmoCanvas ();
 			}
 		}
@@ -416,15 +415,13 @@ public class PlayerWeapons : MonoBehaviour {
 		StartCoroutine(SelectWeapon(prevWepToGrenIndex, false, true));
 	}
 
-	public void giveAmmo()
+	public void giveAmmo(int weaponNumber)
 	{
-		weaponOrder [currentWeapon].GetComponent<WeaponBehavior>().ammo += weaponOrder [currentWeapon].GetComponent<WeaponBehavior>().bulletsPerClip;
-
-		if (weaponOrder[8].GetComponent<WeaponBehavior>().bulletsLeft == 0) 
-		{
+		if (weaponNumber == 8) {
 			weaponOrder [8].GetComponent<WeaponBehavior> ().ammo += grenadeAmmoIncreaseAD;
+		} else	{
+			weaponOrder [weaponNumber].GetComponent<WeaponBehavior> ().ammo += weaponOrder [weaponNumber].GetComponent<WeaponBehavior> ().bulletsPerClip;
 		}
-			
 
 	}
 
@@ -707,22 +704,4 @@ public class PlayerWeapons : MonoBehaviour {
 			wb.ammo = wb.maxAmmo;
 		}
 	}
-
-	
-
-	public static bool HasConnection()
-	{
-		try
-		{
-			using (var client = new WebClient())
-			using (var stream = new WebClient().OpenRead("http://www.google.com"))
-			{
-				return true;
-			}
 		}
-		catch
-		{
-			return false;
-		}
-	}
-}
