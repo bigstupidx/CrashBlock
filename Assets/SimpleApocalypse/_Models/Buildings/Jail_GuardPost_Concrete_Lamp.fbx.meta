@@ -1,18 +1,24 @@
 fileFormatVersion: 2
-guid: 87362777a8bae2a43aefb9bf9ed917b6
-timeCreated: 1460411378
-licenseType: Store
+guid: 08e25b1d4420b3843925d151d3397788
+timeCreated: 1485740960
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Post_Lamp_holder
+    100004: PostLamp
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: SA_Env_Path_Straight_01
-    9500000: //RootNode
+    400002: Post_Lamp_holder
+    400004: PostLamp
+    2300000: Post_Lamp_holder
+    2300002: PostLamp
+    3300000: Post_Lamp_holder
+    3300002: PostLamp
+    4300000: PostLamp
+    4300002: Post_Lamp_holder
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -25,20 +31,20 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 0
+    importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -51,10 +57,10 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 15
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
