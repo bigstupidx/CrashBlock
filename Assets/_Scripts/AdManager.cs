@@ -28,9 +28,11 @@ public class AdManager : MonoBehaviour {
 	public void Rewarded()
 	{
 		#if UNITY_EDITOR
-			fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
+			fpsPlayerRef.hitPoints = fpsPlayerRef.maximumHitPoints;
 			fpsPlayerRef.UpdateHPBar();
+			fpsPlayerRef.invulnerable = true;
 			pause.DeactivateDeathCanvas ();
+			fpsPlayerRef.RemoveInvulnerability();
 		#endif
 			
 
@@ -39,7 +41,7 @@ public class AdManager : MonoBehaviour {
 			if (HZIncentivizedAd.IsAvailable ()) {
 				HZIncentivizedAd.Show ();
 				fpsPlayerRef.invulnerable = true;
-				fpsPlayerRef.hitPoints += fpsPlayerRef.maximumHitPoints;
+				fpsPlayerRef.hitPoints = fpsPlayerRef.maximumHitPoints;
 				fpsPlayerRef.UpdateHPBar ();
 				Analytics.CustomEvent ("DeathVideo");
 				pause.DeactivateDeathCanvas ();

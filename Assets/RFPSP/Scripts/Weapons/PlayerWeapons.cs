@@ -180,7 +180,7 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
-			if (FPSPlayerComponent.isConnected) {
+			if (FPSPlayer.isConnected) {
 				weaponToAddAmmo = currentWeapon;
 				pauseManager.ActivateAmmoCanvas ();
 			}
