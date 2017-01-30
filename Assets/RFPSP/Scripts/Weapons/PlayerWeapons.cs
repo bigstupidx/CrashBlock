@@ -11,7 +11,7 @@ public class PlayerWeapons : MonoBehaviour {
 	public PauseManager pauseManager;
 	public GameObject playerObj;
 	private DataComps datacomps;
-	public bool testConnection = false;
+	public bool isConnected = false;
 	//[HideInInspector]
 	public GameObject cameraObj;
 	//set up external script references
@@ -110,6 +110,8 @@ public class PlayerWeapons : MonoBehaviour {
 
 	void Start (){
 
+		isConnected = HasConnection ();
+
 		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
 		pauseManager = datacomps.gameObject.GetComponent<PauseManager> ();
 		myTransform = transform;//define transforms for efficiency
@@ -180,12 +182,8 @@ public class PlayerWeapons : MonoBehaviour {
 
 		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
 		{
-			if (testConnection == false) {
-				if(HasConnection()){
-					pauseManager.ActivateAmmoCanvas ();
-					testConnection = true;
-					print("hola");
-				}
+			if (isConnected) {
+				pauseManager.ActivateAmmoCanvas ();
 			}
 		}
 

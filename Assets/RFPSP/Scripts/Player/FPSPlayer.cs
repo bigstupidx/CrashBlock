@@ -9,6 +9,8 @@ using System.Net;
 
 public class FPSPlayer : MonoBehaviour {
 
+	public bool isConnected;
+
 	[HideInInspector]
 	public Ironsights IronsightsComponent;
 	[HideInInspector]
@@ -314,7 +316,7 @@ public class FPSPlayer : MonoBehaviour {
 	private MainMenu MainMenuComponent;
 
 	void Start (){	
-
+		isConnected = HasConnection ();
 		if(removePrefabRoot){
 			GameObject prefabRoot = transform.parent.transform.gameObject;
 			transform.parent.transform.DetachChildren();
@@ -1325,7 +1327,7 @@ public class FPSPlayer : MonoBehaviour {
 
 		//Call Die function if player's hitpoints have been depleted
 		if (hitPoints < 1.0f){
-			if (HasConnection()) {
+			if (isConnected) {
 				pauseManager.ActivateDeathCanvas ();
 			} else {
 				pauseManager.ActivateNoInternetCanvas ();
