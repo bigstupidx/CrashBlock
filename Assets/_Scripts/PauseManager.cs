@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using EasyEditor;
+using UnityEngine.Analytics;
 using Heyzap;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour {
 
@@ -19,6 +21,9 @@ public class PauseManager : MonoBehaviour {
 	public GameObject gameplayCanvas;
 	public GameObject noInternetCanvas;
 	public Animator anim;
+
+	public GameObject loadingPanel;
+	public Slider progressSlider;
 
 	public FPSPlayer fpsPlayer_ref;
 
@@ -191,7 +196,8 @@ public class PauseManager : MonoBehaviour {
 
 	public void NextLEvelButton ()
 	{
-		SceneManager.LoadScene ("" + nextSceneName, LoadSceneMode.Single);
+		StartCoroutine ("LoadLevelProgressBar", nextSceneName);
+		//SceneManager.LoadScene ("" + nextSceneName, LoadSceneMode.Single);
 	}
 
 	[Inspector]
@@ -232,6 +238,26 @@ public class PauseManager : MonoBehaviour {
 	}
 
 
+	public IEnumerator LoadLevelProgressBar(string nextSceneName)
+	{
+		char[] sceneNumberArray = nextSceneName.ToCharArray();
+		string sceneNumber = sceneNumberArray [sceneNumberArray.Length-1].ToString();
+		Debug.Log ("SceneNumber" + sceneNumber);
+		AsyncOperation scene;
+		yield return new WaitForSeconds (1);
 
+		loadingPanel.SetActive (true);
+
+
+		Analytics.CustomEvent ("Level"+sceneNumber+"Started");
+		scene = SceneManager.LoadSceneAsync (nextSceneName);
+
+		while (!scene.isDone) 
+		{
+			progressSlider.value = scene.progress;
+			Debug.Log ("scene progress: " + scene.progress);
+			yield return null;
+		}
+	}
 
 }

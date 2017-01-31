@@ -394,8 +394,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 358402840}
-        m_MethodName: LoadlLevel
-        m_Mode: 3
+        m_MethodName: LoadlLevelSelect
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -462,6 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80373b943720045498daf22611f24de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingPanel: {fileID: 0}
+  progressSlider: {fileID: 0}
   loadLevelButtons:
   - sceneName: LevelSelect
 --- !u!82 &358402841
