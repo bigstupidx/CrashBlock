@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -363,8 +364,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f4b7bc2fcdbe83946a4020421e34b692, type: 3}
+    m_FontSize: 47
     m_FontStyle: 0
     m_BestFit: 0
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -480,6 +483,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &224000010371991312
 RectTransform:
@@ -592,6 +596,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 99.2}
+  m_SizeDelta: {x: 205.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011755311768
 RectTransform:
@@ -630,6 +635,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 558.6, y: 63.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013832724890
 RectTransform:
