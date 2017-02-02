@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using EasyEditor;
 
 public enum CopsVsRobbers {Cop, Robber};
 
@@ -19,7 +20,9 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	[SerializeField]
 	private Transform robberStartPos;
 
+	[SerializeField]
 	private Camera CopCameraStart;
+	[SerializeField]
 	private Camera RobberCameraStart;
 
 
@@ -75,7 +78,14 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	{
 		ControlGameUI (true);
 		print ("Game Started");
+
+		// turn off starting camera and Fly thru Cameras
+		gameStartCam.gameObject.SetActive(false);
+		CopCameraStart.gameObject.SetActive (false);
+		RobberCameraStart.gameObject.SetActive (false);
+
 	}
+
 
 	// shows or hides the Game UI with the input bool
 	void ControlGameUI( bool show)
@@ -84,6 +94,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		{
 			dataComps.uiImages [i].SetActive (show);
 		}
+
+	
 
 
 	}
@@ -120,4 +132,17 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		}
 		
 	}
+
+	[Inspector]
+	public void ShowUIButtons()
+	{
+		ControlGameUI (true);
+	}
+	[Inspector]
+	public void HideUIButtons()
+	{
+		ControlGameUI (false);
+	}
+
+
 }
