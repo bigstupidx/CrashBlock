@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 using EasyEditor;
 
 public enum CopsVsRobbers {Cop, Robber};
@@ -37,6 +38,17 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	private GameObject[] CopsVsRobbersInitialCanvas;
 
 
+	[Header("The containers for the npcs"),SerializeField]
+	[Space(20)]
+	private Transform copsNpcs;
+	[SerializeField]
+	private int robbersToKill;
+	[SerializeField]
+	private Transform robbersNpcs;
+	[SerializeField]
+	private int copsToKill;
+
+
 	void Start()
 	{
 		if (dataComps == null)
@@ -54,6 +66,10 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			playerTeam = CopsVsRobbers.Cop;
 			copStartPos.GetChild (0).gameObject.SetActive (true);
 			dataComps.fpsPlayer_ref.gameObject.transform.position = copStartPos.position;
+			// turn off the other game
+			robbersNpcs.parent.gameObject.SetActive (false);
+			// initialize enemies to kill
+			dataComps.gameObject.GetComponent<KillAllEnemiesMission>().EnemyCounter = robbersToKill;
 
 			print ("Came Started as Cop");
 		}
@@ -62,6 +78,10 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			playerTeam = CopsVsRobbers.Robber;
 			robberStartPos.GetChild (0).gameObject.SetActive (true);
 			dataComps.fpsPlayer_ref.gameObject.transform.position = robberStartPos.position;
+			// turn off the otehr game
+			copsNpcs.parent.gameObject.SetActive (false);
+			// initialize enemies to kill
+			dataComps.gameObject.GetComponent<KillAllEnemiesMission>().EnemyCounter = copsToKill;
 			print ("Came Started as Robber");
 		}
 
@@ -157,6 +177,52 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	{
 		ControlGameUI (false);
 	}
+
+
+
+
+
+	/// <summary>
+	/// Counts the cops and robbers.
+
+
+	[Inspector]
+	[Comment("Turns ON the npcs so they can be counted for the team the player chooses")]
+	public void CountCopsAndRobbers()
+	{
+		robbersToKill = 0;
+		copsToKill = 0;
+		
+		for (int i = 0; i < copsNpcs.childCount; i++) 
+		{
+			copsNpcs.GetChild (i).gameObject.SetActive (true);
+
+			if (copsNpcs.GetChild (i).gameObject.name.Contains ("Robber")) 
+			{
+				robbersToKill++;
+			}
+
+
+		}
+
+		for (int i = 0; i < robbersNpcs.childCount; i++) 
+		{
+
+			robbersNpcs.GetChild (i).gameObject.SetActive (true);
+
+			if (robbersNpcs.GetChild (i).gameObject.name.Contains ("Cop")) 
+			{
+				copsToKill++;
+			}
+
+		}
+
+
+		EditorUtility.SetDirty (gameObject.GetComponent<GM_CopsvsRobbers> ());
+	
+	}
+
+
 
 
 }
