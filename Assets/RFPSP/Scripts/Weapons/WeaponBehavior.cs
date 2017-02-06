@@ -2263,7 +2263,21 @@ public class WeaponBehavior : MonoBehaviour {
 				hit.collider.gameObject.GetComponent<LocationDamage>().ApplyDamage(damageAmt, directionArg, mainCamTransform.position, myTransform, true, false);
 				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
 			}
+			if(hit.collider.gameObject.GetComponent<CustomEnemyDamage>()){
+				print("Custom enemy damage detected");
+				hit.collider.gameObject.GetComponent<CustomEnemyDamage>().ApplyDamage(damageAmt, directionArg, mainCamTransform.position, myTransform, true, false);
+				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
+			}
 			break;
+
+			case 22: // BodyArmor
+			print("BodyAmorLayer HIT");
+			if(hit.collider.gameObject.GetComponent<CustomEnemyDamage>()){
+				hit.collider.gameObject.GetComponent<CustomEnemyDamage>().ApplyDamage(damageAmt, directionArg, mainCamTransform.position, myTransform, true, false);
+				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
+			}
+			break;
+
 		default:
 			break;	
 		}

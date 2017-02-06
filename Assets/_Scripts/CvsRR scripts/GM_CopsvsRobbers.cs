@@ -15,6 +15,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	[SerializeField]
 	private Camera gameStartCam;
 
+	public bool gameStarted = false;
+
 	[SerializeField]
 	private Transform copStartPos;
 	[SerializeField]
@@ -76,8 +78,20 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 	public void StartGame()
 	{
+
+
+
 		ControlGameUI (true);
 		print ("Game Started");
+
+		if( playerTeam == CopsVsRobbers.Cop)
+		dataComps.fpsPlayer_ref.gameObject.transform.position = copStartPos.position;
+		
+		if( playerTeam == CopsVsRobbers.Robber)
+		dataComps.fpsPlayer_ref.gameObject.transform.position = robberStartPos.position;
+
+
+		gameStarted = true;
 
 		// turn off starting camera and Fly thru Cameras
 		gameStartCam.gameObject.SetActive(false);

@@ -11,6 +11,8 @@ public class SectionTrigger : MonoBehaviour {
 	[SerializeField]
 	private SpawnSection spawnSection_ref;
 
+	[SerializeField]
+	private GM_CopsvsRobbers gm_CvsRR_ref;
 
 
 	void OnDrawGizmos ()
@@ -24,20 +26,30 @@ public class SectionTrigger : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter(Collider col)
+	void OnTriggerStay(Collider col)
 	{
 
 		if (col.gameObject.tag == "Player") 
 		{
-			spawnSection_ref.SpawnNpcs ();
+			if (gm_CvsRR_ref.gameStarted) 
+			{
+				spawnSection_ref.SpawnNpcs ();
 
-			this.gameObject.SetActive (false);
+				this.gameObject.SetActive (false);
+			}
 		}
 
 
 
 	}
 
+	void Start()
+	{
+		if (gm_CvsRR_ref == null) 
+		{
+			gm_CvsRR_ref = GameObject.Find ("GameManager").GetComponent<GM_CopsvsRobbers> ();
+		}
+	}
 	
 
 }

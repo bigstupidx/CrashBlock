@@ -1158,7 +1158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010582874374}
   m_LocalRotation: {x: -0, y: -0.92434716, z: -0, w: 0.38155252}
-  m_LocalPosition: {x: -219.86, y: 0, z: 63.59}
+  m_LocalPosition: {x: -224.57, y: 0, z: 60.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -135.362, z: 0}
   m_Children:
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   gunItem: {fileID: 0}
   gunObj: {fileID: 0}
   ragdollActive: 0
-  deadReplacement: {fileID: 4000011076052638, guid: 694a5d7217d6fc247bb3f0cd88c7dcea,
+  deadReplacement: {fileID: 4000010590129812, guid: 01027d047f520324c90525f284aac6b1,
     type: 2}
   painSounds:
   - {fileID: 8300000, guid: 32998a00e7d36ae43a380d5a0a852ab4, type: 3}
@@ -2581,7 +2581,7 @@ MonoBehaviour:
   damage: 4
   isMeleeAttack: 0
   muzzleFlash: {fileID: 23000014095526868}
-  firesnd: {fileID: 8300000, guid: c49ba9ad675695040ae323d542d6babf, type: 3}
+  firesnd: {fileID: 8300000, guid: 0761fa9e3ee158646ba8a11dc270f9c3, type: 3}
   fireFxRandPitch: 0.95
 --- !u!136 &136000014067993830
 CapsuleCollider:

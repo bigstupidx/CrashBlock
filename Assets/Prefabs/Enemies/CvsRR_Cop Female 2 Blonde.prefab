@@ -921,10 +921,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010194573794}
-  m_LocalRotation: {x: -0, y: -0.95109695, z: -0, w: 0.30889267}
-  m_LocalPosition: {x: -232.26, y: -1.4782226e-15, z: 58.27}
+  m_LocalRotation: {x: -0, y: -0.9353841, z: -0, w: -0.35363355}
+  m_LocalPosition: {x: -251.3, y: -1.4782226e-15, z: 62.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -143.77701, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -221.60399, z: 0}
   m_Children:
   - {fileID: 4000010727759900}
   - {fileID: 4000010170543064}
@@ -2480,7 +2480,7 @@ MonoBehaviour:
   shootRange: 25
   attackRange: 40
   listenRange: 50
-  shotDuration: 0.75
+  shotDuration: 0.2
   shootAnimSpeed: 0.35
   attackRangeAmt: 30
   sneakRangeMod: 0.4
@@ -2519,7 +2519,7 @@ MonoBehaviour:
   range: 100
   inaccuracy: 0.2
   fireRate: 0.09
-  burstShots: 3
+  burstShots: 1
   randomShots: 3
   force: 0
   damage: 3
@@ -2543,10 +2543,14 @@ MonoBehaviour:
   gunItem: {fileID: 0}
   gunObj: {fileID: 0}
   ragdollActive: 0
-  deadReplacement: {fileID: 4000011076052638, guid: 694a5d7217d6fc247bb3f0cd88c7dcea,
+  deadReplacement: {fileID: 4000014069702908, guid: 9ea96b2942a62e54eb72d2768af30b6a,
     type: 2}
-  painSounds: []
-  dieSound: {fileID: 8300000, guid: 530f9672dc1bc6f469b17a1415265ff6, type: 3}
+  painSounds:
+  - {fileID: 8300000, guid: 35b44f104f424f74cb873bc6fe9c614e, type: 3}
+  - {fileID: 8300000, guid: c6e97fa2e32ecae48abf9e180c1a1c6c, type: 3}
+  - {fileID: 8300000, guid: 2637553a2de842a4fb6ae7a4e2d9f25b, type: 3}
+  - {fileID: 8300000, guid: 111e5bad86d61484c947ff9774237a43, type: 3}
+  dieSound: {fileID: 8300000, guid: 2637553a2de842a4fb6ae7a4e2d9f25b, type: 3}
   notParent: 0
   removeBody: 1
   bodyStayTime: 15
