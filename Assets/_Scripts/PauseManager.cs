@@ -35,7 +35,9 @@ public class PauseManager : MonoBehaviour {
 	[Header("Next Level Name")]
 	public string nextSceneName;
 
-
+	void OnEnable(){
+		loadingPanel.SetActive (false);
+	}
 	// ------------------- Activate and Deactivate the Pause Canvas
 
 	// <-Called by DataComps
@@ -149,7 +151,7 @@ public class PauseManager : MonoBehaviour {
 
 	public void ActivateNoInternetCanvas()
 	{
-
+		loadingPanel.SetActive (false);
 		noInternetCanvas.SetActive (true);
 		Time.timeScale = 0;
 		print ("Activate PauseMenu");
@@ -218,9 +220,6 @@ public class PauseManager : MonoBehaviour {
 
 		}
 	}
-
-
-
 
 	void Awake ()
 	{
