@@ -39,6 +39,7 @@ GameObject:
   - 54: {fileID: 54000011946163156}
   - 95: {fileID: 95000011844657676}
   - 114: {fileID: 114000011399365610}
+  - 114: {fileID: 114000012083568662}
   m_Layer: 2
   m_Name: 'Ammo_Handgun_Pickup '
   m_TagString: Usable
@@ -294,6 +295,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponNumber: 2
+  objectPoolIndex: 0
+  removeOnUse: 1
+  pickupSound: {fileID: 8300000, guid: f49bb3d2fb957734fa3eec0e4e5e30ec, type: 3}
+  fullSound: {fileID: 8300000, guid: 1a79e50705142f740a7ad733adf22a21, type: 3}
+  ammoToAdd: 10
+  ammoPickupReticle: {fileID: 0}
+--- !u!114 &114000012083568662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011643807580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd41d6f2f4160242b93c069fb43eca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponNumber: 10
   objectPoolIndex: 0
   removeOnUse: 1
   pickupSound: {fileID: 8300000, guid: f49bb3d2fb957734fa3eec0e4e5e30ec, type: 3}

@@ -2512,7 +2512,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2595,6 +2595,7 @@ MonoBehaviour:
   ragdollActive: 0
   deadReplacement: {fileID: 4000010801483226, guid: 5688200aecde9844894bf811c4eac0a7,
     type: 2}
+  painSounds: []
   dieSound: {fileID: 8300000, guid: 530f9672dc1bc6f469b17a1415265ff6, type: 3}
   notParent: 0
   removeBody: 1
