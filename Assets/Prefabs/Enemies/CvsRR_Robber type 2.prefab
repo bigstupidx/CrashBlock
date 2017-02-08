@@ -59,6 +59,7 @@ GameObject:
   - 136: {fileID: 136000014067993830}
   - 54: {fileID: 54000012706943264}
   - 95: {fileID: 95000013464254622}
+  - 114: {fileID: 114000013306013774}
   m_Layer: 13
   m_Name: CvsRR_Robber type 2
   m_TagString: Flesh
@@ -2583,6 +2584,20 @@ MonoBehaviour:
   muzzleFlash: {fileID: 23000014095526868}
   firesnd: {fileID: 8300000, guid: 0761fa9e3ee158646ba8a11dc270f9c3, type: 3}
   fireFxRandPitch: 0.95
+--- !u!114 &114000013306013774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010582874374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4179480181f341e42b8619b2310c981a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager_ref: {fileID: 0}
+  unitType: 1
+  aI_ref: {fileID: 114000010885424528}
 --- !u!136 &136000014067993830
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -548,6 +548,7 @@ GameObject:
   - 136: {fileID: 136000010273142442}
   - 54: {fileID: 54000012420736742}
   - 95: {fileID: 95000013272153104}
+  - 114: {fileID: 114000014281935908}
   m_Layer: 13
   m_Name: CvsRR_Cop_Male 2 Blonde
   m_TagString: Flesh
@@ -2638,6 +2639,20 @@ MonoBehaviour:
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
   killEnemiesRef: {fileID: 0}
+--- !u!114 &114000014281935908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013274434692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4179480181f341e42b8619b2310c981a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager_ref: {fileID: 0}
+  unitType: 0
+  aI_ref: {fileID: 114000010366439092, guid: e855a0b8e114230469ec422c8ec775a9, type: 2}
 --- !u!136 &136000010273142442
 CapsuleCollider:
   m_ObjectHideFlags: 1

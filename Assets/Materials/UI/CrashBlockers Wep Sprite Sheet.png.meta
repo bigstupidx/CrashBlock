@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6046bde8981d3a64fa7e971eb472bde4
-timeCreated: 1485125843
+timeCreated: 1486526644
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,10 +11,12 @@ TextureImporter:
     21300008: M4_sprite
     21300010: axe_sprite
     21300012: AK47_sprite
-    21300014: Empty
+    21300014: Knife_sprite
     21300016: plus sprite
     21300018: plus backpack 1
     21300020: plcus backpack 2
+    21300022: USP45Pistol_sprite
+    21300024: Empty
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -155,13 +157,13 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Empty
+      name: Knife_sprite
       rect:
         serializedVersion: 2
-        x: 78
-        y: 415
-        width: 44
-        height: 42
+        x: 37
+        y: 322
+        width: 152
+        height: 158
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,6 +203,32 @@ TextureImporter:
         y: 31
         width: 171
         height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: USP45Pistol_sprite
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 528
+        width: 172
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Empty
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 16
+        width: 36
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

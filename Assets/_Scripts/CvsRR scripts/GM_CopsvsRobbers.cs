@@ -28,14 +28,22 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	[SerializeField]
 	private Camera RobberCameraStart;
 
-
+	[Header("UI to toggle on and OFF")]
 	[SerializeField]
-	private CameraFader camFader_ref;
+	private GameObject gameplayCanvas;
 	[SerializeField]
-	private DataComps dataComps;
+	private GameObject skipButton;
 
 	[SerializeField]
 	private GameObject[] CopsVsRobbersInitialCanvas;
+
+
+	[SerializeField]
+	private CameraFader camFader_ref;
+
+	[Header("Datacomps")]
+	[SerializeField]
+	private DataComps dataComps;
 
 
 	[Header("The containers for the npcs"),SerializeField]
@@ -54,6 +62,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		if (dataComps == null)
 		dataComps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
 
+		skipButton.SetActive (false);
+		gameplayCanvas.SetActive (false);
 		ControlGameUI (false);
 	}
 
@@ -65,7 +75,7 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		{
 			playerTeam = CopsVsRobbers.Cop;
 			copStartPos.GetChild (0).gameObject.SetActive (true);
-			dataComps.fpsPlayer_ref.gameObject.transform.position = copStartPos.position;
+			//dataComps.fpsPlayer_ref.gameObject.transform.position = copStartPos.position;
 			// turn off the other game
 			robbersNpcs.parent.gameObject.SetActive (false);
 			// initialize enemies to kill
@@ -77,7 +87,7 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		{
 			playerTeam = CopsVsRobbers.Robber;
 			robberStartPos.GetChild (0).gameObject.SetActive (true);
-			dataComps.fpsPlayer_ref.gameObject.transform.position = robberStartPos.position;
+			//dataComps.fpsPlayer_ref.gameObject.transform.position = robberStartPos.position;
 			// turn off the otehr game
 			copsNpcs.parent.gameObject.SetActive (false);
 			// initialize enemies to kill
@@ -85,6 +95,7 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			print ("Came Started as Robber");
 		}
 
+		skipButton.SetActive (true);
 
 		HideCanvasPack (1);
 	}
@@ -98,10 +109,11 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 	public void StartGame()
 	{
-
-
-
 		ControlGameUI (true);
+		// turn ON gameplayCanvas
+		gameplayCanvas.SetActive (true);
+		skipButton.SetActive (false);
+
 		print ("Game Started");
 
 		if( playerTeam == CopsVsRobbers.Cop)
@@ -117,6 +129,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		gameStartCam.gameObject.SetActive(false);
 		CopCameraStart.gameObject.SetActive (false);
 		RobberCameraStart.gameObject.SetActive (false);
+
+
 
 	}
 
@@ -197,10 +211,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 		{
 			copsNpcs.GetChild (i).gameObject.SetActive (true);
 
-			if (copsNpcs.GetChild (i).gameObject.name.Contains ("Robber")) 
-			{
+			if (copsNpcs.GetChild (i).gameObject.GetComponent<CopsVsRobbersUnit> ().unitType == CopsVsRobbers.Robber)
 				robbersToKill++;
-			}
 
 
 		}
@@ -210,10 +222,10 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 			robbersNpcs.GetChild (i).gameObject.SetActive (true);
 
-			if (robbersNpcs.GetChild (i).gameObject.name.Contains ("Cop")) 
-			{
+			if (robbersNpcs.GetChild (i).gameObject.GetComponent<CopsVsRobbersUnit> ().unitType == CopsVsRobbers.Cop)
 				copsToKill++;
-			}
+
+
 
 		}
 

@@ -77,8 +77,8 @@ public class CustomEnemyDamage : MonoBehaviour {
 		{
 
 			case CustomEnemyEnum.Normal:
-
-			character_ref.ApplyDamage( newDmg, vec1, vec2, t , true, false);
+				if(character_ref)
+				character_ref.ApplyDamage( newDmg, vec1, vec2, t , true, false);
 
 			break;
 

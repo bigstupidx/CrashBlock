@@ -7118,7 +7118,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300014, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+  m_Sprite: {fileID: 21300024, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7146,7 +7146,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300014, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+  m_Sprite: {fileID: 21300024, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7174,7 +7174,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300014, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+  m_Sprite: {fileID: 21300024, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7202,7 +7202,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300014, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+  m_Sprite: {fileID: 21300024, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -9948,6 +9948,10 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11477544, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
+      propertyPath: firstWeapon
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
   m_IsPrefabParent: 0
@@ -9963,6 +9967,60 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 633657648}
   m_Script: {fileID: 11500000, guid: 1b7bad190623e2b4eac08abd47222c1b, type: 3}
+--- !u!114 &633657651 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11459642, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657652 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000014088411096, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657653 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013070120774, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657654 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11424252, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657655 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11407586, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657656 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11420460, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657657 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011240984946, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657658 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11483302, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
+--- !u!114 &633657659 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11462568, guid: 8996c486681cec54cb771da4409c3d5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 633657648}
+  m_Script: {fileID: 11500000, guid: def2fb265c6be544a9d5b85b16d3f8d2, type: 3}
 --- !u!1001 &639472484
 Prefab:
   m_ObjectHideFlags: 0
@@ -14056,6 +14114,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011317321048, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14323,6 +14386,99 @@ Prefab:
       propertyPath: progressSlider
       value: 
       objectReference: {fileID: 917253005}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[7].weaponName
+      value: Grenade (Do not reference)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[7].wepNumber
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[7].wepImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 6046bde8981d3a64fa7e971eb472bde4,
+        type: 3}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[8].weaponName
+      value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[8].wepNumber
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[8].wepImage
+      value: 
+      objectReference: {fileID: 21300014, guid: 6046bde8981d3a64fa7e971eb472bde4,
+        type: 3}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[9].weaponName
+      value: USP45Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[9].wepNumber
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[9].wepImage
+      value: 
+      objectReference: {fileID: 21300022, guid: 6046bde8981d3a64fa7e971eb472bde4,
+        type: 3}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[9].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657656}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[8].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657655}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[3].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657654}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[1].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657653}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[5].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657652}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[4].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657651}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[6].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657659}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[2].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657658}
+    - target: {fileID: 114000012338994660, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: weaponSlot.Array.data[0].wepBehaviour_ref
+      value: 
+      objectReference: {fileID: 633657657}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0
