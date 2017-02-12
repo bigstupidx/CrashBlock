@@ -229,8 +229,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			if (copsNpcs.GetChild (i).gameObject.GetComponent<CopsVsRobbersUnit> ().unitType == CopsVsRobbers.Robber)
 				robbersToKill++;
 
-
-		}
+            copsNpcs.GetChild(i).gameObject.SetActive(false);
+        }
 
 		for (int i = 0; i < robbersNpcs.childCount; i++) 
 		{
@@ -241,8 +241,9 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 				copsToKill++;
 
 
+            robbersNpcs.GetChild(i).gameObject.SetActive(false);
 
-		}
+        }
 
 
 		EditorUtility.SetDirty (gameObject.GetComponent<GM_CopsvsRobbers> ());
