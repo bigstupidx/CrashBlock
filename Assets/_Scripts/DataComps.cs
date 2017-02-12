@@ -120,12 +120,39 @@ public class DataComps : MonoBehaviour {
 
 	void Awake()
 	{
-		if(!pauseMan_ref)
+        if (!pauseMan_ref)
 		{
 			pauseMan_ref = this.gameObject.GetComponent<PauseManager> ();
 		}
+
+        if (SaveSystem.GetFirstTime() == true)
+        {
+            trackVolume = 0.5f;
+            sfxVolume = 0.8f;
+        }
+
+        if (SaveSystem.GetFirstTime() == false)
+        {
+            trackVolume = SaveSystem.GetTrackvolume();
+            sfxVolume = SaveSystem.GetSfxvolume();
+            print("gata");
+        }
+
+
 	}
 
+
+
+    void Start()
+    {
+
+
+        if (SaveSystem.GetFirstTime() == true)
+        {
+            SaveSystem.SetFirstTime(0);
+        }
+
+    }
 
 
 

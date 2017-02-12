@@ -28,12 +28,15 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	[SerializeField]
 	private Camera RobberCameraStart;
 
-	[Header("UI to toggle on and OFF")]
+    [Header("UI to toggle on and OFF")]
+    [SerializeField]
+    public GameObject pauseButton;
 	[SerializeField]
 	private GameObject gameplayCanvas;
 	[SerializeField]
 	private GameObject skipButton;
 
+    [Header("Cops vs Robber buttons")]
 	[SerializeField]
 	private GameObject[] CopsVsRobbersInitialCanvas;
 
@@ -64,8 +67,19 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 		skipButton.SetActive (false);
 		gameplayCanvas.SetActive (false);
+        pauseButton.SetActive(false);
 		ControlGameUI (false);
+        StartCoroutine(FlashCamera());
 	}
+
+    // avoid having the player weapons visible on restart with the cops and robbers select menu
+    IEnumerator FlashCamera()
+    {
+        gameStartCam.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        gameStartCam.enabled = true;
+    }
+
 
 
 	// initialize the game.
@@ -110,8 +124,9 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	public void StartGame()
 	{
 		ControlGameUI (true);
-		// turn ON gameplayCanvas
-		gameplayCanvas.SetActive (true);
+        // turn ON gameplayCanvas
+        pauseButton.SetActive(true);
+        gameplayCanvas.SetActive (true);
 		skipButton.SetActive (false);
 
 		print ("Game Started");
