@@ -95,7 +95,11 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			// initialize enemies to kill
 			dataComps.gameObject.GetComponent<KillAllEnemiesMission>().EnemyCounter = robbersToKill;
 
-			print ("Came Started as Cop");
+            if (gameObject.GetComponent<TeamSkin>())
+                gameObject.GetComponent<TeamSkin>().SetTeamSkin(1);
+
+
+            print ("Came Started as Cop");
 		}
 		if (cop1rob2 == 2) 
 		{
@@ -106,7 +110,11 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			copsNpcs.parent.gameObject.SetActive (false);
 			// initialize enemies to kill
 			dataComps.gameObject.GetComponent<KillAllEnemiesMission>().EnemyCounter = copsToKill;
-			print ("Came Started as Robber");
+
+            if (gameObject.GetComponent<TeamSkin>())
+                gameObject.GetComponent<TeamSkin>().SetTeamSkin(2);
+
+            print ("Came Started as Robber");
 		}
 
 		skipButton.SetActive (true);
