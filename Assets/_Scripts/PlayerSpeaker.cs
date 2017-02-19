@@ -30,7 +30,7 @@ public class PlayerSpeaker : MonoBehaviour {
 
 
 
-	void Awake ()
+	void Start ()
 	{
 		audioS = gameObject.GetComponent<AudioSource> ();
 

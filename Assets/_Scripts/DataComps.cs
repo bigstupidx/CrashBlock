@@ -129,6 +129,11 @@ public class DataComps : MonoBehaviour {
         {
             trackVolume = 0.5f;
             sfxVolume = 0.8f;
+
+            SaveSystem.SetSfxVolume( sfxVolume);
+            SaveSystem.SetTrackVolume(trackVolume);
+
+
         }
 
         if (SaveSystem.GetFirstTime() == false)
