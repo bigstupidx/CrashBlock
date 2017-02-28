@@ -50,13 +50,13 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
+    m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 4
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
+    m_TextureWidth: 128
     m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
@@ -64,7 +64,7 @@ LightmapSettings:
     m_CompAOExponentDirect: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
-    m_LightmapsBakeMode: 1
+    m_LightmapsBakeMode: 0
     m_TextureCompression: 1
     m_DirectLightInLightProbes: 1
     m_FinalGather: 0
@@ -6851,7 +6851,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
@@ -11924,6 +11924,16 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 108000012450156140, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000013903397176, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: facd161869d40054a8f0777c225975ac, type: 2}
   m_IsPrefabParent: 0
@@ -12736,6 +12746,16 @@ Prefab:
     - target: {fileID: 1000010866802820, guid: facd161869d40054a8f0777c225975ac, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000012450156140, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000013903397176, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: facd161869d40054a8f0777c225975ac, type: 2}
@@ -17812,6 +17832,22 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b06f89a572efe8f428ffc633ca32de73, type: 3}
   m_PrefabInternal: {fileID: 726201946}
+--- !u!1 &726201948 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: b06f89a572efe8f428ffc633ca32de73, type: 3}
+  m_PrefabInternal: {fileID: 726201946}
+--- !u!65 &726201949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 726201948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.999998, y: 4.5491824, z: 0.3469181}
+  m_Center: {x: -7.343858, y: 2.2745912, z: -0.17346293}
 --- !u!1001 &729298305
 Prefab:
   m_ObjectHideFlags: 0
@@ -19670,6 +19706,16 @@ Prefab:
     - target: {fileID: 1000010866802820, guid: facd161869d40054a8f0777c225975ac, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000012450156140, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000013903397176, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: facd161869d40054a8f0777c225975ac, type: 2}
@@ -23799,6 +23845,16 @@ Prefab:
     - target: {fileID: 1000010866802820, guid: facd161869d40054a8f0777c225975ac, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000012450156140, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000013903397176, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: facd161869d40054a8f0777c225975ac, type: 2}
@@ -32001,6 +32057,16 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 108000012450156140, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108000013903397176, guid: facd161869d40054a8f0777c225975ac,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: facd161869d40054a8f0777c225975ac, type: 2}
   m_IsPrefabParent: 0
@@ -32231,7 +32297,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
   m_ShadowRadius: 0
@@ -43537,6 +43603,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b06f89a572efe8f428ffc633ca32de73, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2028608651 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: b06f89a572efe8f428ffc633ca32de73, type: 3}
+  m_PrefabInternal: {fileID: 2028608650}
+--- !u!65 &2028608652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2028608651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.999998, y: 4.5491824, z: 0.3469181}
+  m_Center: {x: -7.343858, y: 2.2745912, z: -0.17346293}
 --- !u!1001 &2030864145
 Prefab:
   m_ObjectHideFlags: 0
