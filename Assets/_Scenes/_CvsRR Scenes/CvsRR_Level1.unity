@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.004
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.6163495, g: 0.6425771, b: 0.6985294, a: 1}
+  m_AmbientSkyColor: {r: 0.6782007, g: 0.7997137, b: 0.9411765, a: 1}
   m_AmbientEquatorColor: {r: 0.23183389, g: 0.37006, b: 0.4705882, a: 1}
-  m_AmbientGroundColor: {r: 0.6985294, g: 0.6317583, b: 0.49821582, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientGroundColor: {r: 0.39705884, g: 0.34450698, b: 0.23940313, a: 1}
+  m_AmbientIntensity: 0
+  m_AmbientMode: 1
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -34,10 +34,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.431
+  m_ReflectionIntensity: 0.411
   m_CustomReflection: {fileID: 8900000, guid: b995d4bd9d11078d11005b9844295342, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29650626, g: 0.33128813, b: 0.38720766, a: 0.431}
+  m_IndirectSpecularColor: {r: 0.28961563, g: 0.32371563, b: 0.37853897, a: 0.411}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -49,7 +49,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -31142,7 +31142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1369644682
 Transform:
   m_ObjectHideFlags: 0
