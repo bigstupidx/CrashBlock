@@ -1,22 +1,23 @@
 fileFormatVersion: 2
 guid: 6046bde8981d3a64fa7e971eb472bde4
-timeCreated: 1486526644
+timeCreated: 1488744057
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sniper_sprite
-    21300002: mp5_sprite
-    21300004: shotgun_sprite
-    21300006: desertEagle_sprite
-    21300008: M4_sprite
-    21300010: axe_sprite
-    21300012: AK47_sprite
-    21300014: Knife_sprite
-    21300016: plus sprite
-    21300018: plus backpack 1
-    21300020: plcus backpack 2
-    21300022: USP45Pistol_sprite
-    21300024: Empty
+    21300000: Sniper
+    21300002: Mp5
+    21300004: Shotgun
+    21300006: Desert Eagle
+    21300008: M4
+    21300010: Axe
+    21300012: Ak47
+    21300014: Ups
+    21300016: Knife
+    21300018: Doble Barrel
+    21300020: +
+    21300022: Extra Slot 1
+    21300024: Extra Slot 2
+    21300026: None
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -39,17 +40,17 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -5
-  maxTextureSize: 1024
+  textureFormat: -1
+  maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
-  compressionQuality: 90
+  compressionQuality: 50
   allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
@@ -66,7 +67,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sniper_sprite
+      name: Sniper
       rect:
         serializedVersion: 2
         x: 56
@@ -79,7 +80,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mp5_sprite
+      name: Mp5
       rect:
         serializedVersion: 2
         x: 336
@@ -92,7 +93,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shotgun_sprite
+      name: Shotgun
       rect:
         serializedVersion: 2
         x: 567
@@ -105,7 +106,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: desertEagle_sprite
+      name: Desert Eagle
       rect:
         serializedVersion: 2
         x: 865
@@ -118,7 +119,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: M4_sprite
+      name: M4
       rect:
         serializedVersion: 2
         x: 38
@@ -131,7 +132,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: axe_sprite
+      name: Axe
       rect:
         serializedVersion: 2
         x: 322
@@ -144,7 +145,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AK47_sprite
+      name: Ak47
       rect:
         serializedVersion: 2
         x: 569
@@ -157,20 +158,46 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Knife_sprite
+      name: Ups
       rect:
         serializedVersion: 2
-        x: 37
-        y: 322
-        width: 152
-        height: 158
+        x: 856
+        y: 538
+        width: 149
+        height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: plus sprite
+      name: Knife
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 327
+        width: 143
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Doble Barrel
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 366
+        width: 259
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: +
       rect:
         serializedVersion: 2
         x: 43
@@ -183,7 +210,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: plus backpack 1
+      name: Extra Slot 1
       rect:
         serializedVersion: 2
         x: 270
@@ -196,7 +223,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: plcus backpack 2
+      name: Extra Slot 2
       rect:
         serializedVersion: 2
         x: 528
@@ -209,26 +236,13 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: USP45Pistol_sprite
+      name: None
       rect:
         serializedVersion: 2
-        x: 838
-        y: 528
-        width: 172
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Empty
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 16
-        width: 36
-        height: 33
+        x: 622
+        y: 358
+        width: 120
+        height: 107
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

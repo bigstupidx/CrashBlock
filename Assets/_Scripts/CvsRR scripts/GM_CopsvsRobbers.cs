@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using EasyEditor;
 
 public enum CopsVsRobbers {Cop, Robber};
@@ -229,9 +231,9 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 		}
 
-
+		#if UNITY_EDITOR
 		EditorUtility.SetDirty (gameObject.GetComponent<GM_CopsvsRobbers> ());
-	
+		#endif
 	}
 
 

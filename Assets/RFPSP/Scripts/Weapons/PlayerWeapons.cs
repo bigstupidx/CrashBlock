@@ -178,12 +178,13 @@ public class PlayerWeapons : MonoBehaviour {
 //		Debug.Log ("current weapon " + currentWeapon); 
 //		Debug.Log ("current grenade " + currentGrenade); 
 
-		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false ) 
-		{
+		if (CurrentWeaponBehaviorComponent.ammo == 0 && CurrentWeaponBehaviorComponent.bulletsLeft == 0 && WatchedAdAmmo == false && CurrentWeaponBehaviorComponent.name != "Frag Grenade_cube") {
 			if (FPSPlayer.isConnected) {
 				weaponToAddAmmo = currentWeapon;
 				pauseManager.ActivateAmmoCanvas ();
-			}
+				}
+		} else{
+				pauseManager.DeactivateAmmoCanvas ();
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
