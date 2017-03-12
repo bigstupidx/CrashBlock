@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class SaveSystem {
 
-
+  
 
 	public static void SetFirstTime(int _val)		// First time gives info
 	{
@@ -111,9 +111,25 @@ public class SaveSystem {
 
 
 
+    public static void SetTrackVolume(float val)
+    {
+        PlayerPrefs.SetFloat("TrackVolume", val);
+       
+    }
+    public static float GetTrackvolume()
+    {
+        return PlayerPrefs.GetFloat("TrackVolume") ;
+    }
 
+    public static void SetSfxVolume(float val)
+    {
+        PlayerPrefs.SetFloat("SfxVolume", val);
 
-
+    }
+    public static float GetSfxvolume()
+    {
+        return PlayerPrefs.GetFloat("SfxVolume");
+    }
 
 
 

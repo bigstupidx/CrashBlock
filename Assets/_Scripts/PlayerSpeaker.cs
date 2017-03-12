@@ -30,10 +30,14 @@ public class PlayerSpeaker : MonoBehaviour {
 
 
 
-	void Awake ()
+	void Start ()
 	{
 		audioS = gameObject.GetComponent<AudioSource> ();
-	}
+
+        audioS.volume = SaveSystem.GetSfxvolume();
+
+        gameObject.transform.GetChild(0).gameObject.GetComponent<AudioSource>().volume = SaveSystem.GetTrackvolume();
+    }
 
 
 
