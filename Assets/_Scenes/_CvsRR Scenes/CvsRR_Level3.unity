@@ -5545,7 +5545,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300016, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+  m_Sprite: {fileID: 21300020, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44085,10 +44085,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 419380, guid: 44c107492f53a7f499432ecb3b57d559, type: 2}
   m_PrefabInternal: {fileID: 1213467717}
---- !u!1 &1215026076 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 181402, guid: 0474d1c7f8f957747988f113ed38c23e, type: 2}
-  m_PrefabInternal: {fileID: 809228696}
 --- !u!1001 &1217399554
 Prefab:
   m_ObjectHideFlags: 0
@@ -61456,7 +61452,6 @@ MonoBehaviour:
   robberStartPos: {fileID: 1915012506}
   CopCameraStart: {fileID: 1703380701}
   RobberCameraStart: {fileID: 64502576}
-  pauseButton: {fileID: 1215026076}
   gameplayCanvas: {fileID: 1142773878}
   skipButton: {fileID: 2125896811}
   CopsVsRobbersInitialCanvas:
@@ -65076,7 +65071,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
