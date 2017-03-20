@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 
 public class NPCAttack : MonoBehaviour {
+    [SerializeField]
 	private AI AIComponent;
 	private	WeaponEffects WeaponEffectsComponent;
 	private FPSRigidBodyWalker FPSWalker;

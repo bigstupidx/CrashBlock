@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class AI : MonoBehaviour {
 	[HideInInspector]
 	public bool spawned = false;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject playerObj;
 	[HideInInspector]
 	public Transform playerTransform;

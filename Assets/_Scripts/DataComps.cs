@@ -140,7 +140,7 @@ public class DataComps : MonoBehaviour {
         {
             trackVolume = SaveSystem.GetTrackvolume();
             sfxVolume = SaveSystem.GetSfxvolume();
-            print("gata");
+         
         }
 
 
