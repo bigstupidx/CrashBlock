@@ -43,7 +43,7 @@ public class DataComps : MonoBehaviour {
 
 	public int nextSlotToEquip=0;			// checks the next slot available to equip
 
-	public SpriteBounce heartSpriteBounce_ref;
+    public SpriteBounce heartSpriteBounce_ref;
 
 
 	// called from weapon pickup

@@ -219,9 +219,14 @@ public class FPSRigidBodyWalker : MonoBehaviour {
 	public bool drowning;//true when player has stayed under water for longer than holdBreathDuration
 	private float drownStartTime = 0.0f;
 	private Vector3 sweepBase;//base of capsule for forward movement checks
-	
-	//falling
-	[HideInInspector]
+
+
+    [Header("Jump pad")]
+    public bool usingJumpPad;
+
+
+    //falling
+    [HideInInspector]
 	public float airTime = 0.0f;//total time that player is airborn
 	private bool airTimeState;
 	[Tooltip("Number of units the player can fall before taking damage.")]
