@@ -2264,10 +2264,17 @@ public class WeaponBehavior : MonoBehaviour {
 				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
 			}
 			if(hit.collider.gameObject.GetComponent<CustomEnemyDamage>()){
-				print("Custom enemy damage detected");
 				hit.collider.gameObject.GetComponent<CustomEnemyDamage>().ApplyDamage(damageAmt, directionArg, mainCamTransform.position, myTransform, true, false);
 				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
 			}
+            if (hit.collider.gameObject.GetComponent<DestructibleMechPart>())
+            {
+                hit.collider.gameObject.GetComponent<DestructibleMechPart>().DamagePart(damageAmt);
+                FPSPlayerComponent.UpdateHitTime();//used for hitmarker
+            }
+
+
+
 			break;
 
 			case 22: // BodyArmor
@@ -2277,6 +2284,16 @@ public class WeaponBehavior : MonoBehaviour {
 				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
 			}
 			break;
+
+            case 23: // Boss layer
+
+                if(hit.collider.gameObject.GetComponent<TankFatLadyDamagePart>())
+                {
+                    hit.collider.gameObject.GetComponent<TankFatLadyDamagePart>().ReceiveDamage(damageAmt);
+                    FPSPlayerComponent.UpdateHitTime();//used for hitmarker
+                }
+                    
+              break;
 
 		default:
 			break;	

@@ -112,6 +112,13 @@ public class ExplosiveObject : MonoBehaviour {
 							if(hitCollider.gameObject.GetComponent<LocationDamage>()){
 								hitCollider.gameObject.GetComponent<LocationDamage>().ApplyDamage(explosionDamageAmt, Vector3.zero, myTransform.position, myTransform, false, true);
 							}
+
+                            if (hitCollider.gameObject.GetComponent<DestructibleMechPart>())
+                            {
+                                hitCollider.gameObject.GetComponent<DestructibleMechPart>().DamagePart(explosionDamageAmt);
+                            }
+
+
 							break;
 						case 0://hit object
 							if(hitCollider.gameObject.GetComponent<BreakableObject>()){
@@ -129,7 +136,11 @@ public class ExplosiveObject : MonoBehaviour {
 								hitCollider.gameObject.GetComponent<FPSPlayer>().ApplyDamage(explosionDamageAmt);
 							}	
 							break;
-						default:
+
+                           
+
+
+                        default:
 							break;	
 					}
 				}
