@@ -1,0 +1,870 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 27.03.2017 23:26:16
+
+newmtl cactus_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.0510 0.3922 0.0941
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\cactus_side.png
+	map_Kd D:\New Unity Project\Assets\tex\cactus_side.png
+
+newmtl sign
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\sign.png
+	map_Kd D:\New Unity Project\Assets\tex\sign.png
+
+newmtl glass_pane_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\glass_pane_side.png
+	map_Kd D:\New Unity Project\Assets\tex\glass_pane_side.png
+
+newmtl iron_block
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.9020 0.9020 0.9020
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\iron_block.png
+	map_Kd D:\New Unity Project\Assets\tex\iron_block.png
+
+newmtl dispenser_front
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.4235 0.4235 0.4235
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\dispenser_front.png
+	map_Kd D:\New Unity Project\Assets\tex\dispenser_front.png
+
+newmtl plank_oak
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\plank_oak.png
+	map_Kd D:\New Unity Project\Assets\tex\plank_oak.png
+
+newmtl glowstone
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.9450 0.8941 0.5960
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\glowstone.png
+	map_Kd D:\New Unity Project\Assets\tex\glowstone.png
+
+newmtl wool_red
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6431 0.1765 0.1608
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_red.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_red.png
+
+newmtl endstone
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8632 0.8705 0.6470
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\endstone.png
+	map_Kd D:\New Unity Project\Assets\tex\endstone.png
+
+newmtl stone_brick
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.4902 0.4902 0.4902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\stone_brick.png
+	map_Kd D:\New Unity Project\Assets\tex\stone_brick.png
+
+newmtl iron_bars
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.7686 0.7686 0.7686
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\iron_bars.png
+	map_Kd D:\New Unity Project\Assets\tex\iron_bars.png
+
+newmtl bed_head_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5608 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\bed_head_top.png
+	map_Kd D:\New Unity Project\Assets\tex\bed_head_top.png
+
+newmtl obsidian
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.0784 0.0706 0.1176
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\obsidian.png
+	map_Kd D:\New Unity Project\Assets\tex\obsidian.png
+
+newmtl glass
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\glass.png
+	map_Kd D:\New Unity Project\Assets\tex\glass.png
+
+newmtl chest
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5137 0.3686 0.1451
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\chest.png
+	map_Kd D:\New Unity Project\Assets\tex\chest.png
+
+newmtl cactus_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.0510 0.3922 0.0941
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\cactus_top.png
+	map_Kd D:\New Unity Project\Assets\tex\cactus_top.png
+
+newmtl hatch
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\hatch.png
+	map_Kd D:\New Unity Project\Assets\tex\hatch.png
+
+newmtl dirt
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5255 0.3765 0.2627
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\dirt.png
+	map_Kd D:\New Unity Project\Assets\tex\dirt.png
+
+newmtl lever
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\lever.png
+	map_Kd D:\New Unity Project\Assets\tex\lever.png
+
+newmtl water
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.0000 0.6039 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\water.png
+	map_Kd D:\New Unity Project\Assets\tex\water.png
+
+newmtl dirt_grass_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5255 0.3765 0.2627
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\dirt_grass_side.png
+	map_Kd D:\New Unity Project\Assets\tex\dirt_grass_side.png
+
+newmtl nether_brick
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.2196 0.1020 0.1216
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\nether_brick.png
+	map_Kd D:\New Unity Project\Assets\tex\nether_brick.png
+
+newmtl mushroom_inside
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.9490 0.7960 0.5804
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\mushroom_inside.png
+	map_Kd D:\New Unity Project\Assets\tex\mushroom_inside.png
+
+newmtl gravel
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5333 0.4980 0.4941
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\gravel.png
+	map_Kd D:\New Unity Project\Assets\tex\gravel.png
+
+newmtl sand
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8549 0.8235 0.6196
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\sand.png
+	map_Kd D:\New Unity Project\Assets\tex\sand.png
+
+newmtl wool_black
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.1059 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_black.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_black.png
+
+newmtl dirt_grass_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.3216 0.4510 0.1725
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\dirt_grass_top.png
+	map_Kd D:\New Unity Project\Assets\tex\dirt_grass_top.png
+
+newmtl stone_slab_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6549 0.6549 0.6549
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\stone_slab_side.png
+	map_Kd D:\New Unity Project\Assets\tex\stone_slab_side.png
+
+newmtl bed_foot_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5608 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\bed_foot_side.png
+	map_Kd D:\New Unity Project\Assets\tex\bed_foot_side.png
+
+newmtl sandstone_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8353 0.8039 0.5804
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\sandstone_side.png
+	map_Kd D:\New Unity Project\Assets\tex\sandstone_side.png
+
+newmtl plank_jungle
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.4393 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\plank_jungle.png
+	map_Kd D:\New Unity Project\Assets\tex\plank_jungle.png
+
+newmtl bed_foot_front
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5608 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\bed_foot_front.png
+	map_Kd D:\New Unity Project\Assets\tex\bed_foot_front.png
+
+newmtl door_wood_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\door_wood_top.png
+	map_Kd D:\New Unity Project\Assets\tex\door_wood_top.png
+
+newmtl furnace_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.3059 0.3059 0.3059
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\furnace_top.png
+	map_Kd D:\New Unity Project\Assets\tex\furnace_top.png
+
+newmtl door_wood_bottom
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\door_wood_bottom.png
+	map_Kd D:\New Unity Project\Assets\tex\door_wood_bottom.png
+
+newmtl wool_yellow
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.7608 0.7098 0.1098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_yellow.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_yellow.png
+
+newmtl wool_dark_gray
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.2627 0.2627 0.2627
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_dark_gray.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_dark_gray.png
+
+newmtl sandstone_side_smooth
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8353 0.8039 0.5804
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\sandstone_side_smooth.png
+	map_Kd D:\New Unity Project\Assets\tex\sandstone_side_smooth.png
+
+newmtl torch_flame
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 1.0000 0.8438 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\torch_flame.png
+	map_Kd D:\New Unity Project\Assets\tex\torch_flame.png
+
+newmtl lapis_lazuli_block
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.1137 0.2784 0.6510
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\lapis_lazuli_block.png
+	map_Kd D:\New Unity Project\Assets\tex\lapis_lazuli_block.png
+
+newmtl furnace_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.3059 0.3059 0.3059
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\furnace_side.png
+	map_Kd D:\New Unity Project\Assets\tex\furnace_side.png
+
+newmtl bed_head_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5608 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\bed_head_side.png
+	map_Kd D:\New Unity Project\Assets\tex\bed_head_side.png
+
+newmtl cobblestone
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.4588 0.4588 0.4588
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\cobblestone.png
+	map_Kd D:\New Unity Project\Assets\tex\cobblestone.png
+
+newmtl bed_foot_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5608 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\bed_foot_top.png
+	map_Kd D:\New Unity Project\Assets\tex\bed_foot_top.png
+
+newmtl redstone_lamp_off
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.3020 0.2118 0.0706
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\redstone_lamp_off.png
+	map_Kd D:\New Unity Project\Assets\tex\redstone_lamp_off.png
+
+newmtl netherrack
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.4314 0.2078 0.2000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\netherrack.png
+	map_Kd D:\New Unity Project\Assets\tex\netherrack.png
+
+newmtl sandstone_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8353 0.8039 0.5804
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\sandstone_top.png
+	map_Kd D:\New Unity Project\Assets\tex\sandstone_top.png
+
+newmtl stone_slab_top
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6549 0.6549 0.6549
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\stone_slab_top.png
+	map_Kd D:\New Unity Project\Assets\tex\stone_slab_top.png
+
+newmtl wool_light_gray
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6196 0.6510 0.6510
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_light_gray.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_light_gray.png
+
+newmtl cactus_bottom
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.0510 0.3922 0.0941
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\cactus_bottom.png
+	map_Kd D:\New Unity Project\Assets\tex\cactus_bottom.png
+
+newmtl wool_brown
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.3373 0.2000 0.1098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_brown.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_brown.png
+
+newmtl bed_head_front
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5608 0.0902 0.0902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\bed_head_front.png
+	map_Kd D:\New Unity Project\Assets\tex\bed_head_front.png
+
+newmtl torch
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 1.0000 0.8549 0.4000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\torch.png
+	map_Kd D:\New Unity Project\Assets\tex\torch.png
+
+newmtl log_oak_side
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.4313 0.3490 0.2193
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\log_oak_side.png
+	map_Kd D:\New Unity Project\Assets\tex\log_oak_side.png
+
+newmtl sandstone_bottom
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8353 0.8039 0.5804
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\sandstone_bottom.png
+	map_Kd D:\New Unity Project\Assets\tex\sandstone_bottom.png
+
+newmtl stone
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.4902 0.4902 0.4902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\stone.png
+	map_Kd D:\New Unity Project\Assets\tex\stone.png
+
+newmtl wool_white
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.8706 0.8706 0.8706
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\wool_white.png
+	map_Kd D:\New Unity Project\Assets\tex\wool_white.png
+
+newmtl ladder
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.6157 0.5020 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\ladder.png
+	map_Kd D:\New Unity Project\Assets\tex\ladder.png
+
+newmtl tall_grass
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.2896 0.4060 0.1555
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\tall_grass.png
+	map_Kd D:\New Unity Project\Assets\tex\tall_grass.png
+
+newmtl redstone_torch_on
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.9961 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\redstone_torch_on.png
+	map_Kd D:\New Unity Project\Assets\tex\redstone_torch_on.png
+
+newmtl dead_shrub
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5882 0.4431 0.3451
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\dead_shrub.png
+	map_Kd D:\New Unity Project\Assets\tex\dead_shrub.png
+
+newmtl redstone_lamp_on
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.9450 0.8941 0.5960
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\New Unity Project\Assets\tex\redstone_lamp_on.png
+	map_Kd D:\New Unity Project\Assets\tex\redstone_lamp_on.png
