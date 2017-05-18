@@ -26,6 +26,12 @@ public class TankFatLady : MonoBehaviour {
                 case FatLadyState.Dormant:
                 break;
                 case FatLadyState.Intro:
+                    if (!hasCalledIntro)
+                    {
+                        hasCalledIntro = true;
+                        StartCoroutine(IntroCutScene());
+                    }
+                    
                 break;
                 case FatLadyState.Attacking:
 
@@ -33,7 +39,30 @@ public class TankFatLady : MonoBehaviour {
                     StartCoroutine(TraversingWaypointsCo());
 
                 break;
+
+                case FatLadyState.Death:
+                    ObjsToToggleInCutscenes(false);
+                    FatLadystate = FatLadyState.Outro;
+                    
+                
+                break;
+
+
                 case FatLadyState.Outro:
+
+                    if (!hasCalledOutro)
+                    {
+                        hasCalledOutro = true;
+
+                        OutroCamera.SetActive(true);        //--- turn on cameras
+                        outroCamStartPoint.gameObject.SetActive(true);
+
+                        OutroCamera.transform.position = outroCamStartPoint.position;
+
+                        StartCoroutine(DefeatedCutScene());
+                        StartCoroutine(LoadNextLevelCo());
+                    }
+                    
                 break;
 
             }
@@ -109,7 +138,29 @@ public class TankFatLady : MonoBehaviour {
     private DataComps dataComps;
     private Transform player_T;
     private AudioSource audioS;
+
+    //--- cutscenes Variables
+    [Header("Cut Scenes Area"), SerializeField]
+    private GameObject introCamera;
+    private bool hasCalledIntro;
+    [SerializeField]
+    private GameObject[] objsTotoggle;
+ 
+    [SerializeField]
+    private GameObject OutroCamera;
+    [SerializeField]
+    private  Transform outroCamStartPoint;
+    [SerializeField]
+    private float outroCamSpeed;
+    private bool hasCalledOutro;
+    
     #endregion
+
+
+
+
+
+
 
 
     #region Mechanics Functions
@@ -119,7 +170,7 @@ public class TankFatLady : MonoBehaviour {
         LoadRefs();
         InitializeScript();
 
-        FatLadystate = FatLadyState.Attacking;
+        FatLadystate = FatLadyState.Intro;
         
     }
 
@@ -148,15 +199,27 @@ public class TankFatLady : MonoBehaviour {
                     StartCoroutine(AtkCo());
                 }
 
+                if (hp <= 0)
+                {
+
+                    FatLadystate = FatLadyState.Death;
+                }
 
 
             break;
 
-            case FatLadyState.Death:
-
-            break;
                 
             case FatLadyState.Outro:
+
+                // animate OutroCamera until enxt level loads
+                if(OutroCamera.activeSelf && outroCamStartPoint.gameObject.activeSelf)
+                {
+                    OutroCamera.transform.LookAt(gameObject.transform);
+                    OutroCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, outroCamSpeed * Time.deltaTime);
+                }    
+
+
+
 
             break;
 
@@ -165,7 +228,7 @@ public class TankFatLady : MonoBehaviour {
 
 
     }
-    #endregion
+   
 
     
 
@@ -272,6 +335,65 @@ public class TankFatLady : MonoBehaviour {
 
     }
 
+
+    #region CutScenes Functions
+
+
+    IEnumerator IntroCutScene()
+    {
+        yield return null;
+
+        ObjsToToggleInCutscenes(false);
+
+        introCamera.SetActive(true);
+
+        yield return new WaitForSeconds(7.5f);
+
+        fatLadyAnim.SetTrigger(fatAnimTriggers[0]);
+
+        yield return new WaitForSeconds(2.0f);
+
+        introCamera.SetActive(false);
+        
+        ObjsToToggleInCutscenes(true);
+
+        yield return new WaitForSeconds(3.0f);
+
+        FatLadystate = FatLadyState.Attacking;
+
+    }
+
+
+    IEnumerator DefeatedCutScene() //-- call destruction particles and sounds
+    {
+
+        yield return null;
+    }
+
+    IEnumerator LoadNextLevelCo()
+    {
+
+        yield return new WaitForSeconds(8.0f);
+
+        dataComps.GetComponent<PauseManager>().LevelSelectButton();
+    }
+
+    #endregion
+
+
+
+    void ObjsToToggleInCutscenes(bool toggle)
+    {
+      for (int i = 0; i < objsTotoggle.Length; i++)
+      {
+          if (objsTotoggle[i])
+          {
+              objsTotoggle[i].SetActive(toggle);
+          }
+      }
+    }
+
+    #endregion
 
 
     #region Loading references & Initialization 

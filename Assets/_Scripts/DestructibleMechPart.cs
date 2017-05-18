@@ -74,10 +74,6 @@ public class DestructibleMechPart : MonoBehaviour {
     public void DamagePart(float damage)   //-- received from fps weapons
     {
 
-        if (isDestroyed)
-        {
-            return;
-        }
 
         if (Random.Range(0, 1) == 0)
         {
