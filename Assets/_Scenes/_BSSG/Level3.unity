@@ -1850,6 +1850,16 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 23000013879738222, guid: 018fc5e2ee0022845b49ff6a0b8f18ef,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a39fb24fae98de346beb8afdbf3b54ec, type: 2}
+    - target: {fileID: 23000014230069098, guid: 018fc5e2ee0022845b49ff6a0b8f18ef,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 86ee3b97040b7e745b47786d5ae77540, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 018fc5e2ee0022845b49ff6a0b8f18ef, type: 2}
   m_IsPrefabParent: 0
@@ -6334,7 +6344,7 @@ GameObject:
   - 65: {fileID: 1198113229}
   - 65: {fileID: 1198113228}
   - 65: {fileID: 1198113227}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WorldLimit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
