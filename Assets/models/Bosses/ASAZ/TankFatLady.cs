@@ -52,6 +52,11 @@ public class TankFatLady : MonoBehaviour {
 
                     if (!hasCalledOutro)
                     {
+                        fatLadyAnim.SetTrigger(fatAnimTriggers[4]);
+
+                        OutroCutSceneParent.SetActive(true);
+                        OutroCamera.transform.parent.gameObject.SetActive(true);
+
                         hasCalledOutro = true;
 
                         OutroCamera.SetActive(true);        //--- turn on cameras
@@ -59,8 +64,14 @@ public class TankFatLady : MonoBehaviour {
 
                         OutroCamera.transform.position = outroCamStartPoint.position;
 
-                        StartCoroutine(DefeatedCutScene());
+                        // stop navmesh, and translate fat lady to target position
+                        navAgent.Stop();
+                        bossParent_T.position = bossDestroy_pos.position;
+
                         StartCoroutine(LoadNextLevelCo());
+                        StartCoroutine(WhitePanelCo());
+                        StartCoroutine(ExplosionSoundsCo());
+                        
                     }
                     
                 break;
@@ -91,7 +102,8 @@ public class TankFatLady : MonoBehaviour {
     private AudioClip defeated_sfx;
     [SerializeField]
     private AudioClip explodingTank_sfx;
-
+    [SerializeField]
+    private AudioSource milAudioS;  //-- call milena sfx with this audio source
 
 
     [Header("Shooting")]
@@ -149,11 +161,40 @@ public class TankFatLady : MonoBehaviour {
     [SerializeField]
     private GameObject OutroCamera;
     [SerializeField]
+    private GameObject OutroCutSceneParent;
+    [SerializeField]
     private  Transform outroCamStartPoint;
     [SerializeField]
     private float outroCamSpeed;
     private bool hasCalledOutro;
-    
+
+    [Header("Destruction Particles"), SerializeField]
+    private GameObject normalSpeedDestroy_p;
+    [SerializeField]
+    private GameObject fastSpeedDestroy_p;
+    private bool callWhiteFadeOnce;
+    [SerializeField]
+    private Image whiteFade;
+    private Color32 lerpedColor;
+    [SerializeField]
+    private Color32 transparentColor;
+    [SerializeField]
+    private Color32 whiteColor;
+    [SerializeField]
+    private float whiteFadeTimer;
+    private float timeCounting;
+    [SerializeField]
+    private Transform bossDestroy_pos;
+    [SerializeField]
+    private Transform bossParent_T;
+    [SerializeField]
+    private AudioClip explosion1;
+    [SerializeField]
+    private AudioClip explosion2;
+    [SerializeField]
+    private AudioClip explosion3;
+
+
     #endregion
 
 
@@ -214,13 +255,10 @@ public class TankFatLady : MonoBehaviour {
                 // animate OutroCamera until enxt level loads
                 if(OutroCamera.activeSelf && outroCamStartPoint.gameObject.activeSelf)
                 {
-                    OutroCamera.transform.LookAt(gameObject.transform);
-                    OutroCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, outroCamSpeed * Time.deltaTime);
-                }    
-
-
-
-
+                    OutroCamera.transform.LookAt(bossDestroy_pos);
+                    OutroCamera.transform.RotateAround(bossDestroy_pos.position, Vector3.up* outroCamSpeed, Time.deltaTime);
+                }
+                
             break;
 
         }
@@ -268,8 +306,12 @@ public class TankFatLady : MonoBehaviour {
             default:
                 break;
         }
-        StartCoroutine(AimPlayer());
-        StartCoroutine(ShootMissileCo());
+        if(fatLadystate == FatLadyState.Attacking)
+        {
+            StartCoroutine(AimPlayer());
+            StartCoroutine(ShootMissileCo());
+        }
+       
     }
 
     IEnumerator AimPlayer() //-- aim player
@@ -316,7 +358,7 @@ public class TankFatLady : MonoBehaviour {
         if (isBody)
         {
             fatLadyAnim.SetTrigger("DamagedOne");
-            audioS.PlayOneShot(damage_sfx[Random.Range(0, damage_sfx.Length-1)], 1.0f);
+            milAudioS.PlayOneShot(damage_sfx[Random.Range(0, damage_sfx.Length-1)], 1.0f);
         }
 
         if(hp-damage > 0)
@@ -350,6 +392,7 @@ public class TankFatLady : MonoBehaviour {
         yield return new WaitForSeconds(7.5f);
 
         fatLadyAnim.SetTrigger(fatAnimTriggers[0]);
+        milAudioS.PlayOneShot(greeting_sfx, 1.0f);
 
         yield return new WaitForSeconds(2.0f);
 
@@ -364,21 +407,74 @@ public class TankFatLady : MonoBehaviour {
     }
 
 
-    IEnumerator DefeatedCutScene() //-- call destruction particles and sounds
-    {
-
-        yield return null;
-    }
-
     IEnumerator LoadNextLevelCo()
     {
 
-        yield return new WaitForSeconds(8.0f);
+        yield return new WaitForSeconds(15.0f);
 
         dataComps.GetComponent<PauseManager>().LevelSelectButton();
     }
 
+
+    IEnumerator WhitePanelCo()  ///---- activates the explosion particles
+    {
+        normalSpeedDestroy_p.SetActive(true);
+
+        yield return new WaitForSeconds(3.0f);
+
+        normalSpeedDestroy_p.SetActive(true);
+
+        yield return new WaitForSeconds(3.0f);
+
+        milAudioS.PlayOneShot(defeated_sfx, 1.0f);      //-- mil defeated sfx
+
+        while (whiteFadeTimer > timeCounting)
+        {
+            timeCounting += Time.deltaTime;
+
+            lerpedColor = Color32.Lerp( transparentColor, whiteColor, timeCounting);
+
+            whiteFade.color = lerpedColor;
+            
+            yield return null;
+        }
+
+    }  
+
+
+    private float randomTimeSfx;
+    WaitForSeconds randomWait;
+    private int explosionsCounter;
+    IEnumerator ExplosionSoundsCo()
+    {
+        explosionsCounter++;
+
+        randomTimeSfx = Random.Range(0.4f,0.8f);
+        randomWait = new WaitForSeconds(randomTimeSfx);
+
+        audioS.PlayOneShot(explosion1, randomTimeSfx);
+        yield return randomWait;
+
+        randomTimeSfx = Random.Range(0.4f, 0.8f);
+        randomWait = new WaitForSeconds(randomTimeSfx);
+
+        audioS.PlayOneShot(explosion2, randomTimeSfx);
+
+        if(explosionsCounter < 10)
+        {
+            StartCoroutine(ExplosionSoundsCo());
+        }else
+        {
+            audioS.PlayOneShot(explosion3, 1.0f);  // play final explosion sfx
+        }
+
+    }
+
+
+
     #endregion
+
+
 
 
 
@@ -397,13 +493,13 @@ public class TankFatLady : MonoBehaviour {
 
 
     #region Loading references & Initialization 
-
-
+    
     void LoadRefs()
     {
         dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
 
         player_T = dataComps.fpsPlayer_ref.transform;
+       
     }
 
     void InitializeScript()

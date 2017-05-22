@@ -13,6 +13,8 @@ public class LevelSelectManager : MonoBehaviour {
 	public GameObject loadingPanel;
 	public Slider progressSlider;
 
+    private bool LoadOnce;
+
 
 	[System.Serializable]
 	public class LoadLevelButtons
@@ -64,7 +66,12 @@ public class LevelSelectManager : MonoBehaviour {
 
 			break;
 
-		}
+            case 5:
+
+                StartCoroutine("LoadLevelProgressBar", index);
+                break;
+
+        }
 
 
 
@@ -72,25 +79,30 @@ public class LevelSelectManager : MonoBehaviour {
 
 	public IEnumerator LoadLevelProgressBar(int index)
 	{
-		yield return new WaitForSeconds (1);
+        if (!LoadOnce)
+        {
+            LoadOnce = true;
+        
+		    yield return new WaitForSeconds (1);
 
-		loadingPanel.SetActive (true);
+		    loadingPanel.SetActive (true);
 
-		print ("Loading Level = "+loadLevelButtons [index].sceneName);
-		if (index == 0) {
-			Analytics.CustomEvent ("Tutorial Started");	
-		} else {
-			Analytics.CustomEvent ("Level" + index + "Started");
-		}
-		scene = SceneManager.LoadSceneAsync (loadLevelButtons [index].sceneName);
+		    print ("Loading Level = "+loadLevelButtons [index].sceneName);
+		    if (index == 0) {
+			    Analytics.CustomEvent ("Tutorial Started");	
+		    } else {
+			    Analytics.CustomEvent ("Level" + index + "Started");
+		    }
+		    scene = SceneManager.LoadSceneAsync (loadLevelButtons [index].sceneName);
 
-		while (!scene.isDone) 
-		{
-			progressSlider.value = scene.progress;
-			Debug.Log ("scene progress: " + scene.progress);
-			yield return null;
-		}
-	}
+		    while (!scene.isDone) 
+		    {
+			    progressSlider.value = scene.progress;
+			    Debug.Log ("scene progress: " + scene.progress);
+			    yield return null;
+		    }
+        }
+    }
 
 	public void TestBut ()
 	{

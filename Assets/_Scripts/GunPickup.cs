@@ -21,6 +21,11 @@ public class GunPickup : MonoBehaviour {
 	//
 	void PickUpGun()
 	{
+        if(weaponIndex == 8) //-- if equipped weapon is grenade
+        {
+            dataComps.playerWeps_ref.giveAmmo(8);
+            return;
+        }
 
 		dataComps.EquipPickedUpWeapon (weaponIndex);
 	}

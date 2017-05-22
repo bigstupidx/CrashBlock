@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.004
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.6163495, g: 0.6425771, b: 0.6985294, a: 1}
+  m_AmbientSkyColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_AmbientEquatorColor: {r: 0.23183389, g: 0.37006, b: 0.4705882, a: 1}
   m_AmbientGroundColor: {r: 0.6985294, g: 0.6317583, b: 0.49821582, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -34,10 +34,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.431
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 8900000, guid: b995d4bd9d11078d11005b9844295342, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29650626, g: 0.33128813, b: 0.38720766, a: 0.431}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -51,7 +51,7 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 4
     m_Resolution: 2
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22807,7 +22807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -58587,6 +58587,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1370466250}
   m_Mesh: {fileID: 4300000, guid: 821857815d22e36499446870dc7f52c1, type: 3}
+--- !u!1001 &1370820406
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1657219219}
+    m_Modifications:
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 19.534729
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.865047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 61.62049
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7079566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.6335917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.22294551
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.21829864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.12606
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d5d3ddd0f17aa1440b01f8d24c1c2288, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1370820407 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000013176481972, guid: d5d3ddd0f17aa1440b01f8d24c1c2288,
+    type: 2}
+  m_PrefabInternal: {fileID: 1370820406}
 --- !u!1 &1373744225
 GameObject:
   m_ObjectHideFlags: 0
@@ -61920,7 +61971,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300016, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+  m_Sprite: {fileID: 21300020, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -65730,7 +65781,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300016, guid: 6046bde8981d3a64fa7e971eb472bde4, type: 3}
+    m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300022, guid: 71e62a2ec2fabd54aa02e158f1a31584, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -66067,7 +66118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -70313,6 +70364,7 @@ Transform:
   - {fileID: 1894168160}
   - {fileID: 454267656}
   - {fileID: 1270886574}
+  - {fileID: 1370820407}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1 &1662620442
