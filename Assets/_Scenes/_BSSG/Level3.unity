@@ -1276,10 +1276,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011695159632, guid: 10900d9024c3df24b8a5dc2d1e51fffb, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -153.184
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10900d9024c3df24b8a5dc2d1e51fffb, type: 2}
   m_IsPrefabParent: 0
@@ -1860,6 +1856,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 86ee3b97040b7e745b47786d5ae77540, type: 2}
+    - target: {fileID: 23000011400312652, guid: 018fc5e2ee0022845b49ff6a0b8f18ef,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05586cd8700603c4095b0c4c53c0e672, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 018fc5e2ee0022845b49ff6a0b8f18ef, type: 2}
   m_IsPrefabParent: 0
@@ -5364,6 +5365,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -22.880001
       objectReference: {fileID: 0}
+    - target: {fileID: 137000011616954696, guid: 8402728eaaca321478541d5c571aa39c,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 697c1bd0d9b625b4ab06de236c3a13ba, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
   m_IsPrefabParent: 0
@@ -6588,6 +6594,11 @@ Prefab:
       propertyPath: m_Name
       value: SA_Char_Survivor_MaleTrenchcoat_minecraft (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 137000011616954696, guid: 8402728eaaca321478541d5c571aa39c,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 697c1bd0d9b625b4ab06de236c3a13ba, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
   m_IsPrefabParent: 0
@@ -8017,18 +8028,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011298974308, guid: 8e6f395a72b4e444696467448a717f60, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -136.837
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011298974308, guid: 8e6f395a72b4e444696467448a717f60, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011298974308, guid: 8e6f395a72b4e444696467448a717f60, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e6f395a72b4e444696467448a717f60, type: 2}
   m_IsPrefabParent: 0
@@ -8076,21 +8075,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011017604002, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -105.095
-      objectReference: {fileID: 0}
     - target: {fileID: 1000012062073748, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
       propertyPath: m_Name
       value: SA_Char_Survivor_MaleTrenchcoat_minecraft (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011017604002, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011017604002, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
@@ -8147,6 +8134,11 @@ Prefab:
       propertyPath: m_Name
       value: SA_Char_Survivor_MaleTrenchcoat_minecraft (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 137000011616954696, guid: 8402728eaaca321478541d5c571aa39c,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 697c1bd0d9b625b4ab06de236c3a13ba, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8402728eaaca321478541d5c571aa39c, type: 2}
   m_IsPrefabParent: 0
@@ -9023,10 +9015,6 @@ Prefab:
     - target: {fileID: 4000010000608454, guid: b2019796fa1afcf48befbe1d4c3070d9, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010000608454, guid: b2019796fa1afcf48befbe1d4c3070d9, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2019796fa1afcf48befbe1d4c3070d9, type: 2}
