@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.004
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.15570934, g: 0.3172162, b: 0.66176474, a: 1}
+  m_AmbientSkyColor: {r: 0.60294116, g: 0.72966194, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.23183389, g: 0.37006, b: 0.4705882, a: 1}
   m_AmbientGroundColor: {r: 0.6985294, g: 0.6317583, b: 0.49821582, a: 1}
   m_AmbientIntensity: 0.403
@@ -1434,6 +1434,16 @@ Prefab:
     - target: {fileID: 4000010832300936, guid: cb825f1106ffab6428938eb5751b5a6a, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 234.492
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000010584364158, guid: cb825f1106ffab6428938eb5751b5a6a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000014264697034, guid: cb825f1106ffab6428938eb5751b5a6a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb825f1106ffab6428938eb5751b5a6a, type: 2}
@@ -5127,7 +5137,7 @@ Prefab:
     - target: {fileID: 114000010865514808, guid: c9c9eb0329606ad4e92902bd557dd1aa,
         type: 2}
       propertyPath: nextSceneName
-      value: Level3
+      value: LevelSelect
       objectReference: {fileID: 0}
     - target: {fileID: 114000010865514808, guid: c9c9eb0329606ad4e92902bd557dd1aa,
         type: 2}
