@@ -496,7 +496,10 @@ public class WeaponBehavior : MonoBehaviour {
 	private Color muzzleSmokeColor = Color.white;//initialize muzzle smoke color
 	[Tooltip("Alpha transparency of muzzle smoke.")]
 	public float muzzleSmokeAlpha = 0.25f;
-	[Tooltip("True if tracers should be emitted for bullet shots.")]
+    [Tooltip("True if it leaves smoke trails when shooting.")]
+    public bool leavesTrail;
+    public int trailPoolIndex;
+    [Tooltip("True if tracers should be emitted for bullet shots.")]
 	public bool useTracers = true;
 	[Tooltip("Offset from shot origin to emit tracers.")]
 	public Vector3 tracerOffset;
@@ -2069,14 +2072,30 @@ public class WeaponBehavior : MonoBehaviour {
 			RaycastHit tpRayHit;
 			Vector3 cameraForwardPoint;
 			ArrowObject ArrowRef;
+
+            GameObject trailObject;
 			
 			if(Physics.Raycast(mainCamTransform.position + (mainCamTransform.forward * playerDist), mainCamTransform.forward + direction, out tpRayHit, range, bulletMask)){
 				cameraForwardPoint = tpRayHit.point;
 			}else{
 				cameraForwardPoint = mainCamTransform.position + ((mainCamTransform.forward + direction) * 20f);
 			}
-			
-			lookDirection = (cameraForwardPoint - shotOrigin).normalized;
+
+            //Bullet Trail effect
+            if (leavesTrail && !meleeActive)
+            {
+                trailObject = AzuObjectPool.instance.SpawnPooledObj(trailPoolIndex, playerObj.transform.position, playerObj.transform.rotation) as GameObject;
+                //If not zoomed, it starts a bit to the right
+                Vector3 startingPoint = mainCamTransform.position + (mainCamTransform.forward * 2.5f) + (mainCamTransform.right * 0.15f) + (mainCamTransform.up * -0.25f);
+                //If zoomed, it starts below the sight
+                if (FPSPlayerComponent.zoomed)
+                {
+                    startingPoint = mainCamTransform.position + (mainCamTransform.forward * 2.5f) + (mainCamTransform.up * -0.3f);
+                }
+                WeaponEffectsComponent.BulletTrails(trailObject, startingPoint, cameraForwardPoint);
+            }
+
+            lookDirection = (cameraForwardPoint - shotOrigin).normalized;
 			
 			//spawn pooled projectile object
 			if(projectilePoolIndex != 0 && !meleeActive){

@@ -38,10 +38,9 @@ GameObject:
   - 65: {fileID: 65000010630446068}
   - 54: {fileID: 54000011946163156}
   - 95: {fileID: 95000011844657676}
-  - 114: {fileID: 114000011399365610}
-  - 114: {fileID: 114000012083568662}
+  - 114: {fileID: 114000013421806646}
   m_Layer: 2
-  m_Name: 'Ammo_Handgun_Pickup '
+  m_Name: Ammo_BeamGun_Pickup
   m_TagString: Usable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011643807580}
   m_LocalRotation: {x: 0.71817523, y: 0.6436712, z: 0.18743448, w: 0.18649447}
-  m_LocalPosition: {x: 56.16, y: 1.22, z: -54.73}
+  m_LocalPosition: {x: 27.63, y: 13.7, z: -88.21}
   m_LocalScale: {x: 1.1260626, y: 1.1260626, z: 1.1260622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -283,42 +282,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011399365610
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011643807580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c8c58beb8178845bbd3f7e87cbb58b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponNumber: 2
-  objectPoolIndex: 0
-  removeOnUse: 1
-  pickupSound: {fileID: 8300000, guid: f49bb3d2fb957734fa3eec0e4e5e30ec, type: 3}
-  fullSound: {fileID: 8300000, guid: 1a79e50705142f740a7ad733adf22a21, type: 3}
-  ammoToAdd: 10
-  ammoPickupReticle: {fileID: 0}
---- !u!114 &114000012083568662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011643807580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd41d6f2f4160242b93c069fb43eca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponNumber: 10
-  objectPoolIndex: 0
-  removeOnUse: 1
-  pickupSound: {fileID: 8300000, guid: f49bb3d2fb957734fa3eec0e4e5e30ec, type: 3}
-  fullSound: {fileID: 8300000, guid: 1a79e50705142f740a7ad733adf22a21, type: 3}
-  ammoToAdd: 12
-  ammoPickupReticle: {fileID: 0}
 --- !u!114 &114000013279595898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,6 +296,24 @@ MonoBehaviour:
   rotx: 0
   roty: 50
   rotz: 0
+--- !u!114 &114000013421806646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011643807580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87506a1386a7c7a429f1ef375d59f415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponNumber: 10
+  objectPoolIndex: 0
+  removeOnUse: 1
+  pickupSound: {fileID: 8300000, guid: f49bb3d2fb957734fa3eec0e4e5e30ec, type: 3}
+  fullSound: {fileID: 8300000, guid: 5ff1cd5f8d16bcd4e8778c50ddc7e382, type: 3}
+  ammoToAdd: 25
+  ammoPickupReticle: {fileID: 0}
 --- !u!198 &198000014221376306
 ParticleSystem:
   m_ObjectHideFlags: 1
