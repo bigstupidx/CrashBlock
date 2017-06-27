@@ -2265,7 +2265,11 @@ public class WeaponBehavior : MonoBehaviour {
 			}else if(hit.collider.gameObject.GetComponent<MineExplosion>()){
 				hit.collider.gameObject.GetComponent<MineExplosion>().ApplyDamage(damageAmt);
 				FPSPlayerComponent.UpdateHitTime();//used for hitmarker
-			}
+			} else if (hit.collider.gameObject.GetComponent<CrateDestroyable>())
+                {
+                    hit.collider.gameObject.GetComponent<CrateDestroyable>().ApplyDamage(damageAmt);
+                    FPSPlayerComponent.UpdateHitTime();//used for hitmarker
+                }
 			break;
 		case 1://hit object is an object with transparent effects like a window
 			if(hit.collider.gameObject.GetComponent<BreakableObject>()){

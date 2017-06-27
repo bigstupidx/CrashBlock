@@ -211,12 +211,40 @@ public class WeaponEffects : MonoBehaviour {
 			impactObj.transform.rotation = Quaternion.Euler(Vector3.up);
 		}
 		if(impactObj.GetComponent<ParticleEmitter>()){impactObj.GetComponent<ParticleEmitter>().Emit();}
-	    foreach (Transform child in impactObj.transform){//emit all particles in the particle effect game object group stored in impactObj var
-			child.GetComponent<ParticleEmitter>().Emit();//emit the particle(s)
-		}
-		
-		//modify the weapon impact sounds based on the weapon type, so the multiple shotgun impacts and automatic weapons aren't so loud
-		if(!NpcAttack && !WeaponBehaviorComponent.meleeActive){
+        if (impactObj.GetComponent<ParticleEmitter>())
+        {
+            foreach (Transform child in impactObj.transform)
+            {//emit all particles in the particle effect game object group stored in impactObj var
+                child.GetComponent<ParticleEmitter>().Emit();//emit the particle(s)
+            }
+        }
+
+     
+
+
+        // play particles if they don't have particle Old particle emmiter
+
+        // if particle is already playing, instance a new one, to avoid lack of particles
+        if (impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>() && impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().isPlaying)
+        {
+            GameObject g = Instantiate(impactObj, impactObj.transform.position, impactObj.transform.rotation) as GameObject;
+            g.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+            Destroy(g, 2.0f);
+        }
+
+        if (impactObj.transform.GetChild(0).gameObject.activeSelf && impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>())
+        {
+            impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+            //	impactObj.transform.GetChild(0).gameObject.SetActive (false);
+            //} else {
+            //	impactObj.transform.GetChild(0).gameObject.SetActive (true);
+        }
+
+
+
+
+        //modify the weapon impact sounds based on the weapon type, so the multiple shotgun impacts and automatic weapons aren't so loud
+        if (!NpcAttack && !WeaponBehaviorComponent.meleeActive){
 			if(WeaponBehaviorComponent.projectileCount > 1){
 				hitVolumeAmt = 0.2f;	
 			}else if(!WeaponBehaviorComponent.semiAuto){
