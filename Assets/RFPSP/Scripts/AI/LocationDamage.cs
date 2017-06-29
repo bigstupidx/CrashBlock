@@ -39,18 +39,25 @@ public class LocationDamage : MonoBehaviour {
 	}
 	
 	//damage NPC
-	public void ApplyDamage ( float damage, Vector3 attackDir, Vector3 attackerPos, Transform attacker, bool isPlayer, bool isExplosion  ){
+	public void ApplyDamage ( float damage, Vector3 attackDir, Vector3 attackerPos, Transform attacker, bool isPlayer, bool isExplosion, bool knockback = true)
+    {
 		if(AIComponent && AIComponent.CharacterDamageComponent){
 			if(isPlayer){//if attack is from player, pass damage info to main CharacterDamage.cs component
 			
 				AIComponent.CharacterDamageComponent.ApplyDamage(damage * damageMultiplier, attackDir, attackerPos, attacker, isPlayer, isExplosion, thisRigidBody, damageForce);
 
-				// communicate which body part was hit
-				//AIComponent.CharacterDamageComponent.lastDamagedPart = bodyPart;
-				//AIComponent.HaltDuringHurtAnim ();
+                // communicate which body part was hit
+                //AIComponent.CharacterDamageComponent.lastDamagedPart = bodyPart;
+                //AIComponent.HaltDuringHurtAnim ();
+                // communicate which body part was hit
+                AIComponent.CharacterDamageComponent.lastDamagedPart = bodyPart;
+                if (damage > 10 && knockback)
+                {
+                    AIComponent.Stun(0.66f);
+                }
 
 
-				if (headShot 
+                if (headShot 
 				&& !headShotState 
 				&& AIComponent.CharacterDamageComponent.hitPoints <= 0.0f
 				&& Vector3.Distance(myTransform.position, attackerPos) < 15f 

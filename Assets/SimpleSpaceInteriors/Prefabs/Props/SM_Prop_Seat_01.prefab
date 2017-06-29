@@ -10,12 +10,13 @@ GameObject:
   - 4: {fileID: 497268}
   - 33: {fileID: 3360148}
   - 23: {fileID: 2373260}
+  - 114: {fileID: 114000010189237084}
   m_Layer: 0
   m_Name: SM_Prop_Seat_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &497268
 Transform:
@@ -23,11 +24,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171884}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.707106, z: -0, w: 0.7071076}
+  m_LocalPosition: {x: -27.1441, y: -69.88132, z: -2.9083872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000011211523974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2373260
@@ -77,3 +79,48 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171884}
   m_IsPrefabParent: 1
+--- !u!1 &1000010055904910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011211523974}
+  m_Layer: 0
+  m_Name: spawn_p
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000011211523974
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010055904910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 497268}
+  m_RootOrder: 0
+--- !u!114 &114000010189237084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abae665be7afa4498180c3934293b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0
+  objToSpawn: []
+  hp: 0
+  spawnPoint_T: {fileID: 4000011211523974}
+  breakParticles: {fileID: 1000010175774662, guid: c51f66cbee93edd459c8cb43e6a4619f,
+    type: 2}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c996d44bcfc0d0340a2e8210ba740d12
-timeCreated: 1496535020
+timeCreated: 1498608354
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -9,8 +9,8 @@ SubstanceImporter:
     name: SpaceFighterRacer1
     prototypeName: SpaceFighterRacer1
     shaderName: 
-    shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _EMISSION _METALLICGLOSSMAP
+    shader: {fileID: 10701, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: _EMISSION
     renderQueue: -1
     lightmapFlags: 1
     inputs:
@@ -102,62 +102,14 @@ SubstanceImporter:
       serializedVersion: 5
       offset: {x: 0, y: 0}
       scale: {x: 1, y: 1}
-      generateMipmaps: 1
+      generateMipmaps: 0
       generateAllOutputs: 0
       animationUpdateRate: 0
     materialProperties:
       serializedVersion: 2
       texEnvs:
       - first:
-          name: _BumpMap
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _DetailAlbedoMap
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _DetailMask
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _DetailNormalMap
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _EmissionMap
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
           name: _MainTex
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _MetallicGlossMap
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _OcclusionMap
-        second:
-          texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
-          offset: {x: 0, y: 0}
-      - first:
-          name: _ParallaxMap
         second:
           texture: {instanceID: 0}
           scale: {x: 1, y: 1}
@@ -249,18 +201,6 @@ SubstanceImporter:
         name: _MainTex
       material: {instanceID: 0}
       baseUID: 1096016646
-    - shaderProp:
-        name: _BumpMap
-      material: {instanceID: 0}
-      baseUID: 1096016644
-    - shaderProp:
-        name: _EmissionMap
-      material: {instanceID: 0}
-      baseUID: 1129568852
-    - shaderProp:
-        name: _MetallicGlossMap
-      material: {instanceID: 0}
-      baseUID: 1096016640
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 

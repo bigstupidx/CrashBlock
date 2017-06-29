@@ -55,9 +55,18 @@ public class CharacterDamage : MonoBehaviour {
 	// Communicating Scripts
 	public KillAllEnemiesMission killEnemiesRef;
 
-	
-	//vars related to attacker position (for physics, and other effects)
-	private Vector3 attackerPos2;
+
+    //for hit effects  
+    [Header("Last damaged bodypart"), Space(10)]
+    [SerializeField]
+    private bool animatedDeath;
+    public DamagedBodyPart lastDamagedPart = DamagedBodyPart.None;
+    [SerializeField]
+    private NPCAnim npcAnim_ref;
+
+
+    //vars related to attacker position (for physics, and other effects)
+    private Vector3 attackerPos2;
 	private Vector3 attackDir2;
 	private Transform myTransform;
 	private bool explosionCheck;
@@ -76,7 +85,7 @@ public class CharacterDamage : MonoBehaviour {
 		initialHitPoints = hitPoints;
 		bodies = GetComponentsInChildren<Rigidbody>();
 
-		GameObject Data;
+		//GameObject Data;
 		killEnemiesRef = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<KillAllEnemiesMission> ();
 
 		if (AIComponent.factionNum == 3) // check if enemy is from enemies faction
@@ -92,8 +101,14 @@ public class CharacterDamage : MonoBehaviour {
 		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps> ();
 
 	}
-	
-	void Update () {
+
+    private void Start()
+    {
+        if(gameObject.GetComponent<NPCAnim>())
+        npcAnim_ref = gameObject.GetComponent<NPCAnim>();
+    }
+
+    void Update () {
 		if(bodies.Length > 1){
 			if(!ragdollActive){//deactivate ragdoll mode
 				if(!ragdollState){
@@ -156,7 +171,9 @@ public class CharacterDamage : MonoBehaviour {
 			return;
 		}
 
-		if(!AIComponent.damaged 
+        StartCoroutine(HurtAnim());
+
+        if (!AIComponent.damaged 
 		&& !AIComponent.huntPlayer
 		&& (((hitPoints / initialHitPoints) < 0.65f))//has NPC been damaged significantly?
 		&& attacker
@@ -400,6 +417,14 @@ public class CharacterDamage : MonoBehaviour {
 		}
 		
 	}
+
+
+    IEnumerator HurtAnim()  // called from apply damage in order to animate the hurt animation
+    {
+        yield return new WaitForSeconds(0.01f);
+        if(npcAnim_ref)
+        npcAnim_ref.AnimationHurtCaller(lastDamagedPart);
+    }
 
 
 

@@ -93,7 +93,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1000010523642020
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -564,6 +564,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000013099370422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013874043004}
+  - 95: {fileID: 95000013537873614}
+  m_Layer: 13
+  m_Name: hurtAnimContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000013156299778
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +596,8 @@ GameObject:
   - 136: {fileID: 136000013707655400}
   - 54: {fileID: 54000011565496514}
   - 95: {fileID: 95000013387045462}
+  - 114: {fileID: 114000010146113178}
+  - 114: {fileID: 114000010174127358}
   m_Layer: 13
   m_Name: SW_StormTrooperType1
   m_TagString: Flesh
@@ -738,7 +756,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1000013938107902
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -981,13 +999,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010523642020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010225205114}
-  m_Father: {fileID: 4000012955649410}
+  m_Father: {fileID: 4000013874043004}
   m_RootOrder: 0
 --- !u!4 &4000011206990842
 Transform:
@@ -1220,13 +1238,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013156299778}
-  m_LocalRotation: {x: -0, y: -0.8495791, z: -0, w: 0.5274613}
-  m_LocalPosition: {x: 12.58, y: 12.41, z: -93.04}
+  m_LocalRotation: {x: -0, y: -0.57685405, z: -0, w: -0.81684726}
+  m_LocalPosition: {x: 102.0937, y: 7.2909245, z: -114.5251}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -116.20601, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -289.251, z: 0}
   m_Children:
-  - {fileID: 4000011090858826}
-  - {fileID: 4000014181328038}
+  - {fileID: 4000013874043004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000012960909620
@@ -1400,6 +1417,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000013168627526}
   m_RootOrder: 4
+--- !u!4 &4000013874043004
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013099370422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000011090858826}
+  - {fileID: 4000014181328038}
+  m_Father: {fileID: 4000012955649410}
+  m_RootOrder: 0
 --- !u!4 &4000013884701684
 Transform:
   m_ObjectHideFlags: 1
@@ -1450,12 +1482,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013938107902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000012955649410}
+  m_Father: {fileID: 4000013874043004}
   m_RootOrder: 1
 --- !u!4 &4000014242352360
 Transform:
@@ -2601,6 +2633,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000013537873614
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013099370422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1250717961e715489c7064d2f92d4a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &111000010674835010
 Animation:
   m_ObjectHideFlags: 1
@@ -2629,6 +2678,40 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000010146113178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013156299778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659aae228082f3d4bb6d83a4b5f6d0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIComponent: {fileID: 114000011880181056}
+  damageMultiplier: 1
+  damageForce: 2.75
+  bodyPart: 0
+  headShot: {fileID: 0}
+  sloMoKillChance: 0.8
+  sloMoTime: 0.9
+--- !u!114 &114000010174127358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013156299778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da4e1be5c8d37f4a89c9f129878e0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnimator: {fileID: 95000013537873614}
+  skinmesh: {fileID: 137000013251222344}
+  blockTransparent: {fileID: 0}
+  blockFader: {fileID: 0}
+  blockFader_texture: {fileID: 0}
 --- !u!114 &114000011201676836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2684,6 +2767,9 @@ MonoBehaviour:
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
   killEnemiesRef: {fileID: 0}
+  animatedDeath: 0
+  lastDamagedPart: 21
+  npcAnim_ref: {fileID: 0}
 --- !u!114 &114000011880181056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2717,6 +2803,7 @@ MonoBehaviour:
   objectWithAnims: {fileID: 0}
   randomSpawnChance: 1
   runSpeed: 6
+  baseRunSpeed: 0
   walkSpeed: 1.2
   walkAnimSpeed: 0.9
   runAnimSpeed: 1
@@ -2794,6 +2881,14 @@ MonoBehaviour:
   searchMask:
     serializedVersion: 2
     m_Bits: 0
+  isStunned: 0
+  isFrozen: 0
+  isSlowed: 0
+  isBurning: 0
+  isBannerBuffed: 0
+  isSpecialAttacking: 0
+  burnDPS: 10
+  BurningPrefab: {fileID: 0}
 --- !u!114 &114000013416074866
 MonoBehaviour:
   m_ObjectHideFlags: 1
