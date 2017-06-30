@@ -11726,10 +11726,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010839883218}
-  m_LocalRotation: {x: -0.0005206273, y: 0.06070087, z: 0.008690956, w: -0.9981181}
+  m_LocalRotation: {x: -0.0006114956, y: 0.050258487, z: 0.008685033, w: -0.9986983}
   m_LocalPosition: {x: -0.0074, y: 0.0045, z: -0.0482}
   m_LocalScale: {x: 0.46026626, y: 0.46026582, z: 0.4602661}
-  m_LocalEulerAnglesHint: {x: -0.001, y: -366.769, z: -0.96800005}
+  m_LocalEulerAnglesHint: {x: 0.020000001, y: -365.6, z: -0.96800005}
   m_Children: []
   m_Father: {fileID: 4000012942640626}
   m_RootOrder: 1
@@ -14447,10 +14447,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010834314328}
-  m_LocalRotation: {x: 0.15523046, y: -0.004283033, z: -0.020850593, w: 0.98764896}
+  m_LocalRotation: {x: 0.11071937, y: -0.003342323, z: -0.021021904, w: 0.9936238}
   m_LocalPosition: {x: 0.0007, y: -0.0177, z: 0.0273}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 17.798, y: -0.87200004, z: -2.4850001}
+  m_LocalEulerAnglesHint: {x: 12.647, y: -0.64400005, z: -2.4250002}
   m_Children: []
   m_Father: {fileID: 4000012498485322}
   m_RootOrder: 1
@@ -30417,15 +30417,15 @@ MonoBehaviour:
   droppable: 1
   addsToTotalWeaps: 1
   weaponNumber: 4
-  ammo: 80
+  ammo: 60
   bulletsLeft: 0
   bulletsPerClip: 0
   bulletsToReload: 0
-  maxAmmo: 160
+  maxAmmo: 120
   damage: 25
   force: 750
   range: 100
-  fireRate: 0.05
+  fireRate: 0.1
   projectileCount: 1
   projectilePoolIndex: 0
   projSpawnForward: 0.5
@@ -30481,8 +30481,8 @@ MonoBehaviour:
   weaponUnzoomXPosition: -0.031
   weaponUnzoomYPosition: 0.019
   weaponUnzoomZPosition: -0.053
-  weaponZoomXPosition: -0.064
-  weaponZoomYPosition: 0.015
+  weaponZoomXPosition: -0.061
+  weaponZoomYPosition: 0.024
   weaponZoomZPosition: -0.059
   blockRoll: 30
   weaponBackstabXPosition: -0.07
@@ -30733,7 +30733,7 @@ MonoBehaviour:
   weaponUnzoomYPosition: 0.02
   weaponUnzoomZPosition: -0.067
   weaponZoomXPosition: -0.07
-  weaponZoomYPosition: 0.03
+  weaponZoomYPosition: 0.027
   weaponZoomZPosition: -0.076
   blockRoll: 30
   weaponBackstabXPosition: -0.07
@@ -30955,7 +30955,7 @@ MonoBehaviour:
   inputYSmoothed: 0
   inputX: 0
   inputY: 0
-  walkSpeed: 5.5
+  walkSpeed: 6.5
   sprintSpeed: 9.5
   swimSpeed: 3
   jumpSpeed: 4.5
