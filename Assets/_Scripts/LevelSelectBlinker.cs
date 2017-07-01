@@ -20,6 +20,7 @@ public class LevelSelectBlinker : MonoBehaviour {
 
 
 
+
 	void Start()
 	{
 
@@ -61,8 +62,6 @@ public class LevelSelectBlinker : MonoBehaviour {
 			levelImage [5].gameObject.GetComponent<SpriteBounce>().enabled = true;
 
 		}
-
-
 
 
 

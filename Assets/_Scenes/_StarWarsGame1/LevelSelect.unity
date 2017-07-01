@@ -2317,6 +2317,7 @@ MonoBehaviour:
   wepSlot4: 0
   wepSlot5: 0
   levelsCompleted: 000000000000
+  allLevelsAvailable: 1
 --- !u!4 &254649807
 Transform:
   m_ObjectHideFlags: 0
@@ -7121,18 +7122,18 @@ MonoBehaviour:
   - {fileID: 1975253311}
   - {fileID: 1522895467}
   discoveredLevelSprite:
-  - {fileID: 21300000, guid: 81c15ced201ac7b4b8ac5ac52c77c6ff, type: 3}
-  - {fileID: 21300002, guid: 81c15ced201ac7b4b8ac5ac52c77c6ff, type: 3}
-  - {fileID: 21300004, guid: 81c15ced201ac7b4b8ac5ac52c77c6ff, type: 3}
-  - {fileID: 21300006, guid: 81c15ced201ac7b4b8ac5ac52c77c6ff, type: 3}
-  - {fileID: 21300008, guid: 81c15ced201ac7b4b8ac5ac52c77c6ff, type: 3}
+  - {fileID: 21300000, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300000, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300002, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300004, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300006, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
   undiscoveredLevelSprite:
-  - {fileID: 21300000, guid: 1847b547af67b9245839423bf11a7a4e, type: 3}
-  - {fileID: 21300002, guid: 1847b547af67b9245839423bf11a7a4e, type: 3}
-  - {fileID: 21300004, guid: 1847b547af67b9245839423bf11a7a4e, type: 3}
-  - {fileID: 21300006, guid: 1847b547af67b9245839423bf11a7a4e, type: 3}
-  - {fileID: 21300008, guid: 1847b547af67b9245839423bf11a7a4e, type: 3}
-  levelAvailable: 010101000000
+  - {fileID: 21300000, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300000, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300002, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300004, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  - {fileID: 21300006, guid: cb6e8b62e618d9b4993af3dfe87df4d1, type: 3}
+  levelAvailable: 010101010101
   lastLevelDeveloped: 4
 --- !u!1 &1085113645
 GameObject:

@@ -14,13 +14,26 @@ public class SaveData : MonoBehaviour {
 
 	public bool[] levelsCompleted;
 
+    public bool allLevelsAvailable;
+
 	private DataComps dataComps;
 
 	// Use this for initialization
 	void Awake () {
-	
 
-		isFirstTime = SaveSystem.GetFirstTime();
+        if (allLevelsAvailable)
+        {
+            SaveSystem.SetLevelTut(1);
+            SaveSystem.SetLevel1(1);
+            SaveSystem.SetLevel2(1);
+            SaveSystem.SetLevel3(1);
+            SaveSystem.SetLevel4(1);
+            SaveSystem.SetLevel5(1);
+        }
+
+
+
+        isFirstTime = SaveSystem.GetFirstTime();
 		lastCompletedLevel = SaveSystem.GetLastCompletedLevel();
 
 		if (dataComps == null)
@@ -82,9 +95,12 @@ public class SaveData : MonoBehaviour {
 
 		}
 
+  
 
 
-	}
+
+
+    }
 
 
 
