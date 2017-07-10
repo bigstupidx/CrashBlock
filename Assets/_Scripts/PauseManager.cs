@@ -51,6 +51,7 @@ public class PauseManager : MonoBehaviour {
 
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
 		{
+            if(dataComps_ref.uiImages[i])
 			dataComps_ref.uiImages [i].gameObject.SetActive (false);
 
 		}
@@ -65,7 +66,8 @@ public class PauseManager : MonoBehaviour {
 
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
 		{
-			dataComps_ref.uiImages [i].gameObject.SetActive (true);
+            if (dataComps_ref.uiImages[i])
+                dataComps_ref.uiImages [i].gameObject.SetActive (true);
 
 		}
 
@@ -83,6 +85,7 @@ public class PauseManager : MonoBehaviour {
 		Time.timeScale = 0;
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
 		{
+            if(dataComps_ref.uiImages[i] && dataComps_ref.uiImages[i].gameObject.activeSelf)
 			dataComps_ref.uiImages [i].gameObject.SetActive(false);
 
 		}
@@ -96,7 +99,8 @@ public class PauseManager : MonoBehaviour {
 		Time.timeScale = 1;
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
 		{
-			dataComps_ref.uiImages [i].gameObject.SetActive (true);
+            if (dataComps_ref.uiImages[i])
+                dataComps_ref.uiImages [i].gameObject.SetActive (true);
 
 		}
 

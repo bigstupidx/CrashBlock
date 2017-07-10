@@ -55,7 +55,11 @@ public class AI : MonoBehaviour {
 	//NPC movement speeds
 	[Tooltip("Running speed of the NPC.")]
 	public float runSpeed = 6.0f;
-	[Tooltip("Walking speed of the NPC.")]
+
+    [HideInInspector]
+    public float baseRunSpeed;
+
+    [Tooltip("Walking speed of the NPC.")]
 	public float walkSpeed = 1.0f;
 	[Tooltip("Speed of running animation.")]
 	public float walkAnimSpeed = 1.0f;
@@ -240,10 +244,29 @@ public class AI : MonoBehaviour {
 	
 	[HideInInspector]
 	public RaycastHit attackHit;
-	
-	//public int navTest;
 
-	void Start(){
+    #region status effects
+    //Status Effects
+    public float isStunned = 0.0f;     //Movespeed is 0
+    public float isFrozen = 0.0f;   //Movespeed is 0
+    public float isSlowed = 0.0f;   //Movespeed reduced
+    public float isBurning = 0.0f;  //Taking damage over time
+    public float isBannerBuffed = 0.0f;  //Extra movespeed
+    public float isSpecialAttacking = 0.0f;  //Can't do normal attacks
+
+    [Tooltip("Damage taken per second while burning")]
+    public float burnDPS = 10.0f;
+
+    public GameObject BurningPrefab;
+    private GameObject burnPrefabInstance;
+
+
+    #endregion
+
+
+    //public int navTest;
+
+    void Start(){
 	
 		NPCMgrObj = GameObject.Find("NPC Manager");
 		NPCRegistryComponent = NPCMgrObj.GetComponent<NPCRegistry>();
@@ -356,8 +379,9 @@ public class AI : MonoBehaviour {
 	//initialize NPC behavior
 	public void SpawnNPC(){
 
+        StartCoroutine(StatusEffectsManager());
 
-		if(agent.isOnNavMesh){
+        if (agent.isOnNavMesh){
 			spawnTime = Time.time;
 			StartCoroutine(PlayFootSteps());
 			if(objectWithAnims != myTransform){
@@ -938,7 +962,8 @@ public class AI : MonoBehaviour {
 				
 				// Start shooting if close and player is in sight
 				if(distance < shootRange && angle < shootAngle){
-					if(attackFinished){
+					if(attackFinished && isStunned <= 0.0f)
+                    {
 						yield return StartCoroutine(Shoot());
 					}else{
 						speedAmt = 0.0f;
@@ -1208,10 +1233,77 @@ public class AI : MonoBehaviour {
 		startPosition = position;
 	}
 
-//	//used to change the faction of the NPC
-	public void ChangeFaction(int factionChange){
+
+
+    /// <summary>
+    /// Stops the npc movement for "time" seconds
+    /// </summary>
+    /// <param name="time">Time the npc will be stunned</param>
+    public void Stun(float time)
+    {
+        if (time > isStunned) isStunned = time;
+    }
+
+    //	//used to change the faction of the NPC
+    public void ChangeFaction(int factionChange){
 		target = null;
 		factionNum = factionChange;
 	}
+
+
+    IEnumerator StatusEffectsManager()
+    {
+        float step = 0.3f;
+        WaitForSeconds statusStep = new WaitForSeconds(step);
+
+        baseRunSpeed = runSpeed;
+        float baseWalkSpeed = walkSpeed;
+
+        while (true)
+        {
+            if (isBurning > 0.0f)
+            {
+                CharacterDamageComponent.ApplyDamage(burnDPS * step, Vector3.zero, myTransform.position, myTransform, false, false);
+                isBurning -= step;
+            }
+
+            //Movespeed management
+            if (isFrozen > 0.0f || isStunned > 0.0f)
+            {
+                runSpeed = 0;
+                walkSpeed = 0;
+                isFrozen -= step;
+                isStunned -= step;
+            }
+            else if (isSlowed > 0.0f)
+            {
+                runSpeed = baseRunSpeed * 0.5f;
+                walkSpeed = baseWalkSpeed * 0.5f;
+                isSlowed -= step;
+            }
+            else
+            {
+                runSpeed = baseRunSpeed;
+                walkSpeed = baseWalkSpeed;
+            }
+
+            //Animation management
+            if (isFrozen > 0.0f)
+            {
+                if(AnimationComponent)
+                AnimationComponent.enabled = false;
+            }
+            else
+            {
+                if (AnimationComponent)
+                    AnimationComponent.enabled = true;
+            }
+
+            isSpecialAttacking -= step;
+
+            yield return statusStep;
+
+        }
+    }
 
 }

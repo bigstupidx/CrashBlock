@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public enum MoreGamesKey {ASAZ, CVSRR, HBSG };
+public enum MoreGamesKey {ASAZ, CVSRR, HBSG, SWONE };
 
 public class MoreGames : MonoBehaviour {
 

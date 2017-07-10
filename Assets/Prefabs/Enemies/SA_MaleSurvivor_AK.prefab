@@ -200,7 +200,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000012018341142
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -232,7 +232,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1000012269576028
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -277,6 +277,8 @@ GameObject:
   - 136: {fileID: 136000013300886048}
   - 54: {fileID: 54000013761400366}
   - 95: {fileID: 95000014281680392}
+  - 114: {fileID: 114000012769309382}
+  - 114: {fileID: 114000010193900770}
   m_Layer: 13
   m_Name: SA_MaleSurvivor_AK
   m_TagString: Flesh
@@ -386,6 +388,22 @@ GameObject:
   - 4: {fileID: 4000010027110482}
   m_Layer: 13
   m_Name: Head_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000013844563288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012245807822}
+  - 95: {fileID: 95000013986811942}
+  m_Layer: 13
+  m_Name: hurtAnimContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,12 +521,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012562643930}
   m_LocalRotation: {x: -0, y: 0.091065064, z: -0, w: 0.995845}
-  m_LocalPosition: {x: -49.3, y: -0.19479585, z: -19.8}
+  m_LocalPosition: {x: 49.26, y: 9.605205, z: -112.713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 10.188001, z: 0}
   m_Children:
-  - {fileID: 4000011553032862}
-  - {fileID: 4000014254238068}
+  - {fileID: 4000012245807822}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000011013944486
@@ -556,13 +573,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012018341142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012719575268}
-  m_Father: {fileID: 4000010578971422}
+  m_Father: {fileID: 4000012245807822}
   m_RootOrder: 0
 --- !u!4 &4000011567266536
 Transform:
@@ -618,6 +635,21 @@ Transform:
   m_Children:
   - {fileID: 4000011115446450}
   m_Father: {fileID: 4000012303771342}
+  m_RootOrder: 0
+--- !u!4 &4000012245807822
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013844563288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000011553032862}
+  - {fileID: 4000014254238068}
+  m_Father: {fileID: 4000010578971422}
   m_RootOrder: 0
 --- !u!4 &4000012265250714
 Transform:
@@ -810,12 +842,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012269576028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000010578971422}
+  m_Father: {fileID: 4000012245807822}
   m_RootOrder: 1
 --- !u!23 &23000010037889052
 MeshRenderer:
@@ -1158,6 +1190,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95000013986811942
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013844563288}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1250717961e715489c7064d2f92d4a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95000014281680392
 Animator:
   serializedVersion: 3
@@ -1189,6 +1238,22 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000010193900770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012562643930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da4e1be5c8d37f4a89c9f129878e0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnimator: {fileID: 95000013986811942}
+  skinmesh: {fileID: 137000010117895144}
+  blockTransparent: {fileID: 0}
+  blockFader: {fileID: 0}
+  blockFader_texture: {fileID: 0}
 --- !u!114 &114000010409638164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1245,6 +1310,7 @@ MonoBehaviour:
   objectWithAnims: {fileID: 0}
   randomSpawnChance: 1
   runSpeed: 6
+  baseRunSpeed: 0
   walkSpeed: 1.2
   walkAnimSpeed: 0.9
   runAnimSpeed: 1
@@ -1322,6 +1388,14 @@ MonoBehaviour:
   searchMask:
     serializedVersion: 2
     m_Bits: 0
+  isStunned: 0
+  isFrozen: 0
+  isSlowed: 0
+  isBurning: 0
+  isBannerBuffed: 0
+  isSpecialAttacking: 0
+  burnDPS: 10
+  BurningPrefab: {fileID: 0}
 --- !u!114 &114000012740084500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1377,6 +1451,27 @@ MonoBehaviour:
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
   killEnemiesRef: {fileID: 0}
+  animatedDeath: 0
+  lastDamagedPart: 21
+  npcAnim_ref: {fileID: 0}
+--- !u!114 &114000012769309382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012562643930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659aae228082f3d4bb6d83a4b5f6d0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIComponent: {fileID: 114000012624219120}
+  damageMultiplier: 1
+  damageForce: 2.75
+  bodyPart: 0
+  headShot: {fileID: 0}
+  sloMoKillChance: 0
+  sloMoTime: 0.9
 --- !u!136 &136000013300886048
 CapsuleCollider:
   m_ObjectHideFlags: 1

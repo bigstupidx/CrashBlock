@@ -38,9 +38,21 @@ public class WeaponEffects : MonoBehaviour {
 	public ParticleEmitter playerTracerParticles;
 	[Tooltip("Particle effect to use for underwater tracers.")]
 	public ParticleEmitter bubbleParticles;
-	
-	//impact marks to be placed on objects where projectiles hit
-	[Tooltip("Index in the object pool of dirt mark objects.")]
+
+    public bool using_Sparticles;
+
+    [Tooltip("Shuriken particle System for player")]
+    public ParticleSystem S_Tracer;
+    [Tooltip("Shuriken particle System for player Underwater")]
+    public ParticleSystem S_TracerUnderwater;
+    [Tooltip("Shuriken particle System for npc")]
+    public ParticleSystem S_TracerNPC;
+    [Tooltip("Line renderer for bullet trail")]
+    public LineRenderer S_Trail;
+
+
+    //impact marks to be placed on objects where projectiles hit
+    [Tooltip("Index in the object pool of dirt mark objects.")]
 	public int[] dirtMarksID;
 	[Tooltip("Index in the object pool of metal mark objects.")]
 	public int[] metalMarksID;
@@ -199,12 +211,40 @@ public class WeaponEffects : MonoBehaviour {
 			impactObj.transform.rotation = Quaternion.Euler(Vector3.up);
 		}
 		if(impactObj.GetComponent<ParticleEmitter>()){impactObj.GetComponent<ParticleEmitter>().Emit();}
-	    foreach (Transform child in impactObj.transform){//emit all particles in the particle effect game object group stored in impactObj var
-			child.GetComponent<ParticleEmitter>().Emit();//emit the particle(s)
-		}
-		
-		//modify the weapon impact sounds based on the weapon type, so the multiple shotgun impacts and automatic weapons aren't so loud
-		if(!NpcAttack && !WeaponBehaviorComponent.meleeActive){
+        if (impactObj.GetComponent<ParticleEmitter>())
+        {
+            foreach (Transform child in impactObj.transform)
+            {//emit all particles in the particle effect game object group stored in impactObj var
+                child.GetComponent<ParticleEmitter>().Emit();//emit the particle(s)
+            }
+        }
+
+     
+
+
+        // play particles if they don't have particle Old particle emmiter
+
+        // if particle is already playing, instance a new one, to avoid lack of particles
+        if (impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>() && impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().isPlaying)
+        {
+            GameObject g = Instantiate(impactObj, impactObj.transform.position, impactObj.transform.rotation) as GameObject;
+            g.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+            Destroy(g, 2.0f);
+        }
+
+        if (impactObj.transform.GetChild(0).gameObject.activeSelf && impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>())
+        {
+            impactObj.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+            //	impactObj.transform.GetChild(0).gameObject.SetActive (false);
+            //} else {
+            //	impactObj.transform.GetChild(0).gameObject.SetActive (true);
+        }
+
+
+
+
+        //modify the weapon impact sounds based on the weapon type, so the multiple shotgun impacts and automatic weapons aren't so loud
+        if (!NpcAttack && !WeaponBehaviorComponent.meleeActive){
 			if(WeaponBehaviorComponent.projectileCount > 1){
 				hitVolumeAmt = 0.2f;	
 			}else if(!WeaponBehaviorComponent.semiAuto){
@@ -361,11 +401,87 @@ public class WeaponEffects : MonoBehaviour {
 		
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Draw Explosions
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	public void ExplosionEffect ( Vector3 position){
+
+
+
+    //
+    //Trails
+    //
+
+    /// <summary>
+    /// Draws a smoke trail given an initial position and a final position, width and duration optional
+    /// </summary>
+    /// <param name="initialPos"> Starting position of the smoke trail </param>
+    /// <param name="finalPos"> Ending position of the smoke trail </param>
+    /// <param name="startWidth"> Starting width of the smoke trail </param>
+    /// <param name="endWidth"> Ending width of the smoke trail </param>
+    /// <param name="duration"> Duration of the smoke trail </param>
+    public void BulletTrails(GameObject poolTrail, Vector3 initialPos, Vector3 finalPos, float duration = 1.5f, float startWidth = 0.0f, float endWidth = 0.07f)
+    {
+        S_Trail = poolTrail.GetComponent<LineRenderer>();
+        if (S_Trail)
+        {
+            S_Trail.SetWidth(startWidth, endWidth);
+            S_Trail.SetPosition(0, initialPos);
+            S_Trail.SetPosition(1, finalPos);
+            StartCoroutine(fadeTrail(poolTrail.GetComponent<LineRenderer>(), duration));
+        }
+    }
+
+
+    /// <summary>
+    /// Draws a smoke trail given an initial position and a final position, width and duration optional
+    /// </summary>
+    /// <param name="initialPos"> Starting position of the smoke trail </param>
+    /// <param name="finalPos"> Ending position of the smoke trail </param>
+    /// <param name="startColor"> Starting color of the smoke trail </param>
+    /// <param name="endColor"> Ending color of the smoke trail </param>
+    /// <param name="duration"> Duration of the smoke trail </param>
+    /// <param name="startWidth"> Starting width of the smoke trail </param>
+    /// <param name="endWidth"> Ending width of the smoke trail </param>
+    public void EnemyBulletTrails(GameObject poolTrail, Vector3 initialPos, Vector3 finalPos, float duration = 1.5f, float startWidth = 0.0f, float endWidth = 0.07f)
+    {
+        S_Trail = poolTrail.GetComponent<LineRenderer>();
+        if (S_Trail)
+        {
+            S_Trail.SetWidth(startWidth, endWidth);
+            S_Trail.SetPosition(0, initialPos);
+            S_Trail.SetPosition(1, finalPos);
+            StartCoroutine(fadeEnemyTrail(poolTrail.GetComponent<LineRenderer>(), duration));
+        }
+    }
+
+    IEnumerator fadeTrail(LineRenderer currentTrail, float duration)
+    {
+        float initDuration = duration;
+        while (duration > 0.0f)
+        {
+            currentTrail.SetColors(new Color(1, 1, 1, 0.8f * (duration / initDuration)), new Color(1, 1, 1, duration / initDuration));
+            yield return new WaitForSeconds(0.1f);
+            duration -= 0.1f;
+        }
+        currentTrail.gameObject.SetActive(false);
+    }
+
+    IEnumerator fadeEnemyTrail(LineRenderer currentTrail, float duration)
+    {
+        float initDuration = duration;
+        while (duration > 0.0f)
+        {
+            currentTrail.SetColors(new Color(1, 0.7f, 0.4f, 0.8f * (duration / initDuration)), new Color(1, 0.7f, 0.4f, 0.5f * (duration / initDuration)));
+            yield return new WaitForSeconds(0.1f);
+            duration -= 0.1f;
+        }
+        currentTrail.gameObject.SetActive(false);
+    }
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Draw Explosions
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void ExplosionEffect ( Vector3 position){
 		explosion.transform.position = position;
 		if(explosion.GetComponent<ParticleEmitter>()){explosion.GetComponent<ParticleEmitter>().Emit();}
 		foreach (Transform child in explosion.transform){//emit all particles in the particle effect game object group stored in impactObj var
