@@ -40,6 +40,7 @@ GameObject:
   - 224: {fileID: 224000012316561608}
   - 222: {fileID: 222000010076764432}
   - 114: {fileID: 114000011550318070}
+  - 114: {fileID: 114000010987504436}
   m_Layer: 5
   m_Name: smallBanner
   m_TagString: Untagged
@@ -58,6 +59,7 @@ GameObject:
   - 223: {fileID: 223000013834372604}
   - 114: {fileID: 114000012281793390}
   - 114: {fileID: 114000011103660068}
+  - 114: {fileID: 114000013201610796}
   m_Layer: 5
   m_Name: MoreGames
   m_TagString: Untagged
@@ -136,7 +138,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114000010524810994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114000013201610796}
+        m_MethodName: OpenTheIndexGameURL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114000010524810994
@@ -166,6 +179,29 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000010987504436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011597518590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d549467c89b7adb44b4b5c3c7bc38afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animateScale: 0
+  maxScale: 0
+  minScale: 0
+  animTime: 0
+  animateColor: 1
+  startAnimColour:
+    serializedVersion: 2
+    rgba: 4294967295
+  endAnimColour:
+    serializedVersion: 2
+    rgba: 4293256677
+  colorAnimTime: 1
 --- !u!114 &114000011103660068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,6 +336,32 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: MORE GAMES
+--- !u!114 &114000013201610796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011837596982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c854f2fc5cd8f4a85f300fee339810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisGame: 0
+  gameList:
+  - gameName: American Solder Attack Zombie
+    gameIcon: {fileID: 21300000, guid: 752a05c89e4018342acd3394c530ca74, type: 3}
+    GameKeyName: 0
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.americansoldierattackzombie
+  - gameName: Cops vs Robbers Royale
+    gameIcon: {fileID: 21300000, guid: 97de9cd7b11681746a7d3992b9ce8925, type: 3}
+    GameKeyName: 1
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.copsvsrobbersroyale
+  - gameName: Hungry Brothers Survival Games
+    gameIcon: {fileID: 21300000, guid: 7101767de4db37940a2f8fc802814e1c, type: 3}
+    GameKeyName: 2
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.hungrybrotherssurvivalgames
+  buttonImage: {fileID: 114000010524810994}
 --- !u!222 &222000010076764432
 CanvasRenderer:
   m_ObjectHideFlags: 1

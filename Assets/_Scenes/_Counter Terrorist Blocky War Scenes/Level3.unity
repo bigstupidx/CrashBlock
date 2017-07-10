@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.431
   m_CustomReflection: {fileID: 8900000, guid: b995d4bd9d11078d11005b9844295342, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29650626, g: 0.33128813, b: 0.38720766, a: 0.431}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.431}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -18883,6 +18883,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300024, guid: 6046bde8981d3a64fa7e971eb472bde4,
         type: 3}
+    - target: {fileID: 114000010865514808, guid: c9c9eb0329606ad4e92902bd557dd1aa,
+        type: 2}
+      propertyPath: nextSceneName
+      value: Level4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c9eb0329606ad4e92902bd557dd1aa, type: 2}
   m_IsPrefabParent: 0
@@ -37236,6 +37241,7 @@ MonoBehaviour:
   swimStartTime: 0
   diveStartTime: 0
   drowning: 0
+  usingJumpPad: 0
   airTime: 0
   fallDamageThreshold: 5.5
   fallDamageMultiplier: 2

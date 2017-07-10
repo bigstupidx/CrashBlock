@@ -1001,10 +1001,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011264864860}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.586475, y: -0.19479579, z: -11.396442}
+  m_LocalRotation: {x: -0, y: -0.9568968, z: -0, w: -0.29042834}
+  m_LocalPosition: {x: -25.000875, y: -9.73, z: -29.751175}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -53.889004, z: 0}
   m_Children:
   - {fileID: 4000013679147096}
   - {fileID: 4000013984456668}
@@ -2406,8 +2406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99543d157e22709498714169552f6b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIComponent: {fileID: 0}
   range: 250
-  inaccuracy: 0.3
+  inaccuracy: 0.4
   fireRate: 0.09
   burstShots: 2
   randomShots: 1
@@ -2462,7 +2463,7 @@ MonoBehaviour:
   myTransform: {fileID: 0}
   huntPlayer: 0
   patrolOnce: 0
-  walkOnPatrol: 1
+  walkOnPatrol: 0
   waypointGroup: {fileID: 0}
   firstWaypoint: 1
   standWatch: 0
@@ -2502,11 +2503,11 @@ MonoBehaviour:
   shootRange: 25
   attackRange: 40
   listenRange: 100
-  shotDuration: 0.5
+  shotDuration: 0.65
   shootAnimSpeed: 0.35
   attackRangeAmt: 30
   sneakRangeMod: 0.4
-  delayShootTime: 0.3
+  delayShootTime: 0.6
   randShotDelay: 0.75
   eyeHeight: 1.8
   drawDebugGizmos: 0

@@ -1001,10 +1001,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011264864860}
-  m_LocalRotation: {x: -0, y: -0.9725304, z: -0, w: 0.23277578}
-  m_LocalPosition: {x: 28.39, y: 15.15, z: 30.16}
+  m_LocalRotation: {x: -0, y: 0.98837525, z: -0, w: -0.15203425}
+  m_LocalPosition: {x: -3.66, y: 13.12, z: -53.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -153.184, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 197.183, z: 0}
   m_Children:
   - {fileID: 4000013679147096}
   - {fileID: 4000013984456668}
@@ -2408,7 +2408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIComponent: {fileID: 0}
   range: 250
-  inaccuracy: 0.3
+  inaccuracy: 0.4
   fireRate: 0.09
   burstShots: 2
   randomShots: 1
@@ -2501,8 +2501,8 @@ MonoBehaviour:
   walkStepTime: 0.77
   runStepTime: 0.34
   shootRange: 25
-  attackRange: 30
-  listenRange: 100
+  attackRange: 35
+  listenRange: 50
   shotDuration: 0.5
   shootAnimSpeed: 0.35
   attackRangeAmt: 30
