@@ -59,6 +59,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	private int copsToKill;
 
 
+
+
 	void Start()
 	{
 		if (dataComps == null)
@@ -99,6 +101,10 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 		skipButton.SetActive (true);
 
+        if (GetComponent<TeamSkin>())
+        {
+            GetComponent<TeamSkin>().SetTeamSkin(cop1rob2);
+        }
 		HideCanvasPack (1);
 	}
 

@@ -96,6 +96,8 @@ GameObject:
   - 54: {fileID: 54000013404758850}
   - 95: {fileID: 95000012098324896}
   - 114: {fileID: 114000011832013372}
+  - 114: {fileID: 114000011315303816}
+  - 114: {fileID: 114000010793323740}
   m_Layer: 13
   m_Name: CvsRR_Cop_Male 1
   m_TagString: Flesh
@@ -229,7 +231,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000011305669206
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -312,7 +314,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000011668079086
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -375,6 +377,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1000011862481108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000014240751580}
+  - 95: {fileID: 95000012233882356}
+  m_Layer: 13
+  m_Name: hurtAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011884235638
 GameObject:
   m_ObjectHideFlags: 1
@@ -897,12 +915,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011668079086}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000011123744678}
+  m_Father: {fileID: 4000014240751580}
   m_RootOrder: 1
 --- !u!4 &4000010858731416
 Transform:
@@ -937,12 +955,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010380789596}
   m_LocalRotation: {x: -0, y: 0.97979623, z: -0, w: 0.19999863}
-  m_LocalPosition: {x: 33.28383, y: 0, z: 44.91282}
+  m_LocalPosition: {x: 42.42039, y: 0, z: 32.960506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 157.15001, z: 0}
   m_Children:
-  - {fileID: 4000012478427522}
-  - {fileID: 4000010636169578}
+  - {fileID: 4000014240751580}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000011127154762
@@ -1118,13 +1135,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011305669206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010236311970}
-  m_Father: {fileID: 4000011123744678}
+  m_Father: {fileID: 4000014240751580}
   m_RootOrder: 0
 --- !u!4 &4000012587860904
 Transform:
@@ -1442,6 +1459,21 @@ Transform:
   - {fileID: 4000010413253400}
   m_Father: {fileID: 4000010236311970}
   m_RootOrder: 2
+--- !u!4 &4000014240751580
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011862481108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000012478427522}
+  - {fileID: 4000010636169578}
+  m_Father: {fileID: 4000011123744678}
+  m_RootOrder: 0
 --- !u!23 &23000010010014312
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -2544,6 +2576,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000012233882356
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011862481108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1250717961e715489c7064d2f92d4a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &111000011275528378
 Animation:
   m_ObjectHideFlags: 1
@@ -2558,6 +2607,40 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000010793323740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010380789596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659aae228082f3d4bb6d83a4b5f6d0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIComponent: {fileID: 114000012952613340}
+  damageMultiplier: 1
+  damageForce: 2.75
+  bodyPart: 0
+  headShot: {fileID: 0}
+  sloMoKillChance: 0
+  sloMoTime: 0.9
+--- !u!114 &114000011315303816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010380789596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da4e1be5c8d37f4a89c9f129878e0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnimator: {fileID: 95000012233882356}
+  skinmesh: {fileID: 137000011053478708}
+  blockTransparent: {fileID: 0}
+  blockFader: {fileID: 0}
+  blockFader_texture: {fileID: 0}
 --- !u!114 &114000011832013372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2583,6 +2666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99543d157e22709498714169552f6b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIComponent: {fileID: 0}
   range: 100
   inaccuracy: 0.2
   fireRate: 0.09
@@ -2650,6 +2734,7 @@ MonoBehaviour:
   objectWithAnims: {fileID: 0}
   randomSpawnChance: 1
   runSpeed: 6
+  baseRunSpeed: 0
   walkSpeed: 1.2
   walkAnimSpeed: 0.9
   runAnimSpeed: 1
@@ -2727,6 +2812,14 @@ MonoBehaviour:
   searchMask:
     serializedVersion: 2
     m_Bits: 0
+  isStunned: 0
+  isFrozen: 0
+  isSlowed: 0
+  isBurning: 0
+  isBannerBuffed: 0
+  isSpecialAttacking: 0
+  burnDPS: 10
+  BurningPrefab: {fileID: 0}
 --- !u!114 &114000013367284848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2779,6 +2872,9 @@ MonoBehaviour:
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
   killEnemiesRef: {fileID: 0}
+  animatedDeath: 0
+  lastDamagedPart: 21
+  npcAnim_ref: {fileID: 0}
 --- !u!136 &136000012582216426
 CapsuleCollider:
   m_ObjectHideFlags: 1

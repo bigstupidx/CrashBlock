@@ -111,6 +111,8 @@ GameObject:
   - 54: {fileID: 54000012159074038}
   - 95: {fileID: 95000012858468304}
   - 114: {fileID: 114000012098678284}
+  - 114: {fileID: 114000012296849194}
+  - 114: {fileID: 114000013455812296}
   m_Layer: 13
   m_Name: CvsRR_Cop Female 2 Blonde
   m_TagString: Flesh
@@ -458,6 +460,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000012562550720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010756698066}
+  - 95: {fileID: 95000013493533262}
+  m_Layer: 13
+  m_Name: hurtAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012589496220
 GameObject:
   m_ObjectHideFlags: 1
@@ -669,7 +687,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1000013794217148
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -734,7 +752,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1000014244027280
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -767,12 +785,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013794217148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000010892040830}
+  m_Father: {fileID: 4000010756698066}
   m_RootOrder: 1
 --- !u!4 &4000010380472392
 Transform:
@@ -867,12 +885,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014244027280}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010710983060}
+  m_Father: {fileID: 4000010756698066}
+  m_RootOrder: 0
+--- !u!4 &4000010756698066
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012562550720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000010727759900}
+  - {fileID: 4000010170543064}
   m_Father: {fileID: 4000010892040830}
   m_RootOrder: 0
 --- !u!4 &4000010807202972
@@ -923,12 +956,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010194573794}
   m_LocalRotation: {x: -0, y: -0.9353841, z: -0, w: -0.35363355}
-  m_LocalPosition: {x: -251.3, y: -1.4782226e-15, z: 62.48}
+  m_LocalPosition: {x: 42.01865, y: 0, z: 33.16464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -221.60399, z: 0}
   m_Children:
-  - {fileID: 4000010727759900}
-  - {fileID: 4000010170543064}
+  - {fileID: 4000010756698066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000010939518050
@@ -2382,6 +2414,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000013493533262
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012562550720}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1250717961e715489c7064d2f92d4a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &111000011632681788
 Animation:
   m_ObjectHideFlags: 1
@@ -2429,6 +2478,7 @@ MonoBehaviour:
   objectWithAnims: {fileID: 0}
   randomSpawnChance: 1
   runSpeed: 6
+  baseRunSpeed: 0
   walkSpeed: 1.2
   walkAnimSpeed: 0.9
   runAnimSpeed: 1
@@ -2506,6 +2556,14 @@ MonoBehaviour:
   searchMask:
     serializedVersion: 2
     m_Bits: 0
+  isStunned: 0
+  isFrozen: 0
+  isSlowed: 0
+  isBurning: 0
+  isBannerBuffed: 0
+  isSpecialAttacking: 0
+  burnDPS: 10
+  BurningPrefab: {fileID: 0}
 --- !u!114 &114000010611668086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2517,6 +2575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99543d157e22709498714169552f6b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIComponent: {fileID: 0}
   range: 100
   inaccuracy: 0.2
   fireRate: 0.09
@@ -2542,6 +2601,24 @@ MonoBehaviour:
   gameManager_ref: {fileID: 0}
   unitType: 0
   aI_ref: {fileID: 114000010366439092}
+--- !u!114 &114000012296849194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010194573794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659aae228082f3d4bb6d83a4b5f6d0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIComponent: {fileID: 114000010366439092}
+  damageMultiplier: 1
+  damageForce: 2.75
+  bodyPart: 0
+  headShot: {fileID: 0}
+  sloMoKillChance: 0
+  sloMoTime: 0.9
 --- !u!114 &114000012547477024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2575,6 +2652,25 @@ MonoBehaviour:
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
   killEnemiesRef: {fileID: 0}
+  animatedDeath: 0
+  lastDamagedPart: 21
+  npcAnim_ref: {fileID: 0}
+--- !u!114 &114000013455812296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010194573794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da4e1be5c8d37f4a89c9f129878e0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAnimator: {fileID: 95000013493533262}
+  skinmesh: {fileID: 137000010936641640}
+  blockTransparent: {fileID: 0}
+  blockFader: {fileID: 0}
+  blockFader_texture: {fileID: 0}
 --- !u!136 &136000010002211988
 CapsuleCollider:
   m_ObjectHideFlags: 1
