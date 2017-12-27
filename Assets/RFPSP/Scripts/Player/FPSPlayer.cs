@@ -1460,17 +1460,25 @@ public class FPSPlayer : MonoBehaviour {
 
 	public static bool HasConnection()
 	{
-		try
-		{
-			using (var client = new WebClient())
-			using (var stream = new WebClient().OpenRead("http://www.google.com"))
-			{
-				return true;
-			}
-		}
-		catch
-		{
+		// OLD METHOD OF CHECKING INTERNET
+//		try
+//		{
+//			using (var client = new WebClient())
+//			using (var stream = new WebClient().OpenRead("http://www.google.com"))
+//			{
+//				return true;
+//			}
+//		}
+//		catch
+//		{
+//			return false;
+//		}
+		if (Application.internetReachability == NetworkReachability.NotReachable)
 			return false;
-		}
+		else
+			return true;
 	}
+
+
+
 }

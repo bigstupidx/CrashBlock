@@ -7408,6 +7408,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 0}
   muzzleSmokeOffset: {x: 0, y: 0, z: 0}
   muzzleSmokeAlpha: 0.25
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 0
   tracerOffset: {x: 0, y: 0, z: 0}
   tracerDist: 0
@@ -7812,6 +7814,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 0}
   muzzleSmokeOffset: {x: 0, y: 0, z: 0}
   muzzleSmokeAlpha: 0.25
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 0
   tracerOffset: {x: 0, y: 0, z: 0}
   tracerDist: 0
@@ -9207,6 +9211,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.045, z: 0.4}
   muzzleSmokeAlpha: 0.32
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -9510,6 +9516,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.02, z: 0.3}
   muzzleSmokeAlpha: 0.37
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -10378,6 +10386,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.02, z: 0.3}
   muzzleSmokeAlpha: 0.25
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -16067,6 +16077,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.02, z: 0.3}
   muzzleSmokeAlpha: 0.37
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -17646,6 +17658,16 @@ Prefab:
       propertyPath: environmentTypeVariable
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011471775650, guid: e2fa98e1fc482b1438b9718b24f0be5c,
+        type: 2}
+      propertyPath: lluviaAmbientColor.rgba
+      value: 4290279515
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011471775650, guid: e2fa98e1fc482b1438b9718b24f0be5c,
+        type: 2}
+      propertyPath: lluviaFogColor.rgba
+      value: 4290279515
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2fa98e1fc482b1438b9718b24f0be5c, type: 2}
   m_IsPrefabParent: 0
@@ -19208,6 +19230,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.05, y: -0.05, z: 0.5}
   muzzleSmokeAlpha: 0.5
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 0
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -23277,6 +23301,11 @@ MonoBehaviour:
   npcTracerParticles: {fileID: 936412155}
   playerTracerParticles: {fileID: 1473652616}
   bubbleParticles: {fileID: 2103137801}
+  using_Sparticles: 0
+  S_Tracer: {fileID: 0}
+  S_TracerUnderwater: {fileID: 0}
+  S_TracerNPC: {fileID: 0}
+  S_Trail: {fileID: 0}
   dirtMarksID: 060000000700000008000000
   metalMarksID: 030000000400000005000000
   woodMarksID: 0d0000000e0000000f000000
@@ -26300,6 +26329,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 0}
   muzzleSmokeOffset: {x: 0, y: 0, z: 0}
   muzzleSmokeAlpha: 0.25
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 0
   tracerOffset: {x: 0, y: 0, z: 0}
   tracerDist: 0
@@ -30459,15 +30490,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000013508803684, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.92735
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013508803684, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013508803684, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 16.354713
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013508803684, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -30491,7 +30522,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011672743302, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013464064348, guid: c3e5874fbc326a342a0d2e3f2b824e6d,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.261
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
@@ -31316,6 +31352,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.02, z: 0.3}
   muzzleSmokeAlpha: 0.47
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -40566,6 +40604,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.04, z: 0.5}
   muzzleSmokeAlpha: 0.32
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
@@ -42566,6 +42606,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 0}
   muzzleSmokeOffset: {x: 0, y: 0, z: 0}
   muzzleSmokeAlpha: 0.25
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 0
   tracerOffset: {x: 0, y: 0, z: 0}
   tracerDist: 0
@@ -52971,6 +53013,8 @@ MonoBehaviour:
   muzzleSmokeParticles: {fileID: 789827832}
   muzzleSmokeOffset: {x: 0.04, y: -0.02, z: 0.3}
   muzzleSmokeAlpha: 0.47
+  leavesTrail: 0
+  trailPoolIndex: 0
   useTracers: 1
   tracerOffset: {x: 0.05, y: -0.05, z: 0}
   tracerDist: 0
