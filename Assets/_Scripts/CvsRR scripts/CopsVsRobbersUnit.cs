@@ -17,7 +17,7 @@ public class CopsVsRobbersUnit : MonoBehaviour {
 
 		aI_ref = gameObject.GetComponent<AI> ();
 
-		Invoke ("UpdateTeam", 1.0f);
+        Invoke ("UpdateTeam", 1.0f);
 	}
 
 	void UpdateTeam()

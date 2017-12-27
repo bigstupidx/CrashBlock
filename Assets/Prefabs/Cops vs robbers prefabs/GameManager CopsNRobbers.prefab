@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000013140536540}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010947385848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013021590318}
+  - 20: {fileID: 20000014252981732}
+  - 124: {fileID: 124000012430300354}
+  - 92: {fileID: 92000011192556376}
+  m_Layer: 0
+  m_Name: GameStartCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000013140536540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010784585684}
+  - 114: {fileID: 114000011865320212}
+  - 114: {fileID: 114000013499131976}
+  m_Layer: 0
+  m_Name: GameManager CopsNRobbers
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010784585684
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013140536540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -128.53001, y: 68.04805, z: 15.233915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000013021590318}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000013021590318
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010947385848}
+  m_LocalRotation: {x: 0.019747995, y: -0.9137017, z: 0.04471211, w: 0.4034352}
+  m_LocalPosition: {x: 252.05176, y: -60.453087, z: 62.098686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010784585684}
+  m_RootOrder: 0
+--- !u!20 &20000014252981732
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010947385848}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 70
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!92 &92000011192556376
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010947385848}
+  m_Enabled: 1
+--- !u!114 &114000011865320212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013140536540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777908ad6ddc87c43b047d88c4bb4b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTeam: 0
+  gameStartCam: {fileID: 20000014252981732}
+  gameStarted: 0
+  copStartPos: {fileID: 0}
+  robberStartPos: {fileID: 0}
+  CopCameraStart: {fileID: 0}
+  RobberCameraStart: {fileID: 0}
+  gameplayCanvas: {fileID: 0}
+  skipButton: {fileID: 0}
+  CopsVsRobbersInitialCanvas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  camFader_ref: {fileID: 0}
+  dataComps: {fileID: 0}
+  copsNpcs: {fileID: 0}
+  robbersToKill: 18
+  robbersNpcs: {fileID: 0}
+  copsToKill: 18
+--- !u!114 &114000013499131976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013140536540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e004c03a2646943a63d14c19306d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  currentSkin: {fileID: 2800000, guid: 057d23c98cc0d1a4da8787538aaff79c, type: 3}
+  texture:
+  - {fileID: 2800000, guid: cc35ae43ef7c34847a2437b86f6b8de6, type: 3}
+  - {fileID: 2800000, guid: e8febb36a95ff4640bd5f894f8305c6a, type: 3}
+  playerFeet: {fileID: 0}
+  feetTexture:
+  - {fileID: 2800000, guid: 74800b760859a5344a3feed7e49de61c, type: 3}
+  - {fileID: 2800000, guid: 6996dec9dbf35e8478649ad6dc059a0a, type: 3}
+--- !u!124 &124000012430300354
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010947385848}
+  m_Enabled: 1

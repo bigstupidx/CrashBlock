@@ -59,6 +59,8 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	private int copsToKill;
 
 
+
+
 	void Start()
 	{
 		if (dataComps == null)
@@ -99,6 +101,10 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 		skipButton.SetActive (true);
 
+        if (GetComponent<TeamSkin>())
+        {
+            GetComponent<TeamSkin>().SetTeamSkin(cop1rob2);
+        }
 		HideCanvasPack (1);
 	}
 
@@ -216,8 +222,9 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			if (copsNpcs.GetChild (i).gameObject.GetComponent<CopsVsRobbersUnit> ().unitType == CopsVsRobbers.Robber)
 				robbersToKill++;
 
+            copsNpcs.GetChild(i).gameObject.SetActive(false);
 
-		}
+        }
 
 		for (int i = 0; i < robbersNpcs.childCount; i++) 
 		{
@@ -227,9 +234,9 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 			if (robbersNpcs.GetChild (i).gameObject.GetComponent<CopsVsRobbersUnit> ().unitType == CopsVsRobbers.Cop)
 				copsToKill++;
 
+            robbersNpcs.GetChild(i).gameObject.SetActive(false);
 
-
-		}
+        }
 
 		#if UNITY_EDITOR
 		EditorUtility.SetDirty (gameObject.GetComponent<GM_CopsvsRobbers> ());
