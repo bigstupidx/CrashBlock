@@ -278,21 +278,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1000012589862864
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000011886143126}
-  m_Layer: 13
-  m_Name: Hat_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1000012998638412
 GameObject:
   m_ObjectHideFlags: 1
@@ -561,9 +546,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013108363186}
   m_LocalRotation: {x: -0, y: -0.99954176, z: -0, w: -0.030270493}
-  m_LocalPosition: {x: -227.3, y: 0.27, z: 174.9}
-  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
-  m_LocalEulerAnglesHint: {x: 0, y: 176.63101, z: 0}
+  m_LocalPosition: {x: -164.28262, y: 10.471323, z: 79.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013875546616}
   m_Father: {fileID: 0}
@@ -614,19 +599,6 @@ Transform:
   - {fileID: 4000014231175838}
   m_Father: {fileID: 4000013896988690}
   m_RootOrder: 1
---- !u!4 &4000011886143126
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012589862864}
-  m_LocalRotation: {x: 3.6511133e-16, y: -1.4823535e-16, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.54227096, y: 1.2040834e-16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000012502197694}
-  m_RootOrder: 0
 --- !u!4 &4000011944718054
 Transform:
   m_ObjectHideFlags: 1
@@ -677,8 +649,7 @@ Transform:
   m_LocalPosition: {x: -0.3106261, y: 6.897285e-17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 4000011886143126}
+  m_Children: []
   m_Father: {fileID: 4000011228646462}
   m_RootOrder: 0
 --- !u!4 &4000012687769758
@@ -1531,7 +1502,7 @@ SkinnedMeshRenderer:
   - {fileID: 4000013739187392}
   - {fileID: 4000011228646462}
   - {fileID: 4000012502197694}
-  - {fileID: 4000011886143126}
+  - {fileID: 0}
   - {fileID: 4000011106818212}
   - {fileID: 4000013715801908}
   - {fileID: 4000013357022618}

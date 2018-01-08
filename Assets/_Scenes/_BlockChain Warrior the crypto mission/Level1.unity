@@ -4230,6 +4230,16 @@ Prefab:
       propertyPath: lluviaGameObject
       value: 
       objectReference: {fileID: 40795792}
+    - target: {fileID: 114000011471775650, guid: e2fa98e1fc482b1438b9718b24f0be5c,
+        type: 2}
+      propertyPath: enableFog
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011471775650, guid: e2fa98e1fc482b1438b9718b24f0be5c,
+        type: 2}
+      propertyPath: fogDensity
+      value: 0.004
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2fa98e1fc482b1438b9718b24f0be5c, type: 2}
   m_IsPrefabParent: 0
