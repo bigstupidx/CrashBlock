@@ -4,11 +4,21 @@ using UnityEngine;
 using System.Collections;
 
 public class InstantDeathCollider : MonoBehaviour {
-	
+
+    public AdManager admanager;
+
 	void OnTriggerEnter ( Collider col  ){
-		if(col.gameObject.tag == "Player"){
-			FPSPlayer player = col.GetComponent<FPSPlayer>();
-			player.ApplyDamage(player.maximumHitPoints + 1.0f);
+        if (col.gameObject.tag == "Player") {
+            FPSPlayer player = col.GetComponent<FPSPlayer>();
+            if (player.invulnerable)
+            {
+                player.invulnerable = false;
+            }
+            admanager.resetPositionInDeath = true;
+
+            player.ApplyDamage(player.maximumHitPoints + 1.0f);
+            
+                
 		}else if (col.GetComponent<Rigidbody>()) {	
 			col.gameObject.SetActive(false);
 		}

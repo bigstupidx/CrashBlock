@@ -17,12 +17,12 @@ public class PauseManager : MonoBehaviour {
 
 	public GameObject pauseCanvasObj;
 	public GameObject deathCanvasObj;
-	public GameObject ammoCanvasObj;
+    public GameObject ammoCanvasObj;
 	public GameObject gameplayCanvas;
 	public GameObject noInternetCanvas;
 	public Animator anim;
 
-	public GameObject loadingPanel;
+    public GameObject loadingPanel;
 	public Slider progressSlider;
 
 	public FPSPlayer fpsPlayer_ref;
@@ -44,7 +44,6 @@ public class PauseManager : MonoBehaviour {
 
 	public void ActivatePauseCanvas () 
 	{
-
 		pauseCanvasObj.SetActive (true);
 		print ("Activate PauseMenu");
 		// activate the animator trigger...
@@ -74,15 +73,15 @@ public class PauseManager : MonoBehaviour {
 	}
 
 
-	// ------------------- Activate and Deactivate the Death Canvas
+    // ------------------- Activate and Deactivate the Death Canvas
+
 
 	// <-Called by DataComps
 	public void ActivateDeathCanvas () 
 	{
-
-		deathCanvasObj.SetActive (true);
-		// activate the animator trigger...
-		Time.timeScale = 0;
+        deathCanvasObj.SetActive(true);
+        // activate the animator trigger...
+        Time.timeScale = 0;
 		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
 		{
             if(dataComps_ref.uiImages[i] && dataComps_ref.uiImages[i].gameObject.activeSelf)

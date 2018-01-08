@@ -10,13 +10,19 @@ public class AdManager : MonoBehaviour {
 	public PauseManager pause;
 	public PlayerWeapons weapons;
 	public SaveData saveData;
-
+    public bool resetPositionInDeath = false;
+    Transform fpsPlayerTransform;
+    Vector3 originalPosition;
+    Quaternion originalRotation;
 	// Use this for initialization
 	void Start () {
 		HeyzapAds.Start("f62dff4e4bbf49a67e29252338b6d0d7", HeyzapAds.FLAG_NO_OPTIONS);
 		HZIncentivizedAd.Fetch();
 		fpsPlayerRef.GetComponent<FPSPlayer>();
-		weapons.GetComponent<PlayerWeapons> ();
+        fpsPlayerTransform = fpsPlayerRef.GetComponent<Transform>();
+        originalPosition = fpsPlayerTransform.position;
+        originalRotation = fpsPlayerTransform.rotation;
+        weapons.GetComponent<PlayerWeapons> ();
 
 	}
 
@@ -31,12 +37,18 @@ public class AdManager : MonoBehaviour {
 			fpsPlayerRef.hitPoints = fpsPlayerRef.maximumHitPoints;
 			fpsPlayerRef.UpdateHPBar();
 			fpsPlayerRef.invulnerable = true;
-			pause.DeactivateDeathCanvas ();
+        if (resetPositionInDeath)
+        {
+            fpsPlayerTransform.position = originalPosition;
+            fpsPlayerTransform.rotation = originalRotation;
+            resetPositionInDeath = false;
+        }
+        pause.DeactivateDeathCanvas ();
 			fpsPlayerRef.RemoveInvulnerability();
-		#endif
-			
+        #endif
 
-		#if UNITY_ANDROID
+
+#if UNITY_ANDROID
 
 			if (HZIncentivizedAd.IsAvailable ()) {
 				HZIncentivizedAd.Show ();
@@ -44,22 +56,29 @@ public class AdManager : MonoBehaviour {
 				fpsPlayerRef.hitPoints = fpsPlayerRef.maximumHitPoints;
 				fpsPlayerRef.UpdateHPBar ();
 				Analytics.CustomEvent ("DeathVideo");
+            if (resetPositionInDeath)
+            {
+                fpsPlayerTransform.position = originalPosition;
+                fpsPlayerTransform.rotation = originalRotation;
+                resetPositionInDeath = false;
+            }
 				pause.DeactivateDeathCanvas ();
 				fpsPlayerRef.RemoveInvulnerability();
 
 				HZIncentivizedAd.Fetch ();
-				#endif
+
 			}
+#endif
 	}
 
 	public void RewardedAmmo()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		weapons.giveAmmo(weapons.weaponToAddAmmo);
 		pause.DeactivateAmmoCanvas ();
-		#endif
+#endif
 
-		#if UNITY_ANDROID
+#if UNITY_ANDROID
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
 			weapons.giveAmmo(weapons.weaponToAddAmmo);
@@ -68,19 +87,19 @@ public class AdManager : MonoBehaviour {
 			HZIncentivizedAd.Fetch();
 		}
 
-		#endif
+#endif
 	}
 
 	public void RewardedWepSlot(int slot)
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 	
 		saveData.AwardSlot(slot);
 
 
-		#endif
+#endif
 
-		#if UNITY_ANDROID
+#if UNITY_ANDROID
 		if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
 			Analytics.CustomEvent("SlotVideo");
@@ -88,7 +107,7 @@ public class AdManager : MonoBehaviour {
 		}
 
 		HZIncentivizedAd.Fetch();
-		#endif
+#endif
 	}
 
 

@@ -92,8 +92,8 @@ public class EnvironmentManager : MonoBehaviour {
 			break;
 
 		case EnvironmentTypes.Random:
-			int randomNumber = Random.Range (0, 3);
-			randomEnvironment (randomNumber);
+			float randomNumber = Random.Range (0.0f, 3.0f);
+			randomEnvironment (Mathf.RoundToInt( randomNumber));
 			break;
 		}
 

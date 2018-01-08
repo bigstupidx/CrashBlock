@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 741ff13c6be143e45a61bb3ae8e81805
+guid: 11c8e1e2d48d8af49a010d3535466516
 timeCreated: 1436287723
 licenseType: Store
 TextureImporter:
@@ -26,7 +26,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -46,19 +46,23 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: CF-Dpad-8-way_UL
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_UL
       rect:
         serializedVersion: 2
         x: 0
@@ -66,9 +70,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_U
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_U
       rect:
         serializedVersion: 2
         x: 128
@@ -76,9 +83,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_UR
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_UR
       rect:
         serializedVersion: 2
         x: 256
@@ -86,9 +96,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_L
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_L
       rect:
         serializedVersion: 2
         x: 0
@@ -96,9 +109,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_N
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_N
       rect:
         serializedVersion: 2
         x: 128
@@ -106,9 +122,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_R
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_R
       rect:
         serializedVersion: 2
         x: 256
@@ -116,9 +135,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_DL
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_DL
       rect:
         serializedVersion: 2
         x: 0
@@ -126,9 +148,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_D
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_D
       rect:
         serializedVersion: 2
         x: 128
@@ -136,9 +161,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CF-Dpad-8-way_DR
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: CF-Dpad-8-way_DR
       rect:
         serializedVersion: 2
         x: 256
@@ -146,8 +174,11 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
