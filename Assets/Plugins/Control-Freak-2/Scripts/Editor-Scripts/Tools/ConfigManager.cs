@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #if UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9 
@@ -37,6 +37,7 @@
 #endif
 
 
+
 #if UNITY_EDITOR
 
 using UnityEngine;
@@ -58,7 +59,14 @@ public class ConfigManager : EditorWindow
 		CF_DONT_FORCE_MOBILE_MODE_IN_EDITOR = "CF_DONT_FORCE_MOBILE_MODE_IN_EDITOR";
 
 		
-		
+	// ---------------
+	public enum SymbolState
+		{
+		ON,
+		OFF,
+		ERROR
+		}
+
 		
 
 	// ---------------
@@ -94,11 +102,13 @@ public class ConfigManager : EditorWindow
 #endif
 
 
+	if ((int)btg >= 27)
+		return false; // Ugly hack for missing Switch target in Unity 5.6.
 
-//BuildTargetGroup.Metro (dep)
-//BuildTargetGroup.WebPlayer		
-//BuildTargetGroup.WP8
-//BuildTargetGroup.iPhone
+#if UNITY_2017_1_OR_NEWER
+	if ((int)btg == 22)	// SamsungTV
+		return false;
+#endif 
 
 		return true;
 		}
@@ -107,11 +117,11 @@ public class ConfigManager : EditorWindow
 	// ------------------
 	static public void AddDefaultControlFreakSymbols()
 		{
-		AddSymbolToAll(CF2_SYMBOL);
+		//AddSymbolToAll(CF2_SYMBOL);
 
 		AddSymbol(ConfigManager.CF_FORCE_MOBILE_MODE, BuildTargetGroup.Android);
-		AddSymbol(ConfigManager.CF_FORCE_MOBILE_MODE, BuildTargetGroup.PSM);
-		AddSymbol(ConfigManager.CF_FORCE_MOBILE_MODE, BuildTargetGroup.Tizen);
+		//AddSymbol(ConfigManager.CF_FORCE_MOBILE_MODE, BuildTargetGroup.PSM);
+		//AddSymbol(ConfigManager.CF_FORCE_MOBILE_MODE, BuildTargetGroup.Tizen);
 
 #if UNITY_PRE_5_0
 		AddSymbol(ConfigManager.CF_FORCE_MOBILE_MODE, BuildTargetGroup.iPhone);
@@ -159,7 +169,13 @@ public class ConfigManager : EditorWindow
 			if (!IsBuildTargetGroupSupported(targetGroup)) // == BuildTargetGroup.Unknown)
 				continue;
 
-			int state = IsSymbolDefined(symbol, (BuildTargetGroup)targetGroup) ? 1 : 0;
+			SymbolState symbolState = IsSymbolDefined(symbol, (BuildTargetGroup)targetGroup);
+			if (symbolState == SymbolState.ERROR)
+				continue;
+
+			int state = (symbolState == SymbolState.ON) ? 1 : 0;
+
+//Debug.LogFormat("Symbol {0} is {1} defined for {2}", symbol, (state == 0) ? "NOT" : "", targetGroup);
 
 			if ((state != combinedState) && (combinedState != -1))
 				return -1;
@@ -200,9 +216,15 @@ public class ConfigManager : EditorWindow
 	// ------------------
 	static private string[] GetSymbols(BuildTargetGroup tgt)
 		{
-		string symbolsStr = PlayerSettings.GetScriptingDefineSymbolsForGroup(tgt);
+		string symbolsStr = null;
+
+		try
+			{ symbolsStr = PlayerSettings.GetScriptingDefineSymbolsForGroup(tgt); }
+		catch (System.Exception )
+			{ return null; }
+
 		if (symbolsStr == "")
-			return null;
+			return new string[0];
 
 		string[] symbols = symbolsStr.Split(new char[]{',', ';'}, System.StringSplitOptions.RemoveEmptyEntries);
 			
@@ -214,22 +236,22 @@ public class ConfigManager : EditorWindow
 
 
 	// -------------
-	static public bool IsSymbolDefined(string symbolStr, UnityEditor.BuildTargetGroup tgt)
+	static public SymbolState IsSymbolDefined(string symbolStr, UnityEditor.BuildTargetGroup tgt)
 		{
 		if (!IsBuildTargetGroupSupported(tgt))
-			return false;
+			return SymbolState.ERROR;
 
 		string[] symbols = GetSymbols(tgt);
 		if (symbols == null) 
-			return false;
+			return SymbolState.ERROR;
 
 		foreach (string sym in symbols)
 			{
 			if (sym.Equals(symbolStr))
-				return true;
+				return SymbolState.ON;
 			}
 
-		return false;
+		return SymbolState.OFF;
 		}
 		
 
@@ -239,7 +261,7 @@ public class ConfigManager : EditorWindow
 		string symbolsStr = "";
 
 		string[] symbols = GetSymbols(tgt);
-		if (symbols == null) 
+		if ((symbols == null) || (symbols.Length == 0)) 
 			return;
 
 		foreach (string sym in symbols)
@@ -250,7 +272,11 @@ public class ConfigManager : EditorWindow
 			symbolsStr += ((symbolsStr.Length > 0) ? (";" + sym) : sym);			
 			}
 	
-		PlayerSettings.SetScriptingDefineSymbolsForGroup(tgt, symbolsStr);		
+		try {
+			PlayerSettings.SetScriptingDefineSymbolsForGroup(tgt, symbolsStr);	
+			}
+		catch (System.Exception)
+			{ }	
 		}
 		
 
@@ -266,17 +292,19 @@ public class ConfigManager : EditorWindow
 		if (!IsBuildTargetGroupSupported(tgt))
 			return;
 
-		if (IsSymbolDefined(symbol, tgt))
+		if (IsSymbolDefined(symbol, tgt) != SymbolState.OFF)
 			return;
 
-		string symbolsStr = PlayerSettings.GetScriptingDefineSymbolsForGroup(tgt).Trim();
+		string symbolsStr = "";
+
+		try {  symbolsStr = PlayerSettings.GetScriptingDefineSymbolsForGroup(tgt).Trim(); }  catch (System.Exception) { return ; }
 
 		if (symbolsStr.Length == 0)
 			symbolsStr = symbol;
 		else
 			symbolsStr += (";" + symbol);
 	
-		PlayerSettings.SetScriptingDefineSymbolsForGroup(tgt, symbolsStr);
+		try {  PlayerSettings.SetScriptingDefineSymbolsForGroup(tgt, symbolsStr); } catch (System.Exception) { return; }
 		}
 
 	}

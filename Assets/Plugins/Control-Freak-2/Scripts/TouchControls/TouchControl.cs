@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 using UnityEngine;
@@ -341,7 +341,7 @@ public abstract class TouchControl : ControlFreak2.Internal.ComponentBase, IBind
 	// ----------------------
 	//! Is this control active?
 	// ------------------------ 
-	public bool IsActive()					{ return ((this.hidingFlagsCur & HIDDEN_AND_DISABLED_MASK) == 0); }		
+	public bool IsActive()					{ return ( ((this.hidingFlagsCur & HIDDEN_AND_DISABLED_MASK) == 0)); }		
 		
 
 
@@ -372,8 +372,15 @@ public abstract class TouchControl : ControlFreak2.Internal.ComponentBase, IBind
 			this.SetHidingFlag(TouchControl.HIDDEN_BY_RIG,				this.rig.AreTouchControlsHiddenManually());
 			}
 	
+// Debug.LogFormat("Syncing Hide Flags [{0}] = [{1}]", this.name, 
+// ((this.hidingFlagsCur&(1<<TouchControl.HIDDEN_BY_DISABLED_GO))!=0?"GO|":"") + 
+// ((this.hidingFlagsCur&(1<<TouchControl.HIDDEN_BY_RIG))!=0?"RIG|":"") + 
+// ((this.hidingFlagsCur&(1<<TouchControl.HIDDEN_BY_CONDITIONS))!=0?"COND|":"") + 
+// (((this.hidingFlagsCur&(1<<TouchControl.HIDDEN_BY_USER))!=0?"USER|":"") + 
+// ((this.hidingFlagsCur&(1<<TouchControl.HIDDEN_DUE_TO_INACTIVITY))!=0?"Incact|":""))); 
+
 		this.SyncBaseAlphaToHidingConditions(skipAnim);
-						
+
 		if (skipAnim)
 			this.UpdateAnimators(skipAnim);
 		}
@@ -1314,7 +1321,8 @@ public abstract class TouchControl : ControlFreak2.Internal.ComponentBase, IBind
 #endif
 		this.ResetControl();
 
-		
+//TouchTrackPad tp = this as TouchTrackPad; if (tp != null) Debug.LogFormat("OnPostEnable : vec : {0}", tp.GetSwipeDelta());
+
 
 		this.SyncDisablingConditions(true);
 

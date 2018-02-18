@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 //! \cond
@@ -30,11 +30,11 @@ public static class CFUtils
 
 	// -----------------------
 	static public float realDeltaTime 
-		{ get { return Time.unscaledDeltaTime; } }	
+		{ get { return ((Time.captureFramerate <= 0) ? Time.unscaledDeltaTime : (1.0f / (float)Time.captureFramerate)); } }	
 
 	// -----------------
 	static public float realDeltaTimeClamped
-		{ get { return Mathf.Min(Time.unscaledDeltaTime, MAX_DELTA_TIME); } }	
+		{ get { return Mathf.Min(CFUtils.realDeltaTime, MAX_DELTA_TIME); } }	
 		
 		
 #if UNITY_EDITOR
@@ -93,6 +93,21 @@ public static class CFUtils
 		}
 		
 	
+	// ------------------
+	static public float ApplyPositveDeltaInput(float positiveAccum, float delta)
+		{
+		return (((delta > 0) && (delta > positiveAccum)) ? delta : positiveAccum);
+		}
+
+
+	// ------------------
+	static public float ApplyNegativeDeltaInput(float negativeAccum, float delta)
+		{
+		return (((delta < 0) && (delta < negativeAccum)) ? delta : negativeAccum);
+		}
+
+
+
 	// --------------------	
 	static public void ApplySignedDeltaInput(float v, ref float plusAccum, ref float minusAccum)	
 		{

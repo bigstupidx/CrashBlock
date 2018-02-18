@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 
@@ -35,8 +35,8 @@ public class BuiltInGamepadProfileBankAndroid : BuiltInGamepadProfileBank
 
 			GamepadProfile.KeySource.Key(4),			// L1	// Left Shift
 			GamepadProfile.KeySource.Key(5),			// R1
-			GamepadProfile.KeySource.PlusAxis(6),	// L2
-			GamepadProfile.KeySource.PlusAxis(7),	// R2
+			GamepadProfile.KeySource.KeyAndPlusAxis(6, 6),	// L2
+			GamepadProfile.KeySource.KeyAndPlusAxis(7, 7),	// R2
 			GamepadProfile.KeySource.Key(8),			// L3
 			GamepadProfile.KeySource.Key(9)			// R3
 			);
@@ -44,6 +44,36 @@ public class BuiltInGamepadProfileBankAndroid : BuiltInGamepadProfileBank
 
 		this.profiles = new GamepadProfile[]
 			{
+			
+			// 8Bitdo FC30 PRO ------------------------
+
+			new GamepadProfile(
+				"8Bitdo FC30 PRO", 
+				"8Bitdo",
+				GamepadProfile.ProfileMode.Normal,
+				null, null,		
+	
+				GamepadProfile.JoystickSource.Axes(0, true, 1, false),	// LS
+				GamepadProfile.JoystickSource.Axes(2, true, 3, false),	// RS
+				GamepadProfile.JoystickSource.Axes(4, true, 5, false),	// Dpad
+	
+				GamepadProfile.KeySource.Key(0),		// A
+				GamepadProfile.KeySource.Key(1),		// B
+				GamepadProfile.KeySource.Key(2),		// X
+				GamepadProfile.KeySource.Key(3),		// Y
+				
+				GamepadProfile.KeySource.Key(11),		// Select	
+				GamepadProfile.KeySource.Key(10),		// Start
+	
+				GamepadProfile.KeySource.Key(4),		// L1
+				GamepadProfile.KeySource.Key(5),		// R1
+				GamepadProfile.KeySource.Key(6),	// L2
+				GamepadProfile.KeySource.Key(7),	// R2
+				GamepadProfile.KeySource.Key(8),		// L3
+				GamepadProfile.KeySource.Key(9)		// R3
+				),	
+		
+
 			// MOGA (Hero Power) ------------------------
 
 			new GamepadProfile(

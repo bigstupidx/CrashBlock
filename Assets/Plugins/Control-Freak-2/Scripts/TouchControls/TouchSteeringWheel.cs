@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 using UnityEngine;
@@ -273,13 +273,13 @@ public class TouchSteeringWheel : DynamicTouchControl
 
 			float targetRawVal = this.startRawVal + v; // * this.maxTurnAngle;
 
-			this.rawValCur = CFUtils.MoveTowards(this.rawValCur, targetRawVal, (this.limitTurnSpeed ? this.minTurnTime : 0), Time.unscaledDeltaTime, 0.001f);
+			this.rawValCur = CFUtils.MoveTowards(this.rawValCur, targetRawVal, (this.limitTurnSpeed ? this.minTurnTime : 0), CFUtils.realDeltaTime, 0.001f);
 
 			}	
 
 		else
 			{
-			this.rawValCur = CFUtils.MoveTowards(this.rawValCur, 0, (this.limitTurnSpeed ? this.maxReturnTime : 0), Time.unscaledDeltaTime, 0.001f);
+			this.rawValCur = CFUtils.MoveTowards(this.rawValCur, 0, (this.limitTurnSpeed ? this.maxReturnTime : 0), CFUtils.realDeltaTime, 0.001f);
 
 			}
 

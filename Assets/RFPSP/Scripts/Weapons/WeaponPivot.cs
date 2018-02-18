@@ -1,5 +1,4 @@
-﻿// Code auto-converted by Control Freak 2 on Thursday, December 29, 2016!
-//WeaponPivot.cs by Azuline Studios© All Rights Reserved
+﻿//WeaponPivot.cs by Azuline Studios© All Rights Reserved
 //rotates weapon objects around pivot points for deadzone aiming
 using UnityEngine;
 using System.Collections;
@@ -107,8 +106,8 @@ public class WeaponPivot : MonoBehaviour {
 	#if UNITY_EDITOR || UNITY_WEBPLAYER
 	void OnGUI(){//lock cursor - don't use OnGUI in standalone for performance reasons
 		if(Time.timeScale > 0.0f){
-			ControlFreak2.CFCursor.lockState = CursorLockMode.Locked;
-			ControlFreak2.CFCursor.visible = false;
+			//Cursor.lockState = CursorLockMode.Locked;
+			//Cursor.visible = false;
 		}
 	}
 	#endif
@@ -254,8 +253,8 @@ public class WeaponPivot : MonoBehaviour {
 					init = false;
 				}
 
-				ControlFreak2.CFCursor.lockState = CursorLockMode.Locked;
-				ControlFreak2.CFCursor.visible = false;
+				//Cursor.lockState = CursorLockMode.Locked;
+				//Cursor.visible = false;
 
 				if(angleDiff < -WeaponBehaviorComponent.horizontalDZ + 5.0f && InputComponent.lookX < 0.0f){
 					SmoothMouseLookComponent.horizontalDelta = SmoothMouseLookComponent.rotationX;//old rotationX

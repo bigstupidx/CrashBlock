@@ -1,7 +1,7 @@
 // -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 
@@ -25,6 +25,9 @@
 	#define UNITY_PRE_5_4
 #endif
 
+#if UNITY_PRE_5_4 || UNITY_5_4 
+	#define UNITY_PRE_5_5
+#endif
 
 #if UNITY_EDITOR 
  
@@ -42,14 +45,15 @@ public class Installer : EditorWindow
 		DIALOG_TITLE		= "Control Freak 2 Installer",	
 		DIALOG_SHORT_TITLE	= "CF2 Installer",
 
-		ONLINE_DOCS_URL		= "http://docs.dansgametools.com/cf2/",
-		WEBSITE_URL				= "http://dansgametools.com",
+		ONLINE_DOCS_URL		= "http://dgtdocs.000webhostapp.com/",
+		WEBSITE_URL				= "http://dansgametools.blogspot.com/",
 		VIDEO_TUTORIALS_URL 	= "https://www.youtube.com/playlist?list=PLrXZsI52MMml0io_4nWs47RDZvudZyMmt",
 
 		PLAYMAKER_ADD_ON_PATH 		= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-Playmaker.unitypackage",
 		UFE_ADD_ON_PATH 				= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-UFE.unitypackage",
 		UFE_HACKY_ADD_ON_PATH 		= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-UFE-Hack.unitypackage",
 		UFPS_ADD_ON_PATH 				= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-UFPS.unitypackage",
+		UNITZ_UNET_ADD_ON_PATH		= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-UnitZ-UNet.unitypackage",
 		//OPSIVE_TPC_ADD_ON_PATH 		= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-Opsive-TPC.unitypackage",	
 		OPSIVE_TPC_DL_URL				= "http://opsive.com/assets/ThirdPersonController/integrations.php",
 		CF1_MIGRATION_ADD_ON_PATH	= "Assets/Plugins/Control-Freak-2/Add-Ons/CF2-CF1-Migration-Tools.unitypackage";
@@ -63,7 +67,7 @@ public class Installer : EditorWindow
 
 
 	private bool 
-		defineSymbolsPresent,
+		//defineSymbolsPresent,
 		inputAxesPresent,
 
 		newUfePresent,
@@ -71,6 +75,7 @@ public class Installer : EditorWindow
 		opsiveTpcPresent,
 		playmakerPresent,
 		ufpsPresent,
+		unitzUnetPresent,
 		controlFreak1Present;
 		//evpPresent;
 
@@ -94,7 +99,7 @@ public class Installer : EditorWindow
 		this.Repaint();
 
 		this.inputAxesPresent = UnityInputManagerUtils.AreControlFreakAxesPresent();
-		this.defineSymbolsPresent = ConfigManager.AreControlFreakSymbolsDefined();
+		//this.defineSymbolsPresent = ConfigManager.AreControlFreakSymbolsDefined();
 
 		this.playmakerPresent = 
 			((CFEditorUtils.FindClass("HutongGames.PlayMaker.FsmStateAction") != null));
@@ -122,6 +127,11 @@ public class Installer : EditorWindow
 		this.oldUfePresent = 
 			((CFEditorUtils.FindClass("UFEController") != null) && 
 			 (CFEditorUtils.FindClass("InputTouchControllerBridge") == null));
+
+
+		this.unitzUnetPresent = 
+			((CFEditorUtils.FindClass("UnitZManager") != null)); 
+		
 
 
 		this.platformOptionList.Refresh();
@@ -220,7 +230,7 @@ public class Installer : EditorWindow
 		CFGUI.BeginIndentedVertical(CFEditorStyles.Inst.transpSunkenBG);
 
 			DrawFeatureBox(this.inputAxesPresent, "Input Axes Present!", "Input Axes are missing or are incomplete! (Click INSTALL)");
-			DrawFeatureBox(this.defineSymbolsPresent, "Scripting Symbols Defined!", "Scripting Symbols are not defined for all platforms! (Click INSTALL)");
+			//DrawFeatureBox(this.defineSymbolsPresent, "Scripting Symbols Defined!", "Scripting Symbols are not defined for all platforms! (Click INSTALL)");
 
 			if (CFProjPrefs.Inst.isIsntalled)
 				this.platformOptionList.DrawForceMobileModeButton();
@@ -402,6 +412,8 @@ public class Installer : EditorWindow
 		else 
 			AddMenuItem(menu, new GUIContent("Install \'Universal Fighting Engine\' Hack Add-On..."), this.InstallHackyUfeAddOn, this.oldUfePresent);
 
+		AddMenuItem(menu, new GUIContent("Install \'UnitZ UNET\' Add-On... (Unity 5.5+ only)"), this.InstallUnitZAddOn, this.unitzUnetPresent);
+
 
 		menu.ShowAsContext();
 		}
@@ -409,11 +421,13 @@ public class Installer : EditorWindow
 
 
 	// -------------------------
-	private void InstallMigrationTools()		{ 	AssetDatabase.ImportPackage(CF1_MIGRATION_ADD_ON_PATH, DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
-	private void InstallPlaymakerAddOn()		{ 	AssetDatabase.ImportPackage(PLAYMAKER_ADD_ON_PATH, DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
+	private void InstallMigrationTools()		{ 	AssetDatabase.ImportPackage(CF1_MIGRATION_ADD_ON_PATH,DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
+	private void InstallPlaymakerAddOn()		{ 	AssetDatabase.ImportPackage(PLAYMAKER_ADD_ON_PATH,		DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
+	private void InstallUfpsAddOn()				{ 	AssetDatabase.ImportPackage(UFPS_ADD_ON_PATH,			DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
+	private void InstallUfeAddOn()				{ 	AssetDatabase.ImportPackage(UFE_ADD_ON_PATH,				DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
+	private void InstallUnitZAddOn()				{ 	AssetDatabase.ImportPackage(UNITZ_UNET_ADD_ON_PATH,	DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
 	private void InstallOpsiveTpcAddOn()		{ 	Application.OpenURL(OPSIVE_TPC_DL_URL); } //AssetDatabase.ImportPackage(OPSIVE_TPC_ADD_ON_PATH, DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
-	private void InstallUfpsAddOn()				{ 	AssetDatabase.ImportPackage(UFPS_ADD_ON_PATH, DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
-	private void InstallUfeAddOn()				{ 	AssetDatabase.ImportPackage(UFE_ADD_ON_PATH, DONT_SHOW_ADD_ON_PACKAGE_IMPORT_WINDOW); }
+
 
 	// --------------------
 	private void InstallHackyUfeAddOn()			
@@ -478,10 +492,14 @@ public class Installer : EditorWindow
 				if (this.FindPlatform(platformIds[i]) != null)
 					continue;
 
+				ConfigManager.SymbolState symbolState = ConfigManager.IsSymbolDefined(ConfigManager.CF_FORCE_MOBILE_MODE, platformIds[i]);
+				if (symbolState == ConfigManager.SymbolState.ERROR)
+					continue;
+
 				PlatformState s = new PlatformState(this);
-					
+
 				s.platform 				= platformIds[i];
-				s.forceMobileMode 	= ConfigManager.IsSymbolDefined(ConfigManager.CF_FORCE_MOBILE_MODE, s.platform); 
+				s.forceMobileMode 	= (symbolState == ConfigManager.SymbolState.ON); 
 
 				this.platformList.Add(s);
 				}

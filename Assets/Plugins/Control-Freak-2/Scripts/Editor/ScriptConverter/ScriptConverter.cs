@@ -36,10 +36,9 @@ public class ScriptConverter : EditorWindow
 		"/Plugins/Control-Freak/",			// CF 1.x
 		"/Assets/Control-Freak-Demos/",	// CF 1.x Demos
 		"/Plugins/Control-Freak-2/",		// CF 2.x
-		"/Assets/PlayMaker/",				// Playmaker built-in actions
+		//"/Assets/PlayMaker/",				// Playmaker built-in actions
 		"/CrossPlatformInput/",				// Unity Cross-Platform Input
-	//	"/EVP5/",								// Edy's Vehicle Physics (it has built-in CF2 support).
-		
+	
 		};
 
 

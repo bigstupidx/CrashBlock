@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 
@@ -254,6 +254,8 @@ public class TouchTrackPad : TouchControl
 		if (this.touchObj != null)
 			return false;
 			
+//Debug.LogFormat("----------------Track pad start : {0} : active:{1}", Time.frameCount, this.IsActive());
+
 		this.touchObj		= touchObj;
 		this.touchStartType = touchStartType;
 		this.touchObj.AddControl(this);
@@ -271,6 +273,8 @@ public class TouchTrackPad : TouchControl
 		if ((this.touchObj == null) || (this.touchObj != touchObj))
 			return false;
 			
+//Debug.LogFormat("----------------Track pad END!!!! : {0} : active:{1}", Time.frameCount, this.IsActive());
+
 		this.touchObj = null;
 			
 		this.touchState.OnTouchEnd(touchEndType != TouchEndType.Release);

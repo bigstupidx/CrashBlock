@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 
@@ -146,9 +146,12 @@ public abstract class TouchControlSpriteAnimatorBase : TouchControlAnimatorBase
 	// -----------------
 	protected override void OnDisableComponent ()
 		{
-		this.transform.localPosition	= this.initialTransl;
-		this.transform.localScale		= this.initialScale;
-		this.transform.localRotation	= this.initialRotation;
+		if (!CFUtils.editorStopped)
+			{
+			this.transform.localPosition	= this.initialTransl;
+			this.transform.localScale		= this.initialScale;
+			this.transform.localRotation	= this.initialRotation;
+			}
 
 		base.OnDisableComponent ();
 		}

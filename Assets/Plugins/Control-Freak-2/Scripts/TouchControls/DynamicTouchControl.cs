@@ -1,7 +1,7 @@
 // -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 using UnityEngine;
@@ -301,7 +301,7 @@ public abstract class DynamicTouchControl : TouchControl
 
 		if (this.dynamicAlphaAnimOn)
 			{
-			this.dynamicAlphaAnimElapsed += Time.unscaledDeltaTime;
+			this.dynamicAlphaAnimElapsed += CFUtils.realDeltaTime;
 			if (this.dynamicAlphaAnimElapsed > this.dynamicAlphaAnimDur)
 				{
 				this.dynamicAlphaAnimOn = false;
@@ -321,7 +321,7 @@ public abstract class DynamicTouchControl : TouchControl
 			{
 			if (this.dynamicWaitingToFadeOut)
 				{
-				this.dynamicFadeOutDelayElapsed += Time.unscaledDeltaTime;
+				this.dynamicFadeOutDelayElapsed += CFUtils.realDeltaTime;
 				if (this.dynamicFadeOutDelayElapsed >= this.fadeOutDelay)
 					{
 					this.dynamicWaitingToFadeOut = false;	
@@ -409,23 +409,74 @@ public abstract class DynamicTouchControl : TouchControl
 		if (CFUtils.editorStopped)
 			return;
 
-		if (this.initialRectCopy == null)
+		//if (this.initialRectCopy == null)
+		//	{
+		//	GameObject go = new GameObject(this.name + "_INITIAL_POS", typeof(RectTransform));
+		//	this.initialRectCopy = go.GetComponent<RectTransform>();
+		//	}
+
+		//RectTransform rectTr = this.GetComponent<RectTransform>();
+
+		//this.initialRectCopy.hideFlags = HideFlags.DontSave; //.HideAndDontSave;
+
+		//this.initialRectCopy.SetParent(rectTr.parent, false);
+		//this.initialRectCopy.anchoredPosition3D = rectTr.anchoredPosition3D;
+		//this.initialRectCopy.anchorMax = rectTr.anchorMax;
+		//this.initialRectCopy.anchorMin = rectTr.anchorMin;
+		//this.initialRectCopy.offsetMin = rectTr.offsetMin;
+		//this.initialRectCopy.offsetMax = rectTr.offsetMax;
+		//this.initialRectCopy.pivot = rectTr.pivot;
+
+
+		if (this.initialRectCopyGo == null)
 			{
-			GameObject go = new GameObject(this.name + "_INITIAL_POS", typeof(RectTransform));
-			this.initialRectCopy = go.GetComponent<RectTransform>();
+			this.initialRectCopyGo = new GameObject(this.name + "_INITIAL_POS", typeof(InitialPosPlaceholder));
 			}
 
 		RectTransform rectTr = this.GetComponent<RectTransform>();
 
-		this.initialRectCopy.hideFlags = HideFlags.DontSave; //.HideAndDontSave;
+		this.initialRectCopyGo.transform.SetParent(rectTr.parent, false);	 		
 
-		this.initialRectCopy.SetParent(rectTr.parent, false);
-		this.initialRectCopy.anchoredPosition3D = rectTr.anchoredPosition3D;
-		this.initialRectCopy.anchorMax = rectTr.anchorMax;
-		this.initialRectCopy.anchorMin = rectTr.anchorMin;
-		this.initialRectCopy.offsetMin = rectTr.offsetMin;
-		this.initialRectCopy.offsetMax = rectTr.offsetMax;
-		this.initialRectCopy.pivot = rectTr.pivot;
+
+		this.initialRectCopy = this.initialRectCopyGo.GetComponent<RectTransform>();
+
+
+		this.initialRectCopyGo.hideFlags = HideFlags.DontSave; //.HideAndDontSave;
+
+		this.initialAnchorMin				= rectTr.anchorMin;
+		this.initialAnchorMax				= rectTr.anchorMax;
+		this.initialOffsetMin				= rectTr.offsetMin;
+		this.initialOffsetMax				= rectTr.offsetMax;
+		this.initialAnchoredPosition3D	= rectTr.anchoredPosition3D;
+		this.initialPivot						= rectTr.pivot;
+
+		this.SetupInitialRectPosition();
+		}
+
+	private GameObject 
+		initialRectCopyGo;
+	private Vector2 
+		initialAnchorMax,
+		initialAnchorMin,	
+		initialOffsetMin,
+		initialOffsetMax,
+		initialPivot;
+	private Vector3 
+		initialAnchoredPosition3D;
+
+
+	// -----------------
+	private void SetupInitialRectPosition()
+		{
+		if (this.initialRectCopy == null)
+			return;
+
+		this.initialRectCopy.anchoredPosition3D	= this.initialAnchoredPosition3D;
+		this.initialRectCopy.anchorMin				= this.initialAnchorMin;
+		this.initialRectCopy.anchorMax				= this.initialAnchorMax;
+		this.initialRectCopy.offsetMin				= this.initialOffsetMin;
+		this.initialRectCopy.offsetMax				= this.initialOffsetMax;
+		this.initialRectCopy.pivot						= this.initialPivot;
 		}
 
 
@@ -433,6 +484,22 @@ public abstract class DynamicTouchControl : TouchControl
 	// -------------------
 	protected Vector3 GetDefaultPos()
 		{	
+		//Vector3 defaultPos = this.transform.position;
+
+		//if (this.initialRectCopyGo != null)
+		//	{
+		//	if (this.initialRectCopy != null)
+		//		return this.initialRectCopy.position;
+
+		//	// If the rectTransform was added by Unity after initialRectCopyGO creation, set it's layout and wait to the next frame...
+
+		//	this.initialRectCopy = this.initialRectCopyGo.GetComponent<RectTransform>();
+		//	if (this.initialRectCopy != null)
+		//		this.SetupInitialRectPosition();
+		//	}
+
+		//return defaultPos;
+
 		return ((this.initialRectCopy == null) ? this.transform.position : this.initialRectCopy.position);
 		}
 
@@ -444,8 +511,8 @@ public abstract class DynamicTouchControl : TouchControl
 			
 		// Destroy initial rect copy...
 
-		if (this.initialRectCopy != null)
-			GameObject.Destroy(this.initialRectCopy);
+		if (this.initialRectCopyGo != null)
+			GameObject.Destroy(this.initialRectCopyGo);
 
 		}
 

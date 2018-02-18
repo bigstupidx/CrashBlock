@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #if UNITY_EDITOR
@@ -928,11 +928,11 @@ public class InputRigInspector : Editor
 					}
 
 
-				if (this.target.axisType != InputRig.AxisType.Digital)
+				//if (this.target.axisType != InputRig.AxisType.Digital)
 					{
 					InspectorUtils.BeginIndentedSection(new GUIContent("Smoothing And Thresholds"));
 					
-					if (this.target.axisType != InputRig.AxisType.ScrollWheel)
+					if ((this.target.axisType != InputRig.AxisType.ScrollWheel) && (this.target.axisType != InputRig.AxisType.Digital))
 						{
 						scale = CFGUI.FloatField(new GUIContent("Scale", "Returned Axis Value Scale."),
 							scale, -10000, 10000, 120); //GUILayout.MinWidth(30), GUILayout.ExpandWidth(true));
@@ -949,11 +949,11 @@ public class InputRigInspector : Editor
 							digitalToAnalogAccelTime, 0, 10, 1000, true, 120); 
 						digitalToAnalogDecelTime = CFGUI.FloatFieldEx(new GUIContent("Digital decel. (ms)", "Time to get from maximal analog value back to zero, when digital input source is released."),
 							digitalToAnalogDecelTime, 0, 10, 1000, true, 120); 
-
-						analogToDigitalThresh = CFGUI.Slider(new GUIContent("Digital thresh.", "Threshold used to convert analog input sources to digital state."),
-							analogToDigitalThresh, 0, 1, 100); //GUILayout.MinWidth(30), GUILayout.ExpandWidth(true));
-
 						}
+
+					analogToDigitalThresh = CFGUI.Slider(new GUIContent("Digital thresh.", "Threshold used to convert analog input sources to digital state."),
+						analogToDigitalThresh, 0, 1, 100); //GUILayout.MinWidth(30), GUILayout.ExpandWidth(true));
+
 
 					if ((this.target.axisType == InputRig.AxisType.UnsignedAnalog) || (this.target.axisType == InputRig.AxisType.SignedAnalog))
 						{

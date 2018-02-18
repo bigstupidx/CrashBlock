@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #if UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9 
@@ -400,6 +400,8 @@ public class TouchControlPanel : ControlFreak2.Internal.ComponentBase
 			for (int ci = 0; ci < this.hitPool.GetList().Count; ++ci)
 				{
 				TouchControl c = this.hitPool.GetList()[ci].c;
+				if (!c.IsActive())
+					continue;
 
 				if ((restrictedSwipeOverTargetList == null) ? c.CanBeSwipedOverFromNothing(t.touch) : c.CanBeSwipedOverFromRestrictedList(t.touch))
 					{

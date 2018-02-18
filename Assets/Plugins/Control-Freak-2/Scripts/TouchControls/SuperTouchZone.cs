@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #define CF2_TOUCH_ZONE_EMULATE_FINGERS
@@ -1026,20 +1026,26 @@ public class SuperTouchZone : TouchControl
 		if (this.strictMultiTouch && this.dontAllowNewFingers)	
 			return null;
 
-		FingerState bestFinger = null;
+		//FingerState bestFinger = null;
 
 		int count = Mathf.Min(this.maxFingers, this.fingers.Length);
 		for (int i = 0; i < count; ++i)
 			{
 			FingerState finger = this.fingers[i];
-			if (finger.touchObj == newTouchObj)
-				return null;
+		
+			if (finger.touchObj == null)
+				return finger;
 
-			if ((bestFinger == null) && (finger.touchObj == null))	
-				bestFinger = finger;
+			//if (finger.touchObj == newTouchObj) && (newTouchObj != null))
+			//	return null;
+
+			//if ((bestFinger == null) && (finger.touchObj == null))	
+			//	bestFinger = finger;
 			}
 
-		return bestFinger;
+		return null;
+
+		//return bestFinger;
 		}
 		
 
@@ -2223,12 +2229,12 @@ public class SuperTouchZone : TouchControl
 						}
 					else
 						{
-						this.centerPos += swipeSpeed * (screenDim * this.zone.emuKeySwipeSpeed * Time.unscaledDeltaTime);
+						this.centerPos += swipeSpeed * (screenDim * this.zone.emuKeySwipeSpeed * CFUtils.realDeltaTime);
 							
-						this.pinchDistCur += pinchSpeed * (screenDim * this.zone.emuKeyPinchSpeed * Time.unscaledDeltaTime); 
+						this.pinchDistCur += pinchSpeed * (screenDim * this.zone.emuKeyPinchSpeed * CFUtils.realDeltaTime); 
 						this.pinchDistCur = Mathf.Clamp(this.pinchDistCur, (screenDim * MIN_EMU_FINGER_DIST_FACTOR), (screenDim * MAX_EMU_FINGER_DIST_FACTOR));
 		
-						this.twistCur += twistSpeed * this.zone.emuKeyTwistSpeed * Time.unscaledDeltaTime;
+						this.twistCur += twistSpeed * this.zone.emuKeyTwistSpeed * CFUtils.realDeltaTime;
 						}							
 					}	
 				}

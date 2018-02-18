@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 using UnityEngine;
@@ -125,6 +125,13 @@ public class TouchGestureBasicState
 		this.pollStartPressure	= 1;
 		this.pollCurPressure		= 1;
 
+		this.pollCurPos		= Vector2.zero;
+		this.pollPressStartPos = Vector2.zero;
+		this.pollReleasePos = Vector2.zero;
+		this.pollPressStartDelay = 0;
+
+
+
 		this.curDist			= 0;
 		this.extremeDistCurSq	= 0;
 		this.extremeDistPrevSq	= 0;
@@ -229,7 +236,7 @@ public class TouchGestureBasicState
 		else
 			{
 			this.posCurRaw = this.pollCurPos;
-			this.posCurSmooth = CFUtils.SmoothTowardsVec2(this.posCurSmooth, this.posCurRaw, this.smoothingTime, Time.unscaledDeltaTime, 0);
+			this.posCurSmooth = CFUtils.SmoothTowardsVec2(this.posCurSmooth, this.posCurRaw, this.smoothingTime, CFUtils.realDeltaTime, 0);
 
 			this.pressureCur = this.pollCurPressure;
 			}

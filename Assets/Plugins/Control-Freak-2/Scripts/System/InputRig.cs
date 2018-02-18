@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 
@@ -49,6 +49,12 @@ public class InputRig : ComponentBase, IBindingContainer
 	public event System.Action
 		onSwitchesChanged;		//!< Called every time after this rig's switches changed.
 
+	public event System.Action
+		onAddExtraInput;			//!< Can be used to add input data from external sources to this rig.
+
+	static public event System.Action
+		onAddExtraInputToActiveRig;	//!< Can be used to add input data from external sources to currently active rig.
+
 
 //! \cond
 	public const string
@@ -82,7 +88,7 @@ public class InputRig : ComponentBase, IBindingContainer
 	public float	
 		fingerRadiusInCm = 0.25f;
 	public bool
-		swipeOverFromNothing = true;
+		swipeOverFromNothing = false;
 
 		
 	public float
@@ -335,6 +341,56 @@ public class InputRig : ComponentBase, IBindingContainer
 
 		for (int i = 0; i < this.gamepads.Length; ++i)
 			this.gamepads[i] = new GamepadConfig(this);
+
+
+		// Setup initial gamepad mappings...
+		
+		this.anyGamepad.enabled = true;
+
+
+		this.anyGamepad.leftStickStateBinding.horzAxisBinding.AddTarget().SetSingleAxis("Horizontal", false);
+		this.anyGamepad.leftStickStateBinding.vertAxisBinding.AddTarget().SetSingleAxis("Vertical", false);
+		this.anyGamepad.leftStickStateBinding.enabled = true;
+		this.anyGamepad.leftStickStateBinding.horzAxisBinding.enabled = true;
+		this.anyGamepad.leftStickStateBinding.vertAxisBinding.enabled = true;
+
+		this.anyGamepad.rightStickStateBinding.horzAxisBinding.AddTarget().SetSingleAxis("Mouse X", false);
+		this.anyGamepad.rightStickStateBinding.vertAxisBinding.AddTarget().SetSingleAxis("Mouse Y", false);
+		this.anyGamepad.rightStickStateBinding.enabled = true;
+		this.anyGamepad.rightStickStateBinding.horzAxisBinding.enabled = true;
+		this.anyGamepad.rightStickStateBinding.vertAxisBinding.enabled = true;
+
+		this.anyGamepad.dpadStateBinding.horzAxisBinding.AddTarget().SetSingleAxis("Horizontal", false);
+		this.anyGamepad.dpadStateBinding.vertAxisBinding.AddTarget().SetSingleAxis("Vertical", false);
+		this.anyGamepad.dpadStateBinding.enabled = true;
+		this.anyGamepad.dpadStateBinding.horzAxisBinding.enabled = true;
+		this.anyGamepad.dpadStateBinding.vertAxisBinding.enabled = true;
+
+		this.anyGamepad.digiFaceDownBinding.enabled = true;
+		this.anyGamepad.digiFaceDownBinding.AddAxis().SetAxis("Fire1", true);
+
+		this.anyGamepad.digiFaceRightBinding.enabled = true;
+		this.anyGamepad.digiFaceRightBinding.AddAxis().SetAxis("Jump", true);
+
+		this.anyGamepad.digiFaceLeftBinding.enabled = true;
+		this.anyGamepad.digiFaceLeftBinding.AddAxis().SetAxis("Fire2", true);
+
+		this.anyGamepad.digiFaceUpBinding.enabled = true;
+		this.anyGamepad.digiFaceUpBinding.AddAxis().SetAxis("Fire3", true);
+
+
+
+		this.anyGamepad.digiR1Binding.enabled = true;
+		this.anyGamepad.digiR1Binding.AddAxis().SetAxis("Fire1", true);
+
+		this.anyGamepad.digiR2Binding.enabled = true;
+		this.anyGamepad.digiR2Binding.AddAxis().SetAxis("Fire1", true);
+
+		this.anyGamepad.digiL1Binding.enabled = true;
+		this.anyGamepad.digiL1Binding.AddAxis().SetAxis("Fire2", true);
+
+		this.anyGamepad.digiL2Binding.enabled = true;
+		this.anyGamepad.digiL2Binding.AddAxis().SetAxis("Fire2", true);
 
 
 
@@ -685,6 +741,16 @@ public class InputRig : ComponentBase, IBindingContainer
 
 		this.axes.ApplyKeyboardInput();
 
+		// Apply custom input...
+
+		if ((this == CF2Input.activeRig) && (onAddExtraInputToActiveRig != null))
+			InputRig.onAddExtraInputToActiveRig();
+
+		if (this.onAddExtraInput != null)
+			this.onAddExtraInput();
+
+
+		// Apply auto-input...
 
 		this.autoInputList.Update(this);
 
@@ -1341,6 +1407,18 @@ public class InputRig : ComponentBase, IBindingContainer
 
 
 
+	// ------------------	
+	public int axisConfigCount 
+		{ get { return this.axes.list.Count; } }
+
+	// ------------------
+	public AxisConfig GetAxisConfig(int id)
+		{
+		if ((id < 0) || (id >= this.axes.list.Count))
+			return null;
+
+		return this.axes.list[id];
+		}
 
 
 	// ------------------
@@ -1392,6 +1470,13 @@ public class InputRig : ComponentBase, IBindingContainer
 			
 		this.keysNextSomeOn = true;
 
+		}
+
+
+	// ------------------
+	public bool GetNextFrameKeyState(KeyCode key)
+		{
+		return this.keysNext[(int)key];
 		}
 
 
@@ -1765,7 +1850,7 @@ public class InputRig : ComponentBase, IBindingContainer
 		{
 		if (this.emuOutputTouchesDirty || (this.emuOutputTouches == null))
 			{
-			if ((this.emuTouchesOrdered == null) || (this.emuTouchesOrdered.Count != this.emuOutputTouches.Length))
+			if ((this.emuOutputTouches == null) || (this.emuTouchesOrdered.Count != this.emuOutputTouches.Length))
 				this.emuOutputTouches = new Touch[this.emuTouchesOrdered.Count];
 
 			for (int i = 0; i < this.emuTouchesOrdered.Count; ++i)
@@ -2848,23 +2933,39 @@ public class InputRig : ComponentBase, IBindingContainer
 	
 		// Input collected this frame...
 
-		private bool
-			frDigitalPos,
-			frDigitalNeg;
+		//private bool
+		//	frDigitalPos,
+		//	frDigitalNeg;
 		
-		private float
-			frAnalogPos,
-			frAnalogNeg,
-			frMouseDeltaPos,
-			frMouseDeltaNeg,
-			frTouchDeltaPos,
-			frTouchDeltaNeg,
-			frNormalizedDeltaPos,
-			frNormalizedDeltaNeg;
+		//private float
+		//	frAnalogPos,
+		//	frAnalogNeg,
+		//	frMouseDeltaPos,
+		//	frMouseDeltaNeg,
+		//	frTouchDeltaPos,
+		//	frTouchDeltaNeg,
+		//	frNormalizedDeltaPos,
+		//	frNormalizedDeltaNeg;
 		
-		private int	
-			frScrollDelta;
+		//private int	
+		//	frScrollDelta;
 
+		public bool		frDigitalPos		{ get; protected set; }
+		public bool		frDigitalNeg		{ get; protected set; }
+		
+		public float	frAnalogPos			{ get; protected set; }
+		public float	frAnalogNeg			{ get; protected set; }
+		public float	frMouseDeltaPos	{ get; protected set; }
+		public float	frMouseDeltaNeg	{ get; protected set; }
+		public float	frTouchDeltaPos	{ get; protected set; }
+		public float	frTouchDeltaNeg	{ get; protected set; }
+		public float	frNormalizedDeltaPos { get; protected set; }
+		public float	frNormalizedDeltaNeg { get; protected set; }
+
+		public int		frScrollDelta		{ get; protected set; }
+
+
+		
 
 			
 		// ---------------------
@@ -3055,7 +3156,7 @@ public class InputRig : ComponentBase, IBindingContainer
 			if (this.snap && (Mathf.Abs(digiToAnalogTarget) > 0.1f) && ((digiToAnalogTarget >= 0) != (this.digitalToAnalogVal >= 0)))
 				this.digitalToAnalogVal = 0;
 
-			this.digitalToAnalogVal = CFUtils.MoveTowards(this.digitalToAnalogVal, digiToAnalogTarget, digiToAnalogTime, Time.unscaledDeltaTime, 0.01f);
+			this.digitalToAnalogVal = CFUtils.MoveTowards(this.digitalToAnalogVal, digiToAnalogTarget, digiToAnalogTime, CFUtils.realDeltaTime, 0.01f);
 				
 
 			float rawAnalogVal = CFUtils.ApplyDeltaInput((this.frAnalogNeg + this.frAnalogPos), this.digitalToAnalogVal);
@@ -3128,10 +3229,10 @@ public class InputRig : ComponentBase, IBindingContainer
 						rawAnalogVal = 0;
 					
 					this.valRaw = CFUtils.SmoothDamp(this.valRaw, rawAnalogVal, ref this.valRawSmoothVel, 
-						this.rawSmoothingTime , Time.unscaledDeltaTime, 0.001f);
+						this.rawSmoothingTime , CFUtils.realDeltaTime, 0.001f);
 		
 					this.val = CFUtils.SmoothDamp(this.val, rawAnalogVal, ref this.valSmoothVel, 
-						this.smoothingTime , Time.unscaledDeltaTime, 0.001f);
+						this.smoothingTime , CFUtils.realDeltaTime, 0.001f);
 
 					break;
 	
@@ -3217,11 +3318,11 @@ public class InputRig : ComponentBase, IBindingContainer
 
 					this.deltaAccumSmoothPrev	= this.deltaAccumSmoothCur;
 					this.deltaAccumSmoothCur	= CFUtils.SmoothDamp(this.deltaAccumSmoothCur, this.deltaAccumTarget, ref this.valSmoothVel, 
-						this.smoothingTime, Time.unscaledDeltaTime, 0.00001f);  
+						this.smoothingTime, CFUtils.realDeltaTime, 0.00001f);  
 
 					this.deltaAccumRawPrev		= this.deltaAccumRawCur;
 					this.deltaAccumRawCur		= CFUtils.SmoothDamp(this.deltaAccumRawCur, this.deltaAccumTarget, ref this.valRawSmoothVel, 
-						this.rawSmoothingTime, Time.unscaledDeltaTime, 0.00001f);  
+						this.rawSmoothingTime, CFUtils.realDeltaTime, 0.00001f);  
 					
 					this.val	= (this.deltaAccumSmoothCur - this.deltaAccumSmoothPrev);
 					this.valRaw = (this.deltaAccumRawCur 	- this.deltaAccumRawPrev);
@@ -3344,7 +3445,9 @@ public class InputRig : ComponentBase, IBindingContainer
 		// ------------
 		public void SetAnalog(float v)
 			{
-			CFUtils.ApplySignedDeltaInput(v, ref this.frAnalogPos, ref this.frAnalogNeg);
+			this.frAnalogPos = CFUtils.ApplyPositveDeltaInput(this.frAnalogPos, v);
+			this.frAnalogNeg = CFUtils.ApplyNegativeDeltaInput(this.frAnalogNeg, v);
+			//CFUtils.ApplySignedDeltaInput(v, ref this.frAnalogPos, ref this.frAnalogNeg);
 			}
 
 		// --------------
@@ -3371,17 +3474,23 @@ public class InputRig : ComponentBase, IBindingContainer
 
 		public void SetTouchDelta(float touchDelta)
 			{
-			CFUtils.ApplySignedDeltaInput(touchDelta, ref this.frTouchDeltaPos, ref this.frTouchDeltaNeg);
+			this.frTouchDeltaPos = CFUtils.ApplyPositveDeltaInput(this.frTouchDeltaPos, touchDelta);
+			this.frTouchDeltaNeg = CFUtils.ApplyNegativeDeltaInput(this.frTouchDeltaNeg, touchDelta);
+			//CFUtils.ApplySignedDeltaInput(touchDelta, ref this.frTouchDeltaPos, ref this.frTouchDeltaNeg);
 			}
 
 		public void SetMouseDelta(float mouseDelta)
 			{
-			CFUtils.ApplySignedDeltaInput(mouseDelta, ref this.frMouseDeltaPos, ref this.frMouseDeltaNeg);
+			this.frMouseDeltaPos = CFUtils.ApplyPositveDeltaInput(this.frMouseDeltaPos, mouseDelta);
+			this.frMouseDeltaNeg = CFUtils.ApplyNegativeDeltaInput(this.frMouseDeltaNeg, mouseDelta);
+			//CFUtils.ApplySignedDeltaInput(mouseDelta, ref this.frMouseDeltaPos, ref this.frMouseDeltaNeg);
 			}
 
 		public void SetNormalizedDelta(float normalizedDelta)
 			{
-			CFUtils.ApplySignedDeltaInput(normalizedDelta, ref this.frNormalizedDeltaPos, ref this.frNormalizedDeltaNeg);
+			this.frNormalizedDeltaPos = CFUtils.ApplyPositveDeltaInput(this.frNormalizedDeltaPos, normalizedDelta);
+			this.frNormalizedDeltaNeg = CFUtils.ApplyNegativeDeltaInput(this.frNormalizedDeltaNeg, normalizedDelta);
+			//CFUtils.ApplySignedDeltaInput(normalizedDelta, ref this.frNormalizedDeltaPos, ref this.frNormalizedDeltaNeg);
 			}
 
 

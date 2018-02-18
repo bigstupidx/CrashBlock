@@ -1,17 +1,61 @@
 -------------------------------------------
-Control Freak 2 (2.1.0)
-Copyright (C) 2013-2016 Dan's Game Tools
-http://DansGameTools.com
+Control Freak 2 (2.2.5)
+Copyright (C) 2013-2018 Dan's Game Tools
+http://DansGameTools.blogspot.com
 -------------------------------------------
 
 Online documentation:
 
-http://docs.dansgametools.com/cf2/
+http://dgtdocs.000webhostapp.com/
 
 
 
 Change Log:
 
+
+Version 2.2.5f2
+	
+    Fixed the button hiding bug.
+	
+
+Version 2.2.5
+	
+    Fixed the TrackPad reset bug.
+    Fixed Unity 2017.3 compatibility issues.
+
+
+Version 2.2.4
+	
+    Added new axis config-related methods to InputRig class.
+    Fixed the bug resetting Sprite Animator transform in the editor.
+    Fixed Unity 2017 compatibility issues.
+
+Version 2.2.3
+	
+    Added fix Unity 5.6 RectTransform bug.
+    Playmaker action scripts can now be converted by the CF2 Script Converter.  
+    Fixed the Scripting Define Symbols bug of the Installer. 
+
+Version 2.2.2
+	
+    Added fix for the faulty Switch build target.
+    Fixed Assistant losing Input Rig context when changing Play mode.	
+
+Version 2.2.1
+	
+    Fixed Super Touch Zone bug.
+    Initial setup of gamepad bindings for newly created rigs.
+    Adjustable Digital Threshold for analog sources of digital-type axes in the Input Rig inspector.
+    Added new events to InputRig - [onAddExtraInput] and [onAddExtraInputToActiveRig] for easier integration with external input sources.
+
+Version 2.2.0
+
+    Added UnitZ UNET Add-on. 
+    Improved MFi Game Controller support.
+    Fixed Script Converter bug causing false positive matches.
+    Added SetResolution() method to CFScreen class to fix wrong dpi value returned by Unity after changing resolution.
+    'Swipe Over from nothing' Input Rig option is now disabled by default.
+ 
 Version 2.1.0
 
     Added UFPS Add-On.

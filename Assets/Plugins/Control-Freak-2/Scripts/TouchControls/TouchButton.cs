@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 //#define DRAW_DEBUG_GUI
@@ -27,8 +27,6 @@ public class TouchButton : DynamicTouchControl, IBindingContainer
 		OnPress,
 		OnRelease 
 		}
-
-
 
 	public enum ToggleOffAction
 		{
@@ -232,7 +230,7 @@ public class TouchButton : DynamicTouchControl, IBindingContainer
 				if (this.Pressed())
 					this.elapsedSinceToggled = 0;
 
-				else if ((this.elapsedSinceToggled += Time.unscaledDeltaTime) > this.autoToggleOffTimeOut)
+				else if ((this.elapsedSinceToggled += CFUtils.realDeltaTime) > this.autoToggleOffTimeOut)
 					this.ChangeToggleState(false, true);
 				}			
 			}

@@ -71,8 +71,11 @@ public class ConvertedScript
 		convUsedNonConstParams;
 	
 
-	private string			originalCode;
-	private StringBuilder	modifiedCode;	
+	private string			
+		originalCode,
+		sanitizedCode;
+	private StringBuilder
+		modifiedCode;	
 
 	private bool			isTaggedWithDontConvert;
 	
@@ -102,21 +105,11 @@ public class ConvertedScript
 		REGEX_TYPE_SPECIFIER_START_ANCHOR_CLASS 	= "[" + WHITESPACE_CHARS + @"\(\:\;\,\{" + "]",
 		REGEX_TYPE_SPECIFIER_END_ANCHOR_CLASS 		= "[" + WHITESPACE_CHARS + @"\)\;" + "]",
 
-			
-/**************************************************/
-/* Functions called from Start()                  */
-/**************************************************/
-		//REGEX_BLOCK_COMMENT				= @"(?:(?:\/\*(?:.|\n)+(?=\*\/)\*\/)|(?:\/\/.+(?=\n)))",
-		//REGEX_BLOCK_COMMENT				= @"(?:\/\*(?:.|\n)*(?=\*\/)\*\/)",
-		REGEX_BLOCK_COMMENT				= @"(?:\/\*(?:.|\n)*?(?:\*\/))",
-		//REGEX_BLOCK_COMMENT				= @"(?:\/\*[.\n]*(?=\*\/)\*\/)",
-		//REGEX_LINE_COMMENT				= @"(?:\/\/.+(?=\n))",
-		REGEX_LINE_COMMENT				= @"(?:\/\/.+?\n)",
+		//REGEX_BLOCK_COMMENT				= @"(?:\/\*(?:.|\n)*?(?:\*\/))",
+		//REGEX_LINE_COMMENT				= @"(?:\/\/.+?\n)",
 
 		REGEX_TOKEN						= @"[a-zA-Z_]+[a-zA-Z0-9_]?",
 		REGEX_DOT_OPERATOR				= REGEX_OPTIONAL_WS + "\\." + REGEX_OPTIONAL_WS,
-//		REGEX_METHOD_PARAMS				= @"\(",
-//		REGEX_NONE  = "",
 
 		REGEX_STRING_PARAM				= @"^(?:" + REGEX_OPTIONAL_WS + "(\\\".+(?=\\\")\\\")" + REGEX_OPTIONAL_WS + @")\z",
 		REGEX_INT_PARAM					= @"^(?:" + REGEX_OPTIONAL_WS + "([0-9]+)" + REGEX_OPTIONAL_WS  + @")\z",
@@ -127,16 +120,7 @@ public class ConvertedScript
 		REGEX_SCREEN_CLASSNAMES 		= @"(?:Screen|UnityEngine" + REGEX_DOT_OPERATOR + "Screen)",
 		REGEX_CURSOR_CLASSNAMES 		= @"(?:Cursor|UnityEngine" + REGEX_DOT_OPERATOR + "Cursor)",
 			
-		//REGEX_USING_CF2_NAMESPACE		= @"using" + REGEX_WS_CLASS + "+" + "ControlFreak2" + @"[\.A-Za-z0-9]*(?=\;)",
-		//REGEX_CF2_NAMESPACE_REF			= "ControlFreak2" + REGEX_OPTIONAL_WS + @"\.",
-		//REGEX_CF2_PRESENCE				= @"(?:(?:" + REGEX_CF2_NAMESPACE_REF + @")|(?:" + REGEX_USING_CF2_NAMESPACE + "))",
-
 		STR_DONT_CONVERT_TO_CF2_TAG_FULL_LINE	= "// DONT_CONVERT_TO_CF2 \n",
-
-		//REGEX_DONT_CONVERT_TO_CF2_TAG	= @"(?:\/\/" + REGEX_OPTIONAL_WS + ")?" + @"Don\'?t" + REGEX_OPTIONAL_WS_UNDERSCORE + "Convert" + 
-		//	REGEX_OPTIONAL_WS_UNDERSCORE + "To" + REGEX_OPTIONAL_WS_UNDERSCORE + 
-		//	"(?:(?:CF)|(?:Control" + REGEX_OPTIONAL_WS_UNDERSCORE + "Freak))" + REGEX_OPTIONAL_WS_UNDERSCORE + "2" + 
-		//	@"(?:" + REGEX_WS_CLASS + @"*(?=\n)\n)?",
 
 		REGEX_DONT_CONVERT_TO_CF2_TAG_ONLY	= @"Don\'?t" + REGEX_OPTIONAL_WS_UNDERSCORE + "Convert" + 
 			REGEX_OPTIONAL_WS_UNDERSCORE + "To" + REGEX_OPTIONAL_WS_UNDERSCORE + 
@@ -154,8 +138,8 @@ public class ConvertedScript
 			//"(?<=(?:" + REGEX_WS_OP_SPEC_CLASS + "))(?<class>" + REGEX_INPUT_CLASSNAMES + ")(?<dot>" + REGEX_DOT_OPERATOR + ")(?<method>" + REGEX_TOKEN + ")" +
 			//"(?<opBr>" + REGEX_OPTIONAL_WS + @"\(" + REGEX_OPTIONAL_WS +  @")(?<params>.+?(?=\)))(?<clBr>\))" ,
 
-		//REGEX_SCREEN_METHOD	= 
-		//	CreateStaticMethodRegex(REGEX_SCREEN_CLASSNAMES),
+		REGEX_SCREEN_METHOD	= 
+			CreateStaticMethodRegex(REGEX_SCREEN_CLASSNAMES),
 
 		//REGEX_CURSOR_METHOD	= 
 		//	CreateStaticMethodRegex(REGEX_CURSOR_CLASSNAMES),
@@ -251,6 +235,7 @@ public class ConvertedScript
 	public ConvertedScript()
 		{
 		this.originalCode		= "";
+		this.sanitizedCode	= "";
 		this.modifiedCode		= new StringBuilder();
 		this.commentBlocks		= new List<CommentBlock>();
 		this.fragments			= new List<Fragment>();
@@ -274,8 +259,8 @@ public class ConvertedScript
 //		ConvertedScript.regexScreenProperty			= new Regex(REGEX_SCREEN_PROPERTY);
 
 		//ConvertedScript.regexTouchControllerCode	= new Regex(REGEX_CF1_CLASSES);
-		ConvertedScript.regexBlockComment			= new Regex(REGEX_BLOCK_COMMENT);
-		ConvertedScript.regexLineComment			= new Regex(REGEX_LINE_COMMENT);
+		//ConvertedScript.regexBlockComment			= new Regex(REGEX_BLOCK_COMMENT);
+		//ConvertedScript.regexLineComment			= new Regex(REGEX_LINE_COMMENT);
 		//ConvertedScript.regexInputClass				= new Regex(REGEX_INPUT_CLASSNAMES);
 		
 		ConvertedScript.regexStringParam			= new Regex(REGEX_STRING_PARAM);
@@ -467,7 +452,7 @@ string[] keycodeParams = new string[]
 	// -------------------------	
 	public void ProcessTextFile(string filename)
 		{
-		string originalCode = System.IO.File.ReadAllText(filename);
+		string originalCode = System.IO.File.ReadAllText(filename); 
 		ProcessText(originalCode, GetScriptLang(filename));
 		}
 		
@@ -494,9 +479,17 @@ string[] keycodeParams = new string[]
 
 
 	// --------------------
+	protected string GetOriginalCaptureValue(Capture capture)
+		{
+		return this.originalCode.Substring(capture.Index, capture.Length);
+		}
+
+
+	// --------------------
 	public void Start(string originalCode)
 		{
 		this.originalCode = originalCode;
+		this.sanitizedCode = originalCode;
 
 
 		this.lineEndingStyle = GetLineEndingStyle(originalCode);
@@ -623,7 +616,7 @@ string[] keycodeParams = new string[]
 
 
 		// ----------------------
-		private Fragment ProcessMatch(Match m, Regex regex)
+		private Fragment ProcessMatch(Match m, Regex regex, ConvertedScript script)
 			{
 			string typeName = m.Groups["type"].Value;
 			if (!this.IsTypeSupported(typeName))
@@ -631,8 +624,8 @@ string[] keycodeParams = new string[]
 	
 			Fragment frag = new Fragment(ModType.InputType, m);
 		
-			frag.originalFrag	= m.Value;
-			frag.modifiedFrag	= m.Value;
+			frag.originalFrag	= script.GetOriginalCaptureValue(m);
+			frag.modifiedFrag	= script.GetOriginalCaptureValue(m);
 			frag.usedClass		= m.Groups["namespace"].Value;
 			frag.usedFunction	= typeName;
 	
@@ -661,7 +654,7 @@ string[] keycodeParams = new string[]
 					else if (groupName == "namespace")
 						{} // skip namespace
 					else 
-						frag.modifiedFrag += m.Groups[i].Value;			
+						frag.modifiedFrag += script.GetOriginalCaptureValue(m.Groups[i]); //.Value;			
 					}
 				}		
 //return null;
@@ -676,7 +669,7 @@ string[] keycodeParams = new string[]
 	
 			if (this.regexTypeDecl != null)
 				{
-				MatchCollection typeMatches = this.regexTypeDecl.Matches(script.originalCode);
+				MatchCollection typeMatches = this.regexTypeDecl.Matches(script.sanitizedCode);
 				
 				if (typeMatches != null)
 					{
@@ -689,7 +682,7 @@ string[] keycodeParams = new string[]
 //Debug.Log("TYPE match[" + (matchNum++) + "] ["+ m.Value+"] line[" + ControlFreak2.CFUtils.GetLineNumber(script.originalCode, m.Index) + "]");
 
 							
-						Fragment typeFrag = this.ProcessMatch(m, this.regexTypeDecl);
+						Fragment typeFrag = this.ProcessMatch(m, this.regexTypeDecl, script);
 						if (typeFrag != null)
 							script.AddFragment(typeFrag);
 						}
@@ -744,30 +737,32 @@ string[] keycodeParams = new string[]
 
 	
 		// --------------------
-		private Fragment ProcessMethodMatch(Match m, Regex regex)
+		private Fragment ProcessMethodMatch(Match m, Regex regex, ConvertedScript script)
 			{
-			string methodName = m.Groups["method"].Value;
+			string methodName = script.GetOriginalCaptureValue(m.Groups["method"]); //.Value;
 			if (this.IsMethodIgnored(methodName))
 				return null;	
 	
 			Fragment frag = new Fragment(this.GetMethodModType(), m);
 		
-			frag.originalFrag	= m.Value;
-			frag.modifiedFrag	= m.Value;
-			frag.usedClass		= m.Groups["class"].Value;
+			frag.originalFrag	= script.GetOriginalCaptureValue(m); //.Value;
+			frag.modifiedFrag	= script.GetOriginalCaptureValue(m); //.Value;
+			frag.usedClass		= script.GetOriginalCaptureValue(m.Groups["class"]); //.Value;
 			frag.usedFunction	= methodName;
-			frag.usedParameter	= m.Groups["params"].Value;
+			frag.usedParameter	= script.GetOriginalCaptureValue(m.Groups["params"]); //.Value;
 	
 			MethodDesc methodDesc = this.GetMethodDesc(frag.usedFunction);
-			if (methodDesc != null)
+			if ((methodDesc != null))
 				{
-				string paramStr = frag.usedParameter;
-				if (!ConvertedScript.IsMethodParamConst(methodDesc.param, ref paramStr))
-					{ } //frag.warning = WarningType.NON_CONST_PARAM;
-				else
-					frag.usedParameter = paramStr;
+				if ((methodDesc.param != MethodParamType.NONE))
+					{
+					string paramStr = frag.usedParameter;
+					if (!ConvertedScript.IsMethodParamConst(methodDesc.param, ref paramStr))
+						{ } //frag.warning = WarningType.NON_CONST_PARAM;
+					else
+						frag.usedParameter = paramStr;
+					}
 				}
-
 			else if ((frag.problem = this.IsMethodUnsupported(frag.usedFunction)) != ConvertedScript.ProblemType.None)
 				{
 				}
@@ -796,7 +791,7 @@ string[] keycodeParams = new string[]
 						frag.modifiedFrag += frag.usedParameter;
 		
 					else 
-						frag.modifiedFrag += m.Groups[i].Value;			
+						frag.modifiedFrag += script.GetOriginalCaptureValue(m.Groups[i]); //.Value;			
 		
 		//Debug.Log("\t\tgr["+i+"]["+groupName+"] \t["  + m.Groups[i].Value + "] \t->[" + frag.modifiedFrag + "]");
 					}
@@ -808,16 +803,16 @@ string[] keycodeParams = new string[]
 	
 	
 		// ----------------------
-		private Fragment ProcessPropertyMatch(Match m, Regex regex)
+		private Fragment ProcessPropertyMatch(Match m, Regex regex, ConvertedScript script)
 			{
-			string propertyName = m.Groups["prop"].Value;
+			string propertyName = script.GetOriginalCaptureValue(m.Groups["prop"]); //.Value;
 			if (this.IsPropertyIgnored(propertyName))
 				return null;
 	
 			Fragment frag = new Fragment(this.GetPropModType(), m);
 		
-			frag.originalFrag	= m.Value;
-			frag.modifiedFrag	= m.Value;
+			frag.originalFrag	= script.GetOriginalCaptureValue(m); //.Value;
+			frag.modifiedFrag	= script.GetOriginalCaptureValue(m); //.Value;
 			frag.usedClass		= m.Groups["class"].Value;
 			frag.usedFunction	= propertyName;
 	
@@ -843,7 +838,7 @@ string[] keycodeParams = new string[]
 					if (groupName == "class")
 						frag.modifiedFrag += this.GetConvertedClassName();
 					else 
-						frag.modifiedFrag += m.Groups[i].Value;			
+						frag.modifiedFrag += script.GetOriginalCaptureValue(m.Groups[i]); //.Value;			
 					}
 				}		
 			
@@ -858,7 +853,7 @@ string[] keycodeParams = new string[]
 	
 			if (this.GetMethodRegex() != null)
 				{
-				MatchCollection methodMatches = this.GetMethodRegex().Matches(script.originalCode);
+				MatchCollection methodMatches = this.GetMethodRegex().Matches(script.sanitizedCode);
 				
 				if (methodMatches != null)
 					{
@@ -867,7 +862,7 @@ string[] keycodeParams = new string[]
 						if (script.IsMatchCommentedOut(m))
 							continue;
 							
-						Fragment methodFrag = this.ProcessMethodMatch(m, this.GetMethodRegex());
+						Fragment methodFrag = this.ProcessMethodMatch(m, this.GetMethodRegex(), script);
 						if (methodFrag != null)
 							script.AddFragment(methodFrag);
 						}
@@ -879,7 +874,7 @@ string[] keycodeParams = new string[]
 			if (this.GetPropertyRegex() != null)
 				{				
 	
-				MatchCollection inputPropertyMatches = this.GetPropertyRegex().Matches(script.originalCode);
+				MatchCollection inputPropertyMatches = this.GetPropertyRegex().Matches(script.sanitizedCode);
 				
 				if (inputPropertyMatches != null)
 					{
@@ -888,7 +883,7 @@ string[] keycodeParams = new string[]
 						if (script.IsMatchCommentedOut(m))
 							continue;
 					
-						Fragment propFrag = this.ProcessPropertyMatch(m, this.GetPropertyRegex());
+						Fragment propFrag = this.ProcessPropertyMatch(m, this.GetPropertyRegex(), script);
 						if (propFrag != null)
 							script.AddFragment(propFrag);
 		
@@ -1023,7 +1018,7 @@ string[] keycodeParams = new string[]
 			"location",
 			"multiTouchEnabled",
 			"touchSupported",
-	
+			"mousePresent"
 			};
 			
 		// ----------------
@@ -1049,13 +1044,13 @@ string[] keycodeParams = new string[]
 	private class ScreenClassConverter : ClassConverterBase
 		{	
 		private Regex
-			//methodRegex,
+			methodRegex,
 			propRegex;
 
 		// ----------------------
 		public ScreenClassConverter() : base()
 			{
-			//this.methodRegex	= new Regex(ConvertedScript.REGEX_SCREEN_METHOD);
+			this.methodRegex	= new Regex(ConvertedScript.REGEX_SCREEN_METHOD);
 			this.propRegex		= new Regex(ConvertedScript.REGEX_SCREEN_PROPERTY);
 			}
 
@@ -1063,7 +1058,7 @@ string[] keycodeParams = new string[]
 		override protected string GetConvertedClassName()		{ return "ControlFreak2.CFScreen"; }
 		override protected ModType GetMethodModType()			{ return ModType.ScreenMethod; }
 		override protected ModType GetPropModType()				{ return ModType.ScreenProperty; }
-		override protected Regex GetMethodRegex() 				{ return null; } //this.methodRegex; }
+		override protected Regex GetMethodRegex() 				{ return this.methodRegex; }
 		override protected Regex GetPropertyRegex()				{ return this.propRegex; }
 
 		override protected MethodDesc[] GetMethodDescriptions() { return mMethodDescriptions; }
@@ -1083,9 +1078,7 @@ string[] keycodeParams = new string[]
 
 		// ---------------------
 		static private MethodDesc[] mMethodDescriptions = new MethodDesc[] {
-			//new MethodDesc("ResetInputAxes"),
-	
-			//new MethodDesc("GetAxis",				MethodParamType.STRING),
+			new MethodDesc("SetResolution"),
 			};
 	
 		// ---------------
@@ -1103,7 +1096,8 @@ string[] keycodeParams = new string[]
 		static private string[] mSupportedProps = new string[] {
 			"dpi",
 			"lockCursor",
-			"showCursor"		
+			"showCursor",
+			"fullScreen"		
 			};
 	
 		// ---------------
@@ -1116,7 +1110,7 @@ string[] keycodeParams = new string[]
 			"autorotateToPortrait",
 			"autorotateToPortraitUpsideDown",
 			"currentResolution",
-			"fullScreen",
+			//"fullScreen",
 			"orientation",
 			"resolutions",
 			"sleepTimeout"				
@@ -1470,11 +1464,121 @@ string[] keycodeParams = new string[]
 		
 
 
+	// ------------------
+	private enum CodeBlockType
+		{
+		None,
+		Comment,
+		LineComment,
+		String,
+		AltString
+		}
+
 	// -------------------
 	private void CollectCommentBlocks()
 		{
 		this.commentBlocks.Clear();
 
+		StringBuilder 
+			sanitizedBuilder = new StringBuilder(this.originalCode.Length);
+
+		char 
+			curC = '\0', 
+			prevC = '\0';
+		
+		bool 
+			blockOpen = false;
+		int 
+			blockStart = 0;
+
+		CodeBlockType
+			blockType = CodeBlockType.None; 
+
+		for (int i = 0; i < this.originalCode.Length; ++i, prevC = curC)
+			{
+			curC = this.originalCode[i];
+
+			// Try to open a new block...
+
+			if (!blockOpen)
+				{
+				if (curC == '\"')
+					{
+					blockOpen = true;
+					blockType = CodeBlockType.String;
+					blockStart = i;
+					}
+
+				else if (curC == '\'')
+					{
+					blockOpen = true;
+					blockType = CodeBlockType.AltString;
+					blockStart = i;
+					}
+
+				else if ((curC == '/') && (prevC == '/'))
+					{
+					blockOpen = true;
+					blockType = CodeBlockType.LineComment;
+					blockStart = i - 1;
+					}
+
+				else if ((prevC == '/') && (curC == '*') )
+					{
+					blockOpen = true;
+					blockType = CodeBlockType.Comment;
+					blockStart = i - 1;
+					}
+				
+
+				if (!blockOpen || ((blockType != CodeBlockType.Comment) && (blockType != CodeBlockType.LineComment)))
+					sanitizedBuilder.Append(curC);
+				else
+					{
+					// Remove prev char and add double space placeholder...
+
+					sanitizedBuilder.Remove(sanitizedBuilder.Length - 1, 1);
+					sanitizedBuilder.Append("  ");
+					}
+
+				}
+
+			// Close an open block...
+			else
+				{
+				if ((blockType == CodeBlockType.LineComment) || (blockType == CodeBlockType.Comment))
+					sanitizedBuilder.Append((curC == '\n') ? '\n' : ' ');
+				else
+					sanitizedBuilder.Append(curC);
+
+				if (
+					((blockType == CodeBlockType.String)		&& (curC == '\"') && (prevC != '\\')) ||
+					((blockType == CodeBlockType.AltString)	&& (curC == '\'') && (prevC != '\\')) ||
+					((blockType == CodeBlockType.Comment)		&& (prevC == '*') && (curC == '/')) ||
+					((blockType == CodeBlockType.LineComment)	&& (curC == '\n')) )
+					{
+					blockOpen = false;
+					this.commentBlocks.Add(new CommentBlock(blockStart, (i - blockStart)));
+					}					 
+				}
+
+			
+			} 
+
+
+		// Add unclosed block...
+
+		if (blockOpen)
+			this.commentBlocks.Add(new CommentBlock(blockStart, (this.originalCode.Length - blockStart)));
+		
+
+	
+		// Apply sanitized string...
+
+		this.sanitizedCode = sanitizedBuilder.ToString();
+
+
+/*
 		Match m = ConvertedScript.regexBlockComment.Match(this.originalCode);
 		for (; m.Success; m = m.NextMatch())
 			{
@@ -1489,7 +1593,7 @@ string[] keycodeParams = new string[]
 
 			this.commentBlocks.Add(new CommentBlock(m));
 			}			
-
+*/
 		}
 		
 
@@ -1677,12 +1781,12 @@ string[] keycodeParams = new string[]
 
 		// Add DGT header...
 
-		this.modifiedCode.Append(
-			this.FixUnixLineEndings("// Code auto-converted by Control Freak 2 on " + System.DateTime.Now.ToLongDateString() + "!\n") +
-			//((this.lang == Lang.CS) ? 
-			//	"using ControlFreak2;\n\n" :
-			//	"import ControlFreak2;\n\n") +
-			"");
+		//this.modifiedCode.Append(
+		//	this.FixUnixLineEndings("// Code auto-converted by Control Freak 2 on " + System.DateTime.Now.ToLongDateString() + "!\n") +
+		//	//((this.lang == Lang.CS) ? 
+		//	//	"using ControlFreak2;\n\n" :
+		//	//	"import ControlFreak2;\n\n") +
+		//	"");
 
 
 		// Convert code..
@@ -1735,6 +1839,13 @@ string[] keycodeParams = new string[]
 			{
 			this.index	= m.Index;
 			this.len	= m.Length;
+			}
+
+		// -----------------
+		public CommentBlock(int index, int len)
+			{
+			this.index = index;
+			this.len = len;
 			}
 			
 		// ------------------------

@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 
@@ -113,7 +113,7 @@ public class AnalogConfig
 	public float AnimateDigitalToAnalog(float curVal, float targetVal, bool pressed)
 		{
 		return CFUtils.SmoothTowards(curVal, targetVal, 
-			(pressed ? this.digitalToAnalogPressSpeed : this.digitalToAnalogReleaseSpeed) * DIGITAL_TO_ANALOG_SMOOTHING_TIME, Time.unscaledDeltaTime, 0.001f);
+			(pressed ? this.digitalToAnalogPressSpeed : this.digitalToAnalogReleaseSpeed) * DIGITAL_TO_ANALOG_SMOOTHING_TIME, CFUtils.realDeltaTime, 0.001f);
 		}
 
 

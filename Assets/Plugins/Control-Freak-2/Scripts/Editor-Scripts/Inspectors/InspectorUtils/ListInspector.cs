@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #if UNITY_EDITOR
@@ -323,7 +323,7 @@ abstract public class ListInspector
 
 			this.DrawExtraHeaderGUI();
 
-			this.DrawDefaultButtons();
+			retVal = this.DrawDefaultButtons();
 	
 			EditorGUILayout.EndHorizontal();
 

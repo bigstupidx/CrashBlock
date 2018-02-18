@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #if UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9 
@@ -78,7 +78,14 @@ abstract public class BuiltInGamepadProfileBank
 
 
 	// ---------------------
-	private GamepadProfile FindProfile(string deviceName)
+	virtual protected GamepadProfile FindProfile(string deviceName)
+		{
+		return this.FindInternalProfile(deviceName);
+		}
+
+
+	// ---------------------
+	protected GamepadProfile FindInternalProfile(string deviceName)
 		{
 		if ((this.profiles == null) || (this.profiles.Length == 0))	
 			return null;
@@ -111,10 +118,10 @@ abstract public class BuiltInGamepadProfileBank
 				mInst = new BuiltInGamepadProfileBankAndroid();
 				break;
 	
-			case RuntimePlatform.OSXDashboardPlayer :
 			case RuntimePlatform.OSXEditor :
 			case RuntimePlatform.OSXPlayer :
 #if UNITY_PRE_5_4
+			case RuntimePlatform.OSXDashboardPlayer :
 			case RuntimePlatform.OSXWebPlayer :
 #endif
 				mInst = new BuiltInGamepadProfileBankOSX();
@@ -139,6 +146,9 @@ abstract public class BuiltInGamepadProfileBank
 				mInst = new BuiltInGamepadProfileBankWin();
 				break;
 
+#if !UNITY_PRE_5_3
+			case RuntimePlatform.tvOS :
+#endif	
 			case RuntimePlatform.IPhonePlayer :
 				mInst = new BuiltInGamepadProfileBankIOS();
 				break;

@@ -1,7 +1,7 @@
 // -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2016 Dan's Game Tools
-// http://DansGameTools.com
+// Copyright (C) 2013-2018 Dan's Game Tools
+// http://DansGameTools.blogspot.com
 // -------------------------------------------
 
 #if UNITY_EDITOR
@@ -153,6 +153,9 @@ public class Assistant : EditorWindow
 	// ------------------
 	public void RefreshRigState()
 		{
+		if (this.selectedRig == null)
+			this.selectedRig = this.GetCurrentlySelectedRig();
+
 		for (int i = 0; i < this.logEntries.Count; ++i)
 			{	
 			this.logEntries[i].CheckRigState(this.selectedRig);
@@ -188,13 +191,27 @@ public class Assistant : EditorWindow
 		}
 
 		
+
+#if UNITY_2017_3_OR_NEWER
+	private void OnPlayModeStateChanged(PlayModeStateChange ch)	{ this.RefreshRigState(); }
+#endif	
+
+
+		
 	// -------------------
 	void OnEnable()
 		{
 		//Debug.Log("ENABLE LISTENER : " + ((this.logEntries == null) ? "NULL" : this.logEntries.Count.ToString()) + 
 		//	" MSGS: " + ((this.logEntries == null) ? "NULL" : this.msgs.Count.ToString()) + " INST: " + ((mInst == null) ? "NULL" : "NOT NULL"));
 		mInst = this;
-			
+
+
+#if UNITY_2017_3_OR_NEWER
+		EditorApplication.playModeStateChanged += this.OnPlayModeStateChanged;
+#else
+		EditorApplication.playmodeStateChanged += this.RefreshRigState;
+#endif
+ 
 		//Selection.selectionChanged += this.OnSelChange;
 		
 		this.selectedEntry = null;
@@ -210,9 +227,14 @@ public class Assistant : EditorWindow
 	// ------------------
 	void OnDisable()
 		{
+#if UNITY_2017_3_OR_NEWER
+		EditorApplication.playModeStateChanged -= this.OnPlayModeStateChanged;
+#else
+		EditorApplication.playmodeStateChanged -= this.RefreshRigState;
+#endif
 		//Selection.selectionChanged -= this.OnSelChange;
 		}
-		
+			
 
 	// -----------------
 	void OnFocus()
