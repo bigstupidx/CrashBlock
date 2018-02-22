@@ -114,6 +114,10 @@ public class FPSPlayer : MonoBehaviour {
 	private float maxScaleSprite;
 	private float animTimeSprite;
 
+    // player will be immune to damage while this is true
+    private bool isPlayerShielded = false;
+    private GameObject shieldObj = null;
+
 	[Tooltip("True if player's health should be displayed on the screen.")]
 	public bool showHealth = true;
 	[Tooltip("True if player's ammo should be displayed on the screen.")]
@@ -1236,7 +1240,8 @@ public class FPSPlayer : MonoBehaviour {
 		int painKickUpAmt = 0;
 		int painKickSideAmt = 0;
 
-		if(!invulnerable){
+		if(!invulnerable && !isPlayerShielded)
+        {
 			hitPoints -= damage;//Apply damage
 			hpBar.fillAmount = hitPoints/100;
 		}
@@ -1263,7 +1268,8 @@ public class FPSPlayer : MonoBehaviour {
 
 		if(!FPSWalkerComponent.holdingBreath){
 			//Play pain sound when getting hit
-			if(!blockState){//don't play hit sound if blocking attack
+			if(!blockState || !isPlayerShielded || !invulnerable)
+            {//don't play hit sound if blocking attack or is shielded or immune
 				if (Time.time > gotHitTimer && painBig && painLittle) {
 					// Play a big pain sound
 					if (hitPoints < 40.0f || damage > 30.0f) {
@@ -1450,7 +1456,6 @@ public class FPSPlayer : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (segs);
 		invulnerable = false;
-
 	}
 
 	public void RemoveInvulnerability()
@@ -1478,6 +1483,42 @@ public class FPSPlayer : MonoBehaviour {
 		else
 			return true;
 	}
+
+    /// <summary>
+    /// This function will activate the temporal shield after a Save Me! ad has been seen and the game has resumed, allowing the player to be immune from damage for a short duration.
+    /// </summary>
+    public void ActivateADShield(float timer)
+    {
+        if (!isPlayerShielded) // avoid calling it while one corutine is already being called
+        {
+            isPlayerShielded = true;
+            StartCoroutine(ADShieldTimerCo(timer));
+
+            // load the effects once
+            if (shieldObj == null)
+            {
+                shieldObj = Instantiate(Resources.Load("ADShield_p")) as GameObject;
+                shieldObj.transform.SetParent(mainCamTransform);
+                shieldObj.transform.localPosition = new Vector3(0,0,2);
+                shieldObj.SetActive(true);
+            }
+
+            if (shieldObj != null)
+            {
+                shieldObj.SetActive(true);
+            }
+        }
+    }
+
+    IEnumerator ADShieldTimerCo(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        isPlayerShielded = false;
+        if(shieldObj != null)
+        {
+            shieldObj.SetActive(false);
+        }
+    }
 
 
 

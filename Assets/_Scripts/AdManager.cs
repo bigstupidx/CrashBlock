@@ -45,12 +45,13 @@ public class AdManager : MonoBehaviour {
         }
         pause.DeactivateDeathCanvas ();
 			fpsPlayerRef.RemoveInvulnerability();
+            fpsPlayerRef.ActivateADShield(5.0f);
         #endif
 
 
 #if UNITY_ANDROID
 
-			if (HZIncentivizedAd.IsAvailable ()) {
+        if (HZIncentivizedAd.IsAvailable ()) {
 				HZIncentivizedAd.Show ();
 				fpsPlayerRef.invulnerable = true;
 				fpsPlayerRef.hitPoints = fpsPlayerRef.maximumHitPoints;
@@ -64,27 +65,30 @@ public class AdManager : MonoBehaviour {
             }
 				pause.DeactivateDeathCanvas ();
 				fpsPlayerRef.RemoveInvulnerability();
-
-				HZIncentivizedAd.Fetch ();
+                fpsPlayerRef.ActivateADShield(5.0f);
+                HZIncentivizedAd.Fetch ();
 
 			}
 #endif
 	}
 
 	public void RewardedAmmo()
+
 	{
 #if UNITY_EDITOR
 		weapons.giveAmmo(weapons.weaponToAddAmmo);
 		pause.DeactivateAmmoCanvas ();
+        fpsPlayerRef.ActivateADShield(3.0f);
 #endif
 
 #if UNITY_ANDROID
-		if (HZIncentivizedAd.IsAvailable()) {
+        if (HZIncentivizedAd.IsAvailable()) {
 			HZIncentivizedAd.Show();
 			weapons.giveAmmo(weapons.weaponToAddAmmo);
 			Analytics.CustomEvent("AmmoVideo");
 			pause.DeactivateAmmoCanvas ();
-			HZIncentivizedAd.Fetch();
+            fpsPlayerRef.ActivateADShield(3.0f);
+            HZIncentivizedAd.Fetch();
 		}
 
 #endif
@@ -109,6 +113,8 @@ public class AdManager : MonoBehaviour {
 		HZIncentivizedAd.Fetch();
 #endif
 	}
+
+
 
 
 
