@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -80,6 +81,8 @@ public class GameScenesLoader : EditorWindow
 
         UnityEditor.PlayerSettings.bundleIdentifier = gameToLoad.storeName;
         UnityEditor.PlayerSettings.bundleVersion = gameToLoad.lastVersionWIP;
+        UnityEditor.PlayerSettings.productName = gameToLoad.objectName;
     }
 }
+#endif
 

@@ -1520,6 +1520,28 @@ public class FPSPlayer : MonoBehaviour {
         }
     }
 
+    public LayerMask InstantiateMiniMap()
+    {
+        Instantiate(Resources.Load("MiniMapCanvas"));
 
+        GameObject icon = Instantiate(Resources.Load("characterIcon")) as GameObject;
+        icon.transform.SetParent(gameObject.transform);
+        icon.transform.position = new Vector3(gameObject.transform.position.x,
+                                              gameObject.transform.position.y + 10f,
+                                              gameObject.transform.position.z);
+        icon.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        icon.GetComponent<CharacterIcon>().SetMaterial(CharacterIconType.Player);
+
+        // Instantiate MiniMapCam if available
+        if (Resources.Load("MiniMapCam"))
+        {
+            GameObject g = Instantiate(Resources.Load("MiniMapCam")) as GameObject;
+            return g.GetComponent<MiniMApCamFollower>().miniMapLayerMask;
+        }
+        else
+        {
+            return CameraControlComponent.GetComponent<ReconfigurePrefab>().mainTwoCamMask;
+        }
+    }
 
 }

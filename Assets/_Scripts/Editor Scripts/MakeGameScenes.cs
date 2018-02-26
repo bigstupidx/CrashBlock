@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using System.Collections;
 using UnityEditor;
+
 
 public class MakeGameScenes
 {
@@ -17,3 +19,4 @@ public class MakeGameScenes
         Selection.activeObject = asset;
     }
 }
+#endif

@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
+using System.Collections.Generic;
+
 
 [CreateAssetMenu(fileName = "GameLoader", menuName = "Game", order = 1)]
 public class GameScenes : ScriptableObject
@@ -26,3 +28,4 @@ public class GameScenes : ScriptableObject
 
     public List<SceneAsset> m_SceneAssets = new List<SceneAsset>();
 }
+#endif

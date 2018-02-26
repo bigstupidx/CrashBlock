@@ -44,7 +44,8 @@ public class ReconfigurePrefab : MonoBehaviour {
 	private bool TwoCamState;
 	private bool OneCamState;
 	
-	void Start () {
+	void Start ()
+    {
 		//set up object and script references
 		SunShaftsComponent = MainCamera.GetComponent<UnityStandardAssets.ImageEffects.SunShafts>();
 		ColorCorrectionCurvesComponent = MainCamera.GetComponent<UnityStandardAssets.ImageEffects.ColorCorrectionCurves>();
@@ -53,13 +54,15 @@ public class ReconfigurePrefab : MonoBehaviour {
 //		AntiAliasingComponent = MainCamera.GetComponent<UnityStandardAssets.ImageEffects.Antialiasing>();
 		WeaponBehaviorComponents = WeaponObj.GetComponentsInChildren<WeaponBehavior>(true);
 		FPSPlayerComponent = MainCamera.GetComponent<CameraControl>().FPSPlayerComponent;
-	}
+        mainTwoCamMask = FPSPlayerComponent.InstantiateMiniMap();
+
+    }
 	
 	void Update () {
 	
 		if(TwoCameraSetup && !TwoCamState){//set up dual camera prefab
-			
-			Camera.main.cullingMask = mainTwoCamMask;
+            
+            Camera.main.cullingMask = mainTwoCamMask;
 			Camera.main.nearClipPlane = twoCamNearPlane;
 			WeaponObj.transform.localScale = new Vector3(twoCamWeaponScale, twoCamWeaponScale, twoCamWeaponScale);
 			
