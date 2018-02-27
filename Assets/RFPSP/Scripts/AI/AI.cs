@@ -277,7 +277,10 @@ public class AI : MonoBehaviour {
 		if(Random.value > randomSpawnChance){
 			Destroy(myTransform.gameObject);
 		}
-	}
+
+        LoadCharacterIcon();
+
+    }
 	
 	void OnEnable(){
 		
@@ -1304,6 +1307,27 @@ public class AI : MonoBehaviour {
             yield return statusStep;
 
         }
+    }
+
+
+    private void LoadCharacterIcon()
+    {
+        GameObject icon = Instantiate(Resources.Load("characterIcon")) as GameObject;
+        icon.transform.SetParent(gameObject.transform);
+        icon.transform.position = new Vector3(gameObject.transform.position.x,
+                                              gameObject.transform.position.y + 10f,
+                                              gameObject.transform.position.z);
+        icon.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        if (factionNum == 1)
+        {
+            icon.GetComponent<CharacterIcon>().SetMaterial(CharacterIconType.Ally);
+        }
+        else if (factionNum == 2)
+        {
+            icon.GetComponent<CharacterIcon>().SetMaterial(CharacterIconType.Enemy);
+        }
+        
     }
 
 }

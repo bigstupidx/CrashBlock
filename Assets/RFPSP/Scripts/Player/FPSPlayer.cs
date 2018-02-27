@@ -1522,6 +1522,7 @@ public class FPSPlayer : MonoBehaviour {
 
     public LayerMask InstantiateMiniMap()
     {
+        // Loads the character Icon
         Instantiate(Resources.Load("MiniMapCanvas"));
 
         GameObject icon = Instantiate(Resources.Load("characterIcon")) as GameObject;
@@ -1529,10 +1530,11 @@ public class FPSPlayer : MonoBehaviour {
         icon.transform.position = new Vector3(gameObject.transform.position.x,
                                               gameObject.transform.position.y + 10f,
                                               gameObject.transform.position.z);
+
         icon.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
         icon.GetComponent<CharacterIcon>().SetMaterial(CharacterIconType.Player);
 
-        // Instantiate MiniMapCam if available
+        // Instantiate MiniMapCam if available and set the layer mask to the main camera
         if (Resources.Load("MiniMapCam"))
         {
             GameObject g = Instantiate(Resources.Load("MiniMapCam")) as GameObject;
