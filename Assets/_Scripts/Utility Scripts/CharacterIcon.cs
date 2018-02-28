@@ -5,7 +5,7 @@ public enum CharacterIconType{Player, Enemy, Ally};
 
 public class CharacterIcon : MonoBehaviour
 {
-
+    [SerializeField]
     private MeshRenderer meshRend;
     [SerializeField]
     private Material playerMat;

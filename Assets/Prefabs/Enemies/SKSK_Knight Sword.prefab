@@ -632,7 +632,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012355302348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.31, y: 0, z: -74.47}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -984,6 +984,9 @@ MonoBehaviour:
   sloMoDeathTime: 0.9
   sloMoBackstabTime: 0.9
   killEnemiesRef: {fileID: 0}
+  animatedDeath: 0
+  lastDamagedPart: 21
+  npcAnim_ref: {fileID: 0}
 --- !u!114 &114000013806583116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1017,6 +1020,7 @@ MonoBehaviour:
   objectWithAnims: {fileID: 0}
   randomSpawnChance: 1
   runSpeed: 6
+  baseRunSpeed: 0
   walkSpeed: 1.2
   walkAnimSpeed: 0.9
   runAnimSpeed: 1
@@ -1094,6 +1098,14 @@ MonoBehaviour:
   searchMask:
     serializedVersion: 2
     m_Bits: 0
+  isStunned: 0
+  isFrozen: 0
+  isSlowed: 0
+  isBurning: 0
+  isBannerBuffed: 0
+  isSpecialAttacking: 0
+  burnDPS: 10
+  BurningPrefab: {fileID: 0}
 --- !u!114 &114000014195095124
 MonoBehaviour:
   m_ObjectHideFlags: 1
