@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
   m_Fog: 1
-  m_FogColor: {r: 0.5723885, g: 0.16727942, b: 0.875, a: 1}
+  m_FogColor: {r: 0.6764706, g: 0.81257606, b: 1, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4852941, g: 0.078503445, b: 0.078503445, a: 0.434}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.434}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2745,6 +2745,7 @@ MonoBehaviour:
   wepSlot4: 0
   wepSlot5: 0
   levelsCompleted: 000000000000
+  allLevelsAvailable: 1
 --- !u!4 &254649807
 Transform:
   m_ObjectHideFlags: 0
@@ -9367,7 +9368,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010759600176, guid: a6a9f1ae9ecfcb744876f52551af9531, type: 2}
+    - {fileID: 114000012226737880, guid: a6a9f1ae9ecfcb744876f52551af9531, type: 2}
+    - {fileID: 114000014100549104, guid: a6a9f1ae9ecfcb744876f52551af9531, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a6a9f1ae9ecfcb744876f52551af9531, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &890962767 stripped
@@ -10154,18 +10158,18 @@ MonoBehaviour:
   - {fileID: 1975253311}
   - {fileID: 1522895467}
   discoveredLevelSprite:
-  - {fileID: 21300000, guid: 3c0c5dd938d95f542a462070df9e1d77, type: 3}
-  - {fileID: 21300002, guid: 3c0c5dd938d95f542a462070df9e1d77, type: 3}
-  - {fileID: 21300002, guid: 88f348f82cdc25746902e7e4001e5aa6, type: 3}
-  - {fileID: 21300000, guid: 88f348f82cdc25746902e7e4001e5aa6, type: 3}
-  - {fileID: 21300000, guid: 88f348f82cdc25746902e7e4001e5aa6, type: 3}
+  - {fileID: 21300000, guid: f45f5e92b5c7f2a41b0e9519439e3702, type: 3}
+  - {fileID: 21300002, guid: f45f5e92b5c7f2a41b0e9519439e3702, type: 3}
+  - {fileID: 21300004, guid: f45f5e92b5c7f2a41b0e9519439e3702, type: 3}
+  - {fileID: 21300006, guid: f45f5e92b5c7f2a41b0e9519439e3702, type: 3}
+  - {fileID: 21300006, guid: f45f5e92b5c7f2a41b0e9519439e3702, type: 3}
   undiscoveredLevelSprite:
-  - {fileID: 21300000, guid: f29c31a0fe41ec949af28a8f07136885, type: 3}
-  - {fileID: 21300002, guid: f29c31a0fe41ec949af28a8f07136885, type: 3}
-  - {fileID: 21300002, guid: 81a96025d87443e49a303bed99b8130b, type: 3}
-  - {fileID: 21300000, guid: 81a96025d87443e49a303bed99b8130b, type: 3}
-  - {fileID: 21300000, guid: 81a96025d87443e49a303bed99b8130b, type: 3}
-  levelAvailable: 010101000000
+  - {fileID: 21300000, guid: edfea6f0693ebfa43bb404500789dade, type: 3}
+  - {fileID: 21300002, guid: edfea6f0693ebfa43bb404500789dade, type: 3}
+  - {fileID: 21300004, guid: edfea6f0693ebfa43bb404500789dade, type: 3}
+  - {fileID: 21300006, guid: edfea6f0693ebfa43bb404500789dade, type: 3}
+  - {fileID: 21300008, guid: edfea6f0693ebfa43bb404500789dade, type: 3}
+  levelAvailable: 000000000000
   lastLevelDeveloped: 4
 --- !u!1 &973794550
 GameObject:
@@ -19958,7 +19962,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011107486782, guid: d37880ec5d06c5047ade4ca4ad970f05, type: 2}
+    - {fileID: 114000012845834826, guid: d37880ec5d06c5047ade4ca4ad970f05, type: 2}
+    - {fileID: 114000010585089546, guid: d37880ec5d06c5047ade4ca4ad970f05, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d37880ec5d06c5047ade4ca4ad970f05, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2066060686 stripped

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public enum MoreGamesKey {ASAZ, CVSRR, HBSG, SWONE };
+public enum MoreGamesKey {ASAZ, CVSRR, HBSG, SWONE, BSSG, BPB, BZS, CTBW, GKEO };
 
 public class MoreGames : MonoBehaviour {
 
@@ -28,6 +28,8 @@ public class MoreGames : MonoBehaviour {
 
     [SerializeField]
     private Image buttonImage;
+    [SerializeField]
+    private Text moreGamesText;
 
 
 
@@ -58,7 +60,7 @@ public class MoreGames : MonoBehaviour {
             {
                 gameListIndex = i;
                 buttonImage.sprite = gameList[i].gameIcon;
-
+                moreGamesText.text = gameList[i].gameName;
 
                 return;
             }
