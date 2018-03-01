@@ -2758,6 +2758,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11465624, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11445684, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
     - {fileID: 11417678, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
@@ -14057,7 +14061,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.979716, g: 1, b: 0.85294116, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -14079,7 +14083,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1.17
+  m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!1 &1374411615
@@ -17395,6 +17399,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011538256800, guid: ad1d6f43e3240004e9ba0d959e1a4cdb,
+        type: 2}
+      propertyPath: lluviaGameObject
+      value: 
+      objectReference: {fileID: 1978221787}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad1d6f43e3240004e9ba0d959e1a4cdb, type: 2}
   m_IsPrefabParent: 0
@@ -17695,6 +17704,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e5874fbc326a342a0d2e3f2b824e6d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1978221787 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011672743302, guid: c3e5874fbc326a342a0d2e3f2b824e6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1978221786}
 --- !u!1 &1987648821 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 2}

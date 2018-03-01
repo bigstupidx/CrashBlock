@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c854f2fc5cd8f4a85f300fee339810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisGame: 0
+  thisGame: 6
   gameList:
   - gameName: American Solder Attack Zombie
     gameIcon: {fileID: 21300000, guid: 752a05c89e4018342acd3394c530ca74, type: 3}
@@ -361,7 +361,28 @@ MonoBehaviour:
     gameIcon: {fileID: 21300000, guid: 7101767de4db37940a2f8fc802814e1c, type: 3}
     GameKeyName: 2
     url: https://play.google.com/store/apps/details?id=com.pixelroyale.hungrybrotherssurvivalgames
+  - gameName: Block Soldier Survival Games
+    gameIcon: {fileID: 21300000, guid: 7e1e046ed46df2941be6ab19c18da819, type: 3}
+    GameKeyName: 2
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.blocksoldiersurvivalgames
+  - gameName: Blocky Player Battleground
+    gameIcon: {fileID: 21300000, guid: fe9b7fb758cc8584683a10c10da22a09, type: 3}
+    GameKeyName: 5
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.blockyplayerbattleground
+  - gameName: Blocky Zombie Survival
+    gameIcon: {fileID: 21300000, guid: 7adbe1d24086f2146ad5da6b4b8b1df1, type: 3}
+    GameKeyName: 6
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.blockyplayerbattleground
+  - gameName: Counter Terrorist Blocky War
+    gameIcon: {fileID: 21300000, guid: 688fc246af976a245a6c9e81e806b512, type: 3}
+    GameKeyName: 7
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.counterterroristblockywar
+  - gameName: Galaxy Knight Episode One
+    gameIcon: {fileID: 21300000, guid: 3de9cb21bd6ee434f86498a6ba75f781, type: 3}
+    GameKeyName: 8
+    url: https://play.google.com/store/apps/details?id=com.pixelroyale.galaxyknightepisodeone
   buttonImage: {fileID: 114000010524810994}
+  moreGamesText: {fileID: 114000013021601648}
 --- !u!222 &222000010076764432
 CanvasRenderer:
   m_ObjectHideFlags: 1
