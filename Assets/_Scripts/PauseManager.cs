@@ -48,7 +48,7 @@ public class PauseManager : MonoBehaviour {
 		print ("Activate PauseMenu");
 		// activate the animator trigger...
 
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Hide UI Gameplay
 		{
             if(dataComps_ref.uiImages[i])
 			dataComps_ref.uiImages [i].gameObject.SetActive (false);
@@ -63,7 +63,7 @@ public class PauseManager : MonoBehaviour {
 		pauseCanvasObj.SetActive (false);
 		print ("Deactivate PauseMenu");
 
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Display UI Gameplay
 		{
             if (dataComps_ref.uiImages[i])
                 dataComps_ref.uiImages [i].gameObject.SetActive (true);
@@ -82,7 +82,7 @@ public class PauseManager : MonoBehaviour {
         deathCanvasObj.SetActive(true);
         // activate the animator trigger...
         Time.timeScale = 0;
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Hide UI Gameplay
 		{
             if(dataComps_ref.uiImages[i] && dataComps_ref.uiImages[i].gameObject.activeSelf)
 			dataComps_ref.uiImages [i].gameObject.SetActive(false);
@@ -96,7 +96,7 @@ public class PauseManager : MonoBehaviour {
 	{
 		deathCanvasObj.SetActive (false);
 		Time.timeScale = 1;
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Display UI Gameplay
 		{
             if (dataComps_ref.uiImages[i])
                 dataComps_ref.uiImages [i].gameObject.SetActive (true);
@@ -160,7 +160,7 @@ public class PauseManager : MonoBehaviour {
 		print ("Activate PauseMenu");
 		// activate the animator trigger...
 
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Hide UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Hide UI Gameplay
 		{
 			dataComps_ref.uiImages [i].gameObject.SetActive (false);
 
@@ -175,7 +175,7 @@ public class PauseManager : MonoBehaviour {
 		Time.timeScale = 1;
 		print ("Deactivate PauseMenu");
 
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Display UI Gameplay
 		{
 			dataComps_ref.uiImages [i].gameObject.SetActive (true);
 
@@ -208,7 +208,7 @@ public class PauseManager : MonoBehaviour {
 	[Inspector]
 	public void DeactivateUI()
 	{
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Display UI Gameplay
 		{
 			dataComps_ref.uiImages [i].gameObject.SetActive (false);
 
@@ -217,7 +217,7 @@ public class PauseManager : MonoBehaviour {
 	[Inspector]
 	public void ActivateUI()
 	{
-		for (int i = 0; i < dataComps_ref.uiImages.Length; i++)   // Display UI Gameplay
+		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Display UI Gameplay
 		{
 			dataComps_ref.uiImages [i].gameObject.SetActive (true);
 

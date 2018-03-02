@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class DataComps : MonoBehaviour {
@@ -18,7 +19,7 @@ public class DataComps : MonoBehaviour {
 	public PlayerSpeaker playerSpeaker_ref;
 
 	[Header("GamePLay buttons images to hide During Pause")]
-	public GameObject[] uiImages;
+	public List<GameObject> uiImages = new List<GameObject>();
 
 	//[Header("WeaponImages")]
 	// Weapons  Database to fill in the slots image, text

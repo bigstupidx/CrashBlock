@@ -146,14 +146,10 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 	// shows or hides the Game UI with the input bool
 	void ControlGameUI( bool show)
 	{
-		for(int i=0; i< dataComps.uiImages.Length; i++)
+		for(int i=0; i< dataComps.uiImages.Count; i++)
 		{
-			dataComps.uiImages [i].SetActive (show);
+			dataComps.uiImages[i].SetActive (show);
 		}
-
-	
-
-
 	}
 
 
