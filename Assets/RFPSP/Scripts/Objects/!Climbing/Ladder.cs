@@ -9,16 +9,20 @@ public class Ladder : MonoBehaviour {
 	[Tooltip("If false, climbing footstep sounds won't be played.")]
 	public bool playClimbingAudio = true;
 	private InputControl InputComponent;
-	
-	void Start (){
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-		InputComponent = playerObj.GetComponent<InputControl>();
+    private FPSRigidBodyWalker FPSWalkerComponent;
+
+
+    void Start ()
+    {
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        InputComponent = playerObj.GetComponent<InputControl>();
 	}
 
-	void OnTriggerStay ( Collider other ){
-		if(other.gameObject.tag == "Player"){
-			FPSRigidBodyWalker FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-			
+	void OnTriggerStay ( Collider other )
+    {
+		if(other.gameObject.tag == "Player")
+        {
 			//on start of a collision with ladder trigger set climbing var to true on FPSRigidBodyWalker script
 			FPSWalkerComponent.climbing = true;
 			if(!playClimbingAudio){FPSWalkerComponent.noClimbingSfx = true;}//dont play climbing sounds if playClimbingAudio is false
@@ -31,10 +35,11 @@ public class Ladder : MonoBehaviour {
 		}
 	}
 	
-	void OnTriggerExit ( Collider other2  ){
+	void OnTriggerExit ( Collider other2  )
+    {
 		//on exit of a collision with ladder trigger set climbing var to false on FPSRigidBodyWalker script
-		if(other2.gameObject.tag == "Player"){
-			FPSRigidBodyWalker FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+		if(other2.gameObject.tag == "Player")
+        {
 			FPSWalkerComponent.climbing = false;
 			//prevent player from jumping when leaving surface if they did so by holding jump button
 			FPSWalkerComponent.landStartTime = Time.time + 0.25f;

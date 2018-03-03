@@ -95,17 +95,24 @@ public class WaterZone : MonoBehaviour {
 	private Transform mainCamTransform;
 
 	void Start () {
-		myTransform = transform;
+        // Optimized
+        // playerObj = mainCamTransform.GetComponent<CameraControl>().playerObj;
+        // weaponObj = mainCamTransform.GetComponent<CameraControl>().weaponObj;
+        // PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();
+        // FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+
+        myTransform = transform;
 		mainCamTransform = Camera.main.transform;
-		//assign this item's playerObj and weaponObj value
-		playerObj = mainCamTransform.GetComponent<CameraControl>().playerObj;
-		weaponObj = mainCamTransform.GetComponent<CameraControl>().weaponObj;
-		//assign external script references
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        //assign this item's playerObj and weaponObj value
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        weaponObj = ServiceLocator.cameraControl.weaponObj;
+        //assign external script references
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
 		FootstepsComponent = playerObj.GetComponent<Footsteps>();
-		PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();
-		
-		Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSWalkerComponent.leanCol, true);
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
+
+
+        Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSWalkerComponent.leanCol, true);
 		//set up underwater sound effects
 		audioSource = gameObject.AddComponent<AudioSource>();
 	    audioSource.clip = underwaterSound;

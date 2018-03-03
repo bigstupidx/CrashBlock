@@ -264,7 +264,14 @@ public class AI : MonoBehaviour {
     #endregion
 
 
-    //public int navTest;
+    //cacheMembers
+    private float step = 0.3f;
+    private WaitForSeconds pointThreeSecs;
+    private WaitForSeconds delayshootTimeWait;
+    private WaitForSeconds oneSecondWait;
+    private WaitForSeconds stepIntervalWait;
+    private WaitForSeconds stepWait;
+    
 
     void Start(){
 	
@@ -279,6 +286,7 @@ public class AI : MonoBehaviour {
 		}
 
         LoadCharacterIcon();
+        InitializeCacheWaitforSeconds();
 
     }
 	
@@ -345,13 +353,16 @@ public class AI : MonoBehaviour {
 		}else{
 			AnimatorComponent = objectWithAnims.GetComponent<Animator>();//set reference to Mecanim animator component
 		}
-		
-		//initialize AI vars
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-		playerTransform = playerObj.transform;
-		PlayerWeaponsComponent = Camera.main.transform.GetComponent<CameraControl>().weaponObj.GetComponentInChildren<PlayerWeapons>();
-		FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();
-		NPCAttackComponent = GetComponent<NPCAttack>();
+
+        //initialize AI vars
+        //Optimized!    //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        playerTransform = playerObj.transform;
+        //Optimized!    PlayerWeaponsComponent = Camera.main.transform.GetComponent<CameraControl>().weaponObj.GetComponentInChildren<PlayerWeapons>();
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
+        //Optimized! FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();
+        FPSWalker = ServiceLocator.fpsRigidBodyWalker;
+        NPCAttackComponent = GetComponent<NPCAttack>();
 		CharacterDamageComponent = GetComponent<CharacterDamage>();
 
 		//initialize navmesh agent
@@ -403,11 +414,11 @@ public class AI : MonoBehaviour {
 					StartCoroutine(StandWatch());
 				}
 			}else{
-				//hunt the player accross the map
-				playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+                //hunt the player accross the map
+                playerObj = ServiceLocator.cameraControl.playerObj;
 				playerTransform = playerObj.transform;
-				PlayerWeaponsComponent = Camera.main.transform.GetComponent<CameraControl>().weaponObj.GetComponentInChildren<PlayerWeapons>();
-				FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();
+                PlayerWeaponsComponent = ServiceLocator.playerWeapons;
+                FPSWalker = ServiceLocator.fpsRigidBodyWalker;
 				factionNum = 2;
 				target = playerTransform;
 				targetEyeHeight = FPSWalker.capsule.height * 0.25f;
@@ -524,9 +535,9 @@ public class AI : MonoBehaviour {
 					}
 				}
 			}
-			
-			yield return new WaitForSeconds(0.3f);
-		}
+
+            yield return pointThreeSecs;
+        }
 		
 	}
 	
@@ -647,10 +658,12 @@ public class AI : MonoBehaviour {
 				}
 			}else{
 				StartCoroutine(StandWatch());//don't patrol if we have no waypoints
-				return false;
+                                             //return false;
+                break;
 			}
-			yield return new WaitForSeconds(0.3f);
-		}
+            yield return pointThreeSecs;
+
+        }
 
 	}
 
@@ -826,7 +839,7 @@ public class AI : MonoBehaviour {
 		agent.Stop();
 
 		// Wait until delayShootTime to allow part of the animation to play
-		yield return new WaitForSeconds(delayShootTime);
+		yield return delayshootTimeWait;
 		//attack
 		NPCAttackComponent.Fire();
 		if(cancelAttackTaunt){
@@ -863,7 +876,7 @@ public class AI : MonoBehaviour {
 //			}
 		
 			if(Time.timeSinceLevelLoad < 1f){//add small delay before checking target visibility
-				yield return new WaitForSeconds(1.0f);
+                yield return oneSecondWait;
 			}
 			
 			// no target - stop hunting
@@ -873,7 +886,8 @@ public class AI : MonoBehaviour {
 				heardTarget = false;
 				damaged = false;
 				TargetAIComponent = null;
-				return false;
+                //return false;     //-- optimized
+                break;
 			}
 			
 			//play a taunt if hunting target
@@ -922,7 +936,8 @@ public class AI : MonoBehaviour {
 				if(distance > attackRangeAmt){
 					speedAmt = walkSpeed;
 					target = null;
-					return false;
+                    //---- optimized   //return false;
+                    break;
 				}
 				
 			}else{
@@ -990,13 +1005,15 @@ public class AI : MonoBehaviour {
 							SetSpeed(speedAmt);
 							agent.Stop();
 							target = null;
-							return false;
+                            //optimized //return false;
+                            break;
+
 						}
 					}
 				}
 			}
-			
-			yield return new WaitForSeconds(0.3f);
+
+            yield return pointThreeSecs;
 		}
 	}
 
@@ -1155,7 +1172,7 @@ public class AI : MonoBehaviour {
 				footstepsFx.clip = footSteps[Random.Range(0, footSteps.Length)];
 				footstepsFx.PlayOneShot(footstepsFx.clip);
 			}
-			yield return new WaitForSeconds(stepInterval);
+			yield return stepIntervalWait;
 		}
 	}
 	
@@ -1256,9 +1273,6 @@ public class AI : MonoBehaviour {
 
     IEnumerator StatusEffectsManager()
     {
-        float step = 0.3f;
-        WaitForSeconds statusStep = new WaitForSeconds(step);
-
         baseRunSpeed = runSpeed;
         float baseWalkSpeed = walkSpeed;
 
@@ -1304,7 +1318,7 @@ public class AI : MonoBehaviour {
 
             isSpecialAttacking -= step;
 
-            yield return statusStep;
+            yield return stepWait;
 
         }
     }
@@ -1327,7 +1341,22 @@ public class AI : MonoBehaviour {
         {
             icon.GetComponent<CharacterIcon>().SetMaterial(CharacterIconType.Enemy);
         }
-        
+        else if (factionNum == 3)
+        {
+            icon.GetComponent<CharacterIcon>().SetMaterial(CharacterIconType.Enemy);
+        }
+
+    }
+
+
+
+    private void InitializeCacheWaitforSeconds()
+    {
+        pointThreeSecs = new WaitForSeconds(0.3f);
+        delayshootTimeWait = new WaitForSeconds(delayShootTime);
+        oneSecondWait = new WaitForSeconds(1.0f);
+        stepIntervalWait = new WaitForSeconds(stepInterval);
+        stepWait = new WaitForSeconds(step);
     }
 
 }

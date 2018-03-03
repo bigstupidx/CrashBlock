@@ -102,11 +102,15 @@ public class WeaponEffects : MonoBehaviour {
 	private AudioClip hitSound;
 	private float hitVolumeAmt = 1.0f;
 	
-	public void Start(){
-		weaponObj = transform.gameObject;
-		PlayerWeaponsComponent = weaponObj.GetComponentInChildren<PlayerWeapons>();
+	public void Start()
+    {
+        // optimized
+        // PlayerWeaponsComponent = weaponObj.GetComponentInChildren<PlayerWeapons>();
+        // FPSWalkerComponent = Camera.main.transform.GetComponent<CameraControl>().playerObj.GetComponent<FPSRigidBodyWalker>();
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        weaponObj = transform.gameObject;
 		WeaponBehaviorComponent = PlayerWeaponsComponent.CurrentWeaponBehaviorComponent;
-		FPSWalkerComponent = Camera.main.transform.GetComponent<CameraControl>().playerObj.GetComponent<FPSRigidBodyWalker>();
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

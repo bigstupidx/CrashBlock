@@ -37,11 +37,15 @@ public class MovePlayerAndCamera : MonoBehaviour {
 		if(CinemaCameraObj){
 			CinemaCameraObj.SetActive(false);
 		}
-		CameraControlComponent = MainCameraObj.GetComponent<CameraControl>();
-		MouseLookComponent = FPSCameraObj.GetComponent<SmoothMouseLook>();
+        //**  optimized
+        //CameraControlComponent = MainCameraObj.GetComponent<CameraControl>();
+        //FPSWalkerComponent = FPSPlayerObj.GetComponent<FPSRigidBodyWalker>();
+        //PlayerWeaponsComponent = FPSWeaponsObj.GetComponent<PlayerWeapons>();
+        CameraControlComponent = ServiceLocator.cameraControl;
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
+        MouseLookComponent = FPSCameraObj.GetComponent<SmoothMouseLook>();
 		FPSPlayerComponent = FPSPlayerObj.GetComponent<FPSPlayer>();
-		FPSWalkerComponent = FPSPlayerObj.GetComponent<FPSRigidBodyWalker>();
-		PlayerWeaponsComponent = FPSWeaponsObj.GetComponent<PlayerWeapons>();
 		IronsightsComponent = FPSPlayerObj.GetComponent<Ironsights>();
 		VisibleBodyComponent = FPSWalkerComponent.VisibleBody.GetComponent<VisibleBody>();
 		if(!FPSPlayerComponent.crosshairEnabled){

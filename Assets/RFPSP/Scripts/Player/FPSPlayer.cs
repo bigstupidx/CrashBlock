@@ -331,15 +331,18 @@ public class FPSPlayer : MonoBehaviour {
 		//set up external script references
 		IronsightsComponent = GetComponent<Ironsights>();
 		InputComponent = GetComponent<InputControl>();
-		FPSWalkerComponent = GetComponent<FPSRigidBodyWalker>();
-		WorldRecenterComponent = GetComponent<WorldRecenter>();
+        //FPSWalkerComponent = GetComponent<FPSRigidBodyWalker>(); -------> Optimized
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        WorldRecenterComponent = GetComponent<WorldRecenter>();
 		MouseLookComponent = mainCamTransform.parent.transform.GetComponent<SmoothMouseLook>();
-		CameraControlComponent = Camera.main.transform.GetComponent<CameraControl>();
-		weaponObj = CameraControlComponent.weaponObj;
+        //CameraControlComponent = Camera.main.transform.GetComponent<CameraControl>();   -------> Optimized
+        CameraControlComponent = ServiceLocator.cameraControl;
+        weaponObj = CameraControlComponent.weaponObj;
 		WeaponEffectsComponent = weaponObj.GetComponent<WeaponEffects>();
-		PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();
+        //PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>(); -------> Optimized
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
 
-		MainMenuComponent = Camera.main.transform.parent.transform.GetComponent<MainMenu>();
+        MainMenuComponent = Camera.main.transform.parent.transform.GetComponent<MainMenu>();
 		//		MainMenuComponent.enabled = false;
 		menuDisplayed = false;
 

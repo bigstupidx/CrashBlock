@@ -108,7 +108,15 @@ public class PlayerWeapons : MonoBehaviour {
 	[Tooltip("Amount of time for bullet shell to stay parented to weapon object when bullet time is active (causes shell to inherit weapon angular velocity, decrease value if shells stick with weapon model too long).")]
 	public float shellBtParentTime = 0.2f;
 
-	void Start (){
+
+    private void Awake()
+    {
+        ServiceLocator.playerWeapons = this;
+    }
+
+
+    void Start ()
+    {
 
 		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
 		pauseManager = datacomps.gameObject.GetComponent<PauseManager> ();
@@ -117,10 +125,11 @@ public class PlayerWeapons : MonoBehaviour {
 
 		//set up external script references
 		InputComponent = playerObj.GetComponent<InputControl>();
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+		//FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();  ///----- Optimized
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
 		IronsightsComponent = playerObj.GetComponent<Ironsights>();
-		CameraControlComponent = mainCamTransform.GetComponent<CameraControl>();
+        CameraControlComponent = ServiceLocator.cameraControl;
 		CurrentWeaponBehaviorComponent = weaponOrder[firstWeapon].GetComponent<WeaponBehavior>();
 
 		WeaponBehavior BackupWeaponBehaviorComponent = weaponOrder[backupWeapon].GetComponent<WeaponBehavior>();
@@ -173,7 +182,8 @@ public class PlayerWeapons : MonoBehaviour {
 
 	}
 
-	void Update (){
+	void Update ()
+    {
 
 //		Debug.Log ("current weapon " + currentWeapon); 
 //		Debug.Log ("current grenade " + currentGrenade); 

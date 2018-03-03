@@ -68,9 +68,14 @@ public class GM_CopsvsRobbers : MonoBehaviour {
 
 		skipButton.SetActive (false);
 		gameplayCanvas.SetActive (false);
-		ControlGameUI (false);
+        StartCoroutine(CallUIOFFStart());
 	}
 
+    IEnumerator CallUIOFFStart()
+    {
+        yield return new WaitForSeconds(0.25f);
+        ControlGameUI(false);
+    }
 
 	// initialize the game.
 	public void CopsVsRobbersGameStart(int cop1rob2)

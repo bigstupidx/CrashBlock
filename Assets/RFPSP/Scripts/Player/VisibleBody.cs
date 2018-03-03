@@ -117,14 +117,17 @@ public class VisibleBody : MonoBehaviour {
 	[Tooltip("Speed to reduce smoothing of character model yaw when smooth time has elapsed.")]
 	private float speedUpTime = 30f;
 	
-	void Start () {
-		CameraControlComponent = Camera.main.transform.GetComponent<CameraControl>();
+	void Start ()
+    {
+        walkerComponent = ServiceLocator.fpsRigidBodyWalker;
+
+        CameraControlComponent = Camera.main.transform.GetComponent<CameraControl>();
 		playerObj = CameraControlComponent.playerObj;
 		weaponObj = CameraControlComponent.weaponObj;
 		playerTransform = playerObj.transform;
 		InputComponent = playerObj.GetComponent<InputControl>();
 		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		walkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+		//walkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();  //----- optimized
 		GunSwayComponent = weaponObj.GetComponent<GunSway>();
 		SmoothMouseLookComponent = GunSwayComponent.cameraObj.GetComponent<SmoothMouseLook>();
 		AnimationComponent = objectWithAnims.GetComponent<Animation>();
@@ -139,7 +142,8 @@ public class VisibleBody : MonoBehaviour {
 		fpSkinnedMesh.gameObject.SetActive(true);
 	}
 	
-	void Update (){
+	void Update ()
+    {
 		
 		if(Time.timeScale > 0f && Time.smoothDeltaTime > 0f){
 		

@@ -28,7 +28,8 @@ public class HelpText : MonoBehaviour {
 	
 	void Start(){
 		guiTextComponent = GetComponent<GUIText>();
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        playerObj = ServiceLocator.cameraControl.playerObj;
 		guiTextComponent.pixelOffset = new Vector2 (Screen.width * horizontalOffset, Screen.height * verticalOffset);
 		guiTextComponent.fontSize = Mathf.RoundToInt(Screen.height * fontScale);
 		guiTextComponent.text = "Press F1 for controls";
@@ -39,9 +40,10 @@ public class HelpText : MonoBehaviour {
 	}
 	
 	void Update (){
-		//Initialize script references
-		FPSRigidBodyWalker FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-		InputControl InputComponent = playerObj.GetComponent<InputControl>();
+        //Initialize script references
+        //FPSRigidBodyWalker FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        FPSRigidBodyWalker FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        InputControl InputComponent = playerObj.GetComponent<InputControl>();
 		float horizontal = FPSWalkerComponent.inputX;//Get input from player movement script
 		float vertical = FPSWalkerComponent.inputY;
 		

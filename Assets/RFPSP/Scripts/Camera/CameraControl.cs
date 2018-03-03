@@ -143,10 +143,19 @@ public class CameraControl : MonoBehaviour {
 	public bool viewUnderwater;//true if camera is underwater (used for increased camera rolling effect)
 	[Tooltip("Layers that the camera will collide with in third person mode.")]
 	public LayerMask clipMask;
-	
-	void Start (){
-		//set up object and component references
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+
+    #region Monobehaviour
+    private void Awake()
+    {
+        ServiceLocator.cameraControl = this;
+    }
+
+
+
+    void Start (){
+        //set up object and component references
+        //optimized   //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        playerObj = ServiceLocator.cameraControl.playerObj;
 		myTransform = transform;//store this object's transform for optimization
 		playerObjTransform = playerObj.transform;
 		mainCameraTransform = Camera.main.transform;
@@ -154,8 +163,9 @@ public class CameraControl : MonoBehaviour {
 		weaponObj = FPSPlayerComponent.weaponObj;
 		MouseLookComponent = transform.parent.transform.GetComponent<SmoothMouseLook>();
 		GunSwayComponent = weaponObj.GetComponent<GunSway>();
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-		VisibleBodyComponent = FPSWalkerComponent.VisibleBody.GetComponent<VisibleBody>();
+        // optimized    FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        VisibleBodyComponent = FPSWalkerComponent.VisibleBody.GetComponent<VisibleBody>();
 		IronsightsComponent = playerObj.GetComponent<Ironsights>();
 		InputComponent = playerObj.GetComponent<InputControl>();
 		if(playerObj.GetComponent<WorldRecenter>()){
@@ -516,8 +526,13 @@ public class CameraControl : MonoBehaviour {
 		}
 		
 	}
-	
-	public static float ClampAngle (float angle, float min, float max){
+
+
+    #endregion
+
+
+    public static float ClampAngle (float angle, float min, float max)
+    {
 		angle = angle % 360;
 		if((angle >= -360F) && (angle <= 360F)){
 			if(angle < -360F){
@@ -541,19 +556,5 @@ public class CameraControl : MonoBehaviour {
 		}
 	}
 	
-//	void OnDrawGizmos() {
-//		Gizmos.color = Color.yellow;
-//		Gizmos.DrawSphere(hit.point, 0.2f);
-//		Gizmos.color = Color.green;
-//		Gizmos.DrawSphere(camPos, 0.2f);
-//		if(drawCamSphere){
-//			Gizmos.color = Color.cyan;
-//			Gizmos.DrawSphere(Camera.main.transform.position, sphereSizeTpCol);
-////			Gizmos.color = Color.blue;
-////			Gizmos.DrawSphere(targetPos + (playerObjTransform.up * offsetAmt.y) + (playerObjTransform.right * (offsetAmt.x * -0.12)) + (direction * (currentDistance + smoothedDistance - sphereSizeTpCol)), sphereSizeTpCol);
-////			Gizmos.DrawSphere(targetPos + (playerObjTransform.up * offsetAmt.y) + (direction * (currentDistance + smoothedDistance)), sphereSizeTpCol);
-//		}
-//		
-//	}
 	
 }

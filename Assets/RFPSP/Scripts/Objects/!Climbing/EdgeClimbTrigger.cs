@@ -7,14 +7,19 @@ public class EdgeClimbTrigger : MonoBehaviour {
 	[Tooltip("Force that pulls the player upwards when they enter the vault trigger when jumping.")]
 	public float upwardPullForce = 0.3f;
 	private GameObject playerObj;
-	
-	void Start (){
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-	}
+    private FPSRigidBodyWalker FPSWalkerComponent;
 
-	void OnTriggerStay ( Collider other ){
-		if(other.gameObject.tag == "Player"){
-			FPSRigidBodyWalker FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+
+    void Start (){
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+
+    }
+
+	void OnTriggerStay ( Collider other )
+    {
+		if(other.gameObject.tag == "Player")
+        {
 			//apply upward velocity to player rigidbody to vault ledge
 			playerObj.GetComponent<Rigidbody>().AddForce(new Vector3 (0, upwardPullForce, 0), ForceMode.VelocityChange);
 			//set grounded in FPSRigidBodyWalker to true to allow the player
@@ -27,10 +32,10 @@ public class EdgeClimbTrigger : MonoBehaviour {
 		}
 	}
 	
-	void OnTriggerExit( Collider other  ){
+	void OnTriggerExit( Collider other  )
+    {
 		//on exit of vault trigger, deactivate trigger to prevent player from falling on it from above and hovering
 		if(other.gameObject.tag == "Player"){
-			FPSRigidBodyWalker FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
 			FPSWalkerComponent.climbing = false;
 			FPSWalkerComponent.noClimbingSfx = false;
 			transform.gameObject.GetComponent<BoxCollider>().enabled = false;	

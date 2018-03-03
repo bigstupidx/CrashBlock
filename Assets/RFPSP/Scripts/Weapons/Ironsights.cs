@@ -200,9 +200,11 @@ public class Ironsights : MonoBehaviour {
 	void Start(){
 		//Set up external script references
 		SmoothMouseLook = CameraObj.GetComponent<SmoothMouseLook>();
-		PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();
-		FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();
-		VerticalBob = playerObj.GetComponent<VerticalBob>();
+        //PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();  -----> Optimized
+        //FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();   -----> Optimized
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
+        FPSWalker = ServiceLocator.fpsRigidBodyWalker;
+        VerticalBob = playerObj.GetComponent<VerticalBob>();
 		HorizontalBob = playerObj.GetComponent<HorizontalBob>();
 		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
 		InputComponent = playerObj.GetComponent<InputControl>();

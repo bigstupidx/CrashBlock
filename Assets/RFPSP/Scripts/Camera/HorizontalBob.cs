@@ -28,10 +28,14 @@ public class HorizontalBob : MonoBehaviour {
 	private float inputSpeed;
 	
 	void Start(){
-		//set up external script references
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-		CameraControlComponent = Camera.main.GetComponent<CameraControl>();	
+        //set up external script references
+        //** optimized**
+        //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        //FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        //CameraControlComponent = Camera.main.GetComponent<CameraControl>();
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        CameraControlComponent = ServiceLocator.cameraControl;	
 	}
 	
 	void Update (){

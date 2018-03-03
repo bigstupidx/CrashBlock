@@ -117,10 +117,12 @@ public class Footsteps : MonoBehaviour {
 	private TerrainData terrainData;
 	private Vector3 terrainPos;
 	
-	void Start () {
+	void Start ()
+    {
 		playerObj = transform.gameObject;
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-		aSource = playerObj.AddComponent<AudioSource>(); 
+        //FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        aSource = playerObj.AddComponent<AudioSource>(); 
 		aSource.spatialBlend = 0.0f;
 		aSource.playOnAwake = false;
 
@@ -131,7 +133,8 @@ public class Footsteps : MonoBehaviour {
 		}
 	}
 	
-	public void FootstepSfx (){
+	public void FootstepSfx ()
+    {
 		//play footstep sound effects
 		if(!FPSWalkerComponent.prone){
 			if(!FPSWalkerComponent.climbing){

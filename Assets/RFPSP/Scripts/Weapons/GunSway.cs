@@ -75,17 +75,20 @@ public class GunSway : MonoBehaviour {
 	private float zDampVel;
 	private float zDamp;
 	
-	void Start (){
+	void Start ()
+    {
 		myTransform = transform;//define transform for efficiency		
-		//set up external script references
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
-		IronsightsComponent = playerObj.GetComponent<Ironsights>();
+                                //set up external script references
+        //FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>(); ------>  // optimized
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
+        IronsightsComponent = playerObj.GetComponent<Ironsights>();
 		HorizontalBob = playerObj.GetComponent<HorizontalBob>();
 		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
 		InputComponent = playerObj.GetComponent<InputControl>();
-		CameraControlComponent = Camera.main.GetComponent<CameraControl>();
-		//initialize bobbing amounts 
-		walkBobYawAmount = Mathf.Clamp01(walkBobYawAmount);
+        //CameraControlComponent = Camera.main.GetComponent<CameraControl>(); ------>  // optimized
+        CameraControlComponent = ServiceLocator.cameraControl;
+        //initialize bobbing amounts 
+        walkBobYawAmount = Mathf.Clamp01(walkBobYawAmount);
 		walkBobRollAmount = Mathf.Clamp01(walkBobRollAmount);
 		sprintBobYawAmount = Mathf.Clamp01(sprintBobYawAmount);
 		sprintBobRollAmount = Mathf.Clamp01(sprintBobRollAmount);
@@ -93,7 +96,8 @@ public class GunSway : MonoBehaviour {
 		gunBobYaw *= walkBobYawAmount;
 	}
 	
-	void Update (){
+	void Update ()
+    {
 		WeaponBehaviorComponent = FPSPlayerComponent.WeaponBehaviorComponent;
 
 		if(FPSPlayerComponent.zoomed){swayVal = swayAmount * 0.5f;}else{swayVal = swayAmount;}

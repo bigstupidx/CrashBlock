@@ -83,12 +83,18 @@ public class WeaponPivot : MonoBehaviour {
 	[Tooltip("Max camera zoom FOV that weapon can free aim with (allows sniper rifles to zoom normally in free aiming mode)")]
 	public float maxFreeAimFOV = 15.0f;
 
-	void Start () {
-		GunSwayComponent = transform.parent.transform.GetComponent<GunSway>();
+	void Start ()
+    {
+        // optimized
+        // FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        // playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        //
+
+        GunSwayComponent = transform.parent.transform.GetComponent<GunSway>();
 		SmoothMouseLookComponent = GunSwayComponent.cameraObj.GetComponent<SmoothMouseLook>();
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        playerObj = ServiceLocator.cameraControl.playerObj;
 		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
+        FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
 		InputComponent = playerObj.GetComponent<InputControl>();
 		PlayerWeaponsComponent = FPSPlayerComponent.PlayerWeaponsComponent;
 		IronsightsComponent = FPSPlayerComponent.IronsightsComponent;

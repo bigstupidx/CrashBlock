@@ -344,29 +344,37 @@ public class FPSRigidBodyWalker : MonoBehaviour {
 	private int maxVelocityChange = 5;//maximum rate that player velocity can change
 	private Vector3 moveDirection = Vector3.zero;//movement velocity vector, modified by other speed factors like walk, zoom, and crouch states
 	private Vector3 velocityChange = Vector3.zero;//actual velocity vector applied to rigidbody;
-	
-//	[HideInInspector]
-//	public Vector3 startingPos;
-	
-//	void OnDrawGizmos() {
-////		Gizmos.color = Color.yellow;
-////		Gizmos.DrawSphere(p1, 0.1f);
-////		Gizmos.color = Color.green;
-////		Gizmos.DrawSphere(p2, 0.1f);
-//		Gizmos.color = Color.cyan;
-//		Gizmos.DrawSphere(eyePos, 0.1f);
-//	}
 
-//	to show points used for Physics.CheckCapsule in editor
-//		void OnDrawGizmosSelected() {
-//			CapsuleCollider c1 = GetComponent<CapsuleCollider>();
-//			Vector3 p1 = transform.position - Vector3.up * ((transform.position.y - 0.1f) - (c1.bounds.min.y + c1.radius));//bottom point
-//			Vector3 p2 = p1 + Vector3.up * ((c1.height - 0.1f) - c1.radius * 2);//top point
-//			Gizmos.color = Color.yellow;
-//			Gizmos.DrawLine(p1, p2);
-//		}
+    //	[HideInInspector]
+    //	public Vector3 startingPos;
 
-	void Start (){
+    //	void OnDrawGizmos() {
+    ////		Gizmos.color = Color.yellow;
+    ////		Gizmos.DrawSphere(p1, 0.1f);
+    ////		Gizmos.color = Color.green;
+    ////		Gizmos.DrawSphere(p2, 0.1f);
+    //		Gizmos.color = Color.cyan;
+    //		Gizmos.DrawSphere(eyePos, 0.1f);
+    //	}
+
+    //	to show points used for Physics.CheckCapsule in editor
+    //		void OnDrawGizmosSelected() {
+    //			CapsuleCollider c1 = GetComponent<CapsuleCollider>();
+    //			Vector3 p1 = transform.position - Vector3.up * ((transform.position.y - 0.1f) - (c1.bounds.min.y + c1.radius));//bottom point
+    //			Vector3 p2 = p1 + Vector3.up * ((c1.height - 0.1f) - c1.radius * 2);//top point
+    //			Gizmos.color = Color.yellow;
+    //			Gizmos.DrawLine(p1, p2);
+    //		}
+
+
+
+    private void Awake()
+    {
+        ServiceLocator.fpsRigidBodyWalker = this;
+    }
+
+    void Start ()
+    {
 		
 		//set up external script references
 		SmoothMouseLookComponent = CameraObj.GetComponent<SmoothMouseLook>();
@@ -1457,6 +1465,8 @@ public class FPSRigidBodyWalker : MonoBehaviour {
 		
 	}
 	
+
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Rigidbody Collisions
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1531,7 +1541,8 @@ public class FPSRigidBodyWalker : MonoBehaviour {
 		}
 	}
 	
-	void CalculateFallingDamage ( float fallDistance  ){
+	void CalculateFallingDamage ( float fallDistance  )
+    {
 		if(fallDamageMultiplier > 0.0f){
 			FPSPlayerComponent.ApplyDamage(fallDistance * fallDamageMultiplier);   
 		}
