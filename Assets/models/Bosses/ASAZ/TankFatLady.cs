@@ -496,7 +496,7 @@ public class TankFatLady : MonoBehaviour {
     
     void LoadRefs()
     {
-        dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
+        dataComps = ServiceLocator.dataComps;
 
         player_T = dataComps.fpsPlayer_ref.transform;
        

@@ -36,9 +36,11 @@ public class DragRigidbody : MonoBehaviour {
 	
 	void Start(){
         //optimized //FPSWalkerComponent = GetComponent<FPSRigidBodyWalker>();
+        //optimized //FPSPlayerComponent = GetComponent<FPSPlayer>();
+        //optimized // InputComponent = GetComponent<InputControl>();
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
-        FPSPlayerComponent = GetComponent<FPSPlayer>();
-		InputComponent = GetComponent<InputControl>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        InputComponent = ServiceLocator.inputControl;
 		mainCamTransform = Camera.main.transform;
 		//proportionately scale reachDistance by playerHeightMod amount
 		reachDistanceAmt = reachDistance / (1 - (FPSWalkerComponent.playerHeightMod / FPSWalkerComponent.capsule.height));

@@ -11,7 +11,7 @@ public class AutoAssignUItoDataComps : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
+        dataComps = ServiceLocator.dataComps;
         AssignUIGameObjectList();
     }
 	

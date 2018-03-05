@@ -132,7 +132,7 @@ public class BattleRoyaleGM : MonoBehaviour {
             // now activate and move the player to the point
             if(fpsPlayerObj == null)
             {
-                fpsPlayerObj = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>().fpsPlayer_ref.gameObject;
+                fpsPlayerObj = ServiceLocator.dataComps.fpsPlayer_ref.gameObject;
             }
             else
             {

@@ -18,13 +18,15 @@ public class HealthPickup : MonoBehaviour {
 	[Tooltip("If not null, this texture used for the pick up crosshair of this item.")]
 	public Texture2D healthPickupReticle;
 	
-	void Start () {
+	void Start ()
+    {
 		myTransform = transform;//manually set transform for efficiency
-		FPSPlayerComponent = Camera.main.transform.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 		Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSPlayerComponent.FPSWalkerComponent.capsule, true);
 	}
 	
-	void PickUpItem (GameObject user){
+	void PickUpItem (GameObject user)
+    {
 		FPSPlayerComponent = user.GetComponent<FPSPlayer>();
 	
 		if (FPSPlayerComponent.hitPoints < FPSPlayerComponent.maximumHitPoints){

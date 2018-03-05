@@ -9,8 +9,10 @@ public class ElevatorCrushCollider : MonoBehaviour {
 	private bool fxPlayed;
 	private float crushTime;
 	
-	void OnTriggerEnter ( Collider col  ){
-		if(col.gameObject.tag == "Player"){
+	void OnTriggerEnter ( Collider col  )
+    {
+		if(col.gameObject.tag == "Player")
+        {
 			FPSPlayer player = col.GetComponent<FPSPlayer>();
 			if (player && !fxPlayed) {
 				player.ApplyDamage(player.maximumHitPoints + 1.0f);

@@ -54,10 +54,19 @@ public class SmoothMouseLook : MonoBehaviour {
 	public bool thirdPerson;
 	[HideInInspector]
 	public bool tpIdleCamRotate;
-	
-	void Start(){ 
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-		InputComponent = playerObj.GetComponent<InputControl>();
+
+    private void Awake()
+    {
+        ServiceLocator.smoothMouseLook = this;
+    }
+
+
+    void Start()
+    {
+        //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        //InputComponent = playerObj.GetComponent<InputControl>();
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        InputComponent = ServiceLocator.inputControl;
 
         if (GetComponent<Rigidbody>()){GetComponent<Rigidbody>().freezeRotation = true;}
 		

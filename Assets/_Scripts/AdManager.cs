@@ -15,14 +15,17 @@ public class AdManager : MonoBehaviour {
     Vector3 originalPosition;
     Quaternion originalRotation;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		HeyzapAds.Start("f62dff4e4bbf49a67e29252338b6d0d7", HeyzapAds.FLAG_NO_OPTIONS);
 		HZIncentivizedAd.Fetch();
-		fpsPlayerRef.GetComponent<FPSPlayer>();
+        //fpsPlayerRef.GetComponent<FPSPlayer>(); ---> optimized
+        fpsPlayerRef = ServiceLocator.fpsPlayer;
         fpsPlayerTransform = fpsPlayerRef.GetComponent<Transform>();
         originalPosition = fpsPlayerTransform.position;
         originalRotation = fpsPlayerTransform.rotation;
-        weapons.GetComponent<PlayerWeapons> ();
+        // weapons.GetComponent<PlayerWeapons> (); ---> optimized
+        weapons = ServiceLocator.playerWeapons;
 
 	}
 

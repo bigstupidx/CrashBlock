@@ -35,7 +35,8 @@ public class PauseManager : MonoBehaviour {
 	[Header("Next Level Name")]
 	public string nextSceneName;
 
-	void OnEnable(){
+	void OnEnable()
+    {
 		loadingPanel.SetActive (false);
 	}
 	// ------------------- Activate and Deactivate the Pause Canvas
@@ -211,7 +212,6 @@ public class PauseManager : MonoBehaviour {
 		for (int i = 0; i < dataComps_ref.uiImages.Count; i++)   // Display UI Gameplay
 		{
 			dataComps_ref.uiImages [i].gameObject.SetActive (false);
-
 		}
 	}
 	[Inspector]
@@ -235,8 +235,6 @@ public class PauseManager : MonoBehaviour {
 
 		if (pauseCanvasObj.activeSelf)
 			pauseCanvasObj.SetActive (false);
-
-
 	}
 
 

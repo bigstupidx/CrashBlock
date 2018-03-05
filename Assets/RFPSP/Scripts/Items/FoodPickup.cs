@@ -25,9 +25,12 @@ public class FoodPickup : MonoBehaviour {
 
 	void Start () {
 		myTransform = transform;//manually set transform for efficiency
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSPlayerComponent.FPSWalkerComponent.capsule, true);
+        //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        //FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+
+        Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSPlayerComponent.FPSWalkerComponent.capsule, true);
 	}
 	
 	public void PickUpItem(){

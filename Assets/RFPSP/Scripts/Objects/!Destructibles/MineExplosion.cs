@@ -33,8 +33,9 @@ public class MineExplosion : MonoBehaviour {
 	private Vector3 explodePos;
 	//private WorldRecenter WorldRecenterComponent;
 	
-	void Start (){
-		WeaponEffectsComponent = Camera.main.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>().WeaponEffectsComponent;
+	void Start ()
+    {
+        WeaponEffectsComponent = ServiceLocator.weaponEffects;
 		myTransform = transform;
 		//WorldRecenterComponent = Camera.main.GetComponent<CameraControl>().playerObj.transform.GetComponent<WorldRecenter>();
 		if(!isRadiusCollider){

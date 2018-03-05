@@ -319,8 +319,16 @@ public class FPSPlayer : MonoBehaviour {
 
 	private MainMenu MainMenuComponent;
 
-	void Start (){	
-		isConnected = HasConnection ();
+
+
+
+	void Start ()
+    {
+        // fetch data comps
+        dataComps = ServiceLocator.dataComps;
+        hpBar = dataComps.hpBar;
+        // check for conection
+        isConnected = HasConnection ();
 		if(removePrefabRoot){
 			GameObject prefabRoot = transform.parent.transform.gameObject;
 			transform.parent.transform.DetachChildren();
@@ -330,7 +338,8 @@ public class FPSPlayer : MonoBehaviour {
 		mainCamTransform = Camera.main.transform;
 		//set up external script references
 		IronsightsComponent = GetComponent<Ironsights>();
-		InputComponent = GetComponent<InputControl>();
+        //InputComponent = GetComponent<InputControl>();  ---------> Optimized
+        InputComponent = ServiceLocator.inputControl;
         //FPSWalkerComponent = GetComponent<FPSRigidBodyWalker>(); -------> Optimized
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
         WorldRecenterComponent = GetComponent<WorldRecenter>();
@@ -361,19 +370,7 @@ public class FPSPlayer : MonoBehaviour {
 
 		usePressTime = 0f;
 		useReleaseTime = -8f;
-
-		//Physics Layer Management Setup (obsolete, no longer used)
-		//these are the layer numbers and their corresponding uses/names accessed by the FPS prefab
-		//	Weapon = 8;
-		//	Ragdoll = 9;
-		//	WorldCollision = 10;
-		//	Player = 11;
-		//	Objects = 12;
-		//	NPCs = 13;
-		//	GUICameraLayer = 14;
-		//	WorldGeometry = 15;
-		//	BulletMarks = 16;
-
+        
 		//player object collisions
 		Physics.IgnoreLayerCollision(11, 12);//no collisions between player object and misc objects like bullet casings
 		Physics.IgnoreLayerCollision (12, 12);//no collisions between bullet shells
@@ -1396,11 +1393,8 @@ public class FPSPlayer : MonoBehaviour {
 
 	void Awake()
 	{
-		GameObject g = GameObject.FindGameObjectWithTag ("DataBase");
-		dataComps = g.GetComponent<DataComps> (); 
-
-		hpBar = dataComps.hpBar;
-
+        ServiceLocator.fpsPlayer = this;
+        
 	}
 
 	// updates the  UI heart beat rate

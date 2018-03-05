@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DataComps : MonoBehaviour {
 
-	[Range(0.0f, 1.0f)]
+    #region Members
+    [Range(0.0f, 1.0f)]
 	public float sfxVolume = 0.8f;
 	[Range(0.0f, 1.0f)]
 	public float trackVolume = 0.5f;
@@ -46,9 +47,12 @@ public class DataComps : MonoBehaviour {
 
     public SpriteBounce heartSpriteBounce_ref;
 
+    #endregion
 
-	// called from weapon pickup
-	public  void EquipPickedUpWeapon(int index)
+    #region Methods
+
+    // called from weapon pickup
+    public void EquipPickedUpWeapon(int index)
 	{
 		// check next slot to equip
 		for (int i = 0; i < weaponSlotStatus.Length; i++) 
@@ -116,11 +120,16 @@ public class DataComps : MonoBehaviour {
 
 		}
 	}
-		
 
+    #endregion
 
-	void Awake()
+    #region Monobehaviour
+
+    void Awake()
 	{
+
+        ServiceLocator.dataComps = this;
+
         if (!pauseMan_ref)
 		{
 			pauseMan_ref = this.gameObject.GetComponent<PauseManager> ();
@@ -160,6 +169,7 @@ public class DataComps : MonoBehaviour {
 
     }
 
+    #endregion
 
 
 

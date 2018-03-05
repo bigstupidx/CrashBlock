@@ -26,7 +26,7 @@ public class TeamSkin : MonoBehaviour {
 
         currentSkin = texture[team - 1];
 
-        dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
+        dataComps = ServiceLocator.dataComps;
 
         dataComps.playerWeps_ref.CurrentWeaponBehaviorComponent.gameObject.SetActive(false);
 

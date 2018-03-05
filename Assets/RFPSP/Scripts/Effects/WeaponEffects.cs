@@ -101,8 +101,15 @@ public class WeaponEffects : MonoBehaviour {
 	
 	private AudioClip hitSound;
 	private float hitVolumeAmt = 1.0f;
-	
-	public void Start()
+
+    private WaitForSeconds cachePointOneSecs;
+
+    private void Awake()
+    {
+        ServiceLocator.weaponEffects = this;
+    }
+
+    public void Start()
     {
         // optimized
         // PlayerWeaponsComponent = weaponObj.GetComponentInChildren<PlayerWeapons>();
@@ -111,7 +118,9 @@ public class WeaponEffects : MonoBehaviour {
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
         weaponObj = transform.gameObject;
 		WeaponBehaviorComponent = PlayerWeaponsComponent.CurrentWeaponBehaviorComponent;
-	}
+
+        cachePointOneSecs = new WaitForSeconds(0.1f);
+    }
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Draw Impact Effects
@@ -461,7 +470,7 @@ public class WeaponEffects : MonoBehaviour {
         while (duration > 0.0f)
         {
             currentTrail.SetColors(new Color(1, 1, 1, 0.8f * (duration / initDuration)), new Color(1, 1, 1, duration / initDuration));
-            yield return new WaitForSeconds(0.1f);
+            yield return cachePointOneSecs;
             duration -= 0.1f;
         }
         currentTrail.gameObject.SetActive(false);
@@ -473,7 +482,7 @@ public class WeaponEffects : MonoBehaviour {
         while (duration > 0.0f)
         {
             currentTrail.SetColors(new Color(1, 0.7f, 0.4f, 0.8f * (duration / initDuration)), new Color(1, 0.7f, 0.4f, 0.5f * (duration / initDuration)));
-            yield return new WaitForSeconds(0.1f);
+            yield return cachePointOneSecs;
             duration -= 0.1f;
         }
         currentTrail.gameObject.SetActive(false);

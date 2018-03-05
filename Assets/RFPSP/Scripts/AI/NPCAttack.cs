@@ -70,7 +70,8 @@ public class NPCAttack : MonoBehaviour {
 			muzzleFlashTransform = muzzleFlash.transform;
 		}
 		AIComponent = myTransform.GetComponent<AI>();
-		WeaponEffectsComponent = AIComponent.playerObj.GetComponent<FPSPlayer>().weaponObj.GetComponent<WeaponEffects>();
+        //optimized   //WeaponEffectsComponent = AIComponent.playerObj.GetComponent<FPSPlayer>().weaponObj.GetComponent<WeaponEffects>();
+        WeaponEffectsComponent = ServiceLocator.weaponEffects;
         //optimized   //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
         playerObj = ServiceLocator.cameraControl.playerObj;
         // Optimized  //FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();

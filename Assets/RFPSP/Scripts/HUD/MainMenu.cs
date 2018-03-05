@@ -65,10 +65,10 @@ public class MainMenu : MonoBehaviour {
 	
 	void Start () {
 		//set up menu components and get object references
-		FPSPlayerComponent =  Camera.main.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>();
-//		InputComponent = FPSPlayerComponent.InputComponent;
-		
-		aSource = gameObject.AddComponent<AudioSource>(); 
+		//FPSPlayerComponent =  Camera.main.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>();
+        //InputComponent = FPSPlayerComponent.InputComponent;
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        aSource = gameObject.AddComponent<AudioSource>(); 
 		aSource.spatialBlend = 0.0f;
 		aSource.volume = 1.0f;
 		aSource.playOnAwake = false;

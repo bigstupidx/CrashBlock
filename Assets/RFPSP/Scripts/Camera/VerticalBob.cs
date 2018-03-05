@@ -56,12 +56,13 @@ public class VerticalBob : MonoBehaviour {
         // playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
         // FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
         // CameraControlComponent = Camera.main.GetComponent<CameraControl>();
+        //FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
         playerObj = ServiceLocator.cameraControl.playerObj;
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
 		IronsightsComponent = playerObj.GetComponent<Ironsights>();
         CameraControlComponent = ServiceLocator.cameraControl;
-		FootstepsComponent = playerObj.GetComponent<Footsteps>();	
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+		FootstepsComponent = playerObj.GetComponent<Footsteps>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 		WeaponPivotComponent = FPSPlayerComponent.WeaponPivotComponent;
 	}
 	

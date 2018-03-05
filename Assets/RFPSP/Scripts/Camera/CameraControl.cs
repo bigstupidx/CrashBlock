@@ -159,16 +159,20 @@ public class CameraControl : MonoBehaviour {
 		myTransform = transform;//store this object's transform for optimization
 		playerObjTransform = playerObj.transform;
 		mainCameraTransform = Camera.main.transform;
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		weaponObj = FPSPlayerComponent.weaponObj;
-		MouseLookComponent = transform.parent.transform.GetComponent<SmoothMouseLook>();
-		GunSwayComponent = weaponObj.GetComponent<GunSway>();
+		//FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        weaponObj = FPSPlayerComponent.weaponObj;
+		//MouseLookComponent = transform.parent.transform.GetComponent<SmoothMouseLook>();
+        MouseLookComponent = ServiceLocator.smoothMouseLook;
+        GunSwayComponent = weaponObj.GetComponent<GunSway>();
         // optimized    FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
         VisibleBodyComponent = FPSWalkerComponent.VisibleBody.GetComponent<VisibleBody>();
 		IronsightsComponent = playerObj.GetComponent<Ironsights>();
-		InputComponent = playerObj.GetComponent<InputControl>();
-		if(playerObj.GetComponent<WorldRecenter>()){
+		//InputComponent = playerObj.GetComponent<InputControl>();
+        InputComponent = ServiceLocator.inputControl;
+
+        if (playerObj.GetComponent<WorldRecenter>()){
 			WorldRecenterComponent = playerObj.GetComponent<WorldRecenter>();
 		}
 		AnimationComponent = GetComponent<Animation>();

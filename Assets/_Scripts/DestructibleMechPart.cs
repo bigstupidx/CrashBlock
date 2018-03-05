@@ -60,13 +60,11 @@ public class DestructibleMechPart : MonoBehaviour {
             mesh_r = GetComponent<MeshRenderer>();
         }
 
-        dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
+        dataComps = ServiceLocator.dataComps;
 
         playerSpeaker = dataComps.playerSpeaker_ref.GetComponent<AudioSource>();
 
         smallTimer = new WaitForSeconds(0.1f);
-
-        
     }
 
 

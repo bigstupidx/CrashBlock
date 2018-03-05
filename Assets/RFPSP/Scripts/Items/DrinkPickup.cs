@@ -23,11 +23,16 @@ public class DrinkPickup : MonoBehaviour {
 	
 	private FPSPlayer FPSPlayerComponent;
 
-	void Start () {
+	void Start ()
+    {
 		myTransform = transform;//manually set transform for efficiency
-		playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSPlayerComponent.FPSWalkerComponent.capsule, true);
+         // ** optimizations
+        //playerObj = Camera.main.transform.GetComponent<CameraControl>().playerObj;
+        //FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        playerObj = ServiceLocator.cameraControl.playerObj;
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+
+        Physics.IgnoreCollision(myTransform.GetComponent<Collider>(), FPSPlayerComponent.FPSWalkerComponent.capsule, true);
 	}
 	
 	public void PickUpItem(){

@@ -63,9 +63,11 @@ public class WaveManager : MonoBehaviour {
 	private GUIText WarmupGUIText1;
 	private GUIText WarmupGUIText2;
 	
-	void Start () {
-		FPSPlayerComponent =  Camera.main.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>();
-		asource = gameObject.AddComponent<AudioSource>();
+	void Start ()
+    {
+		//FPSPlayerComponent =  Camera.main.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>();  ------> optimized
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        asource = gameObject.AddComponent<AudioSource>();
 		asource.spatialBlend = 0.0f;
 		//create instance of GUIText to display health amount on hud
 		waveGuiObjInstance = Instantiate(waveGuiObj,Vector3.zero,transform.rotation) as GameObject;
@@ -108,7 +110,8 @@ public class WaveManager : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator StartWave(){
+	public IEnumerator StartWave()
+    {
 
 		countDown = warmupTime;
 		WarmupText.warmupGui = countDown;
@@ -205,7 +208,8 @@ public class WaveManager : MonoBehaviour {
 
 	}
 
-	IEnumerator FadeWarmupText(){
+	IEnumerator FadeWarmupText()
+    {
 
 		while(true){
 

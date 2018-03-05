@@ -42,8 +42,6 @@ public class VolumeButton : MonoBehaviour {
 
     void Awake()
     {
-        if (!dataComps)
-            dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
 
         if (SaveSystem.GetFirstTime() == true)
         {
@@ -55,8 +53,15 @@ public class VolumeButton : MonoBehaviour {
             objectsToToggle[i].SetActive(false);
 
         }
+    }
 
+    private void Start()
+    {
 
+        if (!dataComps)
+        {
+            dataComps = ServiceLocator.dataComps;
+        }
     }
 
 
@@ -94,6 +99,10 @@ public class VolumeButton : MonoBehaviour {
 
     void OnEnable()
     {
+        if (!dataComps)
+        {
+            dataComps = ServiceLocator.dataComps;
+        }
         musicVolSlider.value = dataComps.trackVolume;
         sfxVolSlider.value = dataComps.sfxVolume;
     }

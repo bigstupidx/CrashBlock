@@ -15,7 +15,7 @@ public class MiniMApCamFollower : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        dataComps = GameObject.FindGameObjectWithTag("DataBase").GetComponent<DataComps>();
+        dataComps = ServiceLocator.dataComps;
         player_T = dataComps.fpsPlayer_ref.transform;
     }
 	
