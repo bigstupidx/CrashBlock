@@ -50,8 +50,9 @@ public class ArrowObject : MonoBehaviour {
 	[HideInInspector]
 	public float visibleDelay;
 
-	void Start () {
-		FPSPlayerComponent = Camera.main.transform.GetComponent<CameraControl>().playerObj.transform.GetComponent<FPSPlayer>();
+	void Start ()
+    {
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 	}
 	
 	public void InitializeProjectile(){

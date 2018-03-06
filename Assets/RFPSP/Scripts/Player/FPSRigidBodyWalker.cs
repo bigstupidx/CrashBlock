@@ -375,12 +375,15 @@ public class FPSRigidBodyWalker : MonoBehaviour {
 
     void Start ()
     {
-		
-		//set up external script references
-		SmoothMouseLookComponent = CameraObj.GetComponent<SmoothMouseLook>();
-		FPSPlayerComponent = GetComponent<FPSPlayer>();
-		InputComponent = GetComponent<InputControl>();
-		FootstepsComponent = GetComponent<Footsteps>();
+        //set up external script references
+        //SmoothMouseLookComponent = CameraObj.GetComponent<SmoothMouseLook>();
+        //FPSPlayerComponent = GetComponent<FPSPlayer>();
+        //InputComponent = GetComponent<InputControl>();
+        SmoothMouseLookComponent = ServiceLocator.smoothMouseLook;
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        InputComponent = ServiceLocator.inputControl;
+
+        FootstepsComponent = GetComponent<Footsteps>();
 		
 		CameraAnimationComponent = Camera.main.GetComponent<Animation>();
 		RigidbodyComponent = GetComponent<Rigidbody>();

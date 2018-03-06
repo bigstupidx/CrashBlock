@@ -697,16 +697,16 @@ public class WeaponBehavior : MonoBehaviour {
 
 		myTransform = transform;//cache transform for efficiency
 		mainCamTransform = Camera.main.transform;
-		
-		playerObj = mainCamTransform.GetComponent<CameraControl>().playerObj;
-		weaponObj = mainCamTransform.GetComponent<CameraControl>().weaponObj;
+
+        playerObj = ServiceLocator.cameraControl.playerObj;
+		weaponObj = ServiceLocator.cameraControl.weaponObj;
 		
 		AnimationComponent = GetComponent<Animation>();
 		WeaponAnimationComponent = weaponMesh.GetComponent<Animation>();
 		CameraAnimationComponent = Camera.main.GetComponent<Animation>();
-		
-		//define external script references (grab from FPSPlayer.cs to reduce GetComponent calls on init)
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+
+        //define external script references (grab from FPSPlayer.cs to reduce GetComponent calls on init)
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 		FPSWalkerComponent = FPSPlayerComponent.FPSWalkerComponent;
 		IronsightsComponent = FPSPlayerComponent.IronsightsComponent;
 		PlayerWeaponsComponent = FPSPlayerComponent.PlayerWeaponsComponent;
@@ -714,7 +714,7 @@ public class WeaponBehavior : MonoBehaviour {
 		MouseLookComponent = FPSPlayerComponent.MouseLookComponent;
 		WeaponEffectsComponent = FPSPlayerComponent.WeaponEffectsComponent;
 		VisibleBodyComponent = FPSWalkerComponent.VisibleBody.GetComponent<VisibleBody>();
-		CameraControlComponent = Camera.main.GetComponent<CameraControl>();
+		CameraControlComponent = ServiceLocator.cameraControl;
 		WeaponPivotComponent = FPSPlayerComponent.WeaponPivotComponent;
 		
 		weaponMeshInitalPos = weaponMesh.transform.localPosition;
@@ -855,16 +855,17 @@ public class WeaponBehavior : MonoBehaviour {
 		
 	}
 	
-	public void InitializeWeapon () {
+	public void InitializeWeapon ()
+    {
 		myTransform = transform;//cache transform for efficiency
 		mainCamTransform = Camera.main.transform;
 		
-		playerObj = mainCamTransform.GetComponent<CameraControl>().playerObj;
-		weaponObj = mainCamTransform.GetComponent<CameraControl>().weaponObj;
-		//define external script references
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+		playerObj = ServiceLocator.cameraControl.playerObj;
+		weaponObj = ServiceLocator.cameraControl.weaponObj;
+        //define external script references
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 		IronsightsComponent = FPSPlayerComponent.IronsightsComponent;
-		PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();
+        PlayerWeaponsComponent = ServiceLocator.playerWeapons;
 		WeaponAnimationComponent = weaponMesh.GetComponent<Animation>();
 		FPSWalkerComponent = FPSPlayerComponent.FPSWalkerComponent;
 		

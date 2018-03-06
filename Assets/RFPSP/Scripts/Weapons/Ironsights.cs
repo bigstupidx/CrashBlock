@@ -197,17 +197,22 @@ public class Ironsights : MonoBehaviour {
 	[HideInInspector]
 	public float gunPosSide;
 	
-	void Start(){
+	void Start()
+    {
 		//Set up external script references
-		SmoothMouseLook = CameraObj.GetComponent<SmoothMouseLook>();
-        //PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();  -----> Optimized
-        //FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();   -----> Optimized
+        //-----> Optimized
+        //SmoothMouseLook = CameraObj.GetComponent<SmoothMouseLook>();
+        //PlayerWeaponsComponent = weaponObj.GetComponent<PlayerWeapons>();  
+        //FPSWalker = playerObj.GetComponent<FPSRigidBodyWalker>();  
+        //FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        // InputComponent = playerObj.GetComponent<InputControl>();
+        SmoothMouseLook = ServiceLocator.smoothMouseLook;
         PlayerWeaponsComponent = ServiceLocator.playerWeapons;
         FPSWalker = ServiceLocator.fpsRigidBodyWalker;
         VerticalBob = playerObj.GetComponent<VerticalBob>();
 		HorizontalBob = playerObj.GetComponent<HorizontalBob>();
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		InputComponent = playerObj.GetComponent<InputControl>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        InputComponent = ServiceLocator.inputControl;
 		WeaponPivotComponent = FPSPlayerComponent.WeaponPivotComponent;
 
 		aSource = playerObj.AddComponent<AudioSource>(); 

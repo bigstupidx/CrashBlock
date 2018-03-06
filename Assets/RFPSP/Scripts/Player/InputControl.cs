@@ -155,11 +155,20 @@ public class InputControl : MonoBehaviour {
 	private bool xbdpUstate;
 	private bool xbdpDstate;
 
-	void Start () {
-		FPSPlayerComponent = GetComponent<FPSPlayer>();
-	}
+    private void Awake()
+    {
+        ServiceLocator.inputControl = this;
+    }
+
+    private void Start ()
+    {
+        //FPSPlayerComponent = GetComponent<FPSPlayer>();   ----> Optimized
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+
+    }
 	
-	void Update () {
+	private void Update ()
+    {
 
 		if(FPSPlayerComponent && !FPSPlayerComponent.restarting){
 		
@@ -287,7 +296,7 @@ public class InputControl : MonoBehaviour {
 			firePress = ControlFreak2.CF2Input.GetButtonDown("Fire");
 			zoomPress = ControlFreak2.CF2Input.GetButtonDown("Zoom");
 			reloadPress = ControlFreak2.CF2Input.GetButtonDown("Reload");
-			fireModePress = ControlFreak2.CF2Input.GetButtonDown("Fire Mode");
+		//	fireModePress = ControlFreak2.CF2Input.GetButtonDown("Fire Mode");
 			jumpHold = ControlFreak2.CF2Input.GetButton("Jump");
 			jumpPress = ControlFreak2.CF2Input.GetButtonDown("Jump");
 			crouchHold = ControlFreak2.CF2Input.GetButton("Crouch");
@@ -303,26 +312,26 @@ public class InputControl : MonoBehaviour {
 			grenadeHold = ControlFreak2.CF2Input.GetButton("Throw Grenade");
 			meleePress = ControlFreak2.CF2Input.GetButtonDown("Melee Attack");
 			flashlightPress = ControlFreak2.CF2Input.GetButtonDown("Toggle Flashlight");
-			holsterPress = ControlFreak2.CF2Input.GetButtonDown("Holster Weapon");
+		//	holsterPress = ControlFreak2.CF2Input.GetButtonDown("Holster Weapon");
 			dropPress = ControlFreak2.CF2Input.GetButtonDown("Drop Weapon");
 			bulletTimePress = ControlFreak2.CF2Input.GetButtonDown("Bullet Time");
 			deadzonePress = ControlFreak2.CF2Input.GetButtonDown("Toggle Deadzone Aiming");
-			helpPress = ControlFreak2.CF2Input.GetButtonDown("Help");
+		//	helpPress = ControlFreak2.CF2Input.GetButtonDown("Help");
 			menuPress = ControlFreak2.CF2Input.GetButtonDown("Main Menu");
 			pausePress = ControlFreak2.CF2Input.GetButtonDown("Pause");
 			selectNextPress = ControlFreak2.CF2Input.GetButtonDown("Select Next Weapon");
 			selectPrevPress = ControlFreak2.CF2Input.GetButtonDown("Select Previous Weapon");
-			selectGrenPress = ControlFreak2.CF2Input.GetButtonDown("Select Next Grenade");
-			selectWeap1Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 1");
-			selectWeap2Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 2");
-			selectWeap3Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 3");
-			selectWeap4Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 4");
-			selectWeap5Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 5");
-			selectWeap6Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 6");
-			selectWeap7Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 7");
-			selectWeap8Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 8");
-			selectWeap9Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 9");
-			selectWeap0Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 0");
+		//	selectGrenPress = ControlFreak2.CF2Input.GetButtonDown("Select Next Grenade");
+		//	selectWeap1Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 1");
+		//	selectWeap2Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 2");
+		//	selectWeap3Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 3");
+		//	selectWeap4Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 4");
+		//	selectWeap5Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 5");
+		//	selectWeap6Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 6");
+		//	selectWeap7Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 7");
+		//	selectWeap8Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 8");
+		//	selectWeap9Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 9");
+		//	selectWeap0Press = ControlFreak2.CF2Input.GetButtonDown("Select Weapon 0");
 
 		}else{
 			fireHold = false;//stop shooting if level is restarting

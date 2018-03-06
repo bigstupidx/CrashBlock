@@ -118,16 +118,17 @@ public class PlayerWeapons : MonoBehaviour {
     void Start ()
     {
 
-		datacomps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps>();
+        datacomps = ServiceLocator.dataComps;
 		pauseManager = datacomps.gameObject.GetComponent<PauseManager> ();
 		myTransform = transform;//define transforms for efficiency
 		mainCamTransform = Camera.main.transform;
 
 		//set up external script references
 		InputComponent = playerObj.GetComponent<InputControl>();
-		//FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();  ///----- Optimized
+        //FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();  ///----- Optimized
+        // FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
-        FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 		IronsightsComponent = playerObj.GetComponent<Ironsights>();
         CameraControlComponent = ServiceLocator.cameraControl;
 		CurrentWeaponBehaviorComponent = weaponOrder[firstWeapon].GetComponent<WeaponBehavior>();

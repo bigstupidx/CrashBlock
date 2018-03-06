@@ -77,15 +77,19 @@ public class GunSway : MonoBehaviour {
 	
 	void Start ()
     {
-		myTransform = transform;//define transform for efficiency		
-                                //set up external script references
+        // ** optimized
         //FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>(); ------>  // optimized
+        //CameraControlComponent = Camera.main.GetComponent<CameraControl>(); ------>  // optimized
+        //FPSWalkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>(); ------>  // optimized
+        myTransform = transform;//define transform for efficiency		
+                                //set up external script references
+
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
         IronsightsComponent = playerObj.GetComponent<Ironsights>();
 		HorizontalBob = playerObj.GetComponent<HorizontalBob>();
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		InputComponent = playerObj.GetComponent<InputControl>();
-        //CameraControlComponent = Camera.main.GetComponent<CameraControl>(); ------>  // optimized
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        InputComponent = ServiceLocator.inputControl;
+        
         CameraControlComponent = ServiceLocator.cameraControl;
         //initialize bobbing amounts 
         walkBobYawAmount = Mathf.Clamp01(walkBobYawAmount);

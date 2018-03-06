@@ -8206,17 +8206,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012253208284, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-        type: 2}
-      propertyPath: dataComps
-      value: 
-      objectReference: {fileID: 1950931055}
-    - target: {fileID: 23000011910148536, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
+    - target: {fileID: 23000012409031662, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3533c320d92f6a74f8f0ddd7114a3d29, type: 2}
-    - target: {fileID: 23000012409031662, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
+    - target: {fileID: 23000011910148536, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8231,30 +8226,6 @@ Prefab:
       propertyPath: pauseManager
       value: 
       objectReference: {fileID: 956874236}
-    - target: {fileID: 4000014187799290, guid: ad35e2e0175fff84e8e74dcb0bc4ba18, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 451.547
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011548382692, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-        type: 2}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011926982620, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-        type: 2}
-      propertyPath: walkSpeed
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011548382692, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-        type: 2}
-      propertyPath: ammo
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011548382692, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-        type: 2}
-      propertyPath: maxAmmo
-      value: 120
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad35e2e0175fff84e8e74dcb0bc4ba18, type: 2}
   m_IsPrefabParent: 0
@@ -15149,24 +15120,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 414908, guid: cc990f4eda1da5b469dbce762b0e70ba, type: 2}
   m_PrefabInternal: {fileID: 949189246}
---- !u!1 &949470016 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010959704906, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-    type: 2}
-  m_PrefabInternal: {fileID: 553401171}
---- !u!114 &949470017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 949470016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c29f511cd713348aa7a2e2bfc818e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rechargeRate: 2.5
-  ammoToRecharge: 1
 --- !u!1001 &950193387
 Prefab:
   m_ObjectHideFlags: 0
@@ -18151,24 +18104,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 489742, guid: 295e4e1a0d0501d4da7e6ca20bc3c0a3, type: 2}
   m_PrefabInternal: {fileID: 1102048094}
---- !u!1 &1102707031 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012921277666, guid: ad35e2e0175fff84e8e74dcb0bc4ba18,
-    type: 2}
-  m_PrefabInternal: {fileID: 553401171}
---- !u!114 &1102707034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102707031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c29f511cd713348aa7a2e2bfc818e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rechargeRate: 1
-  ammoToRecharge: 1
 --- !u!1001 &1107170856
 Prefab:
   m_ObjectHideFlags: 0

@@ -7,8 +7,9 @@ public class LeanColliderDamage : MonoBehaviour {
 	
 	private FPSPlayer FPSPlayerComponent; 
 
-	void Start () {
-		FPSPlayerComponent =  Camera.main.GetComponent<CameraControl>().playerObj.GetComponent<FPSPlayer>();
+	void Start ()
+    {
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
 	}
 	
 	public void ApplyDamage ( float damage ){

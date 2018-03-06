@@ -119,17 +119,22 @@ public class VisibleBody : MonoBehaviour {
 	
 	void Start ()
     {
+        //----- optimized
+        //walkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();  //----- optimized
+        //InputComponent = playerObj.GetComponent<InputControl>();
+        //FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        //	SmoothMouseLookComponent = GunSwayComponent.cameraObj.GetComponent<SmoothMouseLook>();
+        //CameraControlComponent = Camera.main.transform.GetComponent<CameraControl>();
         walkerComponent = ServiceLocator.fpsRigidBodyWalker;
 
-        CameraControlComponent = Camera.main.transform.GetComponent<CameraControl>();
+        CameraControlComponent = ServiceLocator.cameraControl;
 		playerObj = CameraControlComponent.playerObj;
 		weaponObj = CameraControlComponent.weaponObj;
 		playerTransform = playerObj.transform;
-		InputComponent = playerObj.GetComponent<InputControl>();
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
-		//walkerComponent = playerObj.GetComponent<FPSRigidBodyWalker>();  //----- optimized
-		GunSwayComponent = weaponObj.GetComponent<GunSway>();
-		SmoothMouseLookComponent = GunSwayComponent.cameraObj.GetComponent<SmoothMouseLook>();
+        InputComponent = ServiceLocator.inputControl;
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
+        GunSwayComponent = weaponObj.GetComponent<GunSway>();
+        SmoothMouseLookComponent = ServiceLocator.smoothMouseLook;
 		AnimationComponent = objectWithAnims.GetComponent<Animation>();
 		AnimationComponent.wrapMode = WrapMode.Loop;
 		AnimationComponentShadow.wrapMode = WrapMode.Loop;

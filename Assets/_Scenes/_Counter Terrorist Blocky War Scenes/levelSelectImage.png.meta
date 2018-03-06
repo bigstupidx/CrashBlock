@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 3c0c5dd938d95f542a462070df9e1d77
-timeCreated: 1497930832
-licenseType: Free
+timeCreated: 1520237363
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: levelSelectImage_0
     21300002: levelSelectImage_1
+    21300004: levelSelectImage_2
+    21300006: levelSelectImage_3
+    21300008: levelSelectImage_4
+    21300010: levelSelectImage_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -63,7 +67,7 @@ TextureImporter:
         width: 993
         height: 554
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -73,6 +77,58 @@ TextureImporter:
         serializedVersion: 2
         x: 1044
         y: 1349
+        width: 991
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: levelSelectImage_2
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 747
+        width: 991
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: levelSelectImage_3
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 747
+        width: 991
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: levelSelectImage_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 144
+        width: 993
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: levelSelectImage_5
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 145
         width: 991
         height: 553
       alignment: 0

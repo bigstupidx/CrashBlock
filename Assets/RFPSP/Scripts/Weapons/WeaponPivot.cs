@@ -91,11 +91,11 @@ public class WeaponPivot : MonoBehaviour {
         //
 
         GunSwayComponent = transform.parent.transform.GetComponent<GunSway>();
-		SmoothMouseLookComponent = GunSwayComponent.cameraObj.GetComponent<SmoothMouseLook>();
+        SmoothMouseLookComponent = ServiceLocator.smoothMouseLook;
         playerObj = ServiceLocator.cameraControl.playerObj;
-		FPSPlayerComponent = playerObj.GetComponent<FPSPlayer>();
+        FPSPlayerComponent = ServiceLocator.fpsPlayer;
         FPSWalkerComponent = ServiceLocator.fpsRigidBodyWalker;
-		InputComponent = playerObj.GetComponent<InputControl>();
+        InputComponent = ServiceLocator.inputControl;
 		PlayerWeaponsComponent = FPSPlayerComponent.PlayerWeaponsComponent;
 		IronsightsComponent = FPSPlayerComponent.IronsightsComponent;
 		PivotAnimComponent = GetComponent<Animation>();
