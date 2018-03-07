@@ -2758,7 +2758,8 @@ Prefab:
       propertyPath: walkOnPatrol
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011659009500, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &143514155
@@ -4771,7 +4772,8 @@ Prefab:
       propertyPath: walkOnPatrol
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011659009500, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &228223009 stripped
@@ -6124,7 +6126,8 @@ Prefab:
       propertyPath: walkOnPatrol
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011659009500, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &282110053 stripped
@@ -10271,7 +10274,8 @@ Prefab:
       propertyPath: walkOnPatrol
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011659009500, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e900d8270c4a7514983fb836e59fc8b6, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &418321259 stripped
@@ -18749,7 +18753,7 @@ Prefab:
     - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
         type: 2}
       propertyPath: levelNum
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114000014150073552, guid: c9c9eb0329606ad4e92902bd557dd1aa,
         type: 2}
@@ -37820,7 +37824,7 @@ MonoBehaviour:
   dzAiming: 0
   crosshairEnabled: 1
   useSwapReticle: 1
-  aimingReticle: {fileID: 2800000, guid: 4867034f9fbf97a438c2183625dd9967, type: 3}
+  aimingReticle: {fileID: 2800000, guid: 22a5367d326d78745932f71c81b2e09f, type: 3}
   hitmarkerReticle: {fileID: 2800000, guid: 95018750fe13ccf4b94100c12a20b791, type: 3}
   pickupReticle: {fileID: 2800000, guid: 8da22309f85145445830913fb7482277, type: 3}
   swapReticle: {fileID: 2800000, guid: f76ce0f4d90025a478d6bea3111ea530, type: 3}

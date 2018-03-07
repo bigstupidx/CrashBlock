@@ -15,8 +15,12 @@ public class LevelSelectManager : MonoBehaviour {
 
     private bool LoadOnce;
 
+    private void Awake()
+    {
+        ServiceLocator.levelSelectManager = this;
+    }
 
-	[System.Serializable]
+    [System.Serializable]
 	public class LoadLevelButtons
 	{
 		public string sceneName;

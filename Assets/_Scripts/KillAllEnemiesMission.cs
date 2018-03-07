@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using EasyEditor;
+using UnityEngine.Analytics;
 
 public class KillAllEnemiesMission : MonoBehaviour {
 
@@ -59,7 +60,7 @@ public class KillAllEnemiesMission : MonoBehaviour {
 
 		if (!dataComps) 
 		{
-			dataComps = GameObject.FindGameObjectWithTag ("DataBase").GetComponent<DataComps> ();
+            dataComps = ServiceLocator.dataComps;
 		}
 
 	}
@@ -77,8 +78,9 @@ public class KillAllEnemiesMission : MonoBehaviour {
 
 		// save level completed
 		SaveLevelCompleted ();
+        LevelCompletedAnalitics();
 
-		yield return new WaitForSeconds (2.0f);
+        yield return new WaitForSeconds (2.0f);
 
 		resultsCanvasObj [0].SetActive (true);
 		resultsCanvasObj [1].SetActive (true);
@@ -87,6 +89,11 @@ public class KillAllEnemiesMission : MonoBehaviour {
 
 	}
 
+
+    private void LevelCompletedAnalitics()
+    {
+        Analytics.CustomEvent("Level" + levelNum + "Completed");
+    }
 
 
 

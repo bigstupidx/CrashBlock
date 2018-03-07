@@ -3774,6 +3774,8 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 114000014091498986, guid: 22824a4b82bdd66458cfc66786be1a69, type: 2}
+    - {fileID: 114000010833599838, guid: 22824a4b82bdd66458cfc66786be1a69, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 22824a4b82bdd66458cfc66786be1a69, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &249106920 stripped
@@ -5516,6 +5518,10 @@ Prefab:
       propertyPath: fleshImpact
       value: 
       objectReference: {fileID: 1285618306}
+    - target: {fileID: 11479214, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
+      propertyPath: aimingReticle
+      value: 
+      objectReference: {fileID: 2800000, guid: 22a5367d326d78745932f71c81b2e09f, type: 3}
     m_RemovedComponents:
     - {fileID: 11445684, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
     - {fileID: 11417678, guid: 8996c486681cec54cb771da4409c3d5c, type: 2}
@@ -6939,6 +6945,8 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 114000010095503710, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
+    - {fileID: 114000012485274750, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &498563674 stripped
@@ -12468,7 +12476,9 @@ Prefab:
       propertyPath: attackRange
       value: 40
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000014091498986, guid: 22824a4b82bdd66458cfc66786be1a69, type: 2}
+    - {fileID: 114000010833599838, guid: 22824a4b82bdd66458cfc66786be1a69, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 22824a4b82bdd66458cfc66786be1a69, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &681232344 stripped
@@ -14724,7 +14734,9 @@ Prefab:
       propertyPath: attackRange
       value: 40
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010095503710, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
+    - {fileID: 114000012485274750, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &872701441 stripped
@@ -31264,7 +31276,9 @@ Prefab:
       propertyPath: attackRange
       value: 40
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011132669634, guid: 3a7957e2df13ace41ba3f8614741f968, type: 2}
+    - {fileID: 114000014285665212, guid: 3a7957e2df13ace41ba3f8614741f968, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3a7957e2df13ace41ba3f8614741f968, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1916184700 stripped
@@ -33630,6 +33644,8 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 114000010095503710, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
+    - {fileID: 114000012485274750, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9ccdcd4337025c842986b4cd67664a98, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2050016367 stripped
