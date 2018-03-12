@@ -14,8 +14,14 @@ public class AdManager : MonoBehaviour {
     Transform fpsPlayerTransform;
     Vector3 originalPosition;
     Quaternion originalRotation;
-	// Use this for initialization
-	void Start ()
+
+    private void Awake()
+    {
+        ServiceLocator.adManager = this;
+    }
+
+    // Use this for initialization
+    void Start ()
     {
 		HeyzapAds.Start("f62dff4e4bbf49a67e29252338b6d0d7", HeyzapAds.FLAG_NO_OPTIONS);
 		HZIncentivizedAd.Fetch();

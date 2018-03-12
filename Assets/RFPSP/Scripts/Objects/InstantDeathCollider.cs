@@ -7,7 +7,14 @@ public class InstantDeathCollider : MonoBehaviour {
 
     public AdManager admanager;
 
-	void OnTriggerEnter ( Collider col  ){
+
+    private void Start()
+    {
+        admanager = ServiceLocator.adManager;
+    }
+
+
+    void OnTriggerEnter ( Collider col  ){
         if (col.gameObject.tag == "Player") {
             FPSPlayer player = col.GetComponent<FPSPlayer>();
             if (player.invulnerable)

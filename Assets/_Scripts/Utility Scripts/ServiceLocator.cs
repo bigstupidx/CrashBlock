@@ -141,4 +141,23 @@ public class ServiceLocator
     }
     #endregion
 
+    #region AdManader
+    private static AdManager m_adManager;
+
+    public static AdManager adManager
+    {
+        get
+        {
+            Assert.IsNotNull(m_adManager, "No Ad Manager Look is available");
+            return m_adManager;
+        }
+        set
+        {
+            m_adManager = value;
+        }
+    }
+
+
+    #endregion
+
 }

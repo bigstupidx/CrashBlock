@@ -56,7 +56,7 @@ public class CrateDestroyable : MonoBehaviour {
         {
             if(objToSpawn.Length == 1 && objToSpawn[0])
             {
-                Instantiate(objToSpawn[0], spawnPoint_T.position, spawnPoint_T.rotation); // objToSpawn
+                Instantiate(objToSpawn[0], spawnPoint_T.position, objToSpawn[0].transform.rotation); // objToSpawn
             }
             else
             {
@@ -64,7 +64,7 @@ public class CrateDestroyable : MonoBehaviour {
 
                 if(objToSpawn[randomNum2])
 
-                Instantiate(objToSpawn[randomNum2], spawnPoint_T.position, spawnPoint_T.rotation); // objToSpawn
+                Instantiate(objToSpawn[randomNum2], spawnPoint_T.position, objToSpawn[randomNum2].transform.rotation); // objToSpawn
             }
            
         }
